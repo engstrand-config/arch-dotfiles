@@ -18,6 +18,7 @@ set_from_resource $bg i3wm.color2 #f0f0f0
 #exec compton --config ~/.config/compton.conf
 exec --no-startup-id redshift -t 6500:2000
 exec --no-startup-id /usr/lib/kdeconnectd
+exec --no-startup-id wifi reconnect
 
 # class                 border  backgr. text indicator child_border
 client.focused          $bg     $bg     $fg  $bg       $bg
