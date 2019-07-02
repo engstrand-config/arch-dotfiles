@@ -5,6 +5,6 @@ D	~/Downloads
 m	~/Music
 pp	~/Pictures
 vv	~/Videos
-cf	~/.config
+cf	~/.dotfiles/.config
 lb	~/.local/bin
 mn	/mnt
