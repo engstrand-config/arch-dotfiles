@@ -1,0 +1,219 @@
+Jun 26 22:35 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jun 26 22:35 : exception: Failed to open '/home/fredrik/.config/mpd/state': No such file or directory
+Jun 26 22:35 : exception: Failed to access /home/fredrik/Music: No such file or directory
+Jun 26 22:35 : exception: inotify_add_watch() has failed: No such file or directory
+Jun 26 22:53 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jun 26 22:53 : exception: inotify_add_watch() has failed: No such file or directory
+Jun 26 23:08 : client: [0] opened from 127.0.0.1:48518
+Jun 26 23:08 : client: [0] closed
+Jun 26 23:08 : client: [1] opened from 127.0.0.1:48524
+Jun 26 23:08 : client: [2] opened from 127.0.0.1:48528
+Jun 26 23:08 : client: [2] closed
+Jun 26 23:20 : client: [3] opened from 127.0.0.1:48532
+Jun 26 23:20 : exception: Not playing
+Jun 26 23:20 : client: [3] closed
+Jun 26 23:47 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jun 26 23:47 : exception: inotify_add_watch() has failed: No such file or directory
+Jun 26 23:47 : client: [0] opened from 127.0.0.1:38304
+Jun 26 23:47 : client: [0] closed
+Jun 26 23:47 : client: [1] opened from 127.0.0.1:38308
+Jun 26 23:47 : client: [2] opened from 127.0.0.1:38312
+Jun 26 23:47 : client: [2] closed
+Jun 27 00:04 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jun 27 00:04 : exception: inotify_add_watch() has failed: No such file or directory
+Jun 27 00:04 : client: [0] opened from 127.0.0.1:56302
+Jun 27 00:04 : client: [0] closed
+Jun 27 00:04 : client: [1] opened from 127.0.0.1:56306
+Jun 27 00:04 : client: [2] opened from 127.0.0.1:56310
+Jun 27 00:04 : client: [2] closed
+Jun 27 00:09 : client: [3] opened from 127.0.0.1:56314
+Jun 27 00:09 : client: [3] closed
+Jun 27 00:37 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jun 27 00:37 : exception: inotify_add_watch() has failed: No such file or directory
+Jun 27 00:37 : client: [0] opened from 127.0.0.1:35886
+Jun 27 00:37 : client: [0] closed
+Jun 27 00:38 : client: [1] opened from 127.0.0.1:35890
+Jun 27 00:38 : client: [2] opened from 127.0.0.1:35894
+Jun 27 00:38 : client: [2] closed
+Jun 27 00:46 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jun 27 00:46 : exception: inotify_add_watch() has failed: No such file or directory
+Jun 27 00:46 : client: [0] opened from 127.0.0.1:54374
+Jun 27 00:46 : client: [0] closed
+Jun 27 00:46 : client: [1] opened from 127.0.0.1:54378
+Jun 27 00:46 : client: [2] opened from 127.0.0.1:54382
+Jun 27 00:46 : client: [2] closed
+Jun 27 00:55 : client: [3] opened from 127.0.0.1:54390
+Jun 27 00:55 : client: [3] closed
+Jun 27 01:10 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jun 27 01:10 : exception: inotify_add_watch() has failed: No such file or directory
+Jun 27 01:10 : client: [0] opened from 127.0.0.1:57320
+Jun 27 01:10 : client: [0] closed
+Jun 27 01:10 : client: [1] opened from 127.0.0.1:57324
+Jun 27 01:10 : client: [2] opened from 127.0.0.1:57328
+Jun 27 01:10 : client: [2] closed
+Jun 27 01:10 : client: [3] opened from 127.0.0.1:57332
+Jun 27 01:10 : exception: Not playing
+Jun 27 01:10 : client: [3] closed
+Jun 27 10:30 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jun 27 10:30 : exception: inotify_add_watch() has failed: No such file or directory
+Jun 27 10:30 : client: [0] opened from 127.0.0.1:59098
+Jun 27 10:30 : client: [0] closed
+Jun 27 10:30 : client: [1] opened from 127.0.0.1:59102
+Jun 27 10:30 : client: [2] opened from 127.0.0.1:59106
+Jun 27 10:30 : client: [2] closed
+Jun 27 10:37 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jun 27 10:37 : exception: inotify_add_watch() has failed: No such file or directory
+Jun 27 10:37 : client: [0] opened from 127.0.0.1:33530
+Jun 27 10:37 : client: [0] closed
+Jun 27 10:38 : client: [1] opened from 127.0.0.1:33534
+Jun 27 10:38 : client: [2] opened from 127.0.0.1:33538
+Jun 27 10:38 : client: [2] closed
+Jun 27 10:48 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jun 27 10:48 : exception: inotify_add_watch() has failed: No such file or directory
+Jun 27 10:48 : client: [0] opened from 127.0.0.1:52922
+Jun 27 10:48 : client: [0] closed
+Jun 27 10:49 : client: [1] opened from 127.0.0.1:52926
+Jun 27 10:49 : client: [2] opened from 127.0.0.1:52930
+Jun 27 10:49 : client: [2] closed
+Jun 27 11:01 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jun 27 11:01 : exception: inotify_add_watch() has failed: No such file or directory
+Jun 27 11:01 : client: [0] opened from 127.0.0.1:45774
+Jun 27 11:01 : client: [0] closed
+Jun 27 11:01 : client: [1] opened from 127.0.0.1:45778
+Jun 27 11:01 : client: [2] opened from 127.0.0.1:45782
+Jun 27 11:01 : client: [2] closed
+Jun 27 12:53 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jun 27 12:53 : exception: inotify_add_watch() has failed: No such file or directory
+Jun 27 12:53 : client: [0] opened from 127.0.0.1:35490
+Jun 27 21:02 : client: [1] opened from 127.0.0.1:40650
+Jun 27 21:02 : exception: Not playing
+Jun 27 21:02 : client: [1] closed
+Jun 27 21:50 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jun 27 21:50 : exception: inotify_add_watch() has failed: No such file or directory
+Jun 27 21:50 : client: [0] opened from 127.0.0.1:38604
+Jun 27 21:53 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jun 27 21:53 : exception: inotify_add_watch() has failed: No such file or directory
+Jun 27 21:54 : client: [0] opened from 127.0.0.1:58972
+Jun 27 22:43 : client: [1] opened from 127.0.0.1:59830
+Jun 27 22:43 : exception: Not playing
+Jun 27 22:43 : client: [1] closed
+Jun 27 22:55 : client: [2] opened from 127.0.0.1:60052
+Jun 27 22:55 : client: [2] closed
+Jun 28 22:43 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jun 28 22:43 : exception: inotify_add_watch() has failed: No such file or directory
+Jun 28 22:43 : client: [0] opened from 127.0.0.1:34054
+Jun 28 23:04 : client: [0] closed
+Jun 28 23:04 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jun 28 23:04 : exception: inotify_add_watch() has failed: No such file or directory
+Jun 28 23:05 : client: [0] opened from 127.0.0.1:36606
+Jun 28 23:54 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jun 28 23:54 : exception: inotify_add_watch() has failed: No such file or directory
+Jun 28 23:55 : client: [0] opened from 127.0.0.1:44804
+Jun 29 11:45 : client: [0] closed
+Jun 29 11:45 : client: [1] opened from 127.0.0.1:45948
+Jun 29 11:50 : client: [1] closed
+Jun 29 11:50 : client: [2] opened from 127.0.0.1:46130
+Jun 29 11:52 : client: [2] closed
+Jun 29 11:52 : client: [3] opened from 127.0.0.1:46286
+Jun 29 14:42 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jun 29 14:42 : exception: inotify_add_watch() has failed: No such file or directory
+Jun 29 14:43 : client: [0] opened from 127.0.0.1:39184
+Jun 29 14:43 : client: [0] closed
+Jun 29 14:43 : client: [1] opened from 127.0.0.1:39188
+Jun 29 14:45 : client: [1] closed
+Jun 29 14:45 : client: [2] opened from 127.0.0.1:39192
+Jun 29 14:47 : client: [2] closed
+Jun 29 14:47 : client: [3] opened from 127.0.0.1:39196
+Jun 29 14:49 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jun 29 14:49 : exception: inotify_add_watch() has failed: No such file or directory
+Jun 29 14:49 : client: [0] opened from 127.0.0.1:36510
+Jun 29 15:10 : client: [0] closed
+Jun 29 15:10 : client: [1] opened from 127.0.0.1:36608
+Jun 29 15:53 : client: [1] closed
+Jun 29 15:53 : client: [2] opened from 127.0.0.1:40310
+Jun 29 16:11 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jun 29 16:11 : exception: inotify_add_watch() has failed: No such file or directory
+Jun 29 16:11 : client: [0] opened from 127.0.0.1:36498
+Jun 29 16:22 : client: [0] closed
+Jun 29 16:22 : client: [1] opened from 127.0.0.1:37004
+Jun 29 16:24 : client: [1] closed
+Jun 29 16:24 : client: [2] opened from 127.0.0.1:37008
+Jun 29 16:24 : client: [2] closed
+Jun 29 16:24 : client: [3] opened from 127.0.0.1:37012
+Jun 29 16:25 : client: [3] closed
+Jun 29 16:26 : client: [4] opened from 127.0.0.1:37018
+Jun 29 18:43 : client: [4] closed
+Jun 29 18:43 : client: [5] opened from 127.0.0.1:38328
+Jun 29 18:44 : client: [5] closed
+Jun 29 18:44 : client: [6] opened from 127.0.0.1:38332
+Jun 30 01:00 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jun 30 01:00 : exception: inotify_add_watch() has failed: No such file or directory
+Jun 30 01:00 : client: [0] opened from 127.0.0.1:35628
+Jun 30 01:23 : client: [0] closed
+Jun 30 01:25 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jun 30 01:25 : exception: inotify_add_watch() has failed: No such file or directory
+Jun 30 01:26 : client: [0] opened from 127.0.0.1:56710
+Jun 30 01:46 : client: [0] closed
+Jun 30 01:46 : client: [1] opened from 127.0.0.1:57114
+Jun 30 01:46 : client: [2] opened from 127.0.0.1:57118
+Jun 30 01:46 : client: [2] closed
+Jun 30 01:47 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jun 30 01:47 : exception: inotify_add_watch() has failed: No such file or directory
+Jun 30 01:47 : client: [0] opened from 127.0.0.1:57376
+Jun 30 10:48 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jun 30 10:48 : exception: inotify_add_watch() has failed: No such file or directory
+Jun 30 10:48 : client: [0] opened from 127.0.0.1:58324
+Jun 30 10:58 : client: [0] closed
+Jun 30 10:58 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jun 30 10:58 : exception: inotify_add_watch() has failed: No such file or directory
+Jun 30 10:58 : client: [0] opened from 127.0.0.1:51376
+Jun 30 11:06 : client: [0] closed
+Jun 30 11:07 : client: [1] opened from 127.0.0.1:51538
+Jun 30 11:17 : client: [1] closed
+Jun 30 11:18 : client: [2] opened from 127.0.0.1:51692
+Jun 30 11:24 : client: [2] closed
+Jun 30 11:24 : client: [3] opened from 127.0.0.1:51872
+Jun 30 12:00 : client: [3] closed
+Jun 30 12:01 : client: [4] opened from 127.0.0.1:53232
+Jun 30 12:20 : client: [4] closed
+Jun 30 12:21 : client: [5] opened from 127.0.0.1:53986
+Jun 30 12:22 : client: [5] closed
+Jun 30 12:22 : client: [6] opened from 127.0.0.1:54068
+Jun 30 12:25 : client: [6] closed
+Jun 30 12:26 : client: [7] opened from 127.0.0.1:54232
+Jun 30 12:30 : client: [7] closed
+Jun 30 12:30 : client: [8] opened from 127.0.0.1:54342
+Jun 30 12:33 : client: [8] closed
+Jun 30 12:34 : client: [9] opened from 127.0.0.1:54402
+Jun 30 12:44 : client: [9] closed
+Jun 30 12:44 : client: [10] opened from 127.0.0.1:54902
+Jun 30 13:15 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jun 30 13:15 : exception: inotify_add_watch() has failed: No such file or directory
+Jun 30 13:15 : client: [0] opened from 127.0.0.1:36178
+Jun 30 17:00 : client: [0] closed
+Jun 30 17:00 : client: [1] opened from 127.0.0.1:37080
+Jun 30 17:01 : client: [1] closed
+Jun 30 17:01 : client: [2] opened from 127.0.0.1:37084
+Jun 30 17:02 : client: [2] closed
+Jun 30 17:02 : client: [3] opened from 127.0.0.1:37088
+Jun 30 17:25 : client: [3] closed
+Jun 30 17:25 : client: [4] opened from 127.0.0.1:37746
+Jun 30 19:46 : client: [4] closed
+Jun 30 19:47 : client: [5] opened from 127.0.0.1:39196
+Jun 30 23:42 : client: [5] closed
+Jun 30 23:42 : client: [6] opened from 127.0.0.1:40196
+Jul 01 01:12 : client: [6] closed
+Jul 01 01:12 : client: [7] opened from 127.0.0.1:42048
+Jul 01 01:13 : client: [7] closed
+Jul 01 01:13 : client: [8] opened from 127.0.0.1:42158
+Jul 01 01:15 : client: [9] opened from 127.0.0.1:42354
+Jul 01 01:15 : client: [9] closed
+Jul 01 01:19 : client: [10] opened from 127.0.0.1:42394
+Jul 01 01:19 : client: [10] closed
+Jul 01 01:19 : client: [11] opened from 127.0.0.1:42398
+Jul 01 01:19 : client: [11] closed
+Jul 01 12:03 : client: [8] closed
+Jul 01 12:03 : client: [12] opened from 127.0.0.1:42976
+Jul 01 12:07 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jul 01 12:07 : exception: inotify_add_watch() has failed: No such file or directory
+Jul 01 12:07 : client: [0] opened from 127.0.0.1:37656
