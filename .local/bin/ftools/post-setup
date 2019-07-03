@@ -20,6 +20,6 @@ rm ~/post-setup
 
 # This will reload most things so that we dont need to log out and login again
 # i3 will start after this
-source ~/.bash_profile
+echo "Log out and log back in again for changes to take effect"
 
 
