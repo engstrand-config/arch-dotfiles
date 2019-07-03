@@ -13,6 +13,8 @@ rm ~/get-pip.py
 sudo pip install pywal
 sudo pip install wal-steam
 
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+
 rm ~/post-setup
 
 # Run themer 
