@@ -256,3 +256,7 @@ Jul 02 23:16 : exception: inotify_add_watch() has failed: No such file or direct
 Jul 02 23:17 : client: [0] opened from 127.0.0.1:43338
 Jul 03 00:01 : client: [0] closed
 Jul 03 00:01 : client: [1] opened from 127.0.0.1:43914
+Jul 03 14:37 : client: [1] closed
+Jul 03 14:37 : client: [2] opened from 127.0.0.1:47496
+Jul 03 14:38 : client: [2] closed
+Jul 03 14:38 : client: [3] opened from 127.0.0.1:47510
