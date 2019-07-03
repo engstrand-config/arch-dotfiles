@@ -2,7 +2,7 @@
 super + Return
 	$TERMINAL
 super + d
-	dmenu_launcher
+	dmenu_launcher "dmenu_run"
 super + r
 	$TERMINAL -e $FILE
 super + e
