@@ -1,13 +1,20 @@
+# Since these files are created for every new user, we must delete them before
+# attempting to symlink them from the dotfiles folder or it wont work, meaning everything will be fucked
+rm ~/.bash_profile
+rm ~/.bashrc
+
+# At this point, we haven't set the PATH so none of our tools are available without full path
 ~/.dotfiles/.local/bin/ftools/stowsh ~/.dotfiles -s
 
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 sudo python get-pip.py
+rm ~/get-pip.py
+
 sudo pip install pywal
 sudo pip install wal-steam
 
-rm ~/get-pip.py
-
-themer ~/.dotfiles/.local/share/wallpaper.png
+# Run themer 
+~/.dotfiles/.local/bin/ftools/themer ~/.dotfiles/.local/share/wallpaper.png
 
 
 
