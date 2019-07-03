@@ -57,13 +57,13 @@ bar {
 	height 20
 	id top-bar
 	font pango:Noto Sans Mono Bold 8
-	i3bar_command i3bar -t
+	#i3bar_command i3bar -t
 	status_command i3blocks
 	position top
 	mode dock
 	modifier None
 	colors {
-		background #000000e0
+		background #111111e0
 		focused_workspace $bg $bg #000000
 		inactive_workspace #222222 #000000 #ffffff
 	}

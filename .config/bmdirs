@@ -7,4 +7,7 @@ pp	~/Pictures
 vv	~/Videos
 cf	~/.dotfiles/.config
 lb	~/.local/bin
+ftl	~/.local/bin/ftools
+blocks 	~/.local/bin/statusbars
 mn	/mnt
+.dt 	~/.dotfiles
