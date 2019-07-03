@@ -241,4 +241,4 @@ bindsym $mod+Shift+Right 	move right
 
 # Assign programs to different workspaces
 assign [class="Steam"] $ws4
-assign [class="Spotify"] $ws5
+assign [class="spotify"] $ws5
