@@ -5,6 +5,8 @@ sudo python get-pip.py
 sudo pip install pywal
 sudo pip install wal-steam
 
+rm ~/get-pip.py
+
 themer ~/.dotfiles/.local/share/wallpaper.png
 
 
