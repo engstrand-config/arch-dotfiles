@@ -1,0 +1,3 @@
+mv $1 ~/.dotfiles/$1
+cd ~
+stowsh ~/.dotfiles -s
