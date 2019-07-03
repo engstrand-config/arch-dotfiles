@@ -4,7 +4,8 @@ case $BLOCK_BUTTON in
 	1) $TERMINAL -e nmtui ;;
 esac
 
-SSID=$(nmcli device show | grep GENERAL.CONNECTION: -m 1 | awk '{print $2}')
+INTERFACE=$(ls /sys/class/net | grep "\bw.*")
+SSID=$(nmcli device show | grep "$INTERFACE" -m 1 -A 5 | grep GENERAL.CONNECTION: -m 1 | awk '{print $2}')
 ECONNECTED=$(cat /sys/class/net/e*/operstate)
 WCONNECTED=$(cat /sys/class/net/w*/operstate)
 ECOLOR="#00ff00"

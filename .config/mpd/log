@@ -375,3 +375,6 @@ Jul 03 15:27 : client: [59] closed
 Jul 03 15:28 : client: [60] opened from 127.0.0.1:48732
 Jul 03 15:28 : exception: Not playing
 Jul 03 15:28 : client: [60] closed
+Jul 03 21:37 : client: [61] opened from 127.0.0.1:52564
+Jul 03 21:37 : exception: Not playing
+Jul 03 21:37 : client: [61] closed
