@@ -1,0 +1,21 @@
+#!/bin/sh
+# Give a battery name (e.g. BAT0) as an argument.
+
+capacity=$(cat /sys/class/power_supply/"$1"/capacity) || exit
+status=$(cat /sys/class/power_supply/"$1"/status)
+
+if [ "$capacity" -ge 25 ]; then
+	color="$WAL_LIGHT"
+else
+	color="#ff2929"
+fi
+
+label="BAT"
+if [ "$status" = "Charging" ]; then
+	color="#26ff43"
+	label="CHR"
+fi
+
+[ "$capacity" -eq 100 ] && label="FULL"
+
+printf "%s: <span color='%s'>%s</span>" "$label" "$color" "$(echo "$capacity" | sed -e 's/$/%/')"
