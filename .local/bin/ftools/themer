@@ -5,7 +5,10 @@ fi
 
 setbg $1
 wal -i $1
-wal-steam -w
+
+if [ "$2" != "post-setup" ]; then
+	wal-steam -w
+fi
 
 if [ "$2" = "no-reload" ]; then
 	exit
