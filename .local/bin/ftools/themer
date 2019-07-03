@@ -18,6 +18,10 @@ echo "To fully set the new theme we need to logout (It refreshes the i3bar with 
 read -p "Exit now? (Y/n)" EXIT
 
 if [ "$EXIT" = "" ] || [ "$EXIT" = "Y" ]; then
-	i3-msg exit
+	if [ "$2" = "post-setup" ]; then
+		exit
+	else
+		i3-msg exit
+	fi
 fi
 

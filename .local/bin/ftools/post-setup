@@ -13,6 +13,8 @@ rm ~/get-pip.py
 sudo pip install pywal
 sudo pip install wal-steam
 
+rm ~/post-setup
+
 # Run themer 
 ~/.dotfiles/.local/bin/ftools/themer ~/.dotfiles/.local/share/wallpaper.png post-setup
 
