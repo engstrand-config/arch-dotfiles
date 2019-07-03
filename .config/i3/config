@@ -32,7 +32,7 @@ client.background       $bg
 
 # #---Basic Definitions---# #
 for_window [class="^.*"] border pixel 1
-gaps inner 6
+gaps inner 4
 gaps outer 2
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
@@ -115,7 +115,7 @@ bindsym $mod+Shift+o		exec --no-startup-id i3resize right
 bindsym $mod+s			gaps inner current plus 5
 bindsym $mod+Shift+s		gaps inner current minus 5
 
-bindsym $mod+Shift+d		gaps inner current set 0; gaps outer current set 0
+bindsym $mod+Shift+d		gaps inner current set 4; gaps outer current set 2
 
 bindsym $mod+x			[urgent=latest] focus
 
