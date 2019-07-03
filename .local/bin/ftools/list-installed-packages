@@ -1,0 +1,5 @@
+printf "Normal packages:\n"
+pacman -Qqen
+
+printf "\nAUR packages:\n"
+pacman -Qqem

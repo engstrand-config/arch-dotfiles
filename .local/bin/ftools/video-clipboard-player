@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+CLIPBOARD=$(xclip -out)
+
+if [[ "$CLIPBOARD" == *"youtube.com"* ]] || [[ "$CLIPBOARD" == *"youtu.be"* ]]; then
+	mpv --ytdl --tls-verify "$CLIPBOARD"
+else
+	notify-send "Failed to play video" "The copied URL must be from youtube"
+fi

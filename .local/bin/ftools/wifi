@@ -1,0 +1,89 @@
+connect() {
+	echo "Connecting to '$1'"
+	nmcli con up $1
+	echo $1 > ~/.cache/wifi
+}
+
+disconnect() {
+	nmcli con down $1
+	echo "none" > ~/.cache/wifi
+}
+
+reconnect() {
+	ssid=$(cat ~/.cache/wifi)
+
+	if [ "$ssid" = "none" ]; then
+		echo "No saved SSID"
+		exit
+	fi
+
+	connect "$ssid"
+}
+
+# Check if we supplied an argument
+if [ $# -eq 0 ]; then
+    	echo "Missing argument - specify SSID."
+	exit
+fi
+
+if [ "$1" = "new" ]; then
+	if [ $# -lt 4 ]; then
+		echo "Usage: wifi new <interface> <SSID> <password>"
+		exit
+	fi
+
+	#echo "Creating new profile '$3'..."
+	#cp /etc/netctl/examples/wireless-wpa-config /etc/netctl/"$3"
+
+	#echo "Creating new wpa_supplicant entry for '$3'..."
+	#wpa_passphrase $3 $4 >> /etc/wpa_supplicant/$3.conf
+	#wpa_supplicant -B -i $2 -c /etc/wpa_supplicant/$3.conf
+
+	#sed -i "s+/etc/wpa_supplicant.conf+/etc/wpa_supplicant/$3.conf+g" /etc/netctl/$3
+	#sed -i "s+wlan0+$2+g" /etc/netctl/$3
+
+	echo "Creating new NetworkManager-connection..."
+	nmcli con add type wifi con-name "$3" ifname $2 ssid "$3"
+	nmcli con modify "$3" 802-11-wireless-security.key-mgmt wpa-psk
+	nmcli con modify "$3" 802-11-wireless-security.psk "$4"
+
+	connect "$3"
+	exit
+elif [ "$1" = "delete" ]; then
+	if [ "$#" -lt 2 ]; then
+		echo "Usage: wifi delete <SSID>"
+	fi
+
+	echo "Deleting connection '$2'..."
+	nmcli con delete "$2"
+
+	exit
+elif [ "$1" = "reconnect" ]; then
+	reconnect
+	exit
+elif [ "$1" = "list" ]; then
+	nmcli con show
+
+	exit
+elif [ "$1" = "scan" ]; then
+	nmcli dev wifi list
+
+	exit
+elif [ "$1" = "disconnect" ]; then
+	if [ $# -lt 2 ]; then
+		ssid=$(cat ~/.cache/wifi)
+		if [ "$cache" = "none" ]; then
+			echo "No saved SSID, use 'wifi disconnect <SSID>' to disconnect"
+			exit
+		fi
+
+		disconnect "$ssid"
+		exit
+	fi
+
+	disconnect "$2"
+	exit
+fi
+
+connect $1
+

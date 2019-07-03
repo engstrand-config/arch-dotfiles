@@ -1,0 +1,12 @@
+stowsh ~/.dotfiles -s
+
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+sudo python get-pip.py
+sudo pip install pywal
+sudo pip install wal-steam
+
+themer ~/.dotfiles/.local/share/wallpaper.png
+
+
+
+

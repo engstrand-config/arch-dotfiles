@@ -1,0 +1,31 @@
+#!/bin/bash
+
+#destination=org.freedesktop.DBus 
+#serial=2 path=/org/freedesktop/DBus; 
+#interface=org.freedesktop.DBus; 
+#member=StartServiceByName
+#   string "org.kde.kdeconnect"
+#   uint32 0
+
+
+#destination=org.kde.kdeconnect 
+#serial=9 path=/modules/kdeconnect/devices/5b47b4994b69f3fc/ping; 
+#interface=org.kde.kdeconnect.device.ping; 
+#member=sendPing
+
+DESTINATION="org.kde.kdeconnect"
+INTERFACE="org.kde.kdeconnect.device.ping"
+DEVICE="5b47b4994b69f3fc"
+
+#dbus-send \
+#	--dest="org.freedesktop.DBus" \
+#	/org/freedesktop/DBus \
+#	org.freedesktop.DBus \
+#	string:'org.kde.kdeconnect'
+
+dbus-send \
+	--dest="$DESTINATION" \
+	--print-reply \
+	/modules/kdeconnect/devices/"$DEVICE" \
+	"$INTERFACE"
+

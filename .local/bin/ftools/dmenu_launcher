@@ -1,0 +1,10 @@
+FG=$(sed -n 7p ~/.cache/wal/colors)
+BG=$(sed -n 2p ~/.cache/wal/colors)
+
+if [ "$1" = "dmenu_run" ]; then
+	dmenu_run -nb "#000000" -nf "$FG" -sb "$BG" -sf "$FG"
+else
+	read PIPE
+	printf "$PIPE" | dmenu -nb "#000000" -nf "$FG" -sb "$BG" -sf "$FG" "$@"
+fi
+

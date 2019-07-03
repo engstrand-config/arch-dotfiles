@@ -1,0 +1,2 @@
+# Fetching latest commit from each submodule
+git submodule foreach git pull origin master

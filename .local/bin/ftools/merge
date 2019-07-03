@@ -1,0 +1,6 @@
+if [ $# -lt 2 ]; then
+	echo "Usage: merge <source path> <target path>"
+	exit
+fi
+
+cp -a "$1/." "$2"

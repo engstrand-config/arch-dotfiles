@@ -1,0 +1,16 @@
+INSTALL_PATH=~/Downloads/steam-metro
+
+mkdir $INSTALL_PATH
+curl -o $INSTALL_PATH/patch.zip -LJO https://github.com/redsigma/UPMetroSkin/archive/master.zip
+curl -o $INSTALL_PATH/skin.zip http://www.metroforsteam.com/downloads/4.3.1.zip
+
+unzip $INSTALL_PATH/skin.zip -d ~/.local/share/Steam/skins/metro
+unzip $INSTALL_PATH/patch.zip -d $INSTALL_PATH/patch
+
+rm -rf $INSTALL_PATH/skin.zip
+rm -rf $INSTALL_PATH/patch.zip
+
+cp -a $INSTALL_PATH/patch/UPMetroSkin-master/Unofficial\ 4.3.1\ Patch/Main\ Files\ \[Install\ First\]/. ~/.local/share/Steam/skins/metro
+rm -rf $INSTALL_PATH/patch
+
+rm -rf $INSTALL_PATH
