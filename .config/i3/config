@@ -20,6 +20,7 @@ exec --no-startup-id redshift -t 6500:2000
 exec --no-startup-id /usr/lib/kdeconnectd
 exec --no-startup-id wifi reconnect
 exec --no-startup-id xbindkeys
+exec --no-startup-id profile-loader
 
 # class                 border  backgr. text indicator child_border
 client.focused          $bg     $bg     $fg  $bg       $bg
@@ -240,5 +241,4 @@ bindsym $mod+Shift+Right 	move right
 
 # Assign programs to different workspaces
 assign [class="Steam"] $ws4
-#for_window [urgent="latest" class="Steam"] focus
-#for_window [urgent="latest" class="Steam"] workspace $ws4
+assign [class="Spotify"] $ws5

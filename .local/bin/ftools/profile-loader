@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+USERNAME=$(whoami)
+
+if [ "$USERNAME" = "fredrik" ]; then
+	~/.dotfiles/.local/bin/profiles/fredrik
+elif [ "$USERNAME" = "johan" ]; then
+	~/.dotfiles/.local/bin/profiles/johan
+fi
