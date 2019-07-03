@@ -1,4 +1,4 @@
-stowsh ~/.dotfiles -s
+~/.dotfiles/.local/bin/ftools/stowsh ~/.dotfiles -s
 
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 sudo python get-pip.py
