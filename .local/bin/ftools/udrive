@@ -1,0 +1,16 @@
+#!/usr/bin/bash
+
+if [ $# -lt 1 ]; then
+	echo "Usage: udrive <list/drive to mount>"
+	exit
+fi
+
+if [ "$1" = "list" ]; then
+	lsblk -f
+elif [ "$1" = "remove" ]; then
+	udisksctl unmount -b $1
+fi
+
+udisksctl mount -b $1
+
+
