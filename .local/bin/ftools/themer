@@ -6,22 +6,20 @@ fi
 setbg $1
 wal -i $1
 
-if [ "$2" != "post-setup" ]; then
-	wal-steam -w
-fi
-
 if [ "$2" = "no-reload" ]; then
 	exit
 fi
 
-echo "To fully set the new theme we need to logout (It refreshes the i3bar with the new colors)"
-read -p "Exit now? (Y/n)" EXIT
+if [ "$2" = "post-setup" ]; then
+	exit
+else
+	wal-steam -w
 
-if [ "$EXIT" = "" ] || [ "$EXIT" = "Y" ]; then
-	if [ "$2" = "post-setup" ]; then
-		exit
-	else
-		i3-msg exit
+	echo "To fully set the new theme we need to logout (It refreshes the i3bar with the new colors)"
+	read -p "Exit now? (Y/n)" EXIT
+
+	if [ "$EXIT" = "" ] || [ "$EXIT" = "Y" ]; then
+		i3-msg exit	
 	fi
 fi
 
