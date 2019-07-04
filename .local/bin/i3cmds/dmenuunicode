@@ -14,9 +14,9 @@ fi
 [ "$chosen" != "" ] || exit
 
 c=$(echo "$chosen" | sed "s/ .*//")
-echo "$c" | tr -d '\n' | xclip -selection clipboard
-notify-send "'$c' copied to clipboard." &
+echo "$s" | tr -d '\n' | xclip -selection clipboard
+notify-send "'$s' copied to clipboard." &
 
 s=$(echo "$chosen" | sed "s/.*; //" | awk '{print $1}')
-echo "$s" | tr -d '\n' | xclip
-notify-send "'$s' copied to primary." &
+echo "$c" | tr -d '\n' | xclip
+notify-send "'$c' copied to primary." &
