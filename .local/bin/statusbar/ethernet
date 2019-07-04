@@ -1,0 +1,13 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+	1) $TERMINAL -e nmtui ;;
+esac
+
+ECONNECTED=$(cat /sys/class/net/e*/operstate)
+ECOLOR="#00ff00"
+ESTATUS=$(printf "<span color='%s'>CONNECTED</span>" "$WAL_LIGHT")
+
+[ "$ECONNECTED" = 'down' ] && ESTATUS="<span color='#ff2929'>DOWN</span>"
+
+printf "%s" "$ESTATUS"

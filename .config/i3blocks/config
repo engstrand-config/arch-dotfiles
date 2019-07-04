@@ -7,10 +7,10 @@ markup=pango
 #interval=once
 #signal=9
 
-#[music]
-#label=🎼
-#interval=once
-#signal=11
+[music]
+label=🎼
+interval=once
+signal=11
 
 #[news]
 #label=📰
@@ -38,17 +38,23 @@ markup=pango
 [disk]
 interval=60
 command=disk /
+label=DISK:
 
 [memory]
 interval=30
-label=
+label=MEM:
 
 [cpu]
 interval=10
-label=
+label=CPU:
 
-[internet]
+[wifi]
 interval=5
+label=W:
+
+[ethernet]
+interval=5
+label=E:
 
 [battery]
 command=battery BAT0

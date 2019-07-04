@@ -10,4 +10,4 @@ COLOR="$WAL_LIGHT"
 
 [ $TEMP -gt 70 ] && COLOR="#ff2929" 
 
-printf "CPU: <span color='%s'>$TEMP_STRING</span>" "$COLOR"
+printf "<span color='%s'>$TEMP_STRING</span>" "$COLOR"

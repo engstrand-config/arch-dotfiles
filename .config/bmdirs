@@ -6,8 +6,8 @@ m	~/Music
 pp	~/Pictures
 vv	~/Videos
 cf	~/.dotfiles/.config
-lb	~/.local/bin
-ftl	~/.local/bin/ftools
-blocks 	~/.local/bin/statusbars
+lb	~/.dotfiles/.local/bin
+ftl	~/.dotfiles/.local/bin/ftools
+blocks 	~/.dotfiles/.local/bin/statusbars
 mn	/mnt
-.dt 	~/.dotfiles
+. 	~/.dotfiles
