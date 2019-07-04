@@ -35,10 +35,10 @@ map gftl :cd ~/.dotfiles/.local/bin/ftools<CR>
 map tftl <tab>:cd ~/.dotfiles/.local/bin/ftools<CR><tab>
 map Mftl <tab>:cd ~/.dotfiles/.local/bin/ftools<CR><tab>:mo<CR>
 map Yftl <tab>:cd ~/.dotfiles/.local/bin/ftools<CR><tab>:co<CR>
-map gblocks :cd ~/.dotfiles/.local/bin/statusbars<CR>
-map tblocks <tab>:cd ~/.dotfiles/.local/bin/statusbars<CR><tab>
-map Mblocks <tab>:cd ~/.dotfiles/.local/bin/statusbars<CR><tab>:mo<CR>
-map Yblocks <tab>:cd ~/.dotfiles/.local/bin/statusbars<CR><tab>:co<CR>
+map gblocks :cd ~/.dotfiles/.local/bin/statusbar<CR>
+map tblocks <tab>:cd ~/.dotfiles/.local/bin/statusbar<CR><tab>
+map Mblocks <tab>:cd ~/.dotfiles/.local/bin/statusbar<CR><tab>:mo<CR>
+map Yblocks <tab>:cd ~/.dotfiles/.local/bin/statusbar<CR><tab>:co<CR>
 map gfbs :cd ~/FARBS<CR>
 map tfbs <tab>:cd ~/FARBS<CR><tab>
 map Mfbs <tab>:cd ~/FARBS<CR><tab>:mo<CR>

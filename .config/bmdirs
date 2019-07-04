@@ -8,7 +8,7 @@ vv	~/Videos
 cfg	~/.dotfiles/.config
 lb	~/.dotfiles/.local/bin
 ftl	~/.dotfiles/.local/bin/ftools
-blocks 	~/.dotfiles/.local/bin/statusbars
+blocks 	~/.dotfiles/.local/bin/statusbar
 fbs	~/FARBS
 mn	/mnt
 . 	~/.dotfiles
