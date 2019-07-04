@@ -48,7 +48,7 @@ label=MEM:
 interval=10
 label=CPU:
 
-[wifi]
+[wifistatus]
 interval=5
 label=W:
 
