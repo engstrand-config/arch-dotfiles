@@ -38,17 +38,23 @@ signal=11
 [disk]
 interval=60
 command=disk /
+label=DISK:
 
 [memory]
 interval=30
-label=
+label=MEM:
 
 [cpu]
 interval=10
-label=
+label=CPU:
 
-[internet]
+[wifi]
 interval=5
+label=W:
+
+[ethernet]
+interval=5
+label=E:
 
 [battery]
 command=battery BAT0

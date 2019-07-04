@@ -7,5 +7,5 @@ esac
 USED=$(free -h | grep "M" -m 1 | awk '{print $3}')
 TOTAL=$(free -h | grep "M" -m 1 | awk '{print $2}')
 
-printf "MEM: <span color='$WAL_LIGHT'>%sB/%sB</span>" "$USED" "$TOTAL"
+printf "<span color='$WAL_LIGHT'>%sB/%sB</span>" "$USED" "$TOTAL"
 
