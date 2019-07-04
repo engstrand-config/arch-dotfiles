@@ -8,7 +8,7 @@ markup=pango
 #signal=9
 
 [music]
-label=🎼
+label=
 interval=once
 signal=11
 
@@ -16,11 +16,6 @@ signal=11
 #label=📰
 #interval=once
 #signal=6
-
-#[pacpackages]
-#label=📦
-#interval=once
-#signal=8
 
 #[torrent]
 #interval=20
@@ -50,11 +45,11 @@ label=CPU:
 
 [wifistatus]
 interval=5
-label=W:
+label=
 
 [ethernet]
 interval=5
-label=E:
+label=
 
 [battery]
 command=battery BAT0
@@ -67,3 +62,8 @@ signal=10
 [clock]
 label=
 interval=1
+
+[pacpackages]
+label=📦
+interval=once
+signal=8
