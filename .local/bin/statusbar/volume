@@ -7,16 +7,16 @@ case $BLOCK_BUTTON in
 	5) pulsemixer --change-volume -5 ;;
 esac
 
-[ "$(pulsemixer --get-mute)" = "1" ] && printf "<span color='#ff2929'>MUTED</span>\\n" && exit
+[ "$(pulsemixer --get-mute)" = "1" ] && printf "<span color='#ff2929'></span>\\n" && exit
 
 vol=$(pulsemixer --get-volume | awk '{print $1}')
 
-if [ "$vol" -gt "70" ]; then
-	icon="🔊"
-elif [ "$vol" -lt "30" ]; then
-	icon="🔈"
+if [ "$vol" -gt "50" ]; then
+	icon=""
+elif [ "$vol" -eq "0" ]; then
+	icon=""
 else
-	icon="🔉"
+	icon=""
 fi
 
 printf "%s %s%%\\n" "$icon" "$vol"

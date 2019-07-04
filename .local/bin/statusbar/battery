@@ -13,7 +13,7 @@ fi
 label="BAT"
 if [ "$status" = "Charging" ]; then
 	color="#26ff43"
-	label="CHR"
+	label=""
 fi
 
 [ "$capacity" -eq 100 ] && label="FULL"
