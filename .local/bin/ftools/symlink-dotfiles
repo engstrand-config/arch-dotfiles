@@ -1,0 +1,8 @@
+cd ~
+stowsh ~/.dotfiles -s
+
+# Stowsh is a fucking strangely written script and I cannot even if my life depended on it figure out a way to ignore files.
+# I'll just do this shit instead fuckin shit
+rm -rf ~/.git
+rm -rf ~/.githooks
+rm -rf ~/profiles

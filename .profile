@@ -24,6 +24,9 @@ export LESS_TERMCAP_se="$(printf '%b' '[0m')"; a="${a%_}"
 export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"; a="${a%_}"
 export LESS_TERMCAP_ue="$(printf '%b' '[0m')"; a="${a%_}"
 
+# Update bmdirs and bmfiles 
+shortcuts
+
 mpd >/dev/null 2>&1 &
 
 [ ! -f ~/.config/shortcutrc ] && shortcuts >/dev/null 2>&1

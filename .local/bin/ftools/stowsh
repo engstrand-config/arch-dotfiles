@@ -72,9 +72,9 @@ stowsh_install() {
         thisdir=$(dirname "$targetf")
         local relative
         relative=$($rpcmd "$f" --relative-to="$thisdir" --canonicalize-missing)
-        if [[ ! -f "$targetf" ]] ; then
-           commands+=("ln -s '$relative' '$targetf'")
-        else
+        if [[ ! -f "$targetf" ]]; then
+	    commands+=("ln -s '$relative' '$targetf'")
+	else
             echoerr "$targetf already exists."
             if [[ ! $SKIP -eq 1 ]]; then
                 echoerr "Aborting. Rerun with the -s flag to skip errors.";
@@ -178,7 +178,7 @@ if [ "$0" = "$BASH_SOURCE" ]; then
             stowsh_uninstall "$pkg" "$TARGET"
         else
             if [[ $VERBOSE -gt 0 ]] ; then echoerr "Installing $pkg to $TARGET" ; fi
-            stowsh_install "$pkg" "$TARGET"
+	    stowsh_install "$pkg" "$TARGET"
         fi
     done
 fi
