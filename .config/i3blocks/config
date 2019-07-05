@@ -12,10 +12,10 @@ label=
 interval=once
 signal=11
 
-#[news]
-#label=📰
-#interval=once
-#signal=6
+[news]
+label=📰
+interval=once
+signal=6
 
 #[torrent]
 #interval=20
@@ -64,6 +64,6 @@ label=
 interval=1
 
 [pacpackages]
-label=📦
+label=
 interval=once
 signal=8
