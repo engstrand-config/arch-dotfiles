@@ -300,6 +300,16 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+  	;; theme
+	(add-to-list 'load-path "~/Repos/ewal")
+	(add-to-list 'load-path "~/Repos/ewal/spacemacs-theme")
+	(add-to-list 'custom-theme-load-path "~/Repos/ewal/spacemacs-theme")
+	(load-theme 'ewal-spacemacs-modern t)
+
+	;; cursors
+	(add-to-list 'load-path "~/Repos/ewal/evil-cursors")
+	(require 'ewal-evil-cursors)
+	(ewal-evil-cursors-get-spacemacs-colors :apply t)
   )
 
 (defun dotspacemacs/user-config ()
@@ -309,6 +319,7 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  	(enable-theme 'ewal-spacemacs-modern)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

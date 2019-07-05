@@ -3,7 +3,7 @@
 USERNAME=$(whoami)
 
 if [ "$USERNAME" = "fredrik" ]; then
-	~/.dotfiles/profiles/fredrik/load
+	bash ~/.dotfiles/profiles/fredrik/load
 elif [ "$USERNAME" = "johan" ]; then
-	~/.dotfiles/profiles/johan/load
+	bash ~/.dotfiles/profiles/johan/load
 fi
