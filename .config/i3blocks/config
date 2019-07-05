@@ -8,7 +8,7 @@ markup=pango
 #signal=9
 
 [music]
-label=
+label=
 interval=once
 signal=11
 
@@ -33,23 +33,23 @@ signal=6
 [disk]
 interval=60
 command=disk /
-label=DISK:
+label=
 
 [memory]
 interval=30
-label=MEM:
+label=
 
 [cpu]
 interval=10
-label=CPU:
+label=
 
 [wifistatus]
 interval=5
-label=
+label=
 
 [ethernet]
 interval=5
-label=
+label=
 
 [battery]
 command=battery BAT0

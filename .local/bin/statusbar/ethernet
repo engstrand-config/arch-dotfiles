@@ -6,8 +6,8 @@ esac
 
 ECONNECTED=$(cat /sys/class/net/e*/operstate)
 ECOLOR="#00ff00"
-ESTATUS=$(printf "<span color='%s'>CONNECTED</span>" "$WAL_LIGHT")
+ESTATUS=$(printf "<span color='$WAL_LIGHT'></span>")
 
-[ "$ECONNECTED" = 'down' ] && ESTATUS="<span color='#ff2929'>DOWN</span>"
+[ "$ECONNECTED" = 'down' ] && ESTATUS="<span color='$WAL_CRITICAL'></span>"
 
 printf "%s" "$ESTATUS"
