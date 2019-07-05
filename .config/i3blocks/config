@@ -30,6 +30,9 @@ signal=6
 #interval=180
 #signal=12
 
+[redshiftoggle]
+interval=once
+
 [disk]
 interval=60
 command=disk /
