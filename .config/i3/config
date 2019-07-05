@@ -14,6 +14,7 @@
 # it fails to get colors from Xresources.
 set_from_resource $fg i3wm.color7 #f0f0f0
 set_from_resource $bg i3wm.color2 #f0f0f0
+set_from_resource $barbg i3wm.background #111111
 
 #exec compton --config ~/.config/compton.conf
 exec --no-startup-id redshift -t 6500:2000
@@ -65,9 +66,9 @@ bar {
 	mode dock
 	modifier None
 	colors {
-		background #111111e0
+		background $barbg
 		focused_workspace $bg $bg #000000
-		inactive_workspace #222222 #000000 #ffffff
+		inactive_workspace #222222 $barbg #ffffff
 	}
 }
 

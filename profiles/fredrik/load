@@ -1,1 +1,9 @@
 #!/usr/bin/bash
+
+# Append layout 
+i3-msg "workspace 1; append_layout ~/.dotfiles/profiles/fredrik/layouts/workspace-1.json"
+
+# Start 3 instances of st that will be swallowed by the layout
+st &
+st &
+st &
