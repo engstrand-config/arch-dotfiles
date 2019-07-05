@@ -10,6 +10,9 @@ export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput se
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc" # Load shortcut aliases
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
+CRITICAL=$(python ~/.dotfiles/.local/bin/ftools/python/colorpicker.py "$color2" "critical")
+SUCCESS=$(python ~/.dotfiles/.local/bin/ftools/python/colorpicker.py "$color2" "success")
+
 export WAL_LIGHT="$color7"
 export WAL_DARK="$color2"
 export WAL_0="$color0"
@@ -19,5 +22,5 @@ export WAL_4="$color4"
 export WAL_5="$color5"
 export WAL_6="$color6"
 
-export WAL_SUCCESS="green"
-export WAL_CRITICAL="red"
+export WAL_SUCCESS="$SUCCESS"
+export WAL_CRITICAL="$CRITICAL"

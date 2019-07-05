@@ -11,6 +11,6 @@ SIGNAL=$(grep "^\s*w" /proc/net/wireless | awk '{ print int($3 * 100 / 70) "%" }
 
 WSTATUS=$(printf "  <span color='%s'>%s (%s)</span>" "$WAL_LIGHT" "$SSID" "$SIGNAL")
 
-[ "$WCONNECTED" = 'down' ] && WSTATUS="<span color='$WAL_1'></span>"
+[ "$WCONNECTED" = 'down' ] && WSTATUS="<span color='$WAL_CRITICAL'></span>"
 
 printf "%s" "$WSTATUS"

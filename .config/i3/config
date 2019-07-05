@@ -67,7 +67,7 @@ bar {
 	modifier None
 	colors {
 		background $barbg
-		focused_workspace $bg $bg #000000
+		focused_workspace $fg $fg $barbg
 		inactive_workspace $barbg $barbg #ffffff
 	}
 }
