@@ -13,15 +13,22 @@ rm ~/get-pip.py
 sudo pip install pywal
 sudo pip install wal-steam
 
+# Install spacemacs
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+
+# Install the pywal themer ewal
+mkdir ~/Repos
+git clone git@github.com:emacsmirror/ewal.git ~/Repos/ewal
+
+# Enable the emacs daemon for faster startups
+systemctl enable --user emacs
+systemctl start --user emacs
 
 rm ~/post-setup
 
 # Run themer 
 ~/.dotfiles/.local/bin/ftools/themer ~/.dotfiles/.local/share/wallpaper.png post-setup
 
-# This will reload most things so that we dont need to log out and login again
-# i3 will start after this
 echo "Log out and log back in again for changes to take effect"
 
 
