@@ -20,6 +20,10 @@ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 mkdir ~/Repos
 git clone git@github.com:emacsmirror/ewal.git ~/Repos/ewal
 
+# Enable the emacs daemon for faster startups
+systemctl enable --user emacs
+systemctl start --user emacs
+
 rm ~/post-setup
 
 # Run themer 
