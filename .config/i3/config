@@ -68,7 +68,7 @@ bar {
 	colors {
 		background $barbg
 		focused_workspace $bg $bg #000000
-		inactive_workspace #222222 $barbg #ffffff
+		inactive_workspace $barbg $barbg #ffffff
 	}
 }
 
