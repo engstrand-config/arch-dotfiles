@@ -21,7 +21,7 @@ exec --no-startup-id redshift -t 6500:2000
 exec --no-startup-id /usr/lib/kdeconnectd
 exec --no-startup-id wifi reconnect
 exec --no-startup-id xbindkeys
-exec --no-startup-id profile-loader
+hdaexec --no-startup-id profile-loader
 exec --no-startup-id steam
 
 # class                 border  backgr. text indicator child_border
