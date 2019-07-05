@@ -1,0 +1,15 @@
+echo "---------------------------------------------------"
+cd ~/FARBS
+echo -e "\033[1mFARBS (~/FARBS):\033[0m"
+git status
+echo "---------------------------------------------------"
+
+cd ~/.dotfiles
+echo -e "\033[1mDotfiles (~/.dotfiles):\033[0m"
+git status
+echo "---------------------------------------------------"
+
+cd ~/.mozilla/firefox/farbs.default
+echo -e "\033[1mFARBS Firefox (~/.mozilla/firefox/farbs.default):\033[0m"
+git status
+echo "---------------------------------------------------"
