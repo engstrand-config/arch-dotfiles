@@ -17,7 +17,7 @@ set_from_resource $bg i3wm.color2 #f0f0f0
 set_from_resource $barbg i3wm.background #111111
 
 #exec compton --config ~/.config/compton.conf
-exec --no-startup-id redshift -t 6500:2000
+exec --no-startup-id redshift -r -t 6500:2000
 exec --no-startup-id /usr/lib/kdeconnectd
 exec --no-startup-id wifi reconnect
 exec --no-startup-id xbindkeys
