@@ -19,3 +19,4 @@ sed -i "s/<username>/$USERNAME/g" $FFPATH/chrome/userChrome.css
 sed -i "s/<background>/$WAL_DARK/g" $FFPATH/chrome/userContent.css
 sed -i "s/<foreground>/$WAL_LIGHT/g" $FFPATH/chrome/userContent.css
 sed -i "s/<background-light>/$WAL_BG_LIGHT/g" $FFPATH/chrome/userContent.css
+sed -i "s/<background-dark>/$WAL_BG_DARK/g" $FFPATH/chrome/userContent.css
