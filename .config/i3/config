@@ -232,6 +232,7 @@ for_window [instance="emacs"] move to workspace $ws3
 for_window [instance="emacs"] workspace $ws3
 for_window [class="discord"] move to workspace $ws5
 assign [class="Steam"] $ws4
+for_window [title="nmtui"] floating enable
 
 
 # Bindings to make the webcam float and stick.
