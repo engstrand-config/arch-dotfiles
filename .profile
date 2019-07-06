@@ -14,6 +14,28 @@ export SUDO_ASKPASS="$HOME/.local/bin/tools/dmenupass"
 export NOTMUCH_CONFIG="$HOME/.config/notmuch-config"
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
 
+
+# Set pywal colors so that they can be used by other scripts
+. "${HOME}/.cache/wal/colors.sh"
+
+CRITICAL=$(python ~/.dotfiles/.local/bin/ftools/python/colorpicker.py "$color2" "critical")
+SUCCESS=$(python ~/.dotfiles/.local/bin/ftools/python/colorpicker.py "$color2" "success")
+BACKGROUND_LIGHT=$(python ~/.dotfiles/.local/bin/ftools/python/colorpicker.py "$background" "background-light")
+
+export WAL_LIGHT="$color7"
+export WAL_DARK="$color2"
+export WAL_0="$color0"
+export WAL_1="$color1"
+export WAL_3="$color3"
+export WAL_4="$color4"
+export WAL_5="$color5"
+export WAL_6="$color6"
+
+export WAL_SUCCESS="$SUCCESS"
+export WAL_CRITICAL="$CRITICAL"
+export WAL_BG_LIGHT="$BACKGROUND_LIGHT"
+export WAL_BG_DARK="$background"
+
 # less/man colors
 export LESS=-R
 export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"; a="${a%_}"
@@ -23,6 +45,9 @@ export LESS_TERMCAP_so="$(printf '%b' '[01;44;33m')"; a="${a%_}"
 export LESS_TERMCAP_se="$(printf '%b' '[0m')"; a="${a%_}"
 export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"; a="${a%_}"
 export LESS_TERMCAP_ue="$(printf '%b' '[0m')"; a="${a%_}"
+
+# Update the firefox theme
+load-firefox-css
 
 # Update bmdirs and bmfiles 
 shortcuts

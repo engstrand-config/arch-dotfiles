@@ -1,3 +1,5 @@
+. ~/.dotfiles/.bashrc
+
 FFPROFILE=$(ls ~/.mozilla/firefox | grep '.*.default-release\b')
 FFPATH=~/.mozilla/firefox/$FFPROFILE
 USERNAME=$(whoami)

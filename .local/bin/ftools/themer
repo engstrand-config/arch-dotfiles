@@ -6,14 +6,6 @@ fi
 setbg $1
 wal -i $1
 
-# Right now, load-firefox-css gets its colors from env and if we dont
-# reload bashrc, those variables will still be for the old theme.
-# This should probably be changed..
-. ~/.dotfiles/.bashrc
-
-# Generate new firefox userChrome.css and userContent.css
-bash ~/.dotfiles/.local/bin/ftools/load-firefox-css
-
 if [ "$2" = "no-reload" ]; then
 	exit
 fi
