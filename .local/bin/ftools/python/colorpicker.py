@@ -77,7 +77,10 @@ elif sys.argv[2] == "background-light":
     hsv = rgb_to_hsv(values)
     rgb = hsv_to_rgb((hsv[0], hsv[1], (hsv[2] + LIGHTNESS_MODIFIER)))
     print(rgb_to_hex(rgb))
-
+elif sys.argv[2] == "darker":
+    hsv = rgb_to_hsv(values)
+    rgb = hsv_to_rgb((hsv[0], hsv[1], (hsv[2] - LIGHTNESS_MODIFIER)))
+    print(rgb_to_hex(rgb))
 
 
 
