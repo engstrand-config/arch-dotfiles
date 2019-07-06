@@ -1,10 +1,10 @@
 [global]
     monitor = 0
     follow = keyboard
-    geometry = "350x5-0+21"
+    geometry = "350x5-15+35"
     indicate_hidden = yes
     shrink = yes
-    transparency = 5
+    transparency = 4
     notification_height = 0
     separator_height = 1
     padding = 8
@@ -18,13 +18,13 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    separator_color = "#ffffff"
+    separator_color = "<foreground>"
 
     # Sort messages by urgency.
     sort = yes
 
     idle_threshold = 120
-    font = Monospace 11
+    font = Noto Sans Mono 9
     line_height = 0
     markup = full
 
@@ -38,7 +38,7 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<b>%s</b>\n%b"
+    format = "<span color='#ffffff'><b>%s</b></span>\n%b"
 
     alignment = left
     show_age_threshold = 60
@@ -75,23 +75,23 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#000"
-    foreground = "#ffffff"
-    frame_color = "#d9d9d9"
+    background = "<background-light>"
+    foreground = "<foreground>"
+    frame_color = "<foreground>"
     timeout = 5
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_normal]
-    background = "#000"
-    foreground = "#ffffff"
-    frame_color = "#d9d9d9"
+    background = "<background-light>"
+    foreground = "<foreground>"
+    frame_color = "<foreground>"
     timeout = 5
 
 [urgency_critical]
-    background = "#ff2929"
+    background = "<critical>"
     foreground = "#ffffff"
-    frame_color = "#ff29292"
+    frame_color = "<critical>"
     timeout = 0
 
 # Every section that isn't one of the above is interpreted as a rules to

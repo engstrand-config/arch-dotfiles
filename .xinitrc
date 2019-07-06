@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Set the dunst theme
+# Since dunst is started in xprofile, we need to do this before
+set-dunst-colors
+
 [ -f "$HOME/.xprofile" ] && . ~/.xprofile
 
 setxkbmap se
