@@ -8,7 +8,7 @@ markup=pango
 #signal=9
 
 [music]
-label=
+label=
 interval=once
 signal=11
 
@@ -32,7 +32,7 @@ signal=6
 
 [kdeconnect-i3]
 interval=2
-label=KDECONNECT:
+label=
 
 [redshiftoggle]
 interval=once

@@ -1,9 +1,10 @@
 #!/bin/sh
 
-color_paused="$WAL_LIGHT"
+color_paused="$WAL_CRITICAL"
+color_playing="$WAL_LIGHT"
 
 filter() {
-	sed "/^volume:/d" | tac | sed -e "s/\\&/&amp;/g;s/\\[paused\\].*/<span color=\"gray\"> /g;s/\\[playing\\].*/<span> /g" | tr -d '\n' | sed -e "s/$/<\\/span>/g"
+	sed "/^volume:/d" | tac | sed -e "s/\\&/&amp;/g;s/\\[paused\\].*/<span color=\"$color_paused\">/g;s/\\[playing\\].*/<span color=\"$color_playing\">/g" | tr -d '\n' | sed -e "s/$/<\\/span>/g"
 	}
 
 case $BLOCK_BUTTON in
