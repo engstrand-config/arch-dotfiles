@@ -5,10 +5,16 @@
 # Must have xclip installed to even show menu.
 xclip -h >/dev/null || exit
 
+NB="$WAL_BG_DARK"
+NF="$WAL_LIGHT"
+SB="$WAL_DARK"
+SF="#ffffff"
+FONT="Noto Sans Bold-16"
+
 if [ -e ~/.config/fontawesome ]; then
-    chosen=$(grep -v "#" -h ~/.config/emoji ~/.config/fontawesome | dmenu -i -l 20 -fn Monospace-18)
+    chosen=$(grep -v "#" -h ~/.config/emoji ~/.config/fontawesome | dmenu -i -l 20 -fn "$FONT" -nb "$NB" -nf "$NF" -sb "$SB" -sf "$SF")
 else
-    chosen=$(grep -v "#" ~/.config/emoji | dmenu -i -l 20 -fn Monospace-18)
+    chosen=$(grep -v "#" ~/.config/emoji | dmenu -i -l 20 -fn "$FONT" -nb "$NB" -nf "$NF" -sb "$SB" -sf "$SF")
 fi
 
 [ "$chosen" != "" ] || exit
