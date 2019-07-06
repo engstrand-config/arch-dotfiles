@@ -71,6 +71,6 @@ label=
 interval=1
 
 [pacpackages]
-label=
+label=
 interval=once
 signal=8
