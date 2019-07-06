@@ -19,4 +19,4 @@ else
 	icon=""
 fi
 
-printf "%s <span color='$WAL_LIGHT'>%s</span>%%" "$icon" "$vol"
+printf "%s <span color='$WAL_LIGHT'>%s%%</span>" "$icon" "$vol"

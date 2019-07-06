@@ -33,4 +33,4 @@ if [ "$status" = "Full" ]; then
 	label=""
 fi
 
-printf "<span color='%s'>%s</span> <span color='%s'>%s</span>" "$color_label" "$label" "$color_capacity" "$(echo "$capacity" | sed -e 's/$/%/')"
+printf "<span color='%s'>%s</span> <span color='%s'>%s%%</span>" "$color_label" "$label" "$color_capacity" "$capacity"
