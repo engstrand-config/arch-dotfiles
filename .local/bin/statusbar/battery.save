@@ -4,8 +4,7 @@
 capacity=$(cat /sys/class/power_supply/"$1"/capacity) || exit
 status=$(cat /sys/class/power_supply/"$1"/status)
 
-color_label="#ffffff"
-color_capacity="$WAL_LIGHT"
+color="#ffffff"
 
 if [ "$capacity" -ge 90 ]; then
 	label=""
@@ -22,15 +21,13 @@ fi
 
 
 if [ "$status" = "Charging" ]; then
-	color_label="$WAL_SUCCESS"
-	color_capacity="$WAL_SUCCESS"
+	color="$WAL_SUCCESS"
 	label=""
 fi
 
 if [ "$status" = "Full" ]; then
-	color_label="$WAL_SUCCESS"
-	color_capacity="$WAL_SUCCESS"
+	color="$WAL_SUCCESS"
 	label=""
 fi
 
-printf "<span color='%s'>%s</span> <span color='%s'>%s</span>" "$color_label" "$label" "$color_capacity" "$(echo "$capacity" | sed -e 's/$/%/')"
+printf "<span color='#ffffff'>%s <span color="%s">%s</span></span>�" "$color" "$label" "$(echo "$capacity" | sed -e 's/$/%/')"
