@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# list devices
+# dbus-send --print-reply --dest=org.kde.kdeconnect "/modules/kdeconnect" org.kde.kdeconnect.daemon.devices
+
+# Check if phone is trying to pair
+# dbus-send --print-reply --dest=org.kde.kdeconnect "/modules/kdeconnect/devices/5b47b4994b69f3fc" org.kde.kdeconnect.device.hasPairingRequests
+
+DESTINATION="org.kde.kdeconnect"
+INTERFACE="org.kde.kdeconnect.device"
+DEVICE="5b47b4994b69f3fc"
+
+if [[ $BLOCK_BUTTON == '1' ]]; then
+	kdeconnect-cli --device $DEVICE --pair 
+fi
+
+
+
+CHARGE=$(dbus-send --print-reply --dest=$DESTINATION "/modules/kdeconnect/devices/$DEVICE" org.kde.kdeconnect.device.battery.charge | grep 'int32 ..' | awk '{print $2}')
+
+if [ "$CHARGE" -eq -1 ]; then
+	echo "Mobile not connected"
+else 
+	echo "$CHARGE%"
+fi

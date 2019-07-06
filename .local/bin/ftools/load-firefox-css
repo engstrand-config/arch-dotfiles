@@ -1,0 +1,21 @@
+FFPROFILE=$(ls ~/.mozilla/firefox | grep '.*.default-release\b')
+FFPATH=~/.mozilla/firefox/$FFPROFILE
+USERNAME=$(whoami)
+PYWAL=$(cat ~/.cache/wal/colors.css)
+
+# Create the folder if it doesnt already exist
+if [ ! -d "$FFPATH/chrome" ]; then
+	mkdir $FFPATH/chrome
+else
+	rm $FFPATH/chrome/userChrome.css
+	rm $FFPATH/chrome/userContent.css
+fi
+
+cp ~/Repos/Pywalfox/userChrome.css $FFPATH/chrome/userChrome.css
+cp ~/Repos/Pywalfox/userContent.css $FFPATH/chrome/userContent.css
+
+# Change the placeholder username to your actual username
+sed -i "s/<username>/$USERNAME/g" $FFPATH/chrome/userChrome.css
+sed -i "s/<background>/$WAL_DARK/g" $FFPATH/chrome/userContent.css
+sed -i "s/<foreground>/$WAL_LIGHT/g" $FFPATH/chrome/userContent.css
+sed -i "s/<background-light>/$WAL_BG_LIGHT/g" $FFPATH/chrome/userContent.css

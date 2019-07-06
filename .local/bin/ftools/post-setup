@@ -24,13 +24,7 @@ git clone git@github.com:emacsmirror/ewal.git ~/Repos/ewal
 systemctl enable --user emacs
 systemctl start --user emacs
 
-# Install custom userChrome.css with pywal support
-FFPROFILE=$(ls ~/.mozilla/firefox | grep '.*.default-release\b')
-FFPATH=~/.mozilla/firefox/$FFPROFILE
-USERNAME=$(whoami)
-mkdir $FFPATH/chrome
-curl -o $FFPATH/chrome/userChrome.css https://raw.githubusercontent.com/Frewacom/Pywalfox/master/userChrome.css
-sed -i 's/<username>/$USERNAME/g' $FFPATH/chrome/userChrome.css
+bash ~/.dotfiles/.local/bin/ftools/load-firefox-css
 
 rm ~/post-setup
 

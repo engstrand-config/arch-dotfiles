@@ -24,6 +24,10 @@ exec --no-startup-id xbindkeys
 exec --no-startup-id profile-loader
 exec --no-startup-id steam
 
+# Spotify seems to be running some pretty heavy background services even
+# though the app is not running, even on startup
+exec --no-startup-id killall spotify
+
 # class                 border  backgr. text indicator child_border
 client.focused          $bg     $bg     $fg  $bg       $bg
 client.focused_inactive $bg     $bg     $fg  $bg       $bg
@@ -60,7 +64,7 @@ for_window [class="mpv"] border pixel 1
 bar {
 	height 20
 	id top-bar
-	font pango:Noto Sans Mono Bold 8
+	font pango:Noto Sans Bold 8
 	#i3bar_command i3bar -t
 	status_command i3blocks
 	position top
@@ -68,6 +72,7 @@ bar {
 	modifier None
 	colors {
 		background $barbg
+		#urgent_workspace $WAL_CRITICAL $WAL_CRITICAL #ffffff
 		focused_workspace $fg $fg $barbg
 		inactive_workspace $barbg $barbg #ffffff
 	}
