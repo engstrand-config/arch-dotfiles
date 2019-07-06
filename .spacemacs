@@ -312,6 +312,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 	(add-to-list 'load-path "~/Repos/ewal/evil-cursors")
 	(require 'ewal-evil-cursors)
 	(ewal-evil-cursors-get-spacemacs-colors :apply t)
+  (my-setup-indent 2) ;; Set the default tab size
   )
 
 (defun dotspacemacs/user-config ()

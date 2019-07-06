@@ -12,6 +12,7 @@ export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput se
 
 CRITICAL=$(python ~/.dotfiles/.local/bin/ftools/python/colorpicker.py "$color2" "critical")
 SUCCESS=$(python ~/.dotfiles/.local/bin/ftools/python/colorpicker.py "$color2" "success")
+BACKGROUND_LIGHT=$(python ~/.dotfiles/.local/bin/ftools/python/colorpicker.py "$background" "background-light")
 
 export WAL_LIGHT="$color7"
 export WAL_DARK="$color2"
@@ -24,3 +25,5 @@ export WAL_6="$color6"
 
 export WAL_SUCCESS="$SUCCESS"
 export WAL_CRITICAL="$CRITICAL"
+export WAL_BG_LIGHT="$BACKGROUND_LIGHT"
+export WAL_BG_DARK="$background"
