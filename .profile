@@ -19,6 +19,7 @@ export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
 . "${HOME}/.cache/wal/colors.sh"
 
 CRITICAL=$(python ~/.dotfiles/.local/bin/ftools/python/colorpicker.py "$color2" "critical")
+CRITICAL_DARK=$(python ~/.dotfiles/.local/bin/ftools/python/colorpicker.py "$CRITICAL" "darker")
 SUCCESS=$(python ~/.dotfiles/.local/bin/ftools/python/colorpicker.py "$color2" "success")
 BACKGROUND_LIGHT=$(python ~/.dotfiles/.local/bin/ftools/python/colorpicker.py "$background" "background-light")
 
@@ -33,6 +34,7 @@ export WAL_6="$color6"
 
 export WAL_SUCCESS="$SUCCESS"
 export WAL_CRITICAL="$CRITICAL"
+export WAL_CRITICAL_DARK="$CRITICAL_DARK"
 export WAL_BG_LIGHT="$BACKGROUND_LIGHT"
 export WAL_BG_DARK="$background"
 
