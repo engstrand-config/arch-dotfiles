@@ -19,7 +19,7 @@ fi
 CHARGE=$(dbus-send --print-reply --dest=$DESTINATION "/modules/kdeconnect/devices/$DEVICE" org.kde.kdeconnect.device.battery.charge | grep 'int32 ..' | awk '{print $2}')
 
 if [ "$CHARGE" -eq -1 ]; then
-	echo "Mobile not connected"
+	echo "<span color='$WAL_CRITICAL'></span>"
 else 
-	echo "$CHARGE%"
+	echo "<span color='#ffffff'></span> <span color='$WAL_LIGHT'>$CHARGE%</span>"
 fi

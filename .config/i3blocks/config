@@ -32,7 +32,7 @@ signal=6
 
 [kdeconnect-i3]
 interval=2
-label=
+label=
 
 [redshiftoggle]
 interval=once
