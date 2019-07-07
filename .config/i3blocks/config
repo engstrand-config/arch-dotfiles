@@ -43,11 +43,11 @@ command=disk /
 label=
 
 [memory]
-interval=30
+interval=60
 label=
 
 [cpu]
-interval=10
+interval=30
 label=
 
 [bluetooth]
