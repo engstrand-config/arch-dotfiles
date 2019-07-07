@@ -14,6 +14,8 @@ export SUDO_ASKPASS="$HOME/.local/bin/tools/dmenupass"
 export NOTMUCH_CONFIG="$HOME/.config/notmuch-config"
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
 
+# Load profile specific env variables
+. "${HOME}/.dotfiles/profiles/$(whoami)/exports"
 
 # Set pywal colors so that they can be used by other scripts
 . "${HOME}/.cache/wal/colors.sh"

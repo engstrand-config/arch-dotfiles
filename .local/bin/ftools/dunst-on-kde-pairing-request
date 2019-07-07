@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+dbus-send --print-reply --dest=org.kde.kdeconnect "/modules/kdeconnect/devices/$KDE_DEVICE_ID" org.kde.kdeconnect.device.acceptPairing
+

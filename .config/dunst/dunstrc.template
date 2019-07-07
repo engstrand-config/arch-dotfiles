@@ -117,14 +117,11 @@
 #    summary = "*"
 #    script = dunst_espeak.sh
 
-#[script-test]
-#    summary = "*script*"
-#    script = dunst_test.sh
-
-#[ignore]
-#    # This notification will not be displayed
-#    summary = "foobar"
-#    format = ""
+[kde-pairing-request]
+    # This notification will not be displayed
+    summary = "KDE*"
+    format = ""
+    script=dunst-on-kde-pairing-request
 
 #[history-ignore]
 #    # This notification will not be saved in history

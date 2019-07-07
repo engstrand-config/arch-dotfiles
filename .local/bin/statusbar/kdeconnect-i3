@@ -35,7 +35,8 @@
 #    echo $id
 #done
 
-DEVICE="5b47b4994b69f3fc"
+# This should be set in the personal profile at ~/.dotfiles/profiles/<username>/load 
+DEVICE="$KDE_DEVICE_ID"
 
 DESTINATION="org.kde.kdeconnect"
 IDEVICE="org.kde.kdeconnect.device"
@@ -71,8 +72,6 @@ fi
 
 CHARGE=$(dbus-send --print-reply --dest=$DESTINATION $BATTERYPATH $IBATTERY | grep 'int32 ..' | awk '{print $2}')
 
-if [ "$CHARGE" -eq -1 ]; then
-	echo "<span color='$WAL_CRITICAL'></span>" 
-else 
+if [ "$CHARGE" -ge 0 ] && [ "$CHARGE" -le 100 ]; then
 	echo "<span color='#ffffff'></span> <span color='$WAL_LIGHT'>$CHARGE%</span>"
 fi
