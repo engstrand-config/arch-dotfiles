@@ -1,7 +1,12 @@
 if [ "$1" = "dmenu_run" ]; then
 	dmenu_run -fn "Noto Sans Black-9" -nb "$WAL_BG_DARK" -nf "$WAL_LIGHT" -sb "$WAL_DARK" -sf "#ffffff"
 else
-	read PIPE
+	IFS= read -d '' -n 1 PIPE   
+	while IFS= read -d '' -n 1 -t 2 c
+	do
+    		PIPE+=$c
+	done
+	
 	printf "$PIPE" | dmenu -fn "Noto Sans Black-9" -nb "$WAL_BG_DARK" -nf "$WAL_LIGHT" -sb "$WAL_DARK" -sf "#ffffff" "$@"
 fi
 
