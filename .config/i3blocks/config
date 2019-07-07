@@ -12,6 +12,10 @@ label=
 interval=once
 signal=11
 
+[steam]
+label=
+interval=once
+
 [news]
 label=📰
 interval=once

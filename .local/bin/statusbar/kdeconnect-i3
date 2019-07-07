@@ -80,5 +80,5 @@ fi
 CHARGE=$(dbus-send --print-reply --dest=$DESTINATION $BATTERYPATH $IBATTERY | grep 'int32 ..' | awk '{print $2}')
 
 if [ "$CHARGE" -ge 0 ] && [ "$CHARGE" -le 100 ]; then
-	echo "<span color='#ffffff'></span> <span color='$WAL_LIGHT'>$CHARGE%</span>"
+	echo "<span color='#ffffff'></span> <span color='$WAL_LIGHT'>$CHARGE%</span>"
 fi
