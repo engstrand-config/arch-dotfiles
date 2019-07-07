@@ -50,6 +50,10 @@ label=
 interval=10
 label=
 
+[bluetooth]
+label=
+interval=once
+
 [wifistatus]
 interval=5
 label=
