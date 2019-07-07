@@ -6,20 +6,73 @@
 # Check if phone is trying to pair
 # dbus-send --print-reply --dest=org.kde.kdeconnect "/modules/kdeconnect/devices/5b47b4994b69f3fc" org.kde.kdeconnect.device.hasPairingRequests
 
-DESTINATION="org.kde.kdeconnect"
-INTERFACE="org.kde.kdeconnect.device"
+# send ping
+# dbus-send --print-reply --dest=org.kde.kdeconnect "/modules/kdeconnect/devices/5b47b4994b69f3fc/ping" org.kde.kdeconnect.device.ping.sendPing
+
+# pair
+# dbus-send --print-reply --dest=org.kde.kdeconnect "/modules/kdeconnect/devices/5b47b4994b69f3fc/ping" org.kde.kdeconnect.device.requestPair
+
+# unpair
+# dbus-send --print-reply --dest=org.kde.kdeconnect "/modules/kdeconnect/devices/5b47b4994b69f3fc" org.kde.kdeconnect.device.unpair
+
+# accept pairing request
+# dbus-send --print-reply --dest=org.kde.kdeconnect "/modules/kdeconnect/devices/5b47b4994b69f3fc" org.kde.kdeconnect.device.acceptPairing
+
+# reject pairing request
+# dbus-send --print-reply --dest=org.kde.kdeconnect "/modules/kdeconnect/devices/5b47b4994b69f3fc" org.kde.kdeconnect.device.rejectPairing
+
+# find my phone
+# dbus-send --print-reply --dest=org.kde.kdeconnect "/modules/kdeconnect/devices/5b47b4994b69f3fc/findmyphone" org.kde.kdeconnect.device.findmyphone.ring
+
+# send files
+# dbus-send --print-reply --dest=org.kde.kdeconnect "/modules/kdeconnect/devices/5b47b4994b69f3fc/share" org.kde.kdeconnect.device.share.shareUrl string:"file://$(vifm --choose-files -)"
+
+#DEVICES=$(dbus-send --print-reply=literal --dest=org.kde.kdeconnect "/modules/kdeconnect" org.kde.kdeconnect.daemon.devices)
+#echo $DEVICES
+
+#for device in $DEVICES; do
+#    id=$(echo "$device" | awk -F'["|"]' '{print $2}')
+#    echo $id
+#done
+
 DEVICE="5b47b4994b69f3fc"
 
+DESTINATION="org.kde.kdeconnect"
+IDEVICE="org.kde.kdeconnect.device"
+IBATTERY="org.kde.kdeconnect.device.battery.charge"
+ISHAREURL="org.kde.kdeconnect.device.shareUrl"
+IFINDMYPHONE="org.kde.kdeconnect.device.findmyphone.ring"
+IREJECTPAIRING="org.kde.kdeconnect.device.rejectPairing"
+IACCEPTPAIRING="org.kde.kdeconnect.device.acceptPairing"
+IREQUESTPAIRING="org.kde.kdeconnect.device.requestPair"
+IHASPAIRINGREQUESTS="org.kde.kdeconnect.device.hasPairingRequests"
+IUNPAIR="org.kde.kdeconnect.device.unpair"
+IPING="org.kde.kdeconnect.device.ping.sendPing"
+
+FINDMYPHONEPATH="/modules/kdeconnect/devices/$DEVICE/findmyphone"
+PINGPATH="/modules/kdeconnect/devices/$DEVICE/ping"
+SHAREPATH="/modules/kdeconnect/devices/$DEVICE/share"
+UNPAIRPATH="/modules/kdeconnect/devices/$DEVICE"
+BATTERYPATH="/modules/kdeconnect/devices/$DEVICE"
+
+# When left-clicked
 if [[ $BLOCK_BUTTON == '1' ]]; then
-	kdeconnect-cli --device $DEVICE --pair 
+    action=$(echo -e "Ping\nFind my phone\nSend file\nUnpair" | dmenu_launcher -i -p "Action: ")
+    case "$action" in
+        # For some reason it seems like I need print-reply for these commands to work??? 
+        *'Ping') dbus-send --print-reply --dest=$DESTINATION $PINGPATH $IPING &> /dev/null ;;
+        *'Find my phone') dbus-send --print-reply --dest=$DESTINATION $FINDMYPHONEPATH $IFINDMYPHONE &> /dev/null ;;
+        *'Send file') dbus-send --print-reply --dest=$DESTINATION $SHAREPATH $ISHAREURL string:"file://$(zenity --file-selection)" &> /dev/null ;;
+        *'Unpair') dbus-send --print-reply --dest=$DESTINATION $UNPAIRPATH $IUNPAIR &> /dev/null ;;
+    esac
+elif [[ $BLOCK_BUTTON == '3' ]]; then
+    echo ""
 fi
 
-
-
-CHARGE=$(dbus-send --print-reply --dest=$DESTINATION "/modules/kdeconnect/devices/$DEVICE" org.kde.kdeconnect.device.battery.charge | grep 'int32 ..' | awk '{print $2}')
+CHARGE=$(dbus-send --print-reply --dest=$DESTINATION $BATTERYPATH $IBATTERY | grep 'int32 ..' | awk '{print $2}')
 
 if [ "$CHARGE" -eq -1 ]; then
-	echo "<span color='$WAL_CRITICAL'></span>"
+	echo "<span color='$WAL_CRITICAL'></span>" 
 else 
 	echo "<span color='#ffffff'></span> <span color='$WAL_LIGHT'>$CHARGE%</span>"
 fi
