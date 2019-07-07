@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# NOTE:
+# To use this block, set export KDE_DEVICE_ID="<your-device-id>"
+# To get your device id, type "kdeconnect-cli -l" and find the name of your phone
+# and copy the corresponding id.
+# Logout and it should be loaded automatically and a pairing request from 
+# your phone to your computer should be accepted automatically
+
 # list devices
 # dbus-send --print-reply --dest=org.kde.kdeconnect "/modules/kdeconnect" org.kde.kdeconnect.daemon.devices
 
