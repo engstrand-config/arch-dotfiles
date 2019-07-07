@@ -6,6 +6,22 @@ fi
 setbg $1
 wal -i $1
 
+# Set the steam theme
+wal-steam -w
+
+rm -rf ~/.local/share/Steam/skins/metro
+
+SKIN_NAME=$(ls ~/.local/share/Steam/skins | grep 'Metro.*')
+mv ~/.local/share/Steam/skins/"$SKIN_NAME" ~/.local/share/Steam/skins/metro
+
+SKIN_PATH=~/.local/share/Steam/skins/metro
+COLOR=$(cat $SKIN_PATH/custom.styles | grep -m 1 'ClientBG=".*"' | sed -e 's/ClientBG="\(.*\)"}/\1/'
+)
+
+sed -i 's/ClientBG="*".*/ClientBG='"\"$COLOR\""'/' "$SKIN_PATH"/colors.styles
+sed -i 's/bgGameList="*".*/bgGameList='"\"$COLOR\""'/' "$SKIN_PATH"/colors.styles
+
+
 if [ "$2" = "no-reload" ]; then
 	exit
 fi
@@ -13,8 +29,6 @@ fi
 if [ "$2" = "post-setup" ]; then
 	exit
 else
-	wal-steam -w
-
 	echo "To fully set the new theme we need to logout (It refreshes the i3bar with the new colors)"
 	read -p "Exit now? (Y/n)" EXIT
 

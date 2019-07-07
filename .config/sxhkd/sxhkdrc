@@ -1,6 +1,6 @@
 # Basic binds
 super + Return
-	$TERMINAL
+	i3-msg "split horizontal ;; exec $TERMINAL"
 super + d
 	dmenu_launcher "dmenu_run"
 super + r
