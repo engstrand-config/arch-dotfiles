@@ -12,6 +12,8 @@ rm ~/get-pip.py
 
 sudo pip install pywal
 sudo pip install wal-steam
+sudo pip install requests
+sudo pip install untangle
 
 # Install spacemacs
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
