@@ -71,6 +71,8 @@ bar {
 	position top
 	mode dock
 	modifier None
+	separator_symbol "|"
+	tray_output none
 	colors {
 		background $barbg
 		urgent_workspace $critical $critical #ffffff
@@ -232,10 +234,13 @@ for_window [instance="emacs"] workspace $ws3
 for_window [class="discord"] move to workspace $ws5
 assign [class="Steam"] $ws4
 for_window [title="nmtui"] floating enable
-for_window [class="floating-ncmpcpp"] floating enable
-for_window [class="floating-ncmpcpp"] focus
-for_window [class="floating-pulsemixer"] floating enable
-for_window [class="floating-pulsemixer"] focus
+for_window [class="floating-*"] floating enable
+for_window [class="floating-*"] focus
+#for_window [class="floating-pulsemixer"] floating enable
+#for_window [class="floating-pulsemixer"] focus
+#for_window [urgent="newest" class="steam"] workspace $ws4
+
+focus_on_window_activation focus
 
 # Bindings to make the webcam float and stick.
 for_window [title="mpvfloat"] floating enable

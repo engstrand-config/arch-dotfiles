@@ -18,5 +18,5 @@ esac
 num_packages=$(pacman -Qu | grep -v "\[ignored\]" | wc -l | sed -e "s/^0$//g")
 
 if [ $num_packages -ge 0 ]; then
-	printf "<span color='$WAL_SUCCESS'> $num_packages</span>"
+	printf "<span color='$WAL_SUCCESS'> $num_packages  </span>"
 fi

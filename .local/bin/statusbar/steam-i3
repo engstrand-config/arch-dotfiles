@@ -1,0 +1,23 @@
+#!/bin/sh
+
+ICON="" 
+
+STORE="steam://store"
+COMMUNITY="steam://url/SteamIDControlPage"
+LIBRARY="steam://open/games"
+SETTINGS="steam://open/bigpicture"
+FRIENDS="steam://open/friends"
+
+if pgrep -x "steam" > /dev/null; then
+	echo "$ICON "
+	if [ "$BLOCK_BUTTON" -eq 1 ]; then
+		i3-msg "exec --no-startup-id steam $FRIENDS; workspace 4" &> /dev/null
+	elif [ "$BLOCK_BUTTON" -eq 3 ]; then
+		i3-msg "exec --no-startup-id steam $LIBRARY; workspace 4" &> /dev/null
+	fi
+
+#Add dmenu to choose the other options, start a game, quit steam?
+
+else
+    echo ""
+fi
