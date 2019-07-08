@@ -1,2 +1,3 @@
 killall dunst
+set-dunst-colors
 dunst &

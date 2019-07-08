@@ -2,8 +2,11 @@
 
 CLIPBOARD=$(xclip -out)
 
-if [[ "$CLIPBOARD" == *"youtube.com"* ]] || [[ "$CLIPBOARD" == *"youtu.be"* ]]; then
+if [[ "$CLIPBOARD" == *"youtube.com"* ]] || 
+   [[ "$CLIPBOARD" == *"youtu.be"* ]]
+   [[ "$CLIPBORD" == *"twitch.tv"* ]]
+; then
 	mpv --ytdl --tls-verify "$CLIPBOARD"
 else
-	notify-send "Failed to play video" "The copied URL must be from youtube"
+	notify-send "Failed to play video" "The copied URL must be from youtube or twitch"
 fi
