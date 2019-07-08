@@ -73,8 +73,6 @@ if [[ $BLOCK_BUTTON == '1' ]]; then
         *'Send file') dbus-send --print-reply --dest=$DESTINATION $SHAREPATH $ISHAREURL string:"file://$(zenity --file-selection)" &> /dev/null ;;
         *'Unpair') dbus-send --print-reply --dest=$DESTINATION $UNPAIRPATH $IUNPAIR &> /dev/null ;;
     esac
-elif [[ $BLOCK_BUTTON == '3' ]]; then
-    echo ""
 fi
 
 CHARGE=$(dbus-send --print-reply --dest=$DESTINATION $BATTERYPATH $IBATTERY | grep 'int32 ..' | awk '{print $2}')

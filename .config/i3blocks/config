@@ -2,6 +2,11 @@ command=~/.local/bin/statusbar/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 
+[pacpackages]
+label=
+interval=once
+signal=8
+
 [record]
 command=cat /tmp/recordingicon
 interval=once
@@ -39,12 +44,12 @@ signal=6
 #interval=180
 #signal=12
 
+[redshiftoggle]
+interval=once
+
 [kdeconnect-i3]
 interval=60
 label=
-
-[redshiftoggle]
-interval=once
 
 [disk]
 interval=60
@@ -82,8 +87,6 @@ signal=10
 [clock]
 label=
 interval=1
+separator=false
+min_width=137
 
-[pacpackages]
-label=
-interval=once
-signal=8
