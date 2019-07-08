@@ -15,6 +15,7 @@ fi
 
 cp ~/Repos/Pywalfox/userChrome.css $FFPATH/chrome/userChrome.css
 cp ~/Repos/Pywalfox/userContent.css $FFPATH/chrome/userContent.css
+cp ~/Repos/Pywalfox/hide-scrollbar.as.css $FFPATH/chrome/hide-scrollbar.as.css
 
 # Change the placeholder username to your actual username
 sed -i "s/<username>/$USERNAME/g" $FFPATH/chrome/userChrome.css
