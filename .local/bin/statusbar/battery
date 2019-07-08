@@ -17,7 +17,8 @@ elif [ "$capacity" -ge 15 ]; then
 	label=""
 else
 	label=""
-	color="$WAL_CRITICAL"
+	color_label="$WAL_CRITICAL"
+	color_capacity="$WAL_CRITICAL"
 fi
 
 
