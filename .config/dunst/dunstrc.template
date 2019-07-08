@@ -125,6 +125,10 @@
     summary = "Gmail"
     format = " "
 
+[kde-ignore-discord-notifications]
+    summary = "Discord"
+    format = " "
+
 #[history-ignore]
 #    # This notification will not be saved in history
 #    summary = "foobar"

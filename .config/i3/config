@@ -23,7 +23,6 @@ exec --no-startup-id /usr/lib/kdeconnectd
 exec --no-startup-id wifi reconnect
 exec --no-startup-id xbindkeys
 exec --no-startup-id profile-loader
-exec --no-startup-id steam
 
 # Spotify seems to be running some pretty heavy background services even
 # though the app is not running, even on startup
