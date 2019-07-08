@@ -121,6 +121,10 @@
     format = ""
     script=dunst-on-kde-pairing-request
 
+[kde-ignore-gmail-notifications]
+    summary = "Gmail"
+    format = " "
+
 #[history-ignore]
 #    # This notification will not be saved in history
 #    summary = "foobar"
