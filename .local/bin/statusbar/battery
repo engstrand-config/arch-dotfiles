@@ -25,7 +25,7 @@ fi
 if [ "$status" = "Charging" ]; then
 	color_label="$WAL_SUCCESS"
 	color_capacity="$WAL_SUCCESS"
-	label=""
+	label=""
 fi
 
 if [ "$status" = "Full" ]; then
