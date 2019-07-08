@@ -238,6 +238,7 @@ for_window [class="floating-*"] focus
 #for_window [class="floating-pulsemixer"] floating enable
 #for_window [class="floating-pulsemixer"] focus
 #for_window [urgent="newest" class="steam"] workspace $ws4
+assign [class="Firefox"] $ws2
 
 focus_on_window_activation focus
 
