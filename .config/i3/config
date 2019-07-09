@@ -65,7 +65,7 @@ bar {
 	height 20
 	id top-bar
 	font pango:Noto Sans Bold 8
-	#i3bar_command i3bar -t
+	i3bar_command i3bar -t 100
 	status_command i3blocks
 	position top
 	mode dock

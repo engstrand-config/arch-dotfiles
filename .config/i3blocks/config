@@ -39,20 +39,20 @@ signal=6
 #interval=18000
 #signal=5
 
-#[mailbox]
-#label=📬
-#interval=180
-#signal=12
-
-[redshiftoggle]
-interval=once
+[mailbox]
+label=
+interval=60
+signal=12
 
 [kdeconnect-i3]
 interval=60
 label=
 
+[redshiftoggle]
+interval=once
+
 [disk]
-interval=60
+interval=120
 command=disk /
 label=
 
@@ -61,7 +61,7 @@ interval=60
 label=
 
 [cpu]
-interval=10
+interval=7
 label=
 
 [bluetooth]
@@ -78,7 +78,7 @@ label=
 
 [battery]
 command=battery BAT0
-interval=2
+interval=10
 
 [volume]
 interval=once
