@@ -27,6 +27,7 @@ if [ "$2" = "no-reload" ]; then
 fi
 
 if [ "$2" = "post-setup" ]; then
+	make-i3-config
 	exit
 else
 	echo "To fully set the new theme we need to logout (It refreshes the i3bar with the new colors)"
