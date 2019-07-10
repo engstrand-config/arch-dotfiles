@@ -6,7 +6,6 @@ set-dunst-colors
 
 [ -f "$HOME/.xprofile" ] && . ~/.xprofile
 
-setxkbmap se
 wal -R
 
 # Write colors into colors.Xresources so that i3 can access them

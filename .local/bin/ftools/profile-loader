@@ -1,7 +1,8 @@
 #!/usr/bin/bash
 
-path="~/.dotfiles/profiles/$(whoami)"
+path=~/.dotfiles/profiles/$(whoami)
 
 if [ -d "$path" ]; then
+	echo "HELLO??"
 	bash $path/load
 fi
