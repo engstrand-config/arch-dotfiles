@@ -1,9 +1,5 @@
 #!/usr/bin/bash
 
-USERNAME=$(whoami)
+PATH=~/.dotfiles/profiles/$(whoami)
 
-if [ "$USERNAME" = "fredrik" ]; then
-	bash ~/.dotfiles/profiles/fredrik/load
-elif [ "$USERNAME" = "johan" ]; then
-	bash ~/.dotfiles/profiles/johan/load
-fi
+[ -d "$PATH" ] && bash $PATH/load
