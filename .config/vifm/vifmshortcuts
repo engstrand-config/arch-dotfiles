@@ -43,6 +43,10 @@ map gfbs :cd ~/FARBS<CR>
 map tfbs <tab>:cd ~/FARBS<CR><tab>
 map Mfbs <tab>:cd ~/FARBS<CR><tab>:mo<CR>
 map Yfbs <tab>:cd ~/FARBS<CR><tab>:co<CR>
+map gpf :cd ~/.dotfiles/profiles/$(whoami)<CR>
+map tpf <tab>:cd ~/.dotfiles/profiles/$(whoami)<CR><tab>
+map Mpf <tab>:cd ~/.dotfiles/profiles/$(whoami)<CR><tab>:mo<CR>
+map Ypf <tab>:cd ~/.dotfiles/profiles/$(whoami)<CR><tab>:co<CR>
 map gmn :cd /mnt<CR>
 map tmn <tab>:cd /mnt<CR><tab>
 map Mmn <tab>:cd /mnt<CR><tab>:mo<CR>
@@ -69,3 +73,5 @@ map cfmc :e ~/.dotfiles/.config/ncmpcpp/config<CR>
 map er :e ~/Documents/referbib<CR>
 map cfB :e ~/.dotfiles/.config/i3blocks/config<CR>
 map cfk :e ~/.dotfiles/.config/sxhkd/sxhkdrc<CR>
+map pe :e ~/.dotfiles/profiles/$(whoami)/exports<CR>
+map pl :e ~/.dotfiles/profiles/$(whoami)/load<CR>

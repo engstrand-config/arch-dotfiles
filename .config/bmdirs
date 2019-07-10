@@ -10,5 +10,6 @@ lb	~/.dotfiles/.local/bin
 ftl	~/.dotfiles/.local/bin/ftools
 blocks 	~/.dotfiles/.local/bin/statusbar
 fbs	~/FARBS
+pf	~/.dotfiles/profiles/$(whoami)
 mn	/mnt
 . 	~/.dotfiles

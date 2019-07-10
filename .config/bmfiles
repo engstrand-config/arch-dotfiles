@@ -16,3 +16,5 @@ cfmc	~/.dotfiles/.config/ncmpcpp/config
 er	~/Documents/referbib
 cfB	~/.dotfiles/.config/i3blocks/config
 cfk	~/.dotfiles/.config/sxhkd/sxhkdrc
+pe	~/.dotfiles/profiles/$(whoami)/exports
+pl	~/.dotfiles/profiles/$(whoami)/load
