@@ -1,23 +1,48 @@
 # vim: filetype=i3
 # File originally by Luke Smith <https://lukesmith.xyz>
 
-# This config file will use environmental variables such as $BROWSER and $TERMINAL.
-# You can set these variables in ~/.profile or ~/.bash_profile if you have it as below:
-#
-# export FILE="ranger"
-# export TERMINAL="st"
+#set_from_resource $fg i3wm.color7 #f0f0f0
+#set_from_resource $bg i3wm.color2 #f0f0f0
+#set_from_resource $barbg i3wm.background #111111
+#set_from_resource $critical i3wm.critical #fc0206
 
-# Set colors from Xresources
-# Change 'color7' and 'color2' to whatever colors you want i3 to use
-# from the generated scheme.
-# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
-# it fails to get colors from Xresources.
-set_from_resource $fg i3wm.color7 #f0f0f0
-set_from_resource $bg i3wm.color2 #f0f0f0
-set_from_resource $barbg i3wm.background #111111
-set_from_resource $critical i3wm.critical #fc0206
+# Colors
+set $fg <wal-light>
+set $bg <wal-dark>
+set $bg_dark <wal-bg-dark>
+set $bar_bg <bar-background>
+set $bg_light <wal-bg-light>
+set $critical <wal-critical>
+set $success <wal-success>
 
-#exec compton --config ~/.config/compton.conf
+# Gaps
+set $gaps_inner <gaps-inner>
+set $gaps_outer <gaps-outer>
+
+# Applications
+set $ws_emacs <ws-emacs>
+set $ws_spotify <ws-spotify>
+set $ws_discord <ws-discord>
+set $ws_steam <ws-steam>
+set $ws_firefox <ws-firefox>
+
+# Workspaces
+set $ws1 "<ws1-name>"
+set $ws2 "<ws2-name>"
+set $ws3 "<ws3-name>"
+set $ws4 "<ws4-name>"
+set $ws5 "<ws5-name>"
+set $ws6 "<ws6-name>"
+set $ws7 "<ws7-name>"
+set $ws8 "<ws8-name>"
+set $ws9 "<ws9-name>"
+set $ws10 "<ws10-name>"
+
+# Other
+set $term --no-startup-id $TERMINAL
+set $mod Mod4
+set $window_border_size <window-border-size>
+
 exec --no-startup-id redshift -r -t 6500:2000
 exec --no-startup-id /usr/lib/kdeconnectd
 exec --no-startup-id wifi reconnect
@@ -34,30 +59,11 @@ client.focused_inactive $bg     $bg     $fg  $bg       $bg
 client.unfocused        $bg     $bg     $fg  $bg       $bg
 client.urgent           $bg     $bg     $fg  $bg       $bg
 client.placeholder      $bg     $bg     $fg  $bg       $bg
-
 client.background       $bg
 
-# #---Basic Definitions---# #
-for_window [class="^.*"] border pixel <window-border-size>
-gaps inner <gaps-inner>
-gaps outer <gaps-outer>
-set $term --no-startup-id $TERMINAL
-set $mod Mod4
-
-# #---Dropdown Windows---# #
-# General dropdown window traits. The order can matter.
-for_window [instance="dropdown_*"] floating enable
-for_window [instance="dropdown_*"] move scratchpad
-for_window [instance="dropdown_*"] sticky enable
-for_window [instance="dropdown_*"] scratchpad show
-for_window [instance="dropdown_tmuxdd"] resize set 625 450
-for_window [instance="dropdown_tmuxdd"] border pixel 1
-for_window [instance="dropdown_*"] move position center
-for_window [class="mpv"] floating enable
-for_window [class="mpv"] sticky enable
-for_window [class="mpv"] resize set 426 240
-for_window [class="mpv"] move position 0 21
-for_window [class="mpv"] border pixel 1
+# Set gaps
+gaps inner $gaps_inner
+gaps outer $gaps_outer
 
 bar {
 	height 20
@@ -71,100 +77,75 @@ bar {
 	separator_symbol "|"
 	tray_output none
 	colors {
-		background <bar-background>
+		background $bar_bg
 		urgent_workspace $critical $critical #ffffff
-		focused_workspace $fg $fg <bar-background>
-		inactive_workspace <bar-background> <bar-background> #ffffff
+		focused_workspace $fg $fg $bar_bg
+		inactive_workspace $bar_bg $bar_bg #ffffff
 	}
 }
 
-# YTDL
-bindsym $mod+Ctrl+p		exec --no-startup-id video-clipboard-player
-bindsym $mod+Ctrl+Left		[class="mpv"] focus; exec --no-startup-id corners "top left" 426 240
-bindsym $mod+Ctrl+Right 	[class="mpv"] focus; exec --no-startup-id corners "top right" 426 240
-bindsym $mod+Ctrl+Up		[class="mpv"] focus; exec --no-startup-id corners "bottom left" 426 240
-
-bindsym $mod+Ctrl+Down		[class="mpv"] focus; exec --no-startup-id corners "bottom right" 426 240
-
-# #---Basic Bindings---# #
+# Basic bindings
 bindsym $mod+Shift+Return	exec --no-startup-id samedir
-
 bindsym $mod+Shift+space 	floating toggle
 bindsym $mod+space		focus mode_toggle
-
 bindsym $mod+Shift+v		exec --no-startup-id emacs
-
 bindsym $mod+Escape		workspace prev
 bindsym $mod+Shift+Escape 	exec --no-startup-id prompt "Exit i3?" "i3-msg exit"
 
-#STOP/HIDE EVERYTHING:
-bindsym $mod+Shift+Delete	exec --no-startup-id lmc truemute ; exec --no-startup-id lmc pause ; exec --no-startup-id pauseallmpv; workspace 0; exec $term -e htop ; exec $term -e $FILE
+# Arrow keys
+bindsym $mod+Left		focus left
+bindsym $mod+Down		focus down
+bindsym $mod+Up			focus up
+bindsym $mod+Right 		focus right
+bindsym $mod+Shift+Left		move left
+bindsym $mod+Shift+Down		move down
+bindsym $mod+Shift+Up		move up
+bindsym $mod+Shift+Right 	move right
 
-# #---Letter Key Bindings---# #
+# Letter Key Bindings
 bindsym $mod+q			[con_id="__focused__" instance="^(?!dropdown_).*$"] kill
 bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdown_).*$"] exec --no-startup-id kill -9 `xdotool getwindowfocus getwindowpid`
 #bindsym $mod+Shift+q		exec --no-startup-id i3-persist.sh kill
-
 bindsym $mod+Shift+r		exec --no-startup-id winresize
-
 bindsym $mod+t			split toggle
 bindsym $mod+Shift+t		gaps inner current set 15; gaps outer current set 15
-
 bindsym $mod+Shift+y		exec --no-startup-id i3resize left
-
 bindsym $mod+u			exec --no-startup-id ddspawn tmuxdd
 bindsym $mod+Shift+u		exec --no-startup-id i3resize down
-
 bindsym $mod+Shift+i		exec --no-startup-id i3resize up
-
 bindsym $mod+o			sticky toggle
 bindsym $mod+Shift+o		exec --no-startup-id i3resize right
-
 bindsym $mod+s			gaps inner current plus 5
 bindsym $mod+Shift+s		gaps inner current minus 5
-
-bindsym $mod+Shift+d		gaps inner current set <gaps-inner>; gaps outer current set <gaps-inner>
-
+bindsym $mod+Shift+d		gaps inner current set $gaps_inner; gaps outer current set $gaps_outer
 bindsym $mod+x			[urgent=latest] focus
-
-set $freeze Distraction-free mode (super+shift+f to reactivate bindings)
-mode "$freeze" { bindsym $mod+Shift+f mode "default"
-}
-
 bindsym $mod+f			fullscreen toggle
-bindsym $mod+Shift+f		mode "$freeze" ;; exec --no-startup-id notify-send "Distraction-free mode activated." "Press Super+Shift+f to return."
-
 bindsym $mod+g			workspace prev
-
 bindsym $mod+h			focus left
 bindsym $mod+Shift+h		move left 30
 bindsym $mod+Ctrl+h		move workspace to output left
-
 bindsym $mod+j			focus down
 bindsym $mod+Shift+j		move down 30
 bindsym $mod+Ctrl+j		move workspace to output down
-
 bindsym $mod+k			focus up
 bindsym $mod+Shift+k		move up 30
 bindsym $mod+Ctrl+k		move workspace to output up
-
 bindsym $mod+l			focus right
 bindsym $mod+Shift+l		move right 30
 bindsym $mod+Ctrl+l		move workspace to output right
-
 bindsym $mod+z			gaps outer current plus 5
 bindsym $mod+Shift+z		gaps outer current minus 5
-
 bindsym $mod+c			exec --no-startup-id cabl
-
 bindsym $mod+v			exec --no-startup-id $term -e $EDITOR -c "VimwikiIndex"
-
 bindsym $mod+b			bar mode toggle
 bindsym $mod+Shift+b		floating toggle; sticky toggle; exec --no-startup-id hover left
-
 bindsym $mod+Shift+n		floating toggle; sticky toggle; exec --no-startup-id hover right
 
-# #---Workspace Bindings---# #
+# Functions
+bindsym $mod+F2			restart
+bindsym $mod+Shift+Delete	exec --no-startup-id lmc truemute ; exec --no-startup-id lmc pause ; exec --no-startup-id pauseallmpv; workspace 0; exec $term -e htop ; exec $term -e $FILE
+
+# Workspaces
 bindsym $mod+Home		workspace $ws1
 bindsym $mod+Shift+Home		move container to workspace $ws1
 bindsym $mod+End		workspace $ws10
@@ -183,20 +164,7 @@ bindsym $mod+apostrophe		split vertical ;; exec $term
 bindsym $mod+Shift+slash	kill
 bindsym $mod+backslash		workspace back_and_forth
 
-
-
-set $ws1 "<ws1-name>"
-set $ws2 "<ws2-name>"
-set $ws3 "<ws3-name>"
-set $ws4 "<ws4-name>"
-set $ws5 "<ws5-name>"
-set $ws6 "<ws6-name>"
-set $ws7 "<ws7-name>"
-set $ws8 "<ws8-name>"
-set $ws9 "<ws9-name>"
-set $ws10 "<ws10-name>"
-
-# switch to workspace
+# Switch to workspaces
 bindsym $mod+1		workspace $ws1
 bindsym $mod+2		workspace $ws2
 bindsym $mod+3		workspace $ws3
@@ -208,7 +176,7 @@ bindsym $mod+8		workspace $ws8
 bindsym $mod+9		workspace $ws9
 bindsym $mod+0		workspace $ws10
 
-# move focused container to workspace
+# Move focused container to workspace
 bindsym $mod+Shift+1	move container to workspace $ws1
 bindsym $mod+Shift+2	move container to workspace $ws2
 bindsym $mod+Shift+3	move container to workspace $ws3
@@ -220,26 +188,53 @@ bindsym $mod+Shift+8	move container to workspace $ws8
 bindsym $mod+Shift+9	move container to workspace $ws9
 bindsym $mod+Shift+0	move container to workspace $ws10
 
+# YTDL bindings
+bindsym $mod+Ctrl+p		exec --no-startup-id video-clipboard-player
+bindsym $mod+Ctrl+Left		[class="mpv"] focus; exec --no-startup-id corners "top left" 426 240
+bindsym $mod+Ctrl+Right 	[class="mpv"] focus; exec --no-startup-id corners "top right" 426 240
+bindsym $mod+Ctrl+Up		[class="mpv"] focus; exec --no-startup-id corners "bottom left" 426 240
+bindsym $mod+Ctrl+Down		[class="mpv"] focus; exec --no-startup-id corners "bottom right" 426 240
+
+# Set borders
+for_window [class="^.*"] border pixel $window_border_size
+
+# Bindings for applications
 for_window [window_role="GtkFileChooserDialog"] resize set 800 600
 for_window [window_role="GtkFileChooserDialog"] move position center
 for_window [title="Default - Wine desktop"] floating enable
-for_window [instance="emacs"] move to workspace <ws-emacs>
-for_window [instance="emacs"] workspace <ws-emacs>
-for_window [class="Spotify"] move to workspace <ws-spotify>
-for_window [class="discord"] move to workspace <ws-discord>
+for_window [instance="emacs"] move to workspace $ws_emacs
+for_window [instance="emacs"] workspace $ws_emacs
+for_window [class="Spotify"] move to workspace $ws_spotify
+for_window [class="discord"] move to workspace $ws_discord
 for_window [title="nmtui"] floating enable
 for_window [class="floating-*"] floating enable
 for_window [class="floating-*"] focus
-assign [class="Firefox"] <ws-firefox>
-assign [class="Steam"] <ws-steam>
-
-focus_on_window_activation focus
+assign [class="Firefox"] $ws_firefox
+assign [class="Steam"] $ws_steam
 
 # Bindings to make the webcam float and stick.
 for_window [title="mpvfloat"] floating enable
 for_window [title="mpvfloat"] sticky enable
 for_window [title="mpvfloat"] border pixel 0
 no_focus [title="mpvfloat"]
+
+# Dropdown Windows
+for_window [instance="dropdown_*"] floating enable
+for_window [instance="dropdown_*"] move scratchpad
+for_window [instance="dropdown_*"] sticky enable
+for_window [instance="dropdown_*"] scratchpad show
+for_window [instance="dropdown_tmuxdd"] resize set 625 450
+for_window [instance="dropdown_tmuxdd"] border pixel 1
+for_window [instance="dropdown_*"] move position center
+for_window [class="mpv"] floating enable
+for_window [class="mpv"] sticky enable
+for_window [class="mpv"] resize set 426 240
+for_window [class="mpv"] move position 0 21
+for_window [class="mpv"] border pixel 1
+
+# This is so that when clicking on a steam notification, we switch
+# to the steam workspace. Among other things.
+focus_on_window_activation focus
 
 # Save workspace mode.
 mode "save" {
@@ -261,8 +256,6 @@ mode "save" {
   bindsym $mod+s mode "default"
 }
 
-bindsym $mod+Ctrl+s mode "save"
-
 # Restore workspace mode.
 mode "restore" {
   bindsym 1 exec i3-resurrect restore -w $ws1
@@ -283,17 +276,12 @@ mode "restore" {
   bindsym $mod+n mode "default"
 }
 
+# Distraction mode
+mode "freeze" { 
+  bindsym $mod+Shift+f mode "default"
+}
+
+# Bind modes to keys
+bindsym $mod+Ctrl+s mode "save"
 bindsym $mod+Ctrl+n mode "restore"
-
-# #---Function Buttons---# #
-bindsym $mod+F2		restart
-
-# #---Arrow Keys---# #
-bindsym $mod+Left		focus left
-bindsym $mod+Down		focus down
-bindsym $mod+Up			focus up
-bindsym $mod+Right 		focus right
-bindsym $mod+Shift+Left		move left
-bindsym $mod+Shift+Down		move down
-bindsym $mod+Shift+Up		move up
-bindsym $mod+Shift+Right 	move right
+bindsym $mod+Shift+f mode "freeze" ;; exec --no-startup-id notify-send "Distraction-free mode activated." "Press Super+Shift+f to return."
