@@ -23,6 +23,8 @@ function update_repo() {
 			
 		# If the repo folder is the Pywalfox repo, move the updated files to your profile 
 		[ "$1" = "~/Repos/Pywalfox" ] && load-firefox-css
+
+		notify-send "git-auto-updater" "$1 was updated"
 	elif [ "$REMOTE" = "$BASE" ]; then
     		echo "Need to push"
 	else
