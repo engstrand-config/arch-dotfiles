@@ -27,11 +27,11 @@ set $ws9 "<ws9-name>"
 set $ws10 "<ws10-name>"
 
 # Applications
-set $ws_emacs <ws-emacs>
-set $ws_spotify <ws-spotify>
-set $ws_discord <ws-discord>
-set $ws_steam <ws-steam>
-set $ws_firefox <ws-firefox>
+set $ws_emacs "<ws-emacs>"
+set $ws_spotify "<ws-spotify>"
+set $ws_discord "<ws-discord>"
+set $ws_steam "<ws-steam>"
+set $ws_firefox "<ws-firefox>"
 
 # Other
 set $term --no-startup-id $TERMINAL
@@ -250,6 +250,7 @@ mode "save" {
   bindsym Escape mode "default"
   bindsym s mode "default"
   bindsym $mod+s mode "default"
+  bindsym $mod+q mode "default"
 }
 
 # Restore workspace mode.
@@ -270,6 +271,7 @@ mode "restore" {
   bindsym Escape mode "default"
   bindsym n mode "default"
   bindsym $mod+n mode "default"
+  bindsym $mod+q mode "default"
 }
 
 # Distraction mode
