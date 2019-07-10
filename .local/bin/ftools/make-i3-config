@@ -10,9 +10,9 @@ function replace() {
     if [ -z "$2" ] && [ ! "$2" = "" ]; then
 	# If the var is not set in the profile exports
 	# use $3 instead (fallback value)
-	sed -i "s/$1/$3/g" $CONFIG_PATH
+	sed -i "s/"$1"/"$3"/g" $CONFIG_PATH
     else
-	sed -i "s/$1/$2/g" $CONFIG_PATH
+	sed -i "s/"$1"/"$2"/g" $CONFIG_PATH
     fi
 }
 
