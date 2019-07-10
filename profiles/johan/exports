@@ -6,11 +6,14 @@ export PROFILE_GAPS_INNER="10"
 export PROFILE_GAPS_OUTER="15"
 export PROFILE_WINDOW_BORDER_SIZE="2"
 
-export PROFILE_WS1_NAME="1:   Terminal"
+export PROFILE_BAR_BACKGROUND="$WAL_BG_DARK_TRANSPARENT"
+
+export PROFILE_WS1_NAME="1:   Terminal"
 export PROFILE_WS2_NAME="2:   Firefox"
 #export PROFILE_WS3_NAME="3:  "
 export PROFILE_WS4_NAME="4:   Steam"
 export PROFILE_WS5_NAME="5:   Discord"
+export PROFILE_WS6_NAME="6:   Spotify"
 
 export PROFILE_WS_FIREFOX="$PROFILE_WS2_NAME"
 export PROFILE_WS_STEAM="$PROFILE_WS4_NAME"
