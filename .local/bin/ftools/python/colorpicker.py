@@ -1,7 +1,6 @@
 import sys
 import math
 
-# #16133a
 MAX=80
 LIGHTNESS_MODIFIER=25
 
@@ -60,9 +59,11 @@ def rgb_to_hex(rgb):
 
     return '#%02x%02x%02x' % (r, g, b)
 
-def limit(num):
-    if num > MAX:
-        return MAX
+def limit(num, max):
+    if num > max:
+        return max
+    elif num < 0:
+	    return 0
     else:
         return num
 
@@ -70,16 +71,16 @@ h = sys.argv[1].lstrip('#')
 values = hex_to_rgb(h)
 
 if sys.argv[2] == "critical":
-    print(rgb_to_hex((255, limit(values[1]), limit(values[2]))))
+    print(rgb_to_hex((255, limit(values[1], MAX), limit(values[2], MAX))))
 elif sys.argv[2] == "success":
-    print(rgb_to_hex((limit(values[0]), 255, limit(values[2]))))
+    print(rgb_to_hex((limit(values[0], MAX), 255, limit(values[2], MAX))))
 elif sys.argv[2] == "background-light":
     hsv = rgb_to_hsv(values)
-    rgb = hsv_to_rgb((hsv[0], hsv[1], (hsv[2] + LIGHTNESS_MODIFIER)))
+    rgb = hsv_to_rgb((hsv[0], hsv[1], limit(hsv[2] + LIGHTNESS_MODIFIER, 255)))
     print(rgb_to_hex(rgb))
 elif sys.argv[2] == "darker":
     hsv = rgb_to_hsv(values)
-    rgb = hsv_to_rgb((hsv[0], hsv[1], (hsv[2] - LIGHTNESS_MODIFIER)))
+    rgb = hsv_to_rgb((hsv[0], hsv[1], limit(hsv[2] - LIGHTNESS_MODIFIER, 255)))
     print(rgb_to_hex(rgb))
 
 

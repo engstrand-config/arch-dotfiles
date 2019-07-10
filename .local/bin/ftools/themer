@@ -8,6 +8,10 @@ wal -i $1
 
 # Set the steam theme
 wal-steam -w
+. ~/.dotfiles/.local/bin/ftools/make-wal-colors
+make-dunst-config
+make-firefox-config
+make-i3-config
 
 rm -rf ~/.local/share/Steam/skins/metro
 
@@ -21,13 +25,11 @@ COLOR=$(cat $SKIN_PATH/custom.styles | grep -m 1 'ClientBG=".*"' | sed -e 's/Cli
 sed -i 's/ClientBG="*".*/ClientBG='"\"$COLOR\""'/' "$SKIN_PATH"/colors.styles
 sed -i 's/bgGameList="*".*/bgGameList='"\"$COLOR\""'/' "$SKIN_PATH"/colors.styles
 
-
 if [ "$2" = "no-reload" ]; then
 	exit
 fi
 
 if [ "$2" = "post-setup" ]; then
-	make-i3-config
 	exit
 else
 	echo "To fully set the new theme we need to logout (It refreshes the i3bar with the new colors)"
