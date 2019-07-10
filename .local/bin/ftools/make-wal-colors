@@ -1,0 +1,24 @@
+#!/usr/bin/bash
+
+. "${HOME}/.cache/wal/colors.sh"
+
+CRITICAL=$(python ~/.dotfiles/.local/bin/ftools/python/colorpicker.py "$color2" "critical")
+CRITICAL_DARK=$(python ~/.dotfiles/.local/bin/ftools/python/colorpicker.py "$CRITICAL" "darker")
+SUCCESS=$(python ~/.dotfiles/.local/bin/ftools/python/colorpicker.py "$color2" "success")
+BACKGROUND_LIGHT=$(python ~/.dotfiles/.local/bin/ftools/python/colorpicker.py "$background" "background-light")
+
+export WAL_LIGHT="$color7"
+export WAL_DARK="$color2"
+export WAL_0="$color0"
+export WAL_1="$color1"
+export WAL_3="$color3"
+export WAL_4="$color4"
+export WAL_5="$color5"
+export WAL_6="$color6"
+
+export WAL_SUCCESS="$SUCCESS"
+export WAL_CRITICAL="$CRITICAL"
+export WAL_CRITICAL_DARK="$CRITICAL_DARK"
+export WAL_BG_LIGHT="$BACKGROUND_LIGHT"
+export WAL_BG_DARK="$background"
+

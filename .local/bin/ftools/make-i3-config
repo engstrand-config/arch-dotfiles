@@ -1,5 +1,6 @@
 #!/usr/bin/bash
 
+. "${HOME}/.dotfiles/.local/bin/ftools/make-wal-colors"
 . "${HOME}/.dotfiles/profiles/$(whoami)/exports"
 
 CONFIG_TEMPLATE_PATH=~/.dotfiles/.config/i3/config.template
