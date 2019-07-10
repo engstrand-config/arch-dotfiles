@@ -57,7 +57,7 @@ map cfb :e ~/.dotfiles/.bashrc<CR>
 map cfa :e ~/.dotfiles/.config/aliasrc<CR>
 map cfz :e ~/.dotfiles/.zshrc<CR>
 map cfv :e ~/.dotfiles/.config/nvim/init.vim<CR>
-map cfi :e ~/.dotfiles/.config/i3/config<CR>
+map cfi :e ~/.dotfiles/.config/i3/config.template<CR>
 map cfm :e ~/.dotfiles/.config/mutt/muttrc<CR>
 map eb :e ~/Documents/LaTeX/uni.bib<CR>
 map cv :e ~/Documents/LaTeX/cv.tex<CR>

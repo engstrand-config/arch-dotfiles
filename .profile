@@ -1,6 +1,8 @@
 #!/bin/sh
 # Profile file. Runs on login.
 
+. "${HOME}/.cache/wal/colors.sh"
+
 # Adds `~/.scripts` and all subdirectories to $PATH
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 export EDITOR="nano"
@@ -14,11 +16,15 @@ export SUDO_ASKPASS="$HOME/.local/bin/tools/dmenupass"
 export NOTMUCH_CONFIG="$HOME/.config/notmuch-config"
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
 
-# Load profile specific env variables
-. "${HOME}/.dotfiles/profiles/$(whoami)/exports"
-
-# Set pywal colors so that they can be used by other scripts
-. "${HOME}/.cache/wal/colors.sh"
+# less/man colors
+export LESS=-R
+export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"; a="${a%_}"
+export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"; a="${a%_}"
+export LESS_TERMCAP_me="$(printf '%b' '[0m')"; a="${a%_}"
+export LESS_TERMCAP_so="$(printf '%b' '[01;44;33m')"; a="${a%_}"
+export LESS_TERMCAP_se="$(printf '%b' '[0m')"; a="${a%_}"
+export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"; a="${a%_}"
+export LESS_TERMCAP_ue="$(printf '%b' '[0m')"; a="${a%_}"
 
 CRITICAL=$(python ~/.dotfiles/.local/bin/ftools/python/colorpicker.py "$color2" "critical")
 CRITICAL_DARK=$(python ~/.dotfiles/.local/bin/ftools/python/colorpicker.py "$CRITICAL" "darker")
@@ -40,21 +46,21 @@ export WAL_CRITICAL_DARK="$CRITICAL_DARK"
 export WAL_BG_LIGHT="$BACKGROUND_LIGHT"
 export WAL_BG_DARK="$background"
 
-# less/man colors
-export LESS=-R
-export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"; a="${a%_}"
-export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"; a="${a%_}"
-export LESS_TERMCAP_me="$(printf '%b' '[0m')"; a="${a%_}"
-export LESS_TERMCAP_so="$(printf '%b' '[01;44;33m')"; a="${a%_}"
-export LESS_TERMCAP_se="$(printf '%b' '[0m')"; a="${a%_}"
-export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"; a="${a%_}"
-export LESS_TERMCAP_ue="$(printf '%b' '[0m')"; a="${a%_}"
+# Load profile specific env variables
+PROFILE_PATH="${HOME}/.dotfiles/profiles/$(whoami)"
+if [ -d "$PROFILE_PATH" ]; then
+	. "${HOME}/.dotfiles/profiles/$(whoami)/exports"
+fi
 
-# Update the firefox theme
-load-firefox-css
+make-firefox-config
+make-dunst-config
+make-i3-config
 
-# Update bmdirs and bmfiles 
+# Update bmdirs and bmfiles
 shortcuts
+
+# Restart i3 so that the new config can take effect
+i3-msg restart
 
 mpd >/dev/null 2>&1 &
 

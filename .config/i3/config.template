@@ -1,19 +1,14 @@
 # vim: filetype=i3
 # File originally by Luke Smith <https://lukesmith.xyz>
 
-#set_from_resource $fg i3wm.color7 #f0f0f0
-#set_from_resource $bg i3wm.color2 #f0f0f0
-#set_from_resource $barbg i3wm.background #111111
-#set_from_resource $critical i3wm.critical #fc0206
-
 # Colors
-set $fg <wal-light>
-set $bg <wal-dark>
-set $bg_dark <wal-bg-dark>
-set $bar_bg <bar-background>
-set $bg_light <wal-bg-light>
-set $critical <wal-critical>
-set $success <wal-success>
+set $fg "<wal-light>"
+set $bg "<wal-dark>"
+set $bg_dark "<wal-bg-dark>"
+set $bar_bg "<bar-background>"
+set $bg_light "<wal-bg-light>"
+set $critical "<wal-critical>"
+set $success "<wal-success>"
 
 # Gaps
 set $gaps_inner <gaps-inner>
@@ -48,6 +43,7 @@ exec --no-startup-id /usr/lib/kdeconnectd
 exec --no-startup-id wifi reconnect
 exec --no-startup-id xbindkeys
 exec --no-startup-id profile-loader
+exec --no-startup-id dunst
 
 # Spotify seems to be running some pretty heavy background services even
 # though the app is not running, even on startup
