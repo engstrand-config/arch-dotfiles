@@ -7,7 +7,7 @@ CONFIG_TEMPLATE_PATH=~/.dotfiles/.config/i3/config.template
 CONFIG_PATH=~/.config/i3/config
 
 function replace() {
-    if [ -z "$2" ] && [ ! "$2" = "" ]; then
+    if [ -z "$2" ] || [ "$2" = "" ]; then
 	# If the var is not set in the profile exports
 	# use $3 instead (fallback value)
 	sed -i "s/$1/$3/g" $CONFIG_PATH
@@ -23,36 +23,36 @@ cp $CONFIG_TEMPLATE_PATH $CONFIG_PATH
 
 # These are not going to change via the profile
 # placeholder			override			fallback
-replace "<wal-light>" 		$PROFILE_WAL_LIGHT 		$WAL_LIGHT
-replace "<wal-dark>" 		$PROFILE_WAL_DARK 		$WAL_DARK
-replace "<wal-bg-dark>" 	$PROFILE_WAL_BG_DARK 		$WAL_BG_DARK
-replace "<wal-bg-light>" 	$PROFILE_WAL_BG_LIGHT 		$WAL_BG_LIGHT
-replace "<wal-critical>" 	$PROFILE_WAL_CRITICAL 		$WAL_CRITICAL
-replace "<wal-critical-dark>" 	$PROFILE_WAL_CRITICAL_DARK 	$WAL_CRITICAL_DARK
-replace "<wal-success>" 	$PROFILE_WAL_SUCCESS 		$WAL_SUCCESS
+replace "<wal-light>" 		"$PROFILE_WAL_LIGHT" 		"$WAL_LIGHT"
+replace "<wal-dark>" 		"$PROFILE_WAL_DARK"		"$WAL_DARK"
+replace "<wal-bg-dark>" 	"$PROFILE_WAL_BG_DARK" 		"$WAL_BG_DARK"
+replace "<wal-bg-light>" 	"$PROFILE_WAL_BG_LIGHT" 	"$WAL_BG_LIGHT"
+replace "<wal-critical>" 	"$PROFILE_WAL_CRITICAL"		"$WAL_CRITICAL"
+replace "<wal-critical-dark>" 	"$PROFILE_WAL_CRITICAL_DARK" 	"$WAL_CRITICAL_DARK"
+replace "<wal-success>" 	"$PROFILE_WAL_SUCCESS" 		"$WAL_SUCCESS"
 
 # These will be loaded from the profile
-replace "<bar-background>" 	$PROFILE_BAR_BACKGROUND 	$WAL_BG_DARK
-replace "<window-border-size>" 	$PROFILE_WINDOW_BORDER_SIZE 	"1"
+replace "<bar-background>" 	"$PROFILE_BAR_BACKGROUND" 	"$WAL_BG_DARK"
+replace "<window-border-size>" 	"$PROFILE_WINDOW_BORDER_SIZE" 	"1"
 
-replace "<gaps-inner>" 		$PROFILE_GAPS_INNER 		"4"
-replace "<gaps-outer>" 		$PROFILE_GAPS_OUTER 		"2"
+replace "<gaps-inner>" 		"$PROFILE_GAPS_INNER" 		"4"
+replace "<gaps-outer>" 		"$PROFILE_GAPS_OUTER" 		"2"
 
-replace "<ws-emacs>" 		$PROFILE_WS_EMACS		"7"
-replace "<ws-spotify>"		$PROFILE_WS_SPOTIFY 		"6"
-replace "<ws-discord>" 		$PROFILE_WS_DISCORD		"5"
-replace "<ws-steam>" 		$PROFILE_WS_STEAM		"4"
-replace "<ws-firefox>" 		$PROFILE_WS_FIREFOX		"2"
+replace "<ws-emacs>" 		"$PROFILE_WS_EMACS"		"7"
+replace "<ws-spotify>"		"$PROFILE_WS_SPOTIFY" 		"6"
+replace "<ws-discord>" 		"$PROFILE_WS_DISCORD"		"5"
+replace "<ws-steam>" 		"$PROFILE_WS_STEAM"		"4"
+replace "<ws-firefox>" 		"$PROFILE_WS_FIREFOX"		"2"
 
-replace "<ws1-name>" 		$PROFILE_WS1_NAME		"1"
-replace "<ws2-name>" 		$PROFILE_WS2_NAME		"2"
-replace "<ws3-name>" 		$PROFILE_WS3_NAME		"3"
-replace "<ws4-name>" 		$PROFILE_WS4_NAME		"4"
-replace "<ws5-name>" 		$PROFILE_WS5_NAME		"5"
-replace "<ws6-name>" 		$PROFILE_WS6_NAME		"6"
-replace "<ws7-name>" 		$PROFILE_WS7_NAME		"7"
-replace "<ws8-name>" 		$PROFILE_WS8_NAME 		"8"
-replace "<ws9-name>" 		$PROFILE_WS9_NAME 		"9"
-replace "<ws10-name>" 		$PROFILE_WS10_NAME 		"10"
+replace "<ws1-name>" 		"$PROFILE_WS1_NAME"		"1"
+replace "<ws2-name>" 		"$PROFILE_WS2_NAME"		"2"
+replace "<ws3-name>" 		"$PROFILE_WS3_NAME"		"3"
+replace "<ws4-name>" 		"$PROFILE_WS4_NAME"		"4"
+replace "<ws5-name>" 		"$PROFILE_WS5_NAME"		"5"
+replace "<ws6-name>" 		"$PROFILE_WS6_NAME"		"6"
+replace "<ws7-name>" 		"$PROFILE_WS7_NAME"		"7"
+replace "<ws8-name>" 		"$PROFILE_WS8_NAME" 		"8"
+replace "<ws9-name>" 		"$PROFILE_WS9_NAME" 		"9"
+replace "<ws10-name>" 		"$PROFILE_WS10_NAME" 		"10"
 
 i3-msg restart 

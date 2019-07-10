@@ -6,3 +6,4 @@ stowsh ~/.dotfiles -s
 rm -rf ~/.git
 rm -rf ~/.githooks
 rm -rf ~/profiles
+rm ~/git-repo-paths
