@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+
+# Add all repos in here so that other scripts can access them
+# For example the git-auto-updater or git-status-check
+REPOS=(
+	~/.dotfiles
+	~/Repos/Pywalfox
+	~/Repos/RSS-Notify
+	~/FARBS
+)

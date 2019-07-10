@@ -1,10 +1,10 @@
-echo "---------------------------------------------------"
-cd ~/FARBS
-echo -e "\033[1mFARBS (~/FARBS):\033[0m"
-git status
-echo "---------------------------------------------------"
+#!/usr/bin/bash
 
-cd ~/.dotfiles
-echo -e "\033[1mDotfiles (~/.dotfiles):\033[0m"
-git status
-echo "---------------------------------------------------"
+. ~/.dotfiles/git-repo-paths
+
+for repo in ${REPOS[*]}; do
+	cd $repo
+	echo -e "\033[1m$repo:\033[0m"
+	git status
+	echo " "	
+done

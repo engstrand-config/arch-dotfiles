@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
-PATH=~/.dotfiles/profiles/$(whoami)
+path="~/.dotfiles/profiles/$(whoami)"
 
-[ -d "$PATH" ] && bash $PATH/load
+if [ -d "$path" ]; then
+	bash $path/load
+fi

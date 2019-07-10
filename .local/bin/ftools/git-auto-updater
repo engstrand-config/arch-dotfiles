@@ -1,0 +1,36 @@
+#!/usr/bin/bash
+
+. ~/.dotfiles/git-repo-paths
+
+function update_repo() {
+	cd $1
+	echo -e "\033[1m$1:\033[0m"
+
+	UPSTREAM='@{u}'
+	LOCAL=$(git rev-parse @)
+	REMOTE=$(git rev-parse "$UPSTREAM")
+	BASE=$(git merge-base @ "$UPSTREAM")
+
+	if [ "$LOCAL" = "$REMOTE" ]; then
+    		echo "Up-to-date"
+	elif [ "$LOCAL" = "$BASE" ]; then
+    		echo "Repo is behind, fetching remote..."
+		git pull
+
+		# If the repo folder is the dotfiles repo, symlink dotfiles just incase anything new 
+		[ "$1" = "~/.dotfiles" ] && symlink-dotfiles
+			
+		# If the repo folder is the Pywalfox repo, move the updated files to your profile 
+		[ "$1" = "~/Repos/Pywalfox" ] && load-firefox-css
+	elif [ "$REMOTE" = "$BASE" ]; then
+    		echo "Need to push"
+	else
+    		echo "Diverged"
+	fi
+
+	echo ""	
+}
+
+for repo in ${REPOS[*]}; do update_repo $repo; done
+
+
