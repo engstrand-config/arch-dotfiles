@@ -1,5 +1,3 @@
 #!/usr/bin/bash
 
 export KDE_DEVICE_ID="5b47b4994b69f3fc"
-
-export PROFILE_BAR_BACKGROUND="#000000"
