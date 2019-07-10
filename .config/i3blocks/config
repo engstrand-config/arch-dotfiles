@@ -17,14 +17,14 @@ label=
 interval=once
 signal=11
 
-[discord-i3]
-label=
-interval=once
-signal=8
+#[discord-i3]
+#label=
+#interval=once
+#signal=8
 
-[steam-i3]
-label=
-interval=once
+#[steam-i3]
+#label=
+#interval=once
 
 [news]
 label=📰
