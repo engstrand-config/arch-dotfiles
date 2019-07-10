@@ -1,3 +1,19 @@
 #!/usr/bin/bash
 
 export KDE_DEVICE_ID="312d44db7a2f4504"
+
+export PROFILE_GAPS_INNER="10"
+export PROFILE_GAPS_OUTER="15"
+export PROFILE_WINDOW_BORDER_SIZE="2"
+
+export PROFILE_WS1_NAME="1:Terminal"
+export PROFILE_WS2_NAME="2:   Firefox"
+#export PROFILE_WS3_NAME="3:  "
+export PROFILE_WS4_NAME="4:   Steam"
+export PROFILE_WS5_NAME="5:   Discord"
+
+export PROFILE_WS_FIREFOX="$ws2"
+export PROFILE_WS_STEAM="$ws4"
+export PROFILE_WS_DISCORD="$ws5"
+export PROFILE_WS_SPOTIFY="$ws6"
+export PROFILE_WS_EMACS="$ws7"

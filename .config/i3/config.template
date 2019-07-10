@@ -14,13 +14,6 @@ set $success "<wal-success>"
 set $gaps_inner <gaps-inner>
 set $gaps_outer <gaps-outer>
 
-# Applications
-set $ws_emacs <ws-emacs>
-set $ws_spotify <ws-spotify>
-set $ws_discord <ws-discord>
-set $ws_steam <ws-steam>
-set $ws_firefox <ws-firefox>
-
 # Workspaces
 set $ws1 "<ws1-name>"
 set $ws2 "<ws2-name>"
@@ -32,6 +25,13 @@ set $ws7 "<ws7-name>"
 set $ws8 "<ws8-name>"
 set $ws9 "<ws9-name>"
 set $ws10 "<ws10-name>"
+
+# Applications
+set $ws_emacs <ws-emacs>
+set $ws_spotify <ws-spotify>
+set $ws_discord <ws-discord>
+set $ws_steam <ws-steam>
+set $ws_firefox <ws-firefox>
 
 # Other
 set $term --no-startup-id $TERMINAL
