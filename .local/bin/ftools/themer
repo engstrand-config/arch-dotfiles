@@ -3,7 +3,7 @@ if [ $# -lt 1 ]; then
 	exit
 fi
 
-setbg $1
+bash ~/.dotfiles/.local/bin/tools/setbg $1
 wal -i $1
 
 # Create new configs with updated values
