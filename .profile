@@ -33,6 +33,7 @@ if [ -d "$PROFILE_PATH" ]; then
 	. "${HOME}/.dotfiles/profiles/$(whoami)/exports"
 fi
 
+make-steam-config
 make-firefox-config
 make-dunst-config
 make-i3-config

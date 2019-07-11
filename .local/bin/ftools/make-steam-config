@@ -1,0 +1,17 @@
+#!/usr/bin/bash
+
+# Creates a new steam config based off pywal colors and fixes some issues with the
+# metro theme not applying colors correctly
+
+wal-steam -w
+rm -rf ~/.local/share/Steam/skins/metro
+
+SKIN_NAME=$(ls ~/.local/share/Steam/skins | grep 'Metro.*')
+mv ~/.local/share/Steam/skins/"$SKIN_NAME" ~/.local/share/Steam/skins/metro
+
+SKIN_PATH=~/.local/share/Steam/skins/metro
+COLOR=$(cat $SKIN_PATH/custom.styles | grep -m 1 'ClientBG=".*"' | sed -e 's/ClientBG="\(.*\)"}/\1/')
+
+sed -i 's/ClientBG="*".*/ClientBG='"\"$COLOR\""'/' "$SKIN_PATH"/colors.styles
+sed -i 's/bgGameList="*".*/bgGameList='"\"$COLOR\""'/' "$SKIN_PATH"/colors.styles
+
