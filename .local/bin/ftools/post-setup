@@ -1,13 +1,15 @@
+BIN_PATH=~/.dotfiles/.local/bin/ftools
+
 # Since these files are created for every new user, we must delete them before
 # attempting to symlink them from the dotfiles folder or it wont work, meaning everything will be fucked
 rm ~/.bash_profile
 rm ~/.bashrc
 
 # At this point, we haven't set the PATH so none of our tools are available without full path
-~/.dotfiles/.local/bin/ftools/symlink-dotfiles
+bash $BIN_PATH/symlink-dotfiles
 
 # Install python packages
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+curl https://bootstrap.pypa.io/get-pip.py -o ~/get-pip.py
 sudo python get-pip.py
 rm ~/get-pip.py
 
@@ -32,25 +34,35 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 # Install the pywal themer ewal
-git clone git@github.com:emacsmirror/ewal.git ~/Repos/ewal
+git clone https://github.com/emacsmirror/ewal.git ~/Repos/ewal
 
 # Install FARBS 
-git clone git@github.com:Frewacom/FARBS.git ~/Repos/FARBS
+git clone https://github.com/Frewacom/FARBS.git ~/Repos/FARBS
 
-# Install RSS-Notify
-git clone git@github.com:Frewacom/RSS-Notifier.git ~/Repos/RSS-Notify
+# Install RSS-Notifier
+git clone https://github.com/Frewacom/RSS-Notifier.git ~/Repos/RSS-Notifier
 
 # Install Pywalfox
-git clone git@github.com:Frewacom/Pywalfox.git ~/Repos/Pywalfox
+git clone https://github.com/Frewacom/Pywalfox.git ~/Repos/Pywalfox
 
 # Run themer 
-~/.dotfiles/.local/bin/ftools/themer ~/.dotfiles/.local/share/wallpaper.png post-setup
+bash $BIN_PATH/themer ~/.dotfiles/.local/share/wallpaper.png "post-setup"
 
-rm ~/post-setupö
+rm ~/post-setup
 
 # Update the remote url for the dotfile repo
 cd ~/.dotfiles
 git remote set-url origin git@github.com:Frewacom/FARBS-Dotfiles.git
+
+cd ~/Repos/FARBS
+git remote set-url origin git@github.com:Frewacom/FARBS.git
+
+cd ~/Repos/RSS-Notifier
+git remote set-url origin git@github.com:Frewacom/RSS-Notifier.git
+
+cd ~/Repos/Pywalfox
+git remote set-url origin git@github.com:Frewacom/Pywalfox.git
+
 
 echo "Log out and log back in again for changes to take effect"
 
