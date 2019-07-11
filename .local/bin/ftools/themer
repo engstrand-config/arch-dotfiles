@@ -9,7 +9,6 @@ wal -i $1
 # Create new configs with updated values
 BIN_PATH=~/.dotfiles/.local/bin/ftools	
 .  $BIN_PATH/make-wal-colors
-$BIN_PATH/make-firefox-config
 $BIN_PATH/make-dunst-config	
 $BIN_PATH/make-i3-config	
 
@@ -20,6 +19,8 @@ fi
 if [ "$2" = "post-setup" ]; then
 	exit
 else
+	# When running post-setup, these things have not been started, meaning there is no files to change just yet
+	$BIN_PATH/make-firefox-config
 	$BIN_PATH/make-steam-config
 
 	echo "To fully set the new theme we need to logout (It refreshes the i3bar with the new colors)"
