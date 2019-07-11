@@ -3,6 +3,9 @@
 rm ~/.bash_profile
 rm ~/.bashrc
 
+# Install the dotfiles repo
+git clone git@github.com:Frewacom/FARBS-Dotfiles.git ~/.dotfiles
+
 # At this point, we haven't set the PATH so none of our tools are available without full path
 ~/.dotfiles/.local/bin/ftools/symlink-dotfiles
 
@@ -38,10 +41,10 @@ git clone git@github.com:emacsmirror/ewal.git ~/Repos/ewal
 git clone git@github.com:Frewacom/FARBS.git ~/Repos/FARBS
 
 # Install RSS-Notify
-git clone https://github.com/Frewacom/RSS-Notifier.git ~/Repos/RSS-Notify
+git clone git@github.com:Frewacom/RSS-Notifier.git ~/Repos/RSS-Notify
 
 # Install Pywalfox
-git clone https://github.com/Frewacom/Pywalfox.git ~/Repos/Pywalfox
+git clone git@github.com:Frewacom/Pywalfox.git ~/Repos/Pywalfox
 
 # Run themer 
 ~/.dotfiles/.local/bin/ftools/themer ~/.dotfiles/.local/share/wallpaper.png post-setup
