@@ -48,6 +48,10 @@ git clone git@github.com:Frewacom/Pywalfox.git ~/Repos/Pywalfox
 
 rm ~/post-setupö
 
+# Update the remote url for the dotfile repo
+cd ~/.dotfiles
+git remote set-url origin git@github.com:Frewacom/FARBS-Dotfiles.git
+
 echo "Log out and log back in again for changes to take effect"
 
 
