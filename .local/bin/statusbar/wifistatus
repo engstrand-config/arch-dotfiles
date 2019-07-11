@@ -5,6 +5,9 @@ case $BLOCK_BUTTON in
 esac
 
 INTERFACE=$(ls /sys/class/net | grep "\bw.*")
+
+[ -z "$INTERFACE" ] && exit
+
 SSID=$(nmcli device show | grep "$INTERFACE" -m 1 -A 5 | grep GENERAL.CONNECTION: -m 1 | awk '{print $2}')
 WCONNECTED=$(cat /sys/class/net/w*/operstate)
 SIGNAL=$(grep "^\s*w" /proc/net/wireless | awk '{ print int($3 * 100 / 70) "%" }')
