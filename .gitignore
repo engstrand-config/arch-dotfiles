@@ -1,3 +1,7 @@
 /.config/mpd/log
 /.config/pulse
 /.config/wall.png
+/.config/mpd/pid
+/.config/mpd/sticker.sql
+/.config/mpd/state
+/.config/mpd/database

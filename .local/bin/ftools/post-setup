@@ -4,8 +4,9 @@ rm ~/.bash_profile
 rm ~/.bashrc
 
 # At this point, we haven't set the PATH so none of our tools are available without full path
-~/.dotfiles/.local/bin/ftools/stowsh ~/.dotfiles -s
+~/.dotfiles/.local/bin/ftools/symlink-dotfiles
 
+# Install python packages
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 sudo python get-pip.py
 rm ~/get-pip.py
@@ -15,21 +16,37 @@ sudo pip install wal-steam
 sudo pip install requests
 sudo pip install untangle
 
+# Set locale to Swedish and add en_US to fix steam
+sudo sed -i 's/#sv_SE.UTF-8 UTF-8/sv_SE.UTF-8 UTF-8/g' /etc/locale.gen
+sudo sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
+sudo locale-gen
+sudo localectl set-locale sv_SE.utf8
+
+# Theme grub
+sudo sed -i 's+#GRUB_THEME="/path/to/gfxtheme"+GRUB_THEME="/boot/grub/themes/arch-silence/theme.txt"+g' /etc/default/grub
+
+# Update the grub config to enable microcode updates automatically
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
 # Install spacemacs
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 # Install the pywal themer ewal
-mkdir ~/Repos
 git clone git@github.com:emacsmirror/ewal.git ~/Repos/ewal
 
-# Enable the emacs daemon for faster startups
-systemctl enable --user emacs
-systemctl start --user emacs
+# Install FARBS 
+git clone git@github.com:Frewacom/FARBS.git ~/Repos/FARBS
 
-rm ~/post-setup
+# Install RSS-Notify
+git clone https://github.com/Frewacom/RSS-Notifier.git ~/Repos/RSS-Notify
+
+# Install Pywalfox
+git clone https://github.com/Frewacom/Pywalfox.git ~/Repos/Pywalfox
 
 # Run themer 
 ~/.dotfiles/.local/bin/ftools/themer ~/.dotfiles/.local/share/wallpaper.png post-setup
+
+rm ~/post-setupö
 
 echo "Log out and log back in again for changes to take effect"
 
