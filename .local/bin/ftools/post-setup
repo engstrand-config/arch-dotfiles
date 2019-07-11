@@ -3,9 +3,6 @@
 rm ~/.bash_profile
 rm ~/.bashrc
 
-# Install the dotfiles repo
-git clone git@github.com:Frewacom/FARBS-Dotfiles.git ~/.dotfiles
-
 # At this point, we haven't set the PATH so none of our tools are available without full path
 ~/.dotfiles/.local/bin/ftools/symlink-dotfiles
 
