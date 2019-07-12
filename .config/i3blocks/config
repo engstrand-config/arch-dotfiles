@@ -40,7 +40,7 @@ signal=6
 #signal=5
 
 [mailbox]
-label=
+label=
 interval=60
 signal=12
 
