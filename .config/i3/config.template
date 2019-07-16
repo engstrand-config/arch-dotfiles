@@ -32,6 +32,7 @@ set $ws_spotify "<ws-spotify>"
 set $ws_discord "<ws-discord>"
 set $ws_steam "<ws-steam>"
 set $ws_firefox "<ws-firefox>"
+set $ws_code "<ws-code>"
 
 # Other
 set $term --no-startup-id $TERMINAL
@@ -208,6 +209,7 @@ for_window [class="floating-*"] floating enable
 for_window [class="floating-*"] focus
 assign [class="Firefox"] $ws_firefox
 assign [class="Steam"] $ws_steam
+assign [class="code-oss"] $ws_code
 
 # Bindings to make the webcam float and stick.
 for_window [title="mpvfloat"] floating enable
