@@ -24,6 +24,12 @@ sudo sed -i 's+#GRUB_THEME="/path/to/gfxtheme"+GRUB_THEME="/boot/grub/themes/arc
 # Update the grub config to enable microcode updates automatically
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
+# Create rules for the firewall so that kdeconnect will work
+sudo ufw allow 1714:1764/udp
+sudo ufw allow 1714:1764/tcp
+sudo ufw enable
+sudo ufw reload
+
 # Install spacemacs
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
