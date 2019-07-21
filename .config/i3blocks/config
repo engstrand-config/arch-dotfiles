@@ -27,7 +27,7 @@ signal=11
 #interval=once
 
 [news]
-label=📰
+label=
 interval=once
 signal=6
 
