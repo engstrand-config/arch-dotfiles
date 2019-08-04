@@ -39,10 +39,10 @@ signal=6
 #interval=18000
 #signal=5
 
-[mailbox]
-label=
-interval=60
-signal=12
+#[mailbox]
+#label=
+#interval=60
+#signal=12
 
 [kdeconnect-i3]
 interval=60
