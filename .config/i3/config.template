@@ -38,6 +38,8 @@ set $ws_code "<ws-code>"
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
 set $window_border_size <window-border-size>
+smart_gaps on
+smart_borders no_gaps
 
 exec --no-startup-id redshift -r -t 6500:2000
 exec --no-startup-id /usr/lib/kdeconnectd
@@ -207,6 +209,7 @@ for_window [title="nmtui"] floating enable
 for_window [title="neomutt"] floating enable
 for_window [title="neomutt"] resize set 1400 800
 for_window [title="neomutt"] move position center
+for_window [title="sxiv"] floating enable
 for_window [class="floating-*"] floating enable
 for_window [class="floating-*"] focus
 assign [class="firefox"] $ws_firefox
@@ -277,11 +280,6 @@ mode "restore" {
   bindsym n mode "default"
   bindsym $mod+n mode "default"
   bindsym $mod+q mode "default"
-}
-
-# Distraction mode
-mode "freeze" { 
-  bindsym $mod+Shift+f mode "default"
 }
 
 # Bind modes to keys

@@ -28,7 +28,7 @@ signal=11
 
 [news]
 label=
-interval=once
+interval=30
 signal=6
 
 #[torrent]
