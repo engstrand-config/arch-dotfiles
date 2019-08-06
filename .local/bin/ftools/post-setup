@@ -63,6 +63,14 @@ git remote set-url origin git@github.com:Frewacom/RSS-Notifier.git
 cd ~/Repos/Pywalfox
 git remote set-url origin git@github.com:Frewacom/Pywalfox.git
 
+CRON_PATH=~/.dotfiles/profiles/$(whoami)/my-crontab
+if [ -f "$CRON_PATH" ]; then
+	crontab $CRON_PATH
+fi
+
+# Lockscreen after suspend 
+sudo systemctl enable betterlockscreen@$USER
+
 echo "Log out and log back in again for changes to take effect"
 
 

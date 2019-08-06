@@ -19,8 +19,6 @@ super + shift + a
 	$TERMINAL -e pulsemixer; pkill -RTMIN+10 i3blocks
 super + shift + c
 	camtoggle
-super + shift + e
-	tutorialvids
 super + w
 	webby | xargs -r $BROWSER
 super + shift + w
@@ -35,7 +33,7 @@ super + Scroll_Lock
 	killall screenkey || screenkey
 super + Insert
 	showclip
-super + shift + x
+super + shift + e
 	prompt "Shutdown computer?" "sudo -A shutdown -h now"
 super + shift + BackSpace
 	prompt "Reboot computer?" "sudo -A shutdown -r now"

@@ -41,6 +41,9 @@ set $window_border_size <window-border-size>
 smart_gaps on
 smart_borders no_gaps
 
+# Set betterlockscreen background
+exec --no-startup-id betterlockscreen -u ~/.config/wallpaper.png
+
 exec --no-startup-id redshift -r -t 6500:2000
 exec --no-startup-id /usr/lib/kdeconnectd
 exec --no-startup-id wifi reconnect
@@ -90,6 +93,7 @@ bindsym $mod+space		focus mode_toggle
 bindsym $mod+Shift+v		exec --no-startup-id emacs
 bindsym $mod+Escape		workspace prev
 bindsym $mod+Shift+Escape 	exec --no-startup-id prompt "Exit i3?" "i3-msg exit"
+bindsym $mod+shift+x 		exec betterlockscreen -l dim
 
 # Arrow keys
 bindsym $mod+Left		focus left
