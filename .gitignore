@@ -5,3 +5,4 @@
 /.config/mpd/sticker.sql
 /.config/mpd/state
 /.config/mpd/database
+/profiles/*/ocnews*
