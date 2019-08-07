@@ -123,11 +123,19 @@
 
 [kde-ignore-gmail-notifications]
     summary = "Gmail"
-    format = " "
+    format = ""
 
 [kde-ignore-discord-notifications]
     summary = "Discord"
-    format = " "
+    format = ""
+
+[frost]
+    summary = "Frost"
+    format = ""
+
+[mutt-number-of-mails]
+    body = "*new mail(s)*"
+    format = ""	
 
 #[history-ignore]
 #    # This notification will not be saved in history
