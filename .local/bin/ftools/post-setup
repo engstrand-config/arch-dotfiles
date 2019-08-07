@@ -39,9 +39,6 @@ git clone https://github.com/emacsmirror/ewal.git ~/Repos/ewal
 # Install FARBS 
 git clone https://github.com/Frewacom/FARBS.git ~/Repos/FARBS
 
-# Install RSS-Notifier
-git clone https://github.com/Frewacom/RSS-Notifier.git ~/Repos/RSS-Notifier
-
 # Install Pywalfox
 git clone https://github.com/Frewacom/Pywalfox.git ~/Repos/Pywalfox
 
@@ -56,9 +53,6 @@ git remote set-url origin git@github.com:Frewacom/FARBS-Dotfiles.git
 
 cd ~/Repos/FARBS
 git remote set-url origin git@github.com:Frewacom/FARBS.git
-
-cd ~/Repos/RSS-Notifier
-git remote set-url origin git@github.com:Frewacom/RSS-Notifier.git
 
 cd ~/Repos/Pywalfox
 git remote set-url origin git@github.com:Frewacom/Pywalfox.git
