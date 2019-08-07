@@ -1,5 +1,12 @@
 #!/bin/bash
 
+output=$(redshift -p)
+checknight=$(echo $output | grep -c Natt)
+
+if [[ "$checknight" == "0" ]]; then
+	exit
+fi
+
 # Click to toggle redshift on and off.
 if [[ $BLOCK_BUTTON == '1' ]]; then
 	pkill -USR1 '^redshift$'

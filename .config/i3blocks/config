@@ -49,7 +49,7 @@ interval=60
 label=
 
 [redshiftoggle]
-interval=once
+interval=90
 
 [disk]
 interval=120
