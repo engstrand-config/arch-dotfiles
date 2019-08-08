@@ -27,11 +27,6 @@ signal=11
 #label=
 #interval=once
 
-[news]
-label=
-interval=30
-signal=6
-
 #[torrent]
 #interval=20
 #signal=7
@@ -43,6 +38,11 @@ signal=6
 [kdeconnect-i3]
 interval=60
 label=
+
+[news]
+label=
+interval=30
+signal=6
 
 [mailbox]
 label=
