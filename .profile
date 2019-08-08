@@ -33,6 +33,10 @@ if [ -d "$PROFILE_PATH" ]; then
 	. "${HOME}/.dotfiles/profiles/$(whoami)/exports"
 fi
 
+# Add support for installation of global npm modules without running as root
+PATH="$HOME/.node_modules/bin:$PATH"
+export npm_config_prefix=~/.node_modules
+
 make-steam-config
 make-firefox-config
 make-dunst-config
