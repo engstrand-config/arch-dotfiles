@@ -5,8 +5,10 @@
 CRITICAL=$(python ~/.dotfiles/.local/bin/ftools/python/colorpicker.py "$color2" "critical")
 CRITICAL_DARK=$(python ~/.dotfiles/.local/bin/ftools/python/colorpicker.py "$CRITICAL" "darker")
 SUCCESS=$(python ~/.dotfiles/.local/bin/ftools/python/colorpicker.py "$color2" "success")
-BACKGROUND_LIGHT=$(python ~/.dotfiles/.local/bin/ftools/python/colorpicker.py "$background" "background-light")
+BACKGROUND_LIGHT=$(python ~/.dotfiles/.local/bin/ftools/python/colorpicker.py "$background" "lighter")
 BACKGROUND_DARKER=$(python ~/.dotfiles/.local/bin/ftools/python/colorpicker.py "$background" "darker")
+BACKGROUND_MAIN=$(python ~/.dotfiles/.local/bin/ftools/python/colorpicker.py "$color2" "darker" 150)
+
 
 export WAL_LIGHT="$color7"
 export WAL_DARK="$color2"
@@ -24,3 +26,5 @@ export WAL_BG_LIGHT="$BACKGROUND_LIGHT"
 export WAL_BG_DARK="$background"
 export WAL_BG_DARK_TRANSPARENT="${BACKGROUND_DARKER}DD"
 export WAL_BG_LIGHT_TRANSPARENT="${background}DD"
+export WAL_BG_MAIN="$BACKGROUND_MAIN"
+export WAL_BG_MAIN_TRANSPARENT="${BACKGROUND_MAIN}DD"

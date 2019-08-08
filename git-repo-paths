@@ -5,6 +5,5 @@
 REPOS=(
 	~/.dotfiles
 	~/Repos/Pywalfox
-	~/Repos/RSS-Notify
 	~/FARBS
 )
