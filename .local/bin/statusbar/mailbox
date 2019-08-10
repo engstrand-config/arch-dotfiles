@@ -7,10 +7,10 @@
 case $BLOCK_BUTTON in
 	1) "$TERMINAL" -e neomutt ;;
 	2) setsid mailsync >/dev/null & ;;
-	3) pgrep -x dunst >/dev/null && notify-send "📬 Mail module" "\- Shows unread mail
-- Shows 🔃 if syncing mail
+	3) pgrep -x dunst >/dev/null && notify-send " Mail module" "\- Shows unread mail
+- 
 - Left click opens neomutt
 - Middle click syncs mail" ;;
 esac
 
-printf "<span color='$WAL_LIGHT'>%s</span>" "$(du -a ~/.local/share/mail/*/INBOX/new/* 2>/dev/null | sed -n '$=')"
+printf "<span color='$WAL_LIGHT'>%s</span>" "$(du -a ~/.local/share/mail/*/INBOX/new/* 2>/dev/null | sed -n '$=' | sed -r '/^\s*$/d')"
