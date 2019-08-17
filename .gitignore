@@ -6,3 +6,4 @@
 /.config/mpd/state
 /.config/mpd/database
 /profiles/*/ocnews*
+secrets

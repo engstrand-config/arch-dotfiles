@@ -27,6 +27,9 @@ export LESS_TERMCAP_ue="$(printf '%b' '[0m')"; a="${a%_}"
 # Load wal colors into env
 . "${HOME}/.dotfiles/.local/bin/ftools/make-wal-colors"
 
+# Load secret vars into env
+. "${HOME}/.dotfiles/secrets"
+
 # Load profile specific env variables
 PROFILE_PATH="${HOME}/.dotfiles/profiles/$(whoami)"
 if [ -d "$PROFILE_PATH" ]; then
