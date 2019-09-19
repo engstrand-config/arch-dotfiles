@@ -14,7 +14,7 @@ interval=once
 signal=9
 
 [music]
-label= 
+label=
 interval=once
 signal=11
 
@@ -89,4 +89,3 @@ signal=10
 label=
 interval=1
 separator=false
-
