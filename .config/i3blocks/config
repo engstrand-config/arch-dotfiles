@@ -41,12 +41,12 @@ label=
 
 [news]
 label=
-interval=30
+interval=15
 signal=6
 
 [mailbox]
 label=
-interval=60
+interval=15
 signal=12
 
 [redshiftoggle]
@@ -74,7 +74,7 @@ interval=5
 label=
 
 [ethernet]
-interval=5
+interval=10
 label=
 
 [battery]

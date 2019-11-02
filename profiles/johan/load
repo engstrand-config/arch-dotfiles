@@ -8,5 +8,6 @@ crontab -l > ~/.dotfiles/profiles/johan/my-crontab
 firefox &
 discord &
 steam &
+pulseeffects --gapplication-service &
 
 mount ~/nextcloud

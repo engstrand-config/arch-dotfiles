@@ -70,16 +70,17 @@ XF86MonBrightnessUp
 # Recording
 # Take screenshot
 Print
-	maim pic-full-$(date '+%y%m%d-%H%M-%S').png
+  maim -s | xclip -selection clipboard -t image/png
 # Pick screenshot type
 shift + Print
 	maimpick
 # Record audio or video
 super + Print
-	dmenurecord
+	maim pic-full-$(date '+%y%m%d-%H%M-%S').png
 # kill active recording
-super + Delete
-	dmenurecord kill
+
+#super + Delete
+#	dmenurecord kill
 
 # Pause audio
 super + {_,shift +} p
