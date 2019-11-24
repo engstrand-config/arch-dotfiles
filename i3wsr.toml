@@ -1,0 +1,15 @@
+[icons]
+#font-awesome
+firefox = ""
+St = ""
+Steam = ""
+discord = ""
+jetbrains-studio = ""
+Spotify = ""
+Emacs = ""
+
+[aliases]
+jetbrains-studio = "Android Studio"
+discord = "Discord"
+firefox = "Firefox"
+St = "st"

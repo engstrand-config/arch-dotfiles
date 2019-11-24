@@ -38,22 +38,12 @@ replace "<window-border-size>" 	"$PROFILE_WINDOW_BORDER_SIZE" 	"1"
 replace "<gaps-inner>" 		"$PROFILE_GAPS_INNER" 		"4"
 replace "<gaps-outer>" 		"$PROFILE_GAPS_OUTER" 		"2"
 
-replace "<ws-emacs>" 		"$PROFILE_WS_EMACS"		"3"
-replace "<ws-spotify>"		"$PROFILE_WS_SPOTIFY" 		"5"
-replace "<ws-discord>" 		"$PROFILE_WS_DISCORD"		"7"
-replace "<ws-steam>" 		"$PROFILE_WS_STEAM"		"4"
-replace "<ws-firefox>" 		"$PROFILE_WS_FIREFOX"		"2"
-replace "<ws-code>" 		"$PROFILE_WS_CODE"		"6"
+replace "<ws-emacs>" 		"$PROFILE_WS_EMACS"		$ws3
+replace "<ws-spotify>"		"$PROFILE_WS_SPOTIFY" 		$ws5
+replace "<ws-discord>" 		"$PROFILE_WS_DISCORD"		$ws7
+replace "<ws-steam>" 		"$PROFILE_WS_STEAM"		$ws4
+replace "<ws-firefox>" 		"$PROFILE_WS_FIREFOX"		$ws2
+replace "<ws-code>" 		"$PROFILE_WS_CODE"		$ws6
+replace "<ws-android-studio>"	"$PROFILE_WS_ANDROID_STUDIO"	$ws9
 
-replace "<ws1-name>" 		"$PROFILE_WS1_NAME"		"1"
-replace "<ws2-name>" 		"$PROFILE_WS2_NAME"		"2"
-replace "<ws3-name>" 		"$PROFILE_WS3_NAME"		"3"
-replace "<ws4-name>" 		"$PROFILE_WS4_NAME"		"4"
-replace "<ws5-name>" 		"$PROFILE_WS5_NAME"		"5"
-replace "<ws6-name>" 		"$PROFILE_WS6_NAME"		"6"
-replace "<ws7-name>" 		"$PROFILE_WS7_NAME"		"7"
-replace "<ws8-name>" 		"$PROFILE_WS8_NAME" 		"8"
-replace "<ws9-name>" 		"$PROFILE_WS9_NAME" 		"9"
-replace "<ws10-name>" 		"$PROFILE_WS10_NAME" 		"10"
-
-i3-msg restart 
+i3-msg restart
