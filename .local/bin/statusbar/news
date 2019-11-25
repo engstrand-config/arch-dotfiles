@@ -4,4 +4,4 @@ case $BLOCK_BUTTON in
 	1) setsid "$TERMINAL" -e newsboat ;;
 esac
 
-printf "<span color='$WAL_LIGHT'>%s</span>" "$(newsboat -x print-unread | awk '{ print $1}' | sed 's/[^1-9]*//g' | sed -r '/^\s*$/d')"
+printf "<span color='$WAL_LIGHT'>%s</span>" "$(newsboat -x print-unread | awk '{ print $1}' | sed 's/[^1-9]*//g' | sed '/^\s*$/d')"
