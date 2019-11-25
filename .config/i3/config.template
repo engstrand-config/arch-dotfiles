@@ -27,13 +27,14 @@ set $ws9 9:
 set $ws10 10:
 
 # Applications
-set $ws_emacs <ws-emacs>
-set $ws_spotify <ws-spotify>
-set $ws_discord <ws-discord>
-set $ws_steam <ws-steam>
-set $ws_firefox <ws-firefox>
-set $ws_code <ws-code>
-set $ws_android_studio <ws-android-studio>
+# Remember colon afterwards, have not found a better solution yet
+set $ws_emacs <ws-emacs>:
+set $ws_spotify <ws-spotify>:
+set $ws_discord <ws-discord>:
+set $ws_steam <ws-steam>:
+set $ws_firefox <ws-firefox>:
+set $ws_code <ws-code>:
+set $ws_android_studio <ws-android-studio>:
 
 # Other
 set $term --no-startup-id $TERMINAL
@@ -50,7 +51,7 @@ exec --no-startup-id wifi reconnect
 exec --no-startup-id xbindkeys
 exec --no-startup-id profile-loader
 exec --no-startup-id dunst
-exec --no-startup-id i3-msg 'workspace $ws1; exec $term; exec $term'
+exec --no-startup-id i3-msg 'workspace number $ws1; exec $term; exec $term'
 exec_always --no-startup-id exec i3wsr --config ~/.dotfiles/i3wsr.toml --icons awesome
 
 # Spotify seems to be running some pretty heavy background services even
@@ -152,7 +153,7 @@ bindsym $mod+Shift+Delete	exec --no-startup-id lmc truemute ; exec --no-startup-
 # Workspaces
 bindsym $mod+Home		workspace number $ws1
 bindsym $mod+Shift+Home		move container to workspace number $ws1
-bindsym $mod+End		workspace number 10
+bindsym $mod+End		workspace number $ws10
 bindsym $mod+Shift+End		move container to workspace number $ws10
 bindsym $mod+Prior		workspace prev
 bindsym $mod+Shift+Prior	move container to workspace prev
@@ -207,10 +208,10 @@ for_window [class="^.*"] border pixel $window_border_size
 for_window [window_role="GtkFileChooserDialog"] resize set 800 600
 for_window [window_role="GtkFileChooserDialog"] move position center
 for_window [title="Default - Wine desktop"] floating enable
-for_window [instance="emacs"] move to workspace $ws_emacs
-for_window [instance="emacs"] workspace $ws_emacs
-for_window [class="Spotify"] move to workspace $ws_spotify
-for_window [class="discord"] move to workspace $ws_discord
+for_window [instance="emacs"] move to workspace number $ws_emacs
+for_window [instance="emacs"] workspace number $ws_emacs
+for_window [class="Spotify"] move to workspace number $ws_spotify
+for_window [class="discord"] move to workspace number $ws_discord
 for_window [title="nmtui"] floating enable
 for_window [title="neomutt"] fullscreen enable
 for_window [title="newsboat"] fullscreen enable
@@ -220,12 +221,12 @@ for_window [title="newsboat"] fullscreen enable
 for_window [title="sxiv"] floating enable
 for_window [class="floating-*"] floating enable
 for_window [class="floating-*"] focus
-for_window [class="jetbrains-studio"] move to workspace $ws_android_studio
+for_window [class="jetbrains-studio"] move to workspace number $ws_android_studio
 for_window [title="Android Emulator*"] floating enable; move right 650
-assign [class="firefox"] $ws_firefox
-assign [class="Steam"] $ws_steam
-assign [class="code-oss"] $ws_code
-assign [class="jetbrains-studio"] $ws_android_studio
+assign [class="firefox"] workspace number $ws_firefox
+assign [class="Steam"] workspace number $ws_steam
+assign [class="code-oss"] workspace number $ws_code
+assign [class="jetbrains-studio"] workspace number $ws_android_studio
 
 
 # Bindings to make the webcam float and stick.

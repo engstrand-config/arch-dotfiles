@@ -7,6 +7,7 @@ discord = ""
 jetbrains-studio = ""
 Spotify = ""
 Emacs = ""
+Zathura = ""
 
 [aliases]
 jetbrains-studio = "Android Studio"
