@@ -115,7 +115,8 @@ bindsym $mod+Shift+r		exec --no-startup-id winresize
 bindsym $mod+t			split toggle
 bindsym $mod+Shift+t		gaps inner current set 0; gaps outer current set 0;
 bindsym $mod+Shift+y		exec --no-startup-id i3resize left
-bindsym $mod+u			exec --no-startup-id ddspawn tmuxdd
+#bindsym $mod+u			exec --no-startup-id ddspawn tmuxdd
+bindsym $mod+n			exec --no-startup-id ddspawn newsboat
 bindsym $mod+Shift+u		exec --no-startup-id i3resize down
 bindsym $mod+Shift+i		exec --no-startup-id i3resize up
 bindsym $mod+o			sticky toggle
@@ -214,10 +215,6 @@ for_window [class="Spotify"] move to workspace number $ws_spotify
 for_window [class="discord"] move to workspace number $ws_discord
 for_window [title="nmtui"] floating enable
 for_window [title="neomutt"] fullscreen enable
-for_window [title="newsboat"] fullscreen enable
-#for_window [title="neomutt"] floating enable
-#for_window [title="neomutt"] resize set 1400 800
-#for_window [title="neomutt"] move position center
 for_window [title="sxiv"] floating enable
 for_window [class="floating-*"] floating enable
 for_window [class="floating-*"] focus

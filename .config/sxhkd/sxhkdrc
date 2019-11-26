@@ -9,8 +9,6 @@ super + e
 	$TERMINAL -e neomutt
 super + m
 	$TERMINAL -e ncmpcpp
-super + n
-	$TERMINAL -e newsboat
 super + i
 	$TERMINAL -e htop
 super + y
