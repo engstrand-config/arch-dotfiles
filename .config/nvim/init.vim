@@ -6,6 +6,31 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ~/.config/nvim/autoload/plug.vim
 endif
 
+call plug#begin(stdpath('data') . '/plugged')
+
+Plug 'dylanaraps/wal.vim'
+Plug 'https://github.com/neovimhaskell/haskell-vim.git'
+Plug 'scrooloose/nerdtree'
+Plug 'itchyny/lightline.vim'
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+call plug#end()
+
+colorscheme wal
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_delay = 200
+let g:haskell_enable_pattern_synonyms = 1
+let g:lightline = {
+	\'colorscheme': 'wal',
+	\ }
+
 set bg=light
 set go=a
 set mouse=a
@@ -16,6 +41,7 @@ set clipboard=unnamedplus
 	nnoremap c "_c
 	set nocompatible
 	filetype plugin on
+	filetype plugin indent on
 	syntax on
 	set encoding=utf-8
 	set number relativenumber
