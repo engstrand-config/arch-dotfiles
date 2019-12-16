@@ -18,15 +18,6 @@ label=
 interval=once
 signal=11
 
-#[discord-i3]
-#label=
-#interval=once
-#signal=8
-
-#[steam-i3]
-#label=
-#interval=once
-
 #[torrent]
 #interval=20
 #signal=7
@@ -41,7 +32,7 @@ label=
 
 [news]
 label=
-interval=15
+interval=10
 signal=6
 
 [mailbox]

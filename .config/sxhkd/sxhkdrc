@@ -5,8 +5,8 @@ super + d
 	dmenu_launcher "dmenu_run"
 super + r
 	$TERMINAL -e $FILE
-super + e
-	$TERMINAL -e neomutt
+#super + e
+#	$TERMINAL -e neomutt
 super + m
 	$TERMINAL -e ncmpcpp
 super + i

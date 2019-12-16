@@ -8,9 +8,11 @@ jetbrains-studio = ""
 Spotify = ""
 Emacs = ""
 Zathura = ""
+code-oss = ""
 
 [aliases]
 jetbrains-studio = "Android Studio"
 discord = "Discord"
 firefox = "Firefox"
 St = "st"
+code-oss = "Code"
