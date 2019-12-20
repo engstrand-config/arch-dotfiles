@@ -5,16 +5,16 @@
 # When clicked, brings up `neomutt`.
 
 case $BLOCK_BUTTON in
-	1) "$TERMINAL" -e neomutt ;;
+	1) ddspawn neomutt >/dev/null & ;;
 	2) setsid mailsync >/dev/null & ;;
 	3) pgrep -x dunst >/dev/null && notify-send " Mail module" "\- Shows unread mail
-- 
+-
 - Left click opens neomutt
 - Middle click syncs mail" ;;
 esac
 
 DIR=~/.local/share/mail
 if [[ -d "$DIR" ]]; then
-	printf "<span color='$WAL_LIGHT'>%s</span>" "$(du -a ~/.local/share/mail/*/INBOX/new/* 2>/dev/null | sed -n '$=' | sed -r '/^\s*$/d')"	
+	printf "<span color='$WAL_LIGHT'>%s</span>" "$(du -a ~/.local/share/mail/*/INBOX/new/* 2>/dev/null | sed -n '$=' | sed -r '/^\s*$/d')"
 fi
 
