@@ -5,24 +5,41 @@ FFPATH=~/.mozilla/firefox/$FFPROFILE
 USERNAME=$(whoami)
 PYWAL=$(cat ~/.cache/wal/colors.css)
 
+USER_CHROME=$FFPATH/chrome/userChrome.css
+USER_CONTENT=$FFPATH/chrome/userContent.css
+
+. ~/.dotfiles/profiles/$USERNAME/exports
+
 # Create the folder if it doesnt already exist
 if [ ! -d "$FFPATH/chrome" ]; then
 	mkdir $FFPATH/chrome
 else
-	rm $FFPATH/chrome/userChrome.css
-	rm $FFPATH/chrome/userContent.css
+	rm $USER_CHROME
+	rm $USER_CONTENT
 fi
 
-cp ~/Repos/Pywalfox/userChrome.css $FFPATH/chrome/userChrome.css
-cp ~/Repos/Pywalfox/userContent.css $FFPATH/chrome/userContent.css
+cp ~/Repos/Pywalfox/userChrome.css $USER_CHROME
+cp ~/Repos/Pywalfox/userContent.css $USER_CONTENT
 cp ~/Repos/Pywalfox/hide-scrollbar.as.css $FFPATH/chrome/hide-scrollbar.as.css
 
-# Change the placeholder username to your actual username
-sed -i "s/<username>/$USERNAME/g" $FFPATH/chrome/userChrome.css
-sed -i "s/<background>/$WAL_DARK/g" $FFPATH/chrome/userContent.css
-sed -i "s/<foreground>/$WAL_LIGHT/g" $FFPATH/chrome/userContent.css
-sed -i "s/<background-light>/$WAL_BG_LIGHT/g" $FFPATH/chrome/userContent.css
-sed -i "s/<background-dark>/$WAL_BG_DARK/g" $FFPATH/chrome/userContent.css
-sed -i "s/<background>/$WAL_BG_MAIN/g" $FFPATH/chrome/userChrome.css
-sed -i "s/<background-main>/$WAL_BG_MAIN/g" $FFPATH/chrome/userContent.css
+function replace() {
+    if [ -z "$2" ] || [ "$2" = "" ]; then
+	# If the var is not set in the profile exports
+	# use $3 instead (fallback value)
+	sed -i "s/$1/$3/g" $4
+    else
+	sed -i "s/$1/$2/g" $4
+    fi
+}
+
+# placeholder 			override			fallback	file to change
+replace "<background>"		"$PROFILE_FF_BG"		"$WAL_DARK"	$USER_CONTENT
+replace "<foreground>"		"$PROFILE_FF_FG"		"$WAL_LIGHT"	$USER_CONTENT
+replace "<background-light>"	"$PROFILE_FF_NTP_BG_LIGHT"	"$WAL_BG_LIGHT"	$USER_CONTENT
+replace "<background-dark>"	"$PROFILE_FF_NTP_BG_DARK"	"$WAL_BG_DARK"	$USER_CONTENT
+replace "<background-main>"	"$PROFILE_FF_BG"		"$WAL_BG_MAIN"	$USER_CONTENT
+replace "<background>"		"$PROFILE_FF_BG"		"$WAL_0"	$USER_CHROME
+replace "<background-main>"	"$PROFILE_FF_BG_MAIN"		"$WAL_BG_MAIN"	$USER_CHROME
+replace "<foreground>"		"$PROFILE_FF_FG"		"$WAL_LIGHT"	$USER_CHROME
+replace "<accent>"		"$PROFILE_FF_ACCENT"		"$WAL_7"	$USER_CHROME
 

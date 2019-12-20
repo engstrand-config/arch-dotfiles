@@ -18,6 +18,7 @@ export WAL_3="$color3"
 export WAL_4="$color4"
 export WAL_5="$color5"
 export WAL_6="$color6"
+export WAL_7="$color7"
 
 export WAL_SUCCESS="$SUCCESS"
 export WAL_CRITICAL="$CRITICAL"
