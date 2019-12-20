@@ -115,9 +115,12 @@ bindsym $mod+Shift+r		exec --no-startup-id winresize
 bindsym $mod+t			split toggle
 bindsym $mod+Shift+t		gaps inner current set 0; gaps outer current set 0;
 bindsym $mod+Shift+y		exec --no-startup-id i3resize left
+
 #bindsym $mod+u			exec --no-startup-id ddspawn tmuxdd
 bindsym $mod+n			exec --no-startup-id ddspawn newsboat
 bindsym $mod+e			exec --no-startup-id ddspawn neomutt
+bindsym $mod+m			exec --no-startup-id ddspawn ncmpcpp
+
 bindsym $mod+Shift+u		exec --no-startup-id i3resize down
 bindsym $mod+Shift+i		exec --no-startup-id i3resize up
 bindsym $mod+o			sticky toggle

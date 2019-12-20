@@ -7,8 +7,8 @@ super + r
 	$TERMINAL -e $FILE
 #super + e
 #	$TERMINAL -e neomutt
-super + m
-	$TERMINAL -e ncmpcpp
+#super + m
+#	$TERMINAL -e ncmpcpp
 super + i
 	$TERMINAL -e htop
 super + y
