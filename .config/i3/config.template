@@ -115,9 +115,12 @@ bindsym $mod+Shift+r		exec --no-startup-id winresize
 bindsym $mod+t			split toggle
 bindsym $mod+Shift+t		gaps inner current set 0; gaps outer current set 0;
 bindsym $mod+Shift+y		exec --no-startup-id i3resize left
+
 #bindsym $mod+u			exec --no-startup-id ddspawn tmuxdd
 bindsym $mod+n			exec --no-startup-id ddspawn newsboat
 bindsym $mod+e			exec --no-startup-id ddspawn neomutt
+bindsym $mod+m			exec --no-startup-id ddspawn ncmpcpp
+
 bindsym $mod+Shift+u		exec --no-startup-id i3resize down
 bindsym $mod+Shift+i		exec --no-startup-id i3resize up
 bindsym $mod+o			sticky toggle
@@ -238,8 +241,7 @@ for_window [instance="dropdown_*"] floating enable
 for_window [instance="dropdown_*"] move scratchpad
 for_window [instance="dropdown_*"] sticky enable
 for_window [instance="dropdown_*"] scratchpad show
-for_window [instance="dropdown_tmuxdd"] resize set 625 450
-for_window [instance="dropdown_tmuxdd"] border pixel 1
+for_window [instance="dropdown_*"] resize set 1200 800
 for_window [instance="dropdown_*"] move position center
 for_window [class="mpv"] floating enable
 for_window [class="mpv"] sticky enable
