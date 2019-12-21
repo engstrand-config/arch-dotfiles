@@ -38,7 +38,7 @@ filetype plugin on
 filetype plugin indent on
 syntax on
 
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<S-Tab>"
 let g:UltiSnipsJumpForwardTrigger="-"
 let g:lightline = {
 	\'colorscheme': 'wal',
