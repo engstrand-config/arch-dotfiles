@@ -8,28 +8,18 @@ endif
 
 call plug#begin(stdpath('data') . '/plugged')
 
+Plug 'christoomey/vim-sort-motion'
 Plug 'dylanaraps/wal.vim'
 Plug 'https://github.com/neovimhaskell/haskell-vim.git'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-Plug 'christoomey/vim-sort-motion'
-Plug 'scrooloose/nerdtree'
 Plug 'itchyny/lightline.vim'
-
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'ervandew/supertab'
 
 call plug#end()
 
 colorscheme wal
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_delay = 500
-let g:haskell_enable_pattern_synonyms = 1
 let g:lightline = {
 	\'colorscheme': 'wal',
 	\ }
