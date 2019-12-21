@@ -56,14 +56,11 @@ nnoremap c "_c
 " Replace all is aliased to S.
 nnoremap S :%s//g<Left><Left>
 
-" Compile document, be it groff/LaTeX/markdown/etc.
-map <leader>c :w! \| !compiler <c-r>%<CR>
+" Shortcut for finding a parenthesis and changing its content from anywhere on a line
+map <leader>p %ci(
 
 " Compile Haskell file using GHCi
 map <leader>hb :!ghci %<CR>
-
-" Open corresponding .pdf/.html or preview
-map <leader>p :!opout <c-r>%<CR><CR>
 
 " Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
 vnoremap <C-c> "+y
