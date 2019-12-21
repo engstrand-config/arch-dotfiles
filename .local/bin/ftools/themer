@@ -4,13 +4,13 @@ if [ $# -lt 1 ]; then
 fi
 
 bash ~/.dotfiles/.local/bin/tools/setbg $1
-wal -i $1
+wal -i $1 --saturate 0.5
 
 # Create new configs with updated values
-BIN_PATH=~/.dotfiles/.local/bin/ftools	
+BIN_PATH=~/.dotfiles/.local/bin/ftools
 .  $BIN_PATH/make-wal-colors
-$BIN_PATH/make-dunst-config	
-$BIN_PATH/make-i3-config	
+$BIN_PATH/make-dunst-config
+$BIN_PATH/make-i3-config
 
 cp $1 ~/.config/wallpaper.png
 
@@ -29,7 +29,7 @@ else
 	read -p "Exit now? (Y/n)" EXIT
 
 	if [ "$EXIT" = "" ] || [ "$EXIT" = "Y" ]; then
-		i3-msg exit	
+		i3-msg exit
 	fi
 fi
 
