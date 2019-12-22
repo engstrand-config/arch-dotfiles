@@ -7,5 +7,5 @@ crontab -l > ~/.dotfiles/profiles/johan/my-crontab
 firefox &
 discord &
 steam &
-nextcloud &
+#nextcloud &
 pulseeffects --gapplication-service &
