@@ -95,11 +95,13 @@ super + {equal,plus}
 # Decrease volume
 super {_,shift +} + minus
 	lmc down {5,15}
+
+# These two are hardcoded to the F-keys that correspond to music forward/back on my keyboard... XF86Audio...commands can not be used with modifiers it seems
 # Seek foward in song
-super + {_,shift +} bracketright
+control + {_,shift +}  F11
 	lmc forward {10,120}
 # Seek backward in song
-super + {_,shift +} bracketleft
+control + {_,shift +} F9
 	lmc back {10,120}
 
 # Function keys
