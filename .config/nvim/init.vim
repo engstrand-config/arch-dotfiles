@@ -18,6 +18,8 @@ Plug 'tpope/vim-surround'
 Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'spf13/vim-autoclose'
+Plug 'alvan/vim-closetag'
 
 call plug#end()
 
@@ -33,11 +35,15 @@ set nocompatible
 set encoding=utf-8
 set number relativenumber
 set splitbelow splitright
+set tabstop=4
+set shiftwidth=4
+set expandtab
 
 filetype plugin on
 filetype plugin indent on
 syntax on
 
+let g:autoclose_vim_commentmode = 1
 let g:UltiSnipsExpandTrigger="<S-Tab>"
 let g:UltiSnipsJumpForwardTrigger="-"
 let g:lightline = {
@@ -57,10 +63,13 @@ nnoremap c "_c
 nnoremap S :%s//g<Left><Left>
 
 " Shortcut for finding a parenthesis and changing its content from anywhere on a line
-map <leader>p %ci(
+nnoremap <leader>p %ci(
+
+" Shortcut for formatting document
+nnoremap <leader>f gg=G
 
 " Compile Haskell file using GHCi
-map <leader>hb :!ghci %<CR>
+nnoremap <leader>hb :!ghci %<CR>
 
 " Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
 vnoremap <C-c> "+y
