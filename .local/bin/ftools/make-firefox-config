@@ -43,3 +43,5 @@ replace "<background-main>"	"$PROFILE_FF_BG_MAIN"		"$WAL_BG_MAIN"	$USER_CHROME
 replace "<foreground>"		"$PROFILE_FF_FG"		"$WAL_LIGHT"	$USER_CHROME
 replace "<accent>"		"$PROFILE_FF_ACCENT"		"$WAL_7"	$USER_CHROME
 
+killall firefox
+firefox &
