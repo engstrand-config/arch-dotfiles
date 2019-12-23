@@ -22,11 +22,11 @@ lyrics_directory = ~/.config/lyrics
 #
 ##### connection settings #####
 #
-#mpd_host = localhost
+mpd_host = localhost
 #
-#mpd_port = 6600
+mpd_port = 6600
 #
-#mpd_connection_timeout = 5
+mpd_connection_timeout = 5
 #
 ## Needed for tag editor and file operations to work.
 ##
@@ -271,7 +271,7 @@ current_item_inactive_column_suffix = $/r$(end)
 ## Note: Custom command that will be executed each time song changes. Useful for
 ## notifications etc.
 ##
-#execute_on_song_change = ""
+#execute_on_song_change = "~/.config/ncmpcpp/cover_art.sh"
 #
 ##
 ## Note: Custom command that will be executed each time player state
@@ -420,7 +420,7 @@ startup_screen = media_library
 #
 display_volume_level = no
 #
-#display_bitrate = no
+display_bitrate = yes
 #
 #display_remaining_time = no
 #

@@ -3,6 +3,10 @@ separator_block_width=10
 markup=pango
 separator=false
 
+# [window]
+# command=xtitle -s
+# interval=persist
+
 [pacpackages]
 label=
 interval=once
