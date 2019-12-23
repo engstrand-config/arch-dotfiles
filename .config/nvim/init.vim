@@ -43,6 +43,8 @@ filetype plugin on
 filetype plugin indent on
 syntax on
 
+hi MatchParen ctermbg=2 ctermfg=0
+
 let g:autoclose_vim_commentmode = 1
 let g:UltiSnipsExpandTrigger="<S-Tab>"
 let g:UltiSnipsJumpForwardTrigger="-"
