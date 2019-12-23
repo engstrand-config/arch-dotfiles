@@ -37,7 +37,7 @@ replace "<background>"		"$PROFILE_FF_BG"		"$WAL_DARK"	$USER_CONTENT
 replace "<foreground>"		"$PROFILE_FF_FG"		"$WAL_LIGHT"	$USER_CONTENT
 replace "<background-light>"	"$PROFILE_FF_NTP_BG_LIGHT"	"$WAL_BG_LIGHT"	$USER_CONTENT
 replace "<background-dark>"	"$PROFILE_FF_NTP_BG_DARK"	"$WAL_BG_DARK"	$USER_CONTENT
-replace "<background-main>"	"$PROFILE_FF_BG"		"$WAL_BG_MAIN"	$USER_CONTENT
+replace "<background-main>"	"$PROFILE_FF_NTP_BG_MAIN"	"$WAL_BG_MAIN"	$USER_CONTENT
 replace "<background>"		"$PROFILE_FF_BG"		"$WAL_0"	$USER_CHROME
 replace "<background-main>"	"$PROFILE_FF_BG_MAIN"		"$WAL_BG_MAIN"	$USER_CHROME
 replace "<foreground>"		"$PROFILE_FF_FG"		"$WAL_LIGHT"	$USER_CHROME
