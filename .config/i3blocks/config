@@ -45,7 +45,7 @@ interval=15
 signal=12
 
 [redshiftoggle]
-interval=90
+interval=60
 
 [disk]
 interval=120
