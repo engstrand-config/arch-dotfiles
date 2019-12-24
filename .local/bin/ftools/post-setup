@@ -18,6 +18,10 @@ sudo pip install wal-steam
 sudo pip install requests
 sudo pip install untangle
 
+# Install formatters for JS, HTML, CSS, JSON and Python (used in vim with vim-autoformat)
+sudo pip install yapf
+npm install -g js-beautify
+
 # Theme grub
 sudo sed -i 's+#GRUB_THEME="/path/to/gfxtheme"+GRUB_THEME="/boot/grub/themes/arch-silence/theme.txt"+g' /etc/default/grub
 
@@ -36,13 +40,13 @@ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 # Install the pywal themer ewal
 git clone https://github.com/emacsmirror/ewal.git ~/Repos/ewal
 
-# Install FARBS 
+# Install FARBS
 git clone https://github.com/Frewacom/FARBS.git ~/Repos/FARBS
 
 # Install Pywalfox
 git clone https://github.com/Frewacom/Pywalfox.git ~/Repos/Pywalfox
 
-# Run themer 
+# Run themer
 bash $BIN_PATH/themer ~/.dotfiles/.local/share/wallpaper.png "post-setup"
 
 rm ~/post-setup
@@ -62,7 +66,7 @@ if [ -f "$CRON_PATH" ]; then
 	crontab $CRON_PATH
 fi
 
-# Lockscreen after suspend 
+# Lockscreen after suspend
 sudo systemctl enable betterlockscreen@$USER
 
 echo "Log out and log back in again for changes to take effect"

@@ -20,6 +20,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'spf13/vim-autoclose'
 Plug 'alvan/vim-closetag'
+Plug 'Chiel92/vim-autoformat'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -58,19 +59,22 @@ hi MatchParen ctermbg=2 ctermfg=0
 hi Pmenu ctermbg=0 ctermfg=3
 
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#disable_auto_complete = 1
+let g:SuperTabCrMapping = 1
 let g:autoclose_vim_commentmode = 1
 let g:UltiSnipsExpandTrigger="<S-Tab>"
-let g:UltiSnipsJumpForwardTrigger="-"
+let g:UltiSnipsJumpForwardTrigger="<A-Tab>"
 let g:lightline = {
 	\'colorscheme': 'wal',
 	\ }
 
-
-call deoplete#custom#source('_', 'max_menu_width', 100)
-call deoplete#custom#source('_', 'disabled_syntaxes', ['Comment', 'String'])
-
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" I prefer to use SuperTab, but I do like the suggestions I get from deoplete
+" so I disabled the autocomplete and added a binding for manual completion
+" using deoplete.
+inoremap <expr> <leader><Tab> deoplete#manual_complete()
 
 " Nerd tree
 map <leader>b :NERDTreeToggle<CR>
@@ -85,7 +89,8 @@ nnoremap S :%s//g<Left><Left>
 nnoremap <leader>p %ci(
 
 " Shortcut for formatting document
-nnoremap <leader>f gg=G
+nnoremap <leader>fi gg=G<CR>
+nnoremap <leader>fd :Autoformat<CR>
 
 " Compile Haskell file using GHCi
 nnoremap <leader>hb :!ghci %<CR>
@@ -96,6 +101,9 @@ map <C-p> "+P
 
 " Automatically deletes all trailing whitespace on save.
 autocmd BufWritePre * %s/\s\+$//e
+
+" Automatically formats document on save
+autocmd BufWrite * :Autoformat
 
 " When shortcut files are updated, renew bash and vifm configs with new material:
 autocmd BufWritePost ~/.config/bmdirs,~/.config/bmfiles !shortcuts
