@@ -59,8 +59,17 @@ hi MatchParen ctermbg=2 ctermfg=0
 hi Pmenu ctermbg=0 ctermfg=3
 
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#disable_auto_complete = 1
+let g:deoplete#disable_auto_complete = 0
+
+" We want a bit of delay before showing the autocomplete menu
+call deoplete#custom#option('auto_complete_delay', 250)
+
+" No new line when pressing enter after a tab autocomplete
 let g:SuperTabCrMapping = 1
+
+" Move from top to bottom in autocomplete list
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
 let g:autoclose_vim_commentmode = 1
 let g:UltiSnipsExpandTrigger="<S-Tab>"
 let g:UltiSnipsJumpForwardTrigger="<A-Tab>"
@@ -70,11 +79,6 @@ let g:lightline = {
 
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
-" I prefer to use SuperTab, but I do like the suggestions I get from deoplete
-" so I disabled the autocomplete and added a binding for manual completion
-" using deoplete.
-inoremap <expr> <leader><Tab> deoplete#manual_complete()
 
 " Nerd tree
 map <leader>b :NERDTreeToggle<CR>
