@@ -21,6 +21,14 @@ Plug 'honza/vim-snippets'
 Plug 'spf13/vim-autoclose'
 Plug 'alvan/vim-closetag'
 
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
 call plug#end()
 
 colorscheme wal
@@ -43,14 +51,23 @@ filetype plugin on
 filetype plugin indent on
 syntax on
 
+" Change the background color of highlighted matching tags
 hi MatchParen ctermbg=2 ctermfg=0
 
+" Change the colors for the dropdown menu for autocomplete
+hi Pmenu ctermbg=0 ctermfg=3
+
+let g:deoplete#enable_at_startup = 1
 let g:autoclose_vim_commentmode = 1
 let g:UltiSnipsExpandTrigger="<S-Tab>"
 let g:UltiSnipsJumpForwardTrigger="-"
 let g:lightline = {
 	\'colorscheme': 'wal',
 	\ }
+
+
+call deoplete#custom#source('_', 'max_menu_width', 100)
+call deoplete#custom#source('_', 'disabled_syntaxes', ['Comment', 'String'])
 
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
