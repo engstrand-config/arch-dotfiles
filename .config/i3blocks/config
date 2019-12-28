@@ -44,9 +44,6 @@ label=
 interval=15
 signal=12
 
-[redshiftoggle]
-interval=60
-
 [disk]
 interval=120
 command=disk /

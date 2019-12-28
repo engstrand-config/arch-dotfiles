@@ -1,1 +1,2 @@
 alias p="sudo pacman"
+alias vim="nvim"

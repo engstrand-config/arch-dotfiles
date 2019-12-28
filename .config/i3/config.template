@@ -156,23 +156,8 @@ bindsym $mod+F2         restart
 bindsym $mod+Shift+Delete   exec --no-startup-id lmc truemute ; exec --no-startup-id lmc pause ; exec --no-startup-id pauseallmpv; workspace 0; exec $term -e htop ; exec $term -e $FILE
 
 # Workspaces
-bindsym $mod+Home       workspace number $ws1
-bindsym $mod+Shift+Home     move container to workspace number $ws1
-bindsym $mod+End        workspace number $ws10
-bindsym $mod+Shift+End      move container to workspace number $ws10
-bindsym $mod+Prior      workspace prev
-bindsym $mod+Shift+Prior    move container to workspace prev
-bindsym $mod+Next       workspace next
-bindsym $mod+Shift+Next     move container to workspace next
 bindsym $mod+Tab        workspace back_and_forth
-bindsym $mod+XF86Back       workspace prev
-bindsym $mod+Shift+XF86Back move container to workspace prev
-bindsym $mod+XF86Forward    workspace next
-bindsym $mod+Shift+XF86Forward  move container to workspace next
-bindsym $mod+semicolon      workspace next
 bindsym $mod+apostrophe     split vertical ;; exec $term
-bindsym $mod+Shift+slash    kill
-bindsym $mod+backslash      workspace back_and_forth
 
 # Switch to workspaces
 bindsym $mod+1      workspace number $ws1
