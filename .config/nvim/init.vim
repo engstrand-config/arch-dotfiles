@@ -1,9 +1,9 @@
 let mapleader = ","
 
 if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
-	echo "Downloading junegunn/vim-plug to manage plugins..."
-	silent !mkdir -p ~/.config/nvim/autoload/
-	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ~/.config/nvim/autoload/plug.vim
+    echo "Downloading junegunn/vim-plug to manage plugins..."
+    silent !mkdir -p ~/.config/nvim/autoload/
+    silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ~/.config/nvim/autoload/plug.vim
 endif
 
 call plug#begin(stdpath('data') . '/plugged')
@@ -23,11 +23,11 @@ Plug 'alvan/vim-closetag'
 Plug 'Chiel92/vim-autoformat'
 
 if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
 call plug#end()
@@ -74,8 +74,8 @@ let g:autoclose_vim_commentmode = 1
 let g:UltiSnipsExpandTrigger="<S-Tab>"
 let g:UltiSnipsJumpForwardTrigger="<A-Tab>"
 let g:lightline = {
-	\'colorscheme': 'wal',
-	\ }
+            \'colorscheme': 'wal',
+            \ }
 
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -106,8 +106,8 @@ map <C-p> "+P
 " Automatically deletes all trailing whitespace on save.
 autocmd BufWritePre * %s/\s\+$//e
 
-" Automatically formats document on save
-autocmd BufWrite * :Autoformat
+" Automatically formats document on save in certain file types
+autocmd BufWrite *.js, *.jsx, *.html, *.css, *.xml, *.ts, *.py, *.hs :Autoformat
 
 " When shortcut files are updated, renew bash and vifm configs with new material:
 autocmd BufWritePost ~/.config/bmdirs,~/.config/bmfiles !shortcuts
