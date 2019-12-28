@@ -3,4 +3,4 @@
 auto_view text/html
 alternative_order text/html text/plain text/enriched
 set sidebar_visible = no
-macro index <space> "<view-attachments><search>html<enter><enter><exit><shell-escape>ddspawn neomutt<enter>" "Open HTML attachment in browser"
+macro index,pager <space> "<view-attachments><search>html<enter><enter><exit><shell-escape>ddspawn neomutt<enter>" "Open HTML attachment in browser"
