@@ -1,5 +1,5 @@
 auto-reload yes
-#reload-time 1
+reload-time 1
 browser firefox
 cleanup-on-quit yes
 download-path "/home/moparx/downloads/podcasts"
