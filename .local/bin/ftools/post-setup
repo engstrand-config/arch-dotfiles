@@ -72,6 +72,9 @@ fi
 # Lockscreen after suspend
 sudo systemctl enable betterlockscreen@$USER
 
+# Enable cron service
+sudo systemctl enable cronie.service
+
 echo "Log out and log back in again for changes to take effect"
 
 

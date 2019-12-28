@@ -21,6 +21,7 @@ Plug 'honza/vim-snippets'
 Plug 'spf13/vim-autoclose'
 Plug 'alvan/vim-closetag'
 Plug 'Chiel92/vim-autoformat'
+Plug 'neomutt/neomutt.vim'
 
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
