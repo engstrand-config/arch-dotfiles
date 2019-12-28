@@ -1,13 +1,15 @@
 #!/bin/sh
 
 case $BLOCK_BUTTON in
-	1) ddspawn newsboat >/dev/null & ;;
+	1) ddspawn newsboat >/dev/null &
 esac
 
-UNREAD=$(newsboat -x print-unread | awk '{ print $1}' | sed 's/[^1-9]*//g' | sed '/^$/d')
+UNREAD=$(</tmp/newsupdate)
 
+# This step is not really needed, but the icon is always visible otherwise...
+# think of some better solution
 if [ -z "$UNREAD" ]; then
 	exit
 fi
 
-printf "<span color='$WAL_LIGHT'>$UNREAD</span>"
+printf "<span color='$WAL_LIGHT'>$UNREAD</span>\n"
