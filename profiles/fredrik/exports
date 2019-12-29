@@ -2,12 +2,6 @@
 
 export KDE_DEVICE_ID="5b47b4994b69f3fc"
 
-export PROFILE_WS1_NAME="1:   Terminal"
-export PROFILE_WS2_NAME="2:   Firefox"
-export PROFILE_WS3_NAME="3:   Code"
-export PROFILE_WS4_NAME="4:   Steam"
-export PROFILE_WS5_NAME="5:   Spotify"
-
 export PROFILE_WS_FIREFOX=2
 export PROFILE_WS_STEAM=4
 export PROFILE_WS_SPOTIFY=5
