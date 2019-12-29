@@ -10,4 +10,4 @@ UNREAD=$(newsboat -x print-unread | awk '{ print $1}' | sed 's/[^1-9]*//g' | sed
 
 echo "$UNREAD" > /tmp/newsupdate
 
-pkill -RTMIN+6 i3blocks
+pkill -RTMIN+6 $STATUSBAR

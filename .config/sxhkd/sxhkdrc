@@ -14,7 +14,7 @@ super + i
 super + y
 	$TERMINAL -e calcurse
 super + shift + a
-	$TERMINAL -e pulsemixer; pkill -RTMIN+10 i3blocks
+	$TERMINAL -e pulsemixer; pkill -RTMIN+10 $STATUSBAR
 super + shift + c
 	camtoggle
 super + w
@@ -37,28 +37,24 @@ super + shift + BackSpace
 	prompt "Reboot computer?" "sudo -A shutdown -r now"
 XF86Launch1
 	xset dpms force off
+
+# Audio keys
 XF86AudioMute
-	lmc mute
-XF86AudioLowerVolume
-	lmc down 5
-shift+XF86AudioLowerVolume
-	lmc down 10
-control+XF86AudioLowerVolume
-	lmc down 1
-XF86AudioRaiseVolume
-	lmc up 5
-shift+XF86AudioRaiseVolume
-	lmc up 10
-control+XF86AudioRaiseVolume
-	lmc up 1
-XF86AudioNext
-	lmc next
-XF86AudioPlay
-	lmc toggle
-XF86AudioPrev
-	lmc prev
-XF86AudioStop
-	lmc toggle
+	amixer sset Master toggle; pkill -RTMIN+10 $STATUSBAR
+XF86Audio{Raise,Lower}Volume
+	amixer sset Master 5%{+,-}; pkill -RTMIN+10 $STATUSBAR
+XF86Audio{Next,Prev}
+	mpc {next,prev}
+XF86Audio{Pause,Play,Stop}
+	mpc {toggle,toggle,stop}
+XF86Audio{Rewind,Forward}
+	mpc seek {-,+}10
+XF86AudioRecord
+	dmenurecord
+XF86AudioMedia
+	$TERMINAL -e ncmpcpp
+
+# Brightness
 XF86MonBrightnessDown
 	xbacklight -dec 15
 XF86MonBrightnessUp
@@ -80,30 +76,28 @@ super + Print
 #super + Delete
 #	dmenurecord kill
 
+
 # Pause audio
-super + {_,shift +} p
-	lmc {toggle,pause}
+super + p
+	mpc toggle
+super + shift + p
+	mpc pause; pauseallmpv
 # Changes to next/previous tracks
 super + {comma,period}
-	lmc {prev,next}
+	mpc {prev,next}
 # Restart track
 super + shift + less
-	lmc replay
-# Increase volume
-super + {equal,plus}
-	lmc up {5,15}
-# Decrease volume
-super {_,shift +} + minus
-	lmc down {5,15}
+	mpc seek 0%
 
 # These two are hardcoded to the F-keys that correspond to music forward/back on my keyboard... XF86Audio...commands can not be used with modifiers it seems
 # Seek foward in song
-control + {_,shift +}  F11
-	lmc forward {10,120}
+shift + {_,control +}  F11
+	mpc seek +{10,120}
 # Seek backward in song
-control + {_,shift +} F9
-	lmc back {10,120}
+shift + {_,control +} F9
+    mpc seek -{10,120}
 
+# Toggle redshift
 super + End
     pkill -USR1 "^redshift$"
 

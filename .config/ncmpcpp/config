@@ -326,7 +326,7 @@ progressbar_look = ->
 #
 ## Available values: classic, alternative.
 ##
-#user_interface = classic
+user_interface = classic
 #
 #data_fetching_delay = yes
 #
@@ -412,7 +412,7 @@ startup_screen = media_library
 #
 #ask_for_locked_screen_width_part = yes
 #
-#jump_to_now_playing_song_at_start = yes
+jump_to_now_playing_song_at_start = yes
 #
 #ask_before_clearing_playlists = yes
 #

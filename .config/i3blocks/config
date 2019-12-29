@@ -71,7 +71,7 @@ label=
 
 [battery]
 command=battery BAT0
-interval=10
+interval=5
 
 [volume]
 interval=once
