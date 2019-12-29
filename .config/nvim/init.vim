@@ -23,13 +23,13 @@ Plug 'alvan/vim-closetag'
 Plug 'Chiel92/vim-autoformat'
 Plug 'neomutt/neomutt.vim'
 
-if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-endif
+" if has('nvim')
+"     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"     Plug 'Shougo/deoplete.nvim'
+"     Plug 'roxma/nvim-yarp'
+"     Plug 'roxma/vim-hug-neovim-rpc'
+" endif
 
 call plug#end()
 
@@ -59,11 +59,11 @@ hi MatchParen ctermbg=2 ctermfg=0
 " Change the colors for the dropdown menu for autocomplete
 hi Pmenu ctermbg=0 ctermfg=3
 
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#disable_auto_complete = 0
+" let g:deoplete#enable_at_startup = 1
+" let g:deoplete#disable_auto_complete = 0
 
 " We want a bit of delay before showing the autocomplete menu
-call deoplete#custom#option('auto_complete_delay', 250)
+" call deoplete#custom#option('auto_complete_delay', 250)
 
 " No new line when pressing enter after a tab autocomplete
 let g:SuperTabCrMapping = 1

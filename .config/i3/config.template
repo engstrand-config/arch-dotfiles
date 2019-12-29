@@ -72,20 +72,20 @@ gaps outer $gaps_outer
 
 bar {
     height 20
-        id top-bar
-        font pango: Noto Sans Bold 8
-        i3bar_command i3bar -t
-        status_command i3blocks
-        position top
-        mode dock
-        modifier None
-        tray_output none
-        colors {
-            background $bar_bg
-                urgent_workspace $critical $critical #ffffff
-                focused_workspace $fg $fg $bar_bg
-                inactive_workspace $bar_bg $bar_bg #ffffff
-        }
+    id top-bar
+    font pango: Noto Sans Bold 8
+    i3bar_command i3bar -t
+    status_command i3blocks
+    position top
+    mode dock
+    modifier None
+    tray_output none
+    colors {
+        background $bar_bg
+            urgent_workspace $critical $critical #ffffff
+            focused_workspace $fg $fg $bar_bg
+            inactive_workspace $bar_bg $bar_bg #ffffff
+    }
 }
 
 # Basic bindings

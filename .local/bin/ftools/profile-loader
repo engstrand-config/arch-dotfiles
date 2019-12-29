@@ -3,6 +3,5 @@
 path=~/.dotfiles/profiles/$(whoami)
 
 if [ -d "$path" ]; then
-	echo "HELLO??"
 	bash $path/load
 fi
