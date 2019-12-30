@@ -20,8 +20,6 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'spf13/vim-autoclose'
 Plug 'alvan/vim-closetag'
-Plug 'Chiel92/vim-autoformat'
-Plug 'neomutt/neomutt.vim'
 
 " if has('nvim')
 "     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -95,7 +93,6 @@ nnoremap <leader>p %ci(
 
 " Shortcut for formatting document
 nnoremap <leader>fi gg=G<CR>
-nnoremap <leader>fd :Autoformat<CR>
 
 " Compile Haskell file using GHCi
 nnoremap <leader>hb :!ghci %<CR>
@@ -106,9 +103,6 @@ map <C-p> "+P
 
 " Automatically deletes all trailing whitespace on save.
 autocmd BufWritePre * %s/\s\+$//e
-
-" Automatically formats document on save in certain file types
-autocmd BufWrite *.js, *.jsx, *.html, *.css, *.xml, *.ts, *.py, *.hs :Autoformat
 
 " When shortcut files are updated, renew bash and vifm configs with new material:
 autocmd BufWritePost ~/.config/bmdirs,~/.config/bmfiles !shortcuts
