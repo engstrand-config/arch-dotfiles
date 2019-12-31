@@ -44,7 +44,6 @@ export npm_config_prefix=~/.node_modules
 # Metro skin can not be used with the new steam layout for now
 #make-steam-config
 
-make-firefox-config
 make-dunst-config
 make-i3-config
 

@@ -67,7 +67,7 @@ hi Pmenu ctermbg=0 ctermfg=3
 let g:SuperTabCrMapping = 1
 
 " Move from top to bottom in autocomplete list
-let g:SuperTabDefaultCompletionType = "<c-n>"
+"let g:SuperTabDefaultCompletionType = "<c-n>"
 
 let g:autoclose_vim_commentmode = 1
 let g:UltiSnipsExpandTrigger="<S-Tab>"
