@@ -26,9 +26,14 @@ case $BLOCK_BUTTON in
 1) ddspawn neomutt >/dev/null & ;;
 2) setsid mailsync >/dev/null & ;;
 3) pgrep -x dunst >/dev/null && notify-send "📬 Mail module" "\- Shows unread mail
-- Shows  if syncing mail
 - Left click opens neomutt
 - Middle click syncs mail" ;;
 esac
 
-echo "$(du -a ~/.local/share/mail/*/INBOX/new/* 2>/dev/null | sed -n '$=')$(cat /tmp/imapsyncicon_$USER 2>/dev/null)"
+UNREAD="$(du -a ~/.local/share/mail/*/INBOX/new/* 2>/dev/null | sed -n '$=')$(cat /tmp/imapsyncicon_$USER 2>/dev/null)"
+
+if [[ -z "$UNREAD" ]]; then
+    exit
+fi
+
+printf "<span color='$WAL_LIGHT'>%s</span>\n" "$UNREAD"

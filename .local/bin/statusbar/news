@@ -9,7 +9,7 @@ UNREAD=$(</tmp/newsupdate)
 # This step is not really needed, but the icon is always visible otherwise...
 # think of some better solution
 if [ -z "$UNREAD" ]; then
-	exit
+	echo ""
 fi
 
 printf "<span color='$WAL_LIGHT'>$UNREAD</span>\n"

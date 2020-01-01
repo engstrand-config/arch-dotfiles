@@ -132,7 +132,7 @@ super + F10
 	dmenuumount
 # Search with Duckduckgo
 super + F11
-	ducksearch
+	make-i3-config
 # Network Manager interface
 super + F12
 	$TERMINAL -e sudo -A nmtui
