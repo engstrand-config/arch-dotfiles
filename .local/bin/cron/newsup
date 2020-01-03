@@ -2,11 +2,11 @@
 # Set as a cron job to check for new RSS entries for newsboat.
 # If newsboat is open, exit.
 
-pgrep -x newsboat >/dev/null && exit
+# pgrep -x newsboat >/dev/null && exit
 
-newsboat -x reload
+newsboat --cache-file=/tmp/newsboatreload -x reload
 
-UNREAD=$(newsboat -x print-unread | awk '{ print $1}' | sed 's/[^1-9]*//g' | sed '/^$/d')
+UNREAD=$(newsboat --cache-file=/tmp/newsboatreload -x print-unread | awk '{ print $1}' | sed 's/[^1-9]*//g' | sed '/^$/d')
 
 echo "$UNREAD" > /tmp/newsupdate
 
