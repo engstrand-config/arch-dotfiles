@@ -88,6 +88,9 @@ nnoremap c "_c
 " Replace all is aliased to S.
 nnoremap S :%s//g<Left><Left>
 
+" Replace all occurences of word under cursor
+nnoremap <leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+
 " Shortcut for finding a parenthesis and changing its content from anywhere on a line
 nnoremap <leader>p %ci(
 
