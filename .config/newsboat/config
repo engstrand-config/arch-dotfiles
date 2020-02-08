@@ -49,6 +49,8 @@ bind-key D pb-download
 bind-key U show-urls
 bind-key x pb-delete
 bind-key n next-unread
+bind-key ^E down
+bind-key ^Y up
 
 # formatting and colorization ------------------------------------------
 

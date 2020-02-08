@@ -4,7 +4,7 @@
 # To use this block, set export KDE_DEVICE_ID="<your-device-id>"
 # To get your device id, type "kdeconnect-cli -l" and find the name of your phone
 # and copy the corresponding id.
-# Logout and it should be loaded automatically and a pairing request from 
+# Logout and it should be loaded automatically and a pairing request from
 # your phone to your computer should be accepted automatically
 
 # list devices
@@ -42,7 +42,7 @@
 #    echo $id
 #done
 
-# This should be set in the personal profile at ~/.dotfiles/profiles/<username>/load 
+# This should be set in the personal profile at ~/.dotfiles/profiles/<username>/exports
 DEVICE="$KDE_DEVICE_ID"
 
 DESTINATION="org.kde.kdeconnect"
@@ -67,7 +67,7 @@ BATTERYPATH="/modules/kdeconnect/devices/$DEVICE"
 if [[ $BLOCK_BUTTON == '1' ]]; then
     action=$(echo -e "Ping\nFind my phone\nSend file\nUnpair" | dmenu_launcher -i -p "Action: ")
     case "$action" in
-        # For some reason it seems like I need print-reply for these commands to work??? 
+        # For some reason it seems like I need print-reply for these commands to work???
         *'Ping') dbus-send --print-reply --dest=$DESTINATION $PINGPATH $IPING &> /dev/null ;;
         *'Find my phone') dbus-send --print-reply --dest=$DESTINATION $FINDMYPHONEPATH $IFINDMYPHONE &> /dev/null ;;
         *'Send file') dbus-send --print-reply --dest=$DESTINATION $SHAREPATH $ISHAREURL string:"file://$(zenity --file-selection)" &> /dev/null ;;

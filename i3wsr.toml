@@ -12,6 +12,7 @@ code-oss = ""
 Nextcloud = ""
 tidal-hifi = "🌊"
 Sxiv = ""
+processing-app-Base = ""
 
 [aliases]
 jetbrains-studio = "Android Studio"
@@ -21,3 +22,4 @@ St = "st"
 code-oss = "Code"
 tidal-hifi = "Tidal"
 Sxiv = "sxiv"
+processing-app-Base = "Arduino"

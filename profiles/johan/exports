@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-export KDE_DEVICE_ID="312d44db7a2f4504"
+export KDE_DEVICE_ID="d9929bde20cf6b7b"
 
 export PROFILE_GAPS_INNER="7"
 export PROFILE_GAPS_OUTER="0"

@@ -10,6 +10,7 @@ UNREAD=$(</tmp/newsupdate)
 # think of some better solution
 if [ -z "$UNREAD" ]; then
 	echo ""
+    exit
 fi
 
 printf "<span color='$WAL_LIGHT'>$UNREAD</span>\n"
