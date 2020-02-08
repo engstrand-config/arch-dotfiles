@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+crontab -l > ~/.dotfiles/profiles/johan/my-crontab
+
+xrandr -r 144 &
+
+firefox &
+discord &
+steam &
+#nextcloud &
+pulseeffects --gapplication-service &
+mpDris2 &
+espanso daemon &
