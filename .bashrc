@@ -9,3 +9,5 @@ export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput se
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 eval "$(thefuck --alias)"
+
+source /home/ghost/.config/broot/launcher/bash/br

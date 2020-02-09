@@ -40,8 +40,8 @@ set $ws_android_studio <ws-android-studio>:
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
 set $window_border_size <window-border-size>
-smart_gaps on
-hide_edge_borders smart
+#smart_gaps on
+#hide_edge_borders smart
 
 # Set betterlockscreen background
 exec --no-startup-id betterlockscreen -u ~/.config/wallpaper.png

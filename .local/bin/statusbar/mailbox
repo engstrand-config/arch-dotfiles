@@ -30,7 +30,7 @@ case $BLOCK_BUTTON in
 - Middle click syncs mail" ;;
 esac
 
-UNREAD="$(du -a ~/.local/share/mail/*/INBOX/new/* 2>/dev/null | sed -n '$=')$(cat /tmp/imapsyncicon_$USER 2>/dev/null)"
+UNREAD="$(du -a ~/.local/share/mail/*/INBOX/new/* 2>/dev/null | sed -n '$=')"
 
 if [[ -z "$UNREAD" ]]; then
     exit

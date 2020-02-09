@@ -51,6 +51,9 @@ filetype plugin on
 filetype plugin indent on
 syntax on
 
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
+
 " Change the background color of highlighted matching tags
 hi MatchParen ctermbg=2 ctermfg=0
 

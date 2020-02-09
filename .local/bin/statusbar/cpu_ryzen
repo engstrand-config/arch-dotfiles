@@ -1,0 +1,13 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+	1) notify-send " CPU hogs" "$(ps axch -o cmd:25,%cpu --sort=-%cpu | head)" ;;
+esac
+
+TEMP_STRING=$(sensors | awk '/CPU Temperature/ {print $3}' | cut -d "+" -f 2)
+TEMP=$(echo $TEMP_STRING | cut -d "." -f 1)
+COLOR="$WAL_LIGHT"
+
+[ $TEMP -gt 70 ] && COLOR="$WAL_CRITICAL"
+
+printf "<span color='%s'>$TEMP_STRING</span>" "$COLOR"
