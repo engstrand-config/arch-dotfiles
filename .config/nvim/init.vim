@@ -20,14 +20,8 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'spf13/vim-autoclose'
 Plug 'alvan/vim-closetag'
-
-" if has('nvim')
-"     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" else
-"     Plug 'Shougo/deoplete.nvim'
-"     Plug 'roxma/nvim-yarp'
-"     Plug 'roxma/vim-hug-neovim-rpc'
-" endif
+Plug 'lervag/vimtex'
+Plug 'thaerkh/vim-workspace'
 
 call plug#end()
 
@@ -102,6 +96,9 @@ nnoremap <leader>fi gg=G<CR>
 
 " Compile Haskell file using GHCi
 nnoremap <leader>hb :!ghci %<CR>
+
+" Toggles the workspace on/off
+nnoremap <leader>w :ToggleWorkspace<CR>
 
 " Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
 vnoremap <C-c> "+y
