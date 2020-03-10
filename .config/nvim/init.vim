@@ -20,14 +20,8 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'spf13/vim-autoclose'
 Plug 'alvan/vim-closetag'
-
-" if has('nvim')
-"     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" else
-"     Plug 'Shougo/deoplete.nvim'
-"     Plug 'roxma/nvim-yarp'
-"     Plug 'roxma/vim-hug-neovim-rpc'
-" endif
+Plug 'lervag/vimtex'
+Plug 'thaerkh/vim-workspace'
 
 call plug#end()
 
@@ -43,8 +37,8 @@ set nocompatible
 set encoding=utf-8
 set number relativenumber
 set splitbelow splitright
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 
 filetype plugin on
@@ -103,6 +97,9 @@ nnoremap <leader>fi gg=G<CR>
 " Compile Haskell file using GHCi
 nnoremap <leader>hb :!ghci %<CR>
 
+" Toggles the workspace on/off
+nnoremap <leader>w :ToggleWorkspace<CR>
+
 " Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
 vnoremap <C-c> "+y
 map <C-p> "+P
@@ -119,3 +116,13 @@ autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
 " Run xrdb whenever Xdefaults or Xresources are updated.
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
 
+" Disable the arrow keys
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
