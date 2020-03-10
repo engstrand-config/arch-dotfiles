@@ -1,7 +1,8 @@
 #!/usr/bin/bash
 crontab -l > ~/.dotfiles/profiles/johan/my-crontab
+gnome-keyring-daemon --start --components=secrets
 
-xrandr -r 144 &
+xrandr -r 120 &
 
 firefox &
 discord &
