@@ -21,7 +21,6 @@ Plug 'honza/vim-snippets'
 Plug 'spf13/vim-autoclose'
 Plug 'alvan/vim-closetag'
 Plug 'lervag/vimtex'
-Plug 'thaerkh/vim-workspace'
 
 call plug#end()
 
