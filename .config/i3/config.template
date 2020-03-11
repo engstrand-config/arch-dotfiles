@@ -35,6 +35,7 @@ set $ws_steam <ws-steam>:
 set $ws_firefox <ws-firefox>:
 set $ws_code <ws-code>:
 set $ws_android_studio <ws-android-studio>:
+set $ws_ferdi <ws-ferdi>:
 
 # Other
 set $term --no-startup-id $TERMINAL
@@ -211,12 +212,13 @@ for_window [title="sxiv"] floating enable
 for_window [class="floating-*"] floating enable
 for_window [class="floating-*"] focus
 for_window [class="jetbrains-studio"] move to workspace number $ws_android_studio
+for_window [instance="ferdi"] move to workspace number $ws_ferdi
 for_window [title="Android Emulator*"] floating enable; move right 650
 assign [class="firefox"] workspace number $ws_firefox
 assign [class="Steam"] workspace number $ws_steam
 assign [class="code-oss"] workspace number $ws_code
 assign [class="jetbrains-studio"] workspace number $ws_android_studio
-
+assign [instance="ferdi"] workspace number $ws_ferdi
 
 # Bindings to make the webcam float and stick.
 for_window [title="mpvfloat"] floating enable
