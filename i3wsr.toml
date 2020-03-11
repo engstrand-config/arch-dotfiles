@@ -13,6 +13,7 @@ Nextcloud = ""
 tidal-hifi = ""
 Sxiv = ""
 processing-app-Base = ""
+Ferdi = ""
 
 [aliases]
 jetbrains-studio = "Android Studio"

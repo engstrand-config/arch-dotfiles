@@ -45,6 +45,7 @@ replace "<ws-steam>" 		"$PROFILE_WS_STEAM"		$ws4
 replace "<ws-firefox>" 		"$PROFILE_WS_FIREFOX"		$ws2
 replace "<ws-code>" 		"$PROFILE_WS_CODE"		$ws6
 replace "<ws-android-studio>"	"$PROFILE_WS_ANDROID_STUDIO"	$ws9
+replace "<ws-ferdi>" "$PROFILE_WS_FERDI" $ws4
 
 replace "<scratchpad-width>"	"$PROFILE_SP_WIDTH"		"800"
 replace "<scratchpad-height>"	"$PROFILE_SP_HEIGHT"		"600"

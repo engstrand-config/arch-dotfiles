@@ -5,8 +5,7 @@ gnome-keyring-daemon --start --components=secrets
 xrandr -r 120 &
 
 firefox &
-discord &
-steam &
+ferdi &
 #nextcloud &
 pulseeffects --gapplication-service &
 mpDris2 &
