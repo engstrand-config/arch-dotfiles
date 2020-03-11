@@ -1,7 +1,7 @@
 #!/bin/sh
 
 PROFILE_PATH=~/.dotfiles/profiles/$(whoami)
-bash $PROFILE_PATH/init 
+bash $PROFILE_PATH/init
 
 [ -f "$HOME/.xprofile" ] && . ~/.xprofile
 
