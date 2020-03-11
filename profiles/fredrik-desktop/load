@@ -1,3 +1,8 @@
 #!/usr/bin/bash
 
-i3-resurrect restore -w "$PROFILE_WS1_NAME"
+alsactl --file ~/.config/asound.state restore
+
+firefox &
+spotify &
+ferdi &
+espanso daemon &

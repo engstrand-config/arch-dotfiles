@@ -35,13 +35,14 @@ set $ws_steam <ws-steam>:
 set $ws_firefox <ws-firefox>:
 set $ws_code <ws-code>:
 set $ws_android_studio <ws-android-studio>:
+set $ws_ferdi <ws-ferdi>:
 
 # Other
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
 set $window_border_size <window-border-size>
-smart_gaps on
-hide_edge_borders smart
+#smart_gaps on
+#hide_edge_borders smart
 
 # Set betterlockscreen background
 exec --no-startup-id betterlockscreen -u ~/.config/wallpaper.png
@@ -185,6 +186,9 @@ bindsym $mod+Shift+8    move container to workspace number $ws8
 bindsym $mod+Shift+9    move container to workspace number $ws9
 bindsym $mod+Shift+0    move container to workspace number $ws10
 
+bindsym $mod+Shift+Ctrl+Left   move workspace to output left
+bindsym $mod+Shift+Ctrl+Right  move workspace to output right
+
 # YTDL bindings
 bindsym $mod+Ctrl+p     exec --no-startup-id video-clipboard-player
 bindsym $mod+Ctrl+Left      [class="mpv"] focus; exec --no-startup-id corners "top left" 426 240
@@ -204,17 +208,17 @@ for_window [instance="emacs"] workspace number $ws_emacs
 for_window [class="Spotify"] move to workspace number $ws_spotify
 for_window [class="discord"] move to workspace number $ws_discord
 for_window [title="nmtui"] floating enable
-#for_window [title="neomutt"]
 for_window [title="sxiv"] floating enable
 for_window [class="floating-*"] floating enable
 for_window [class="floating-*"] focus
 for_window [class="jetbrains-studio"] move to workspace number $ws_android_studio
+for_window [instance="ferdi"] move to workspace number $ws_ferdi
 for_window [title="Android Emulator*"] floating enable; move right 650
 assign [class="firefox"] workspace number $ws_firefox
 assign [class="Steam"] workspace number $ws_steam
 assign [class="code-oss"] workspace number $ws_code
 assign [class="jetbrains-studio"] workspace number $ws_android_studio
-
+assign [instance="ferdi"] workspace number $ws_ferdi
 
 # Bindings to make the webcam float and stick.
 for_window [title="mpvfloat"] floating enable

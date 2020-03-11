@@ -6,6 +6,8 @@ separator=false
 # [window]
 # command=xtitle -s
 # interval=persist
+# min_width=1280
+# align=center
 
 [pacpackages]
 label=

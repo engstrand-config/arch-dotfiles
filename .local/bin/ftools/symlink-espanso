@@ -1,0 +1,12 @@
+#!/bin/bash
+
+ESPANSO_PATH=$HOME/.config/espanso/default.yml
+PROFILE_CONFIG=$HOME/.dotfiles/profiles/$(whoami)/espanso.yml
+
+if [[ -f "$ESPANSO_PATH" && -f "$PROFILE_CONFIG" ]];
+then
+  rm $ESPANSO_PATH
+  ln -s "$PROFILE_CONFIG" "$ESPANSO_PATH"
+fi
+
+

@@ -22,14 +22,6 @@ Plug 'spf13/vim-autoclose'
 Plug 'alvan/vim-closetag'
 Plug 'lervag/vimtex'
 
-" if has('nvim')
-"     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" else
-"     Plug 'Shougo/deoplete.nvim'
-"     Plug 'roxma/nvim-yarp'
-"     Plug 'roxma/vim-hug-neovim-rpc'
-" endif
-
 call plug#end()
 
 colorscheme wal
@@ -44,13 +36,16 @@ set nocompatible
 set encoding=utf-8
 set number relativenumber
 set splitbelow splitright
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 
 filetype plugin on
 filetype plugin indent on
 syntax on
+
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
 
 " Change the background color of highlighted matching tags
 hi MatchParen ctermbg=2 ctermfg=0
@@ -101,6 +96,9 @@ nnoremap <leader>fi gg=G<CR>
 " Compile Haskell file using GHCi
 nnoremap <leader>hb :!ghci %<CR>
 
+" Toggles the workspace on/off
+nnoremap <leader>w :ToggleWorkspace<CR>
+
 " Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
 vnoremap <C-c> "+y
 map <C-p> "+P
@@ -127,5 +125,17 @@ let g:vimtex_compiler_latexmk = {
         \ ],
         \}
 
+" Should be moved /Johan
 nnoremap <leader>r :!bash /home/johan/Repos/bionic-arm/arduino-code/recup<CR>
 nnoremap <leader>t :!bash /home/johan/Repos/bionic-arm/arduino-code/trup<CR>
+
+" Disable the arrow keys
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>

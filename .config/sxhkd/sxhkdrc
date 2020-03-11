@@ -18,7 +18,7 @@ super + shift + a
 super + shift + c
 	camtoggle
 super + w
-	webby | xargs -r $BROWSER
+
 super + shift + w
 	$BROWSER
 super + shift + g
@@ -44,9 +44,9 @@ XF86AudioMute
 XF86Audio{Raise,Lower}Volume
 	amixer sset Master 5%{+,-}; pkill -RTMIN+10 $STATUSBAR
 XF86Audio{Next,Prev}
-	mpc {next,prev}
+	mpc {next,prev}; pkill -RTMIN+11 $STATUSBAR
 XF86Audio{Pause,Play,Stop}
-	mpc {toggle,toggle,stop}
+	mpc {toggle,toggle,stop}; pkill -RTMIN+11 $STATUSBAR
 XF86Audio{Rewind,Forward}
 	mpc seek {-,+}10
 XF86AudioRecord
