@@ -1,0 +1,6 @@
+#!/bin/bash
+
+FERDI_PATH=$HOME/.config/Ferdi/config/settings.json
+if [ -f "$FERDI_PATH" ]; then
+  sed -i -e "s/#.*/$WAL_4\"\,/g" "$FERDI_PATH"
+fi

@@ -15,6 +15,7 @@ BIN_PATH=~/.dotfiles/.local/bin/ftools
 .  $BIN_PATH/make-wal-colors
 $BIN_PATH/make-dunst-config
 $BIN_PATH/make-i3-config
+$BIN_PATH/make-ferdi-config
 
 cp $1 ~/.config/wallpaper.png
 
