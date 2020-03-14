@@ -1,8 +1,27 @@
 #!/usr/bin/bash
 
-alsactl --file ~/.config/asound.state restore
+# Restore the correct Capture Source and Monitor Level.
+# The settings are reset by something on login, so we need to wait a bit before updating the settings.
+sleep 1 && alsactl --file ~/.config/asound.state restore
 
 firefox &
 spotify &
 ferdi &
 espanso daemon &
+
+# If we do not wait a bit before moving the workspaces, it does not work.
+sleep 1
+
+# Move workspaces to the correct monitor
+# Right monitor
+i3-msg 'workspace number "1:", move workspace to output DisplayPort-0'
+i3-msg 'workspace number "2:", move workspace to output DisplayPort-0'
+
+# Left monitor
+i3-msg 'workspace number "3:", move workspace to output DisplayPort-2'
+i3-msg 'workspace number "4:", move workspace to output DisplayPort-2'
+
+# Focus on workspace 1
+i3-msg 'workspace number "1:"'
+
+

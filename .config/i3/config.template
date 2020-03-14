@@ -52,13 +52,9 @@ exec --no-startup-id /usr/lib/kdeconnectd
 exec --no-startup-id wifi reconnect
 exec --no-startup-id xbindkeys
 exec --no-startup-id dunst
-exec --no-startup-id profile-loader
 exec --no-startup-id i3-msg 'workspace $ws1; exec $term; exec $term'
 exec_always --no-startup-id exec i3wsr --config ~/.dotfiles/i3wsr.toml --icons awesome
-
-# Spotify seems to be running some pretty heavy background services even
-# though the app is not running, even on startup
-exec --no-startup-id killall spotify
+exec --no-startup-id profile-loader
 
 # class                 border  backgr. text indicator child_border
 client.focused          $bg     $bg     $fg  $bg       $bg

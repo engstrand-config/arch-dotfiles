@@ -75,3 +75,4 @@ map cfB :e ~/.dotfiles/.config/i3blocks/config<CR>
 map cfk :e ~/.dotfiles/.config/sxhkd/sxhkdrc<CR>
 map pe :e ~/.dotfiles/profiles/$(whoami)/exports<CR>
 map pl :e ~/.dotfiles/profiles/$(whoami)/load<CR>
+map pi :e ~/.dotfiles/profiles/$(whoami)/init<CR>
