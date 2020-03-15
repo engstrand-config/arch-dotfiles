@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Load wal colors into env
+. "${HOME}/.dotfiles/.local/bin/ftools/make-wal-colors"
+
+# Load profile specific env variables
+PROFILE_PATH="${HOME}/.dotfiles/profiles/$(whoami)"
+if [ -d "$PROFILE_PATH" ]; then
+	. "${HOME}/.dotfiles/profiles/$(whoami)/exports"
+fi
+
+make-dunst-config
+make-ferdi-config
+make-i3-config
+
+# Restart i3 so that the new config can take effect
+i3-msg restart
+
+restart-dunst
