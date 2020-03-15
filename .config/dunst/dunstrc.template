@@ -1,16 +1,16 @@
 [global]
     monitor = 0
     follow = keyboard
-    geometry = "500x20-7+27"
+    geometry = "500x20-<gap-right>+<gap-top>"
     indicate_hidden = yes
     shrink = yes
-    transparency = 1
+    transparency = 0
     notification_height = 0
-    separator_height = 2
-    padding = 8
-    horizontal_padding = 14
-    frame_width = 2
-    frame_color = "#cccccc"
+    separator_height = 1
+    padding = 12
+    horizontal_padding = 18
+    frame_width = <border-size>
+    frame_color = "<border-color>"
 
     # Define a color for the separator.
     # possible values are:
@@ -27,6 +27,7 @@
     font = Noto Sans Mono Medium 9
     line_height = 0
     markup = full
+    corner_radius = 0
 
     # The format of the message.  Possible variables are:
     #   %a  appname
@@ -38,7 +39,7 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<span font-family='Noto Sans Bold' color='<background-dark>'><b>%s</b></span>\n%b"
+    format = "<span font-family='Noto Sans Bold' color='<title-color>'><b>%s</b></span>\n%b"
 
     alignment = left
     show_age_threshold = 60
@@ -75,15 +76,15 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#f2f2f2"
-    foreground = "<background-light>"
+    background = "<background-color>"
+    foreground = "<text-color>"
     timeout = 5
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_normal]
-    background = "#f2f2f2"
-    foreground = "<background-light>"
+    background = "<background-color>"
+    foreground = "<text-color>"
     timeout = 5
 
 [urgency_critical]
@@ -129,13 +130,17 @@
     summary = "Discord"
     format = ""
 
+[kde-ignore-spotify-notifications]
+    summary = "Spotify"
+    format = ""
+
 [frost]
     summary = "Frost"
     format = ""
 
 [mutt-number-of-mails]
     body = "*new mail(s)*"
-    format = ""	
+    format = ""
 
 #[history-ignore]
 #    # This notification will not be saved in history

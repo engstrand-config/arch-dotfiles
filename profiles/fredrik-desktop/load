@@ -10,7 +10,7 @@ ferdi &
 espanso daemon &
 
 # If we do not wait a bit before moving the workspaces, it does not work.
-sleep 1
+sleep 2
 
 # Move workspaces to the correct monitor
 # Right monitor
