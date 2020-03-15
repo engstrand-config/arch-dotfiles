@@ -1,13 +1,32 @@
 #!/usr/bin/bash
 
-# Remove if exists
-[ -f ~/.config/dunst/dunstrc ] && rm ~/.config/dunst/dunstrc
+. "${HOME}/.dotfiles/.local/bin/ftools/make-wal-colors"
+. "${HOME}/.dotfiles/profiles/$(whoami)/exports"
 
-cp ~/.dotfiles/.config/dunst/dunstrc.template ~/.config/dunst/dunstrc
+CONFIG_TEMPLATE_PATH=~/.dotfiles/.config/dunst/dunstrc.template
+CONFIG_PATH=~/.config/dunst/dunstrc
+
+# Remove if exists
+[ -f $CONFIG_PATH ] && rm $CONFIG_PATH
+
+cp $CONFIG_TEMPLATE_PATH $CONFIG_PATH
+
+function replace() {
+    if [ -z "$2" ] || [ "$2" = "" ]; then
+	# If the var is not set in the profile exports
+	# use $3 instead (fallback value)
+	sed -i "s/$1/$3/g" $CONFIG_PATH
+    else
+	sed -i "s/$1/$2/g" $CONFIG_PATH
+    fi
+}
 
 # Replace the placeholders with the actual values
-sed -i "s/<background-dark>/$WAL_BG_DARK/g" ~/.config/dunst/dunstrc
-sed -i "s/<background-light>/$WAL_BG_LIGHT/g" ~/.config/dunst/dunstrc
-sed -i "s/<foreground>/$WAL_LIGHT/g" ~/.config/dunst/dunstrc
-sed -i "s/<critical>/$WAL_CRITICAL/g" ~/.config/dunst/dunstrc
-sed -i "s/<accent>/$WAL_3/g" ~/.config/dunst/dunstrc
+replace "<critical>" 	            "$PROFILE_WAL_CRITICAL"           "$WAL_CRITICAL"
+replace "<background-color>" 	    "$PROFILE_DUNST_BACKGROUND_COLOR" "#f2f2f2"
+replace "<border-color>" 	        "$PROFILE_DUNST_BORDER_COLOR"     "#cccccc"
+replace "<title-color>" 	        "$PROFILE_DUNST_TITLE_COLOR"      "$WAL_BG_DARK"
+replace "<text-color>" 	          "$PROFILE_DUNST_TEXT_COLOR"       "$WAL_BG_DARK"
+replace "<gap-right>" 	          "$PROFILE_DUNST_GAP_RIGHT"        "7"
+replace "<gap-top>" 	            "$PROFILE_DUNST_GAP_TOP"          "27"
+replace "<border-size>" 	        "$PROFILE_DUNST_BORDER_SIZE"      "1"

@@ -33,3 +33,4 @@ cfB="$EDITOR ~/.dotfiles/.config/i3blocks/config" \
 cfk="$EDITOR ~/.dotfiles/.config/sxhkd/sxhkdrc" \
 pe="$EDITOR ~/.dotfiles/profiles/$(whoami)/exports" \
 pl="$EDITOR ~/.dotfiles/profiles/$(whoami)/load" \
+pi="$EDITOR ~/.dotfiles/profiles/$(whoami)/init" \

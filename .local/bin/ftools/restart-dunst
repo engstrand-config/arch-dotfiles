@@ -1,3 +1,6 @@
+#!/bin/bash
+
 killall dunst
-set-dunst-colors
+make-dunst-config
 dunst &
+notify-send "Test notification" "Dunst has been reloaded with the new config" -u normal
