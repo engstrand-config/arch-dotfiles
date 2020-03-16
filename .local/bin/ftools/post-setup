@@ -17,12 +17,13 @@ sudo pip install pywal
 sudo pip install wal-steam
 sudo pip install requests
 sudo pip install untangle
+sudo pip3 install wpgtk
+sudo pip install yapf
 
 # Add support for python3 in vim (required by nvim)
 pip3 install --user pynvim
 
 # Install formatters for JS, HTML, CSS, JSON and Python (used in vim with vim-autoformat)
-sudo pip install yapf
 npm install -g js-beautify
 
 # Theme grub
@@ -49,8 +50,8 @@ git clone https://github.com/Frewacom/FARBS.git ~/Repos/FARBS
 # Install Pywalfox
 git clone https://github.com/Frewacom/Pywalfox.git ~/Repos/Pywalfox
 
-# Run themer
-bash $BIN_PATH/themer ~/.dotfiles/.local/share/wallpaper.png "post-setup"
+# Run themer and apply the default colorscheme
+bash $BIN_PATH/themer -i ~/.dotfiles/.local/share/wallpaper.png -c default.json
 
 rm ~/post-setup
 
