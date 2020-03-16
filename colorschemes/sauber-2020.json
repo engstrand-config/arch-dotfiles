@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/fredrik-desktop/.config/wpg/wallpapers/sauber-2020.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#000000",
+        "foreground": "#ffffff",
+        "cursor": "#ffffff"
+    },
+    "colors": {
+        "color0": "#000000",
+        "color1": "#f93f3f",
+        "color2": "#f13f3f",
+        "color3": "#ffffff",
+        "color4": "#ff4e4e",
+        "color5": "#fe7171",
+        "color6": "#c1c1c1",
+        "color7": "#f4f4f4",
+        "color8": "#bdbdbd",
+        "color9": "#ff3d3d",
+        "color10": "#ff3e3e",
+        "color11": "#ffff31",
+        "color12": "#ff4f4f",
+        "color13": "#ff7b7b",
+        "color14": "#ffe1e1",
+        "color15": "#ffffff"
+    }
+}

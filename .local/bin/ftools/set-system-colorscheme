@@ -13,6 +13,8 @@ make-dunst-config
 make-ferdi-config
 make-i3-config
 
+setbg "$WALLPAPER"
+
 # Restart i3 so that the new config can take effect
 i3-msg restart
 

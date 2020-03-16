@@ -2,5 +2,5 @@
 
 killall dunst
 make-dunst-config
-dunst &
+2>/dev/null 1>&2 dunst &
 notify-send "Test notification" "Dunst has been reloaded with the new config" -u normal
