@@ -1,42 +1,143 @@
 #!/bin/bash
 
-if [ $# -lt 1 ]; then
-	echo "Usage: themer <path-to-file>"
-	exit
+COLORSCHEMES_PATH=~/.dotfiles/colorschemes
+CURRENT_COLORSCHEME_PATH=~/.cache/current-colorscheme
+
+usage()
+{
+  echo "Usage: themer [options] [--]
+
+  Options:
+  -h                        Display this message
+  -l                        List all available colorschemes
+  -e                        Exports the current colorscheme to ~/.dotfiles/colorschemes
+  -i <path-to-image>        The path of the image to be used as wallpaper
+  -c <name-of-colorscheme>  Uses the colorscheme saved in .dotfiles/colorschemes/ or creates a new one
+  -s <saturation>           Apply saturation to the generated colorscheme (0-1)
+  "
+  exit
+}
+
+list_colorschemes()
+{
+  echo "Available colorschemes:"
+  for colorscheme in "$COLORSCHEMES_PATH"/*; do
+    echo "${colorscheme##*/}" # Print the filename
+    # Show a preview of the colorscheme
+  done
+  exit
+}
+
+escape_colorscheme_path()
+{
+  echo "${1%.*}"
+}
+
+save_selected_colorscheme()
+{
+  echo $colorscheme_path > $CURRENT_COLORSCHEME_PATH
+}
+
+update_saved_colorscheme()
+{
+  selected_path=$(cat $CURRENT_COLORSCHEME_PATH)
+  if [ -f "$selected_path" ]; then
+    save_colorscheme $(wpg -c) $selected_path # Gets the current wallpaper from wpg and exports the colorscheme to dotfiles
+  fi
+}
+
+save_colorscheme()
+{
+  wpg -o $1 $2
+}
+
+generate_colorscheme()
+{
+  wpg -d $image # Delete the cached colorscheme
+  wpg -a $image # Create a new colosrcheme
+  if [ ! -z "$saturation" ]; then
+    wpg --sat $image $saturation
+  fi
+}
+
+set_colorscheme()
+{
+  echo "Using colorscheme: $1"
+  if [ -f $colorscheme_path ]; then
+    wpg -a $image
+    wpg -i $image $1
+  else
+    generate_colorscheme
+    save_colorscheme $image $1
+  fi
+
+  save_selected_colorscheme
+}
+
+while getopts "hlei:c:s::" opts; do
+  case $opts in
+    l)
+      list_colorschemes
+      ;;
+    i)
+      image=${OPTARG}
+      if [ ! -f "$image" ]; then
+        echo "Could not use specifed image: $image does not exist"
+        exit
+      fi
+      ;;
+    c)
+      colorscheme=${OPTARG}
+      ;;
+    s)
+      saturation=${OPTARG}
+      ;;
+    e)
+      update_saved_colorscheme
+      exit
+      ;;
+    *)
+      usage
+      ;;
+  esac
+done
+shift $((OPTIND-1))
+
+# We need an image or a colorscheme
+if [ -z "$image" ] && [ -z "$colorscheme" ]; then
+  usage
 fi
 
-bash ~/.dotfiles/.local/bin/tools/setbg $1
-if [ -z "$3" ]; then
-    wal -i $1 --saturate 0.4
+colorscheme_path="$COLORSCHEMES_PATH/$(escape_colorscheme_path "$colorscheme").json"
+
+if [ ! -z "$image" ]; then
+  if [ -z "$colorscheme" ]; then
+    generate_colorscheme
+  else
+    set_colorscheme $colorscheme_path
+  fi
+
+  # Apply the wallpaper
+  wpg -s $image
 else
-    wal -i $1 --saturate $3
+  if [ -f "$colorscheme_path" ]; then
+    # Extract the wallpaper path from the JSON, https://gist.github.com/DarrenN/8c6a5b969481725a4413
+    wall=$(awk '/wallpaper/{gsub(/("|",)/,"",$2);print $2};' $colorscheme_path)
+
+    # If the wallpaper set in the saved colorscheme, update the colorscheme using wpg
+    if [ -f "$wall" ]; then
+      # Apply the wallpaper with the specified colorscheme
+      wpg -s $colorscheme_path $wall
+    else
+      echo "The wallpaper set in $colorscheme does not exist:"
+      echo "$wall"
+      echo " "
+      echo "To fix this, set the path to the wallpaper yourself:"
+      echo "themer -s <path-to-image> -c $colorscheme"
+    fi
+  else
+    echo "Could not find colorscheme: $colorscheme"
+    echo " "
+    list_colorschemes
+  fi
 fi
-
-# Create new configs with updated values
-BIN_PATH=~/.dotfiles/.local/bin/ftools
-.  $BIN_PATH/make-wal-colors
-$BIN_PATH/make-dunst-config
-$BIN_PATH/make-i3-config
-$BIN_PATH/make-ferdi-config
-
-cp $1 ~/.config/wallpaper.png
-
-if [ "$2" = "no-reload" ]; then
-	exit
-fi
-
-if [ "$2" = "post-setup" ]; then
-	exit
-else
-	# When running post-setup, these things have not been started, meaning there is no files to change just yet
-	#$BIN_PATH/make-steam-config
-
-	echo "To fully set the new theme we need to logout (It refreshes the i3bar with the new colors)"
-	read -p "Exit now? (Y/n)" EXIT
-
-	if [ "$EXIT" = "" ] || [ "$EXIT" = "Y" ]; then
-		i3-msg exit
-	fi
-fi
-
-

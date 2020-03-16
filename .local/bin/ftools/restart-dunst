@@ -1,6 +1,5 @@
 #!/bin/bash
 
 killall dunst
-make-dunst-config
-2>/dev/null 1>&2 dunst &
+dunst &
 notify-send "Test notification" "Dunst has been reloaded with the new config" -u normal
