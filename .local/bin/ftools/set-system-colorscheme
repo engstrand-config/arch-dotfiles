@@ -24,4 +24,4 @@ i3-msg restart >/dev/null 2>&1
 restart-dunst >/dev/null 2>&1
 
 # Update the selected colorscheme in ~/.dotfiles/colorschemes with the colors from wpg
-themer -e >/dev/null 2>&1
+themer -e null >/dev/null 2>&1

@@ -8,12 +8,12 @@ usage()
   echo "Usage: themer [options] [--]
 
   Options:
-  -h                        Display this message
-  -l                        List all available colorschemes
-  -e                        Exports the current colorscheme to ~/.dotfiles/colorschemes
-  -i <path-to-image>        The path of the image to be used as wallpaper
-  -c <name-of-colorscheme>  Uses the colorscheme saved in .dotfiles/colorschemes/ or creates a new one
-  -s <saturation>           Apply saturation to the generated colorscheme (0-1)
+  -h                              Display this message
+  -l                              List all available colorschemes
+  -e {null|<name-of-colorscheme>} Exports the current colorscheme to ~/.dotfiles/colorschemes/. If the colorscheme has not been saved before, you must enter a name
+  -i <path-to-image>              The path of the image to be used as wallpaper
+  -c <name-of-colorscheme>        Uses the colorscheme saved in .dotfiles/colorschemes/ or creates a new one
+  -s <saturation>                 Apply saturation to the generated colorscheme (0-1)
   "
   exit
 }
@@ -35,7 +35,7 @@ escape_colorscheme_path()
 
 save_selected_colorscheme()
 {
-  echo $colorscheme_path > $CURRENT_COLORSCHEME_PATH
+  echo $1 > $CURRENT_COLORSCHEME_PATH
 }
 
 update_saved_colorscheme()
@@ -43,16 +43,23 @@ update_saved_colorscheme()
   selected_path=$(cat $CURRENT_COLORSCHEME_PATH)
   if [ -f "$selected_path" ]; then
     save_colorscheme $(wpg -c) $selected_path # Gets the current wallpaper from wpg and exports the colorscheme to dotfiles
+  else
+    if [ "$export_path" != "null" ]; then
+      escaped_path=$(escape_colorscheme_path "$export_path")
+      save_colorscheme $(wpg -c) "$COLORSCHEMES_PATH/${escaped_path}.json"
+    fi
   fi
 }
 
 save_colorscheme()
 {
   wpg -o $1 $2
+  save_selected_colorscheme $2
 }
 
 generate_colorscheme()
 {
+  save_selected_colorscheme # Clears the current-colorscheme file, so that we dont overwrite colorschemes
   wpg -d $image # Delete the cached colorscheme
   wpg -a $image # Create a new colosrcheme
   if [ ! -z "$saturation" ]; then
@@ -71,10 +78,10 @@ set_colorscheme()
     save_colorscheme $image $1
   fi
 
-  save_selected_colorscheme
+  save_selected_colorscheme $colorscheme_path
 }
 
-while getopts "hlei:c:s::" opts; do
+while getopts "hli:e:c:s::" opts; do
   case $opts in
     l)
       list_colorschemes
@@ -93,6 +100,7 @@ while getopts "hlei:c:s::" opts; do
       saturation=${OPTARG}
       ;;
     e)
+      export_path=${OPTARG}
       update_saved_colorscheme
       exit
       ;;
@@ -127,7 +135,8 @@ else
     # If the wallpaper set in the saved colorscheme, update the colorscheme using wpg
     if [ -f "$wall" ]; then
       # Apply the wallpaper with the specified colorscheme
-      wpg -s $colorscheme_path $wall
+      wpg -s $wall
+      save_selected_colorscheme $colorscheme_path
     else
       echo "The wallpaper set in $colorscheme does not exist:"
       echo "$wall"
