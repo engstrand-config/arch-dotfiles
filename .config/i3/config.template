@@ -2,67 +2,72 @@
 # File originally by Luke Smith <https://lukesmith.xyz>
 
 # Colors
-set $fg "<wal-light>"
-set $bg "<wal-dark>"
-set $bg_dark "<wal-bg-dark>"
-set $bar_bg "<bar-background>"
-set $bg_light "<wal-bg-light>"
-set $critical "<wal-critical>"
-set $success "<wal-success>"
+set $fg         "<wal-light>"
+set $bg         "<wal-dark>"
+set $bg_main    "<wal-bg-main>"
+set $bg_dark    "<wal-bg-dark>"
+set $bar_bg     "<bar-background>"
+set $bg_light   "<wal-bg-light>"
+set $critical   "<wal-critical>"
+set $success    "<wal-success>"
 
 # Gaps
 set $gaps_inner <gaps-inner>
 set $gaps_outer <gaps-outer>
 
 # Workspaces
-set $ws1 1:
-set $ws2 2:
-set $ws3 3:
-set $ws4 4:
-set $ws5 5:
-set $ws6 6:
-set $ws7 7:
-set $ws8 8:
-set $ws9 9:
-set $ws10 10:
+set $ws1        1:
+set $ws2        2:
+set $ws3        3:
+set $ws4        4:
+set $ws5        5:
+set $ws6        6:
+set $ws7        7:
+set $ws8        8:
+set $ws9        9:
+set $ws10       10:
 
 # Applications
 # Remember colon afterwards, have not found a better solution yet
-set $ws_emacs <ws-emacs>:
-set $ws_spotify <ws-spotify>:
-set $ws_discord <ws-discord>:
-set $ws_steam <ws-steam>:
-set $ws_firefox <ws-firefox>:
-set $ws_code <ws-code>:
-set $ws_android_studio <ws-android-studio>:
-set $ws_ferdi <ws-ferdi>:
+set $ws_emacs           <ws-emacs>:
+set $ws_spotify         <ws-spotify>:
+set $ws_discord         <ws-discord>:
+set $ws_steam           <ws-steam>:
+set $ws_firefox         <ws-firefox>:
+set $ws_code            <ws-code>:
+set $ws_android_studio  <ws-android-studio>:
+set $ws_ferdi           <ws-ferdi>:
 
 # Other
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
 set $window_border_size <window-border-size>
-#smart_gaps on
-#hide_edge_borders smart
+
+#smart_gaps             on
+#hide_edge_borders      smart
 
 # Set betterlockscreen background
 exec --no-startup-id betterlockscreen -u ~/.config/wallpaper.png
 
-exec --no-startup-id redshift -r -t 6500:2000
-exec --no-startup-id /usr/lib/kdeconnectd
-exec --no-startup-id wifi reconnect
-exec --no-startup-id xbindkeys
-exec --no-startup-id dunst
-exec --no-startup-id i3-msg 'workspace $ws1; exec $term; exec $term'
+# Load icons
 exec_always --no-startup-id exec i3wsr --config ~/.dotfiles/i3wsr.toml --icons awesome
-exec --no-startup-id profile-loader
 
-# class                 border  backgr. text indicator child_border
-client.focused          $bg     $bg     $fg  $bg       $bg
-client.focused_inactive $bg     $bg     $fg  $bg       $bg
-client.unfocused        $bg     $bg     $fg  $bg       $bg
-client.urgent           $bg     $bg     $fg  $bg       $bg
-client.placeholder      $bg     $bg     $fg  $bg       $bg
-client.background       $bg
+# Startup applications
+exec --no-startup-id    dunst
+exec --no-startup-id    xbindkeys
+exec --no-startup-id    profile-loader
+exec --no-startup-id    wifi reconnect
+exec --no-startup-id    /usr/lib/kdeconnectd
+exec --no-startup-id    redshift -r -t 6500:2000
+exec --no-startup-id    i3-msg 'workspace $ws1; exec $term; exec $term'
+
+# class                 border    backgr. text indicator child_border
+client.focused          $bg_main  $bg     $fg  $bg       $bg
+client.focused_inactive $bg_main  $bg     $fg  $bg       $bg
+client.unfocused        $bg_main  $bg     $fg  $bg       $bg
+client.urgent           $bg_main  $bg     $fg  $bg       $bg
+client.placeholder      $bg_main  $bg     $fg  $bg       $bg
+client.background       $bg_main
 
 # Set gaps
 gaps inner $gaps_inner
@@ -80,163 +85,160 @@ bar {
     tray_output none
     colors {
         background $bar_bg
-            urgent_workspace $critical $critical #ffffff
-            focused_workspace $fg $fg $bar_bg
-            inactive_workspace $bar_bg $bar_bg #ffffff
+        urgent_workspace      $critical   $critical   #ffffff
+        focused_workspace     $fg         $fg         $bar_bg
+        inactive_workspace    $bar_bg     $bar_bg     #ffffff
     }
 }
 
-# Basic bindings
-bindsym $mod+Shift+Return   exec --no-startup-id samedir
-bindsym $mod+Shift+space    floating toggle
-bindsym $mod+space      focus mode_toggle
-bindsym $mod+Shift+v        exec --no-startup-id emacs
-bindsym $mod+Escape     workspace prev
-bindsym $mod+Shift+Escape   exec --no-startup-id prompt "Exit i3?" "i3-msg exit"
-bindsym $mod+shift+x        exec betterlockscreen -l dim
-
 # Arrow keys
-bindsym $mod+Left       focus left
-bindsym $mod+Down       focus down
-bindsym $mod+Up         focus up
-bindsym $mod+Right      focus right
-bindsym $mod+Shift+Left     move left
-bindsym $mod+Shift+Down     move down
-bindsym $mod+Shift+Up       move up
-bindsym $mod+Shift+Right    move right
+bindsym $mod+Up                 focus up
+bindsym $mod+Left               focus left
+bindsym $mod+Down               focus down
+bindsym $mod+Right              focus right
+bindsym $mod+Shift+Up           move up
+bindsym $mod+Shift+Left         move left
+bindsym $mod+Shift+Down         move down
+bindsym $mod+Shift+Right        move right
 
 # Letter Key Bindings
-bindsym $mod+q          [con_id="__focused__" instance="^(?!dropdown_).*$"] kill
-bindsym $mod+Shift+q        [con_id="__focused__" instance="^(?!dropdown_).*$"] exec --no-startup-id kill -9 `xdotool getwindowfocus getwindowpid`
-#bindsym $mod+Shift+q       exec --no-startup-id i3-persist.sh kill
-bindsym $mod+Shift+r        exec --no-startup-id winresize
-bindsym $mod+t          split toggle
-bindsym $mod+Shift+t        gaps inner current set 0; gaps outer current set 0;
-bindsym $mod+Shift+y        exec --no-startup-id i3resize left
+bindsym $mod+q                  [con_id="__focused__" instance="^(?!dropdown_).*$"] kill
+bindsym $mod+Shift+q            [con_id="__focused__" instance="^(?!dropdown_).*$"] exec --no-startup-id kill -9 `xdotool getwindowfocus getwindowpid`
+bindsym $mod+c                  exec --no-startup-id cabl
+bindsym $mod+Shift+v            exec --no-startup-id emacs
+bindsym $mod+Shift+r            exec --no-startup-id winresize
+bindsym $mod+Shift+y            exec --no-startup-id i3resize left
+bindsym $mod+Shift+u            exec --no-startup-id i3resize down
+bindsym $mod+Shift+i            exec --no-startup-id i3resize up
+bindsym $mod+Shift+o            exec --no-startup-id i3resize right
+bindsym $mod+v                  exec --no-startup-id $term -e $EDITOR -c "VimwikiIndex"
+bindsym $mod+shift+x            exec betterlockscreen -l dim
+bindsym $mod+z                  gaps outer current plus 5
+bindsym $mod+Shift+z            gaps outer current minus 5
+bindsym $mod+s                  gaps inner current plus 5
+bindsym $mod+Shift+s            gaps inner current minus 5
+bindsym $mod+Shift+t            gaps inner current set 0; gaps outer current set 0;
+bindsym $mod+Shift+d            gaps inner current set $gaps_inner; gaps outer current set $gaps_outer
+bindsym $mod+x                  [urgent=latest] focus
+bindsym $mod+k                  focus up
+bindsym $mod+h                  focus left
+bindsym $mod+j                  focus down
+bindsym $mod+Shift+k            move up 30
+bindsym $mod+l                  focus right
+bindsym $mod+Shift+h            move left 30
+bindsym $mod+Shift+j            move down 30
+bindsym $mod+Shift+l            move right 30
+bindsym $mod+g                  workspace prev
+bindsym $mod+Ctrl+k             move workspace to output up
+bindsym $mod+Ctrl+h             move workspace to output left
+bindsym $mod+Ctrl+j             move workspace to output down
+bindsym $mod+Ctrl+l             move workspace to output right
+bindsym $mod+t                  split toggle
+bindsym $mod+o                  sticky toggle
+bindsym $mod+b                  bar mode toggle
+bindsym $mod+Shift+space        floating toggle
+bindsym $mod+space              focus mode_toggle
+bindsym $mod+f                  fullscreen toggle
+bindsym $mod+Shift+b            floating toggle; sticky toggle; exec --no-startup-id hover left
+bindsym $mod+Shift+n            floating toggle; sticky toggle; exec --no-startup-id hover right
 
-#bindsym $mod+u         exec --no-startup-id ddspawn tmuxdd
-bindsym $mod+n          exec --no-startup-id ddspawn newsboat
-bindsym $mod+e          exec --no-startup-id ddspawn neomutt
-bindsym $mod+m          exec --no-startup-id ddspawn ncmpcpp
+# Floating applications
+bindsym $mod+n                  exec --no-startup-id ddspawn newsboat
+bindsym $mod+e                  exec --no-startup-id ddspawn neomutt
+bindsym $mod+m                  exec --no-startup-id ddspawn ncmpcpp
 
-bindsym $mod+Shift+u        exec --no-startup-id i3resize down
-bindsym $mod+Shift+i        exec --no-startup-id i3resize up
-bindsym $mod+o          sticky toggle
-bindsym $mod+Shift+o        exec --no-startup-id i3resize right
-bindsym $mod+s          gaps inner current plus 5
-bindsym $mod+Shift+s        gaps inner current minus 5
-bindsym $mod+Shift+d        gaps inner current set $gaps_inner; gaps outer current set $gaps_outer
-bindsym $mod+x          [urgent=latest] focus
-bindsym $mod+f          fullscreen toggle
-bindsym $mod+g          workspace prev
-bindsym $mod+h          focus left
-bindsym $mod+Shift+h        move left 30
-bindsym $mod+Ctrl+h     move workspace to output left
-bindsym $mod+j          focus down
-bindsym $mod+Shift+j        move down 30
-bindsym $mod+Ctrl+j     move workspace to output down
-bindsym $mod+k          focus up
-bindsym $mod+Shift+k        move up 30
-bindsym $mod+Ctrl+k     move workspace to output up
-bindsym $mod+l          focus right
-bindsym $mod+Shift+l        move right 30
-bindsym $mod+Ctrl+l     move workspace to output right
-bindsym $mod+z          gaps outer current plus 5
-bindsym $mod+Shift+z        gaps outer current minus 5
-bindsym $mod+c          exec --no-startup-id cabl
-bindsym $mod+v          exec --no-startup-id $term -e $EDITOR -c "VimwikiIndex"
-bindsym $mod+b          bar mode toggle
-bindsym $mod+Shift+b        floating toggle; sticky toggle; exec --no-startup-id hover left
-bindsym $mod+Shift+n        floating toggle; sticky toggle; exec --no-startup-id hover right
-
-# Functions
-bindsym $mod+F2         restart
-bindsym $mod+Shift+Delete   exec --no-startup-id lmc truemute ; exec --no-startup-id lmc pause ; exec --no-startup-id pauseallmpv; workspace 0; exec $term -e htop ; exec $term -e $FILE
+# Function keys
+bindsym $mod+F2                 restart
+bindsym $mod+Shift+Return       exec --no-startup-id samedir
+bindsym $mod+Shift+Escape       exec --no-startup-id prompt "Exit i3?" "i3-msg exit"
+bindsym $mod+Shift+Delete       exec --no-startup-id lmc truemute ; exec --no-startup-id lmc pause ; exec --no-startup-id pauseallmpv; workspace 0; exec $term -e htop ; exec $term -e $FILE
 
 # Workspaces
-bindsym $mod+Tab        workspace back_and_forth
-bindsym $mod+apostrophe     split vertical ;; exec $term
+bindsym $mod+Tab                workspace back_and_forth
+bindsym $mod+apostrophe         split vertical ;; exec $term
 
 # Switch to workspaces
-bindsym $mod+1      workspace number $ws1
-bindsym $mod+2      workspace number $ws2
-bindsym $mod+3      workspace number $ws3
-bindsym $mod+4      workspace number $ws4
-bindsym $mod+5      workspace number $ws5
-bindsym $mod+6      workspace number $ws6
-bindsym $mod+7      workspace number $ws7
-bindsym $mod+8      workspace number $ws8
-bindsym $mod+9      workspace number $ws9
-bindsym $mod+0      workspace number $ws10
-
+bindsym $mod+1                  workspace number $ws1
+bindsym $mod+2                  workspace number $ws2
+bindsym $mod+3                  workspace number $ws3
+bindsym $mod+4                  workspace number $ws4
+bindsym $mod+5                  workspace number $ws5
+bindsym $mod+6                  workspace number $ws6
+bindsym $mod+7                  workspace number $ws7
+bindsym $mod+8                  workspace number $ws8
+bindsym $mod+9                  workspace number $ws9
+bindsym $mod+0                  workspace number $ws10
 
 # Move focused container to workspace
-bindsym $mod+Shift+1    move container to workspace number $ws1
-bindsym $mod+Shift+2    move container to workspace number $ws2
-bindsym $mod+Shift+3    move container to workspace number $ws3
-bindsym $mod+Shift+4    move container to workspace number $ws4
-bindsym $mod+Shift+5    move container to workspace number $ws5
-bindsym $mod+Shift+6    move container to workspace number $ws6
-bindsym $mod+Shift+7    move container to workspace number $ws7
-bindsym $mod+Shift+8    move container to workspace number $ws8
-bindsym $mod+Shift+9    move container to workspace number $ws9
-bindsym $mod+Shift+0    move container to workspace number $ws10
+bindsym $mod+Shift+1            move container to workspace number $ws1
+bindsym $mod+Shift+2            move container to workspace number $ws2
+bindsym $mod+Shift+3            move container to workspace number $ws3
+bindsym $mod+Shift+4            move container to workspace number $ws4
+bindsym $mod+Shift+5            move container to workspace number $ws5
+bindsym $mod+Shift+6            move container to workspace number $ws6
+bindsym $mod+Shift+7            move container to workspace number $ws7
+bindsym $mod+Shift+8            move container to workspace number $ws8
+bindsym $mod+Shift+9            move container to workspace number $ws9
+bindsym $mod+Shift+0            move container to workspace number $ws10
 
 bindsym $mod+Shift+Ctrl+Left   move workspace to output left
 bindsym $mod+Shift+Ctrl+Right  move workspace to output right
 
 # YTDL bindings
-bindsym $mod+Ctrl+p     exec --no-startup-id video-clipboard-player
-bindsym $mod+Ctrl+Left      [class="mpv"] focus; exec --no-startup-id corners "top left" 426 240
-bindsym $mod+Ctrl+Right     [class="mpv"] focus; exec --no-startup-id corners "top right" 426 240
-bindsym $mod+Ctrl+Up        [class="mpv"] focus; exec --no-startup-id corners "bottom left" 426 240
-bindsym $mod+Ctrl+Down      [class="mpv"] focus; exec --no-startup-id corners "bottom right" 426 240
-
-# Set borders
-for_window [class="^.*"] border pixel $window_border_size
+bindsym $mod+Ctrl+p             exec --no-startup-id video-clipboard-player
+bindsym $mod+Ctrl+Left          [class="mpv"] focus; exec --no-startup-id corners "top left" 426 240
+bindsym $mod+Ctrl+Right         [class="mpv"] focus; exec --no-startup-id corners "top right" 426 240
+bindsym $mod+Ctrl+Up            [class="mpv"] focus; exec --no-startup-id corners "bottom left" 426 240
+bindsym $mod+Ctrl+Down          [class="mpv"] focus; exec --no-startup-id corners "bottom right" 426 240
 
 # Bindings for applications
-for_window [window_role="GtkFileChooserDialog"] resize set 800 600
-for_window [window_role="GtkFileChooserDialog"] move position center
-for_window [title="Default - Wine desktop"] floating enable
-for_window [instance="emacs"] move to workspace number $ws_emacs
-for_window [instance="emacs"] workspace number $ws_emacs
-for_window [class="Spotify"] move to workspace number $ws_spotify
-for_window [class="discord"] move to workspace number $ws_discord
-for_window [title="nmtui"] floating enable
-for_window [title="sxiv"] floating enable
-for_window [class="floating-*"] floating enable
-for_window [class="floating-*"] focus
-for_window [class="jetbrains-studio"] move to workspace number $ws_android_studio
-for_window [instance="ferdi"] move to workspace number $ws_ferdi
-for_window [title="Android Emulator*"] floating enable; move right 650
-assign [class="firefox"] workspace number $ws_firefox
-assign [class="Steam"] workspace number $ws_steam
-assign [class="code-oss"] workspace number $ws_code
-assign [class="jetbrains-studio"] workspace number $ws_android_studio
-assign [instance="ferdi"] workspace number $ws_ferdi
+for_window [window_role="GtkFileChooserDialog"]   resize set 800 600
+for_window [window_role="GtkFileChooserDialog"]   move position center
+for_window [title="Default - Wine desktop"]       floating enable
+for_window [instance="emacs"]                     move to workspace number $ws_emacs
+for_window [instance="emacs"]                     workspace number $ws_emacs
+for_window [class="Spotify"]                      move to workspace number $ws_spotify
+for_window [class="discord"]                      move to workspace number $ws_discord
+for_window [title="nmtui"]                        floating enable
+for_window [title="sxiv"]                         floating enable
+for_window [class="floating-*"]                   floating enable
+for_window [class="floating-*"]                   focus
+for_window [class="jetbrains-studio"]             move to workspace number $ws_android_studio
+for_window [instance="ferdi"]                     move to workspace number $ws_ferdi
+for_window [title="Android Emulator*"]            floating enable; move right 650
+assign [class="firefox"]                          workspace number $ws_firefox
+assign [class="Steam"]                            workspace number $ws_steam
+assign [class="code-oss"]                         workspace number $ws_code
+assign [class="jetbrains-studio"]                 workspace number $ws_android_studio
+assign [instance="ferdi"]                         workspace number $ws_ferdi
 
 # Bindings to make the webcam float and stick.
-for_window [title="mpvfloat"] floating enable
-for_window [title="mpvfloat"] sticky enable
-for_window [title="mpvfloat"] border pixel 0
-no_focus [title="mpvfloat"]
+for_window [title="mpvfloat"]                     floating enable
+for_window [title="mpvfloat"]                     sticky enable
+for_window [title="mpvfloat"]                     border pixel 0
 
 # Dropdown Windows
-for_window [instance="dropdown_*"] floating enable
-for_window [instance="dropdown_*"] move scratchpad
-for_window [instance="dropdown_*"] sticky enable
-for_window [instance="dropdown_*"] scratchpad show
-for_window [instance="dropdown_*"] resize set <scratchpad-width> <scratchpad-height>
-for_window [instance="dropdown_*"] move position center
-for_window [class="mpv"] floating enable
-for_window [class="mpv"] sticky enable
-for_window [class="mpv"] resize set 426 240
-for_window [class="mpv"] move position 0 21
-for_window [class="mpv"] border pixel 1
+for_window [instance="dropdown_*"]                floating enable
+for_window [instance="dropdown_*"]                move scratchpad
+for_window [instance="dropdown_*"]                sticky enable
+for_window [instance="dropdown_*"]                scratchpad show
+for_window [instance="dropdown_*"]                resize set <scratchpad-width> <scratchpad-height>
+for_window [instance="dropdown_*"]                move position center
+for_window [class="mpv"]                          floating enable
+for_window [class="mpv"]                          sticky enable
+for_window [class="mpv"]                          resize set 426 240
+for_window [class="mpv"]                          move position 0 21
+for_window [class="mpv"]                          border pixel 1
+
+# Set borders
+for_window [class="^.*"]                          border pixel $window_border_size
+
+# Dont focus the floating mpv window
+no_focus [title="mpvfloat"]
 
 # This is so that when clicking on a steam notification, we switch
 # to the steam workspace. Among other things.
 focus_on_window_activation focus
 
+# Distraction-free mode
 bindsym $mod+Shift+f mode "freeze" ;; exec --no-startup-id notify-send "Distraction-free mode activated." "Press Super+Shift+f to return."

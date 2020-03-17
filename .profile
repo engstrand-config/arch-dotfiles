@@ -32,26 +32,21 @@ export LESS_TERMCAP_ue="$(printf '%b' '[0m')"; a="${a%_}"
 . "${HOME}/.dotfiles/secrets"
 
 # Load profile specific env variables
-PROFILE_PATH="${HOME}/.dotfiles/profiles/$(whoami)"
-if [ -d "$PROFILE_PATH" ]; then
-	. "${HOME}/.dotfiles/profiles/$(whoami)/exports"
+EXPORTS_PATH="${HOME}/.dotfiles/profiles/$(whoami)/exports"
+if [ -f "$EXPORTS_PATH" ]; then
+	. "$EXPORTS_PATH"
 fi
 
 # Add support for installation of global npm modules without running as root
 PATH="$HOME/.node_modules/bin:$PATH"
 export npm_config_prefix=~/.node_modules
 
-# Metro skin can not be used with the new steam layout for now
-#make-steam-config
-
+make-ferdi-config
 make-dunst-config
 make-i3-config
 
 # Update bmdirs and bmfiles
 shortcuts
-
-# Restart i3 so that the new config can take effect
-i3-msg restart
 
 mpd >/dev/null 2>&1 &
 
