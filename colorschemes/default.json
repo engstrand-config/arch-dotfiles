@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/fredrik-desktop/.config/wpg/wallpapers/elle-zhu-O_uV3KhQuo8-unsplash.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#20203d",
+        "foreground": "#dbf5ff",
+        "cursor": "#dbf5ff"
+    },
+    "colors": {
+        "color0": "#20203d",
+        "color1": "#96bff5",
+        "color2": "#95c1f5",
+        "color3": "#e4a392",
+        "color4": "#87b5f3",
+        "color5": "#827eb0",
+        "color6": "#7aabf0",
+        "color7": "#b8cef4",
+        "color8": "#aaaae5",
+        "color9": "#a8f3ff",
+        "color10": "#a7f7ff",
+        "color11": "#ffc5a5",
+        "color12": "#96e7ff",
+        "color13": "#9890f8",
+        "color14": "#87daff",
+        "color15": "#dbf5ff"
+    }
+}

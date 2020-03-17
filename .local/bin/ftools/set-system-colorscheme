@@ -9,6 +9,9 @@ if [ -d "$PROFILE_PATH" ]; then
 	. "${HOME}/.dotfiles/profiles/$(whoami)/exports"
 fi
 
+# Tell Pywalfox-extension to update the colors
+python ~/Repos/Pywalfox/native-app/pywal-fetcher.py update
+
 # Generate updated config files
 make-dunst-config >/dev/null 2>&1
 make-ferdi-config >/dev/null 2>&1

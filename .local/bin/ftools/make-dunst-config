@@ -24,7 +24,7 @@ function replace() {
 # Replace the placeholders with the actual values
 replace "<critical>" 	            "$PROFILE_WAL_CRITICAL"           "$WAL_CRITICAL"
 replace "<background-color>" 	    "$PROFILE_DUNST_BACKGROUND_COLOR" "#f2f2f2"
-replace "<border-color>" 	        "$PROFILE_DUNST_BORDER_COLOR"     "#cccccc"
+replace "<border-color>" 	        "$PROFILE_DUNST_BORDER_COLOR"     "$WAL_DARK"
 replace "<title-color>" 	        "$PROFILE_DUNST_TITLE_COLOR"      "$WAL_BG_DARK"
 replace "<text-color>" 	          "$PROFILE_DUNST_TEXT_COLOR"       "$WAL_BG_DARK"
 replace "<gap-right>" 	          "$PROFILE_DUNST_GAP_RIGHT"        "7"

@@ -25,6 +25,7 @@ cp $CONFIG_TEMPLATE_PATH $CONFIG_PATH
 # placeholder			override			fallback
 replace "<wal-light>" 	      	"$PROFILE_WAL_LIGHT"            "$WAL_LIGHT"
 replace "<wal-dark>" 	        	"$PROFILE_WAL_DARK"             "$WAL_DARK"
+replace "<wal-bg-main>" 	      "$PROFILE_WAL_BG_MAIN"          "$WAL_BG_MAIN"
 replace "<wal-bg-dark>" 	      "$PROFILE_WAL_BG_DARK"          "$WAL_BG_DARK"
 replace "<wal-bg-light>" 	      "$PROFILE_WAL_BG_LIGHT"         "$WAL_BG_LIGHT"
 replace "<wal-critical>" 	      "$PROFILE_WAL_CRITICAL"         "$WAL_CRITICAL"
@@ -32,7 +33,7 @@ replace "<wal-critical-dark>" 	"$PROFILE_WAL_CRITICAL_DARK"    "$WAL_CRITICAL_DA
 replace "<wal-success>" 	      "$PROFILE_WAL_SUCCESS"          "$WAL_SUCCESS"
 
 # These will be loaded from the profile
-replace "<bar-background>" 	    "$PROFILE_BAR_BACKGROUND"       "$WAL_BG_MAIN_TRANSPARENT"
+replace "<bar-background>" 	    "$PROFILE_BAR_BACKGROUND"       "$WAL_BG_LIGHT_TRANSPARENT"
 replace "<window-border-size>" 	"$PROFILE_WINDOW_BORDER_SIZE"   "1"
 
 replace "<gaps-inner>" 		      "$PROFILE_GAPS_INNER"           "4"
