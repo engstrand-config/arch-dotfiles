@@ -115,15 +115,7 @@ autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
 " Run xrdb whenever Xdefaults or Xresources are updated.
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
 
-let g:vimtex_compiler_latexmk = {
-        \ 'executable' : 'latexmk',
-        \ 'options' : [
-        \   '-xelatex',
-        \   '-file-line-error',
-        \   '-synctex=1',
-        \   '-interaction=nonstopmode',
-        \ ],
-        \}
+let g:vimtex_compiler_latexmk_engine='xelatex'
 
 " Should be moved /Johan
 nnoremap <leader>r :!bash /home/johan/Repos/bionic-arm/arduino-code/recup<CR>
