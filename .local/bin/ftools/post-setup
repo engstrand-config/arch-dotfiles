@@ -1,13 +1,5 @@
 BIN_PATH=~/.dotfiles/.local/bin/ftools
 
-# Since these files are created for every new user, we must delete them before
-# attempting to symlink them from the dotfiles folder or it wont work, meaning everything will be fucked
-rm ~/.bash_profile
-rm ~/.bashrc
-
-# At this point, we haven't set the PATH so none of our tools are available without full path
-bash $BIN_PATH/symlink-dotfiles
-
 # Install python packages
 curl https://bootstrap.pypa.io/get-pip.py -o ~/get-pip.py
 sudo python get-pip.py
@@ -26,6 +18,17 @@ pip3 install --user pynvim
 # Install formatters for JS, HTML, CSS, JSON and Python (used in vim with vim-autoformat)
 npm install -g js-beautify
 
+# Since these files are created for every new user, we must delete them before
+# attempting to symlink them from the dotfiles folder or it wont work, meaning everything will be fucked
+rm ~/.bash_profile
+rm ~/.bashrc
+
+# Remove the default wpg.conf so that we can symlink the one in our dotfiles
+WPG_CONF_PATH=~/.dotfiles/.config/wpg/wpg.conf
+if [ -f "$WPG_CONF_PATH" ]; then
+   rm $WPG_CONF_PATH
+fi
+
 # Theme grub
 sudo sed -i 's+#GRUB_THEME="/path/to/gfxtheme"+GRUB_THEME="/boot/grub/themes/arch-silence/theme.txt"+g' /etc/default/grub
 
@@ -38,12 +41,6 @@ sudo ufw allow 1714:1764/tcp
 sudo ufw enable
 sudo ufw reload
 
-# Install spacemacs
-git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-
-# Install the pywal themer ewal
-git clone https://github.com/emacsmirror/ewal.git ~/Repos/ewal
-
 # Install FARBS
 git clone https://github.com/Frewacom/FARBS.git ~/Repos/FARBS
 
@@ -53,9 +50,7 @@ git clone https://github.com/Frewacom/Pywalfox.git ~/Repos/Pywalfox
 # Run themer and apply the default colorscheme
 bash $BIN_PATH/themer -i ~/.dotfiles/.local/share/wallpaper.png -c default.json
 
-rm ~/post-setup
-
-# Update the remote url for the dotfile repo
+# Update the remote url for our repos so that we can use SSH-keys
 cd ~/.dotfiles
 git remote set-url origin git@github.com:Frewacom/FARBS-Dotfiles.git
 
@@ -65,9 +60,10 @@ git remote set-url origin git@github.com:Frewacom/FARBS.git
 cd ~/Repos/Pywalfox
 git remote set-url origin git@github.com:Frewacom/Pywalfox.git
 
+# Enable the user defined crontab
 CRON_PATH=~/.dotfiles/profiles/$(whoami)/my-crontab
 if [ -f "$CRON_PATH" ]; then
-crontab $CRON_PATH
+  crontab $CRON_PATH
 fi
 
 # Lockscreen after suspend
@@ -75,6 +71,12 @@ sudo systemctl enable betterlockscreen@$USER
 
 # Enable cron service
 sudo systemctl enable cronie.service
+
+# Symlink dotfiles
+bash $BIN_PATH/symlink-dotfiles
+
+# Remove this script
+rm ~/post-setup
 
 echo "Log out and log back in again for changes to take effect"
 

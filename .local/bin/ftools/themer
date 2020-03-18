@@ -2,12 +2,13 @@
 
 COLORSCHEMES_PATH=~/.dotfiles/colorschemes
 CURRENT_COLORSCHEME_PATH=~/.cache/current-colorscheme
+XRESOURCES_PATH=~/.cache/wal/colors.Xresources
 
 usage()
 {
   echo "Usage: themer [options] [--]
 
-  Options:
+Options:
   -h                              Display this message
   -l                              List all available colorschemes
   -e {null|<name-of-colorscheme>} Exports the current colorscheme to ~/.dotfiles/colorschemes/. If the colorscheme has not been saved before, you must enter a name
@@ -59,8 +60,9 @@ save_colorscheme()
 
 generate_colorscheme()
 {
+  echo "Generating colorscheme for $image"
   save_selected_colorscheme # Clears the current-colorscheme file, so that we dont overwrite colorschemes
-  wpg -d $image # Delete the cached colorscheme
+  #wpg -d $image # Delete the cached colorscheme
   wpg -a $image # Create a new colosrcheme
   if [ ! -z "$saturation" ]; then
     wpg --sat $image $saturation
@@ -79,6 +81,14 @@ set_colorscheme()
   fi
 
   save_selected_colorscheme $colorscheme_path
+}
+
+apply_colorscheme()
+{
+  echo ""
+  echo "Applying colorscheme"
+  wpg -s "$1"
+  xrdb -merge -quiet $XRESOURCES_PATH
 }
 
 while getopts "hli:e:c:s::" opts; do
@@ -126,7 +136,7 @@ if [ ! -z "$image" ]; then
   fi
 
   # Apply the wallpaper
-  wpg -s $image
+  apply_colorscheme "$image"
 else
   if [ -f "$colorscheme_path" ]; then
     # Extract the wallpaper path from the JSON, https://gist.github.com/DarrenN/8c6a5b969481725a4413
@@ -135,7 +145,7 @@ else
     # If the wallpaper set in the saved colorscheme, update the colorscheme using wpg
     if [ -f "$wall" ]; then
       # Apply the wallpaper with the specified colorscheme
-      wpg -s $wall
+      apply_colorscheme "$wall"
       save_selected_colorscheme $colorscheme_path
     else
       echo "The wallpaper set in $colorscheme does not exist:"
