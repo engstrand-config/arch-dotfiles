@@ -17,6 +17,14 @@ make-dunst-config >/dev/null 2>&1
 make-ferdi-config >/dev/null 2>&1
 make-i3-config >/dev/null 2>&1
 
+# Update the spotify theme
+spicetify update
+
+# If we want to automatically update Spotify with the new theme
+# we must restart it, which is not very nice.
+# You can manually reload using Shift+Ctrl+R
+#spicetify restart
+
 # wpgtk seems to not be able to set the wallpaper properly, so we do it manually on changes
 setbg "$WALLPAPER" >/dev/null 2>&1
 

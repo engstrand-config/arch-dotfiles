@@ -69,6 +69,13 @@ fi
 # Lockscreen after suspend
 sudo systemctl enable betterlockscreen@$USER
 
+# Spicetify needs permissions to access spotify preferences
+sudo chmod 777 /opt/spotify -R
+
+# Set the correct path to Spotify prefs in spicetify config (doesn't allow relative paths)
+cp ~/.dotfiles/.config/spicetify/config.ini ~/.config/spicetify/config.ini
+sed -i "s/<username>/$(whoami)/g" ~/.config/spicetify/config.ini
+
 # Enable cron service
 sudo systemctl enable cronie.service
 

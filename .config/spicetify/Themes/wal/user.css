@@ -1,0 +1,213 @@
+body
+{
+  font-size: 13px !important;
+}
+
+/* Hide ad */
+#view-leaderboard-ad
+{
+  display: none !important;
+}
+
+/* Hide ad on home */
+#hpto
+{
+  display: none !important;
+}
+
+/* Hide the play/pause button in the header of playlists */
+.glue-page-header__buttons
+{
+  display: none !important;
+}
+
+/*Hide some annoying elements like profile name and pic, upgrade button and device connect bar at bottom, new playlist button*/
+.profile.content-top-bar__profile-link,
+.upgrade-button,
+.view-player .remote-playback-bar,
+.NewPlaylistButton {
+	display: none !important;
+}
+
+/* Hide scrollbars */
+::-webkit-scrollbar {
+  display: none !important;
+}
+
+.buddy-card.find-friends-button-container
+{
+  display: none !important;
+}
+
+/*Spice up search input background*/
+.SearchInput {
+	color: var(--modspotify_main_fg);
+}
+.SearchInput__input {
+  height: 28px;
+	color: #ffffff !important;
+	background-color: transparent !important;
+	border-radius: 4px !important;
+	padding-left: 34px;
+}
+
+.SidebarListItemLink
+{
+  color: #ffffff !important;
+}
+
+.SidebarListItemLink:focus,
+.SidebarListItemLink:hover,
+.SidebarListItemLink--is-highlighted:hover
+{
+  color: var(--modspotify_secondary_fg) !important;
+}
+
+/* Change color of the semi-transparent background in the header */
+.GlueHeader__background-color, .Header__background-color
+{
+  background-color: var(--modspotify_slider_bg) !important;
+  opacity: 0.5;
+}
+
+/* Give songs in playlists bold text */
+.tl-cell__content
+{
+  font-weight: bold !important;
+}
+
+.glue-page-header__sticky .glue-page-header__title
+{
+  font-size: 20px !important;
+}
+
+.glue-page-header__sticky .glue-page-header__image
+{
+  width: 30px !important;
+  height: 30px !important;
+}
+
+.glue-page-header__sticky-inner
+{
+  height: 40px !important;
+}
+
+.glue-page-header__background
+{
+  height: 200px !important;
+}
+
+.glue-page-header__content .glue-page-header__meta-info
+{
+  padding-bottom: 20px !important;
+}
+
+.glue-page-header__content .glue-page-header__image
+{
+  width: 110px !important;
+}
+
+.glue-page-header__sticky.sticky-top
+{
+  height: 0px !important;
+}
+
+.glue-page-header__content-wrapper
+{
+  min-height: 165px !important;
+}
+
+.sticky-clone.sticky-top
+{
+  top: 100px !important;
+}
+
+.popover-title
+{
+  border-bottom: none !important;
+  padding-top: 10px !important;
+}
+
+.button
+{
+  font-size: 10px !important;
+}
+
+.button.button-with-stroke
+{
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+#view-modal .playlist-annotate .choose-image-button, #view-modal .playlist-annotate .remove-image-button, #view-modal .playlist-annotate .replace-image-button
+{
+  width: auto !important;
+  margin-top: 25px !important;
+}
+
+.button.button-green.contextmenu-active, .button.button-green:not(:disabled):hover
+{
+  color: var(--modspotify_slider_bg) !important;
+}
+
+.tl-row.selected .tl-cell {
+    background-color: rgba(var(--modspotify_rgb_miscellaneous_bg), 0.8) !important;
+    border-color: var(--modspotify_main_bg) !important;
+}
+
+.app-header__filter--offline-sync
+{
+  color: #ffffff !important;
+}
+
+.view-player .player-controls-container .progress-container .elapsed, .view-player .player-controls-container .progress-container .remaining
+{
+  color: #ffffff !important;
+  font-weight: bold;
+}
+
+.tl-header th
+{
+  font-weight: bold !important;
+}
+
+.view-player .player-controls-container .controls .next, .view-player .player-controls-container .controls .previous
+{
+  color: white !important;
+}
+
+.view-player .player-controls-container .controls .next.contextmenu-active, .view-player .player-controls-container .controls .next:not(:disabled):hover, .view-player .player-controls-container .controls .previous.contextmenu-active, .view-player .player-controls-container .controls .previous:not(:disabled):hover
+{
+  color: var(--modspotify_secondary_fg) !important;
+}
+
+#view-buddy-list
+{
+  display: none !important;
+}
+
+.view-player .player-controls-container .progress-container .progress-bar .inner
+{
+  background-color: var(--modspotify_indicator_fg_and_button_bg) !important;
+}
+
+.tracklist-album, .tracklist-chart, .tracklist-basic, .tracklist-playlist, .tracklist-podcast, .tracklist-popular, .tracklist-station, .tracklist-queue, .tracklist-search
+{
+  color: #ffffff !important;
+}
+
+.context-menu
+{
+  color: #ffffff !important;
+  border: 1px solid rgba(var(--modspotify_rgb_secondary_fg), 0.7);
+}
+
+.context-menu .sep
+{
+  background-color: transparent !important;
+}
+
+.glue-page-header__count-label
+{
+  display: none !important;
+}
