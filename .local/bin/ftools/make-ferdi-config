@@ -2,5 +2,5 @@
 
 FERDI_PATH=$HOME/.config/Ferdi/config/settings.json
 if [ -f "$FERDI_PATH" ]; then
-  keyword-replace "#.*" "$(xgetres color4)" "$FERDI_PATH"
+  keyword-replace "#.*" "$(xgetres color4)\"," "$FERDI_PATH"
 fi
