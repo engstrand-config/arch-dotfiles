@@ -5,7 +5,7 @@ capacity=$(cat /sys/class/power_supply/"$1"/capacity) || exit
 status=$(cat /sys/class/power_supply/"$1"/status)
 
 color_label="#ffffff"
-color_capacity="$WAL_LIGHT"
+color_capacity="$(xgetres accentText)"
 
 if [ "$capacity" -ge 90 ]; then
 	label=""
@@ -17,20 +17,20 @@ elif [ "$capacity" -ge 15 ]; then
 	label=""
 else
 	label=""
-	color_label="$WAL_CRITICAL"
-	color_capacity="$WAL_CRITICAL"
+	color_label="$(xgetres critical)"
+	color_capacity="$(xgetres critical)"
 fi
 
 
 if [ "$status" = "Charging" ]; then
-	color_label="$WAL_SUCCESS"
-	color_capacity="$WAL_SUCCESS"
+	color_label="$(xgetres success)"
+	color_capacity="$(xgetres success)"
 	label=""
 fi
 
 if [ "$status" = "Full" ]; then
-	color_label="$WAL_SUCCESS"
-	color_capacity="$WAL_SUCCESS"
+	color_label="$(xgetres success)"
+	color_capacity="$(xgetres success)"
 	label=""
 fi
 

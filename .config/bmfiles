@@ -4,7 +4,7 @@ cfb	~/.dotfiles/.bashrc
 cfa	~/.dotfiles/.config/aliasrc
 cfz	~/.dotfiles/.zshrc
 cfv	~/.dotfiles/.config/nvim/init.vim
-cfi	~/.dotfiles/.config/i3/config.template
+cfi	~/.dotfiles/.config/i3/config
 cfm	~/.dotfiles/.config/mutt/muttrc
 eb	~/Documents/LaTeX/uni.bib
 cv	~/Documents/LaTeX/cv.tex

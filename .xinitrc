@@ -5,8 +5,7 @@ bash $PROFILE_PATH/init
 
 [ -f "$HOME/.xprofile" ] && . ~/.xprofile
 
-# Set wal colors from cache
-wal -R
+xrdb ~/.Xresources
 
 exec i3
 

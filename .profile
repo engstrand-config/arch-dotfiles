@@ -25,25 +25,12 @@ export LESS_TERMCAP_se="$(printf '%b' '[0m')"; a="${a%_}"
 export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"; a="${a%_}"
 export LESS_TERMCAP_ue="$(printf '%b' '[0m')"; a="${a%_}"
 
-# Load wal colors into env
-. "${HOME}/.dotfiles/.local/bin/ftools/make-wal-colors"
-
 # Load secret vars into env
 . "${HOME}/.dotfiles/secrets"
-
-# Load profile specific env variables
-EXPORTS_PATH="${HOME}/.dotfiles/profiles/$(whoami)/exports"
-if [ -f "$EXPORTS_PATH" ]; then
-	. "$EXPORTS_PATH"
-fi
 
 # Add support for installation of global npm modules without running as root
 PATH="$HOME/.node_modules/bin:$PATH"
 export npm_config_prefix=~/.node_modules
-
-make-ferdi-config
-make-dunst-config
-make-i3-config
 
 # Update bmdirs and bmfiles
 shortcuts

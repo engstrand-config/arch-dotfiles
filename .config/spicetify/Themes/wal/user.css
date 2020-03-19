@@ -73,6 +73,7 @@ body
 /* Give songs in playlists bold text */
 .tl-cell__content
 {
+  color: #ffffff !important;
   font-weight: bold !important;
 }
 
@@ -110,6 +111,7 @@ body
 .glue-page-header__sticky.sticky-top
 {
   height: 0px !important;
+  padding-top: 55px !important;
 }
 
 .glue-page-header__content-wrapper
@@ -210,4 +212,68 @@ body
 .glue-page-header__count-label
 {
   display: none !important;
+}
+
+.view-player .player-controls-container .controls .button-play
+{
+  color: white !important;
+}
+
+.offline-sync
+{
+  color: white !important;
+}
+
+.focus .h-search, .h-search:focus {
+    background: transparent !important;
+    color: white !important;
+}
+
+.glue-page-header__title-text,
+.GlueSectionDivider__title,
+.Header__content .Header__title-text,
+.Header__sticky .Header__title-text
+{
+  color: white !important;
+}
+
+.playlist-extender-content .playlist-extender-title-wrapper
+{
+  color: white !important;
+}
+
+.button[data-button=add-recommendation]
+{
+  color: white !important;
+}
+
+.button.button-with-stroke
+{
+  color: white !important;
+}
+
+.tl-highlight
+{
+  color: white !important;
+}
+
+.h-search-wrapper:focus
+{
+  color: white !important;
+}
+
+.tl-date-added,
+.tl-time
+{
+  font-weight: bold !important;
+}
+
+.view-player .track a
+{
+  font-weight: bold !important;
+  color: white !important;
+}
+
+.glue-page-header--with-active-sticky-header .glue-page-header__sticky {
+    background-color: var(--modspotify_main_bg) !important;
 }

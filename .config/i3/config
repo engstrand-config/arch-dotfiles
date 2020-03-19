@@ -2,18 +2,18 @@
 # File originally by Luke Smith <https://lukesmith.xyz>
 
 # Colors
-set $fg         "<wal-light>"
-set $bg         "<wal-dark>"
-set $bg_main    "<wal-bg-main>"
-set $bg_dark    "<wal-bg-dark>"
-set $bar_bg     "<bar-background>"
-set $bg_light   "<wal-bg-light>"
-set $critical   "<wal-critical>"
-set $success    "<wal-success>"
+set_from_resource $bg                 i3wm.accent           #000000
+set_from_resource $fg                 i3wm.accentText       #000000
+set_from_resource $bg_main            i3wm.backgroundMain   #000000
+set_from_resource $bg_light           i3wm.backgroundLight  #000000
+set_from_resource $bg_dark            i3wm.backgroundDark   #000000
+set_from_resource $bar_bg             i3wm.barBackground    #000000
+set_from_resource $critical           i3wm.critical         #000000
+set_from_resource $success            i3wm.success          #000000
 
 # Gaps
-set $gaps_inner <gaps-inner>
-set $gaps_outer <gaps-outer>
+set_from_resource $gaps_inner         i3wm.gapsInner 4
+set_from_resource $gaps_outer         i3wm.gapsOuter 2
 
 # Workspaces
 set $ws1        1:
@@ -29,19 +29,19 @@ set $ws10       10:
 
 # Applications
 # Remember colon afterwards, have not found a better solution yet
-set $ws_emacs           <ws-emacs>:
-set $ws_spotify         <ws-spotify>:
-set $ws_discord         <ws-discord>:
-set $ws_steam           <ws-steam>:
-set $ws_firefox         <ws-firefox>:
-set $ws_code            <ws-code>:
-set $ws_android_studio  <ws-android-studio>:
-set $ws_ferdi           <ws-ferdi>:
+set_from_resource $ws_firefox         i3wm.wsFirefox  2
+set_from_resource $ws_emacs           i3wm.wsEmacs    3
+set_from_resource $ws_ferdi           i3wm.wsFerdi    4
+set_from_resource $ws_steam           i3wm.wsSteam    4
+set_from_resource $ws_spotify         i3wm.wsSpotify  5
+set_from_resource $ws_code            i3wm.wsCode     6
+set_from_resource $ws_discord         i3wm.wsDiscord  7
+set_from_resource $ws_android_studio  i3wm.wsAndroid  9
 
 # Other
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
-set $window_border_size <window-border-size>
+set_from_resource $window_border_size i3wm.borderSize 1
 
 #smart_gaps             on
 #hide_edge_borders      smart

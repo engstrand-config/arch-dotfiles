@@ -1,0 +1,97 @@
+#!/bin/bash
+
+# Paths
+WAL_CACHE_COLORS="${HOME}/.cache/wal/colors.sh"
+PROFILE_EXPORTS_PATH="${HOME}/.dotfiles/profiles/$(whoami)/exports"
+COLORPICKER_PATH=~/.dotfiles/.local/bin/ftools/python/colorpicker.py
+XRESOURCES_TEMPLATE_PATH=~/.dotfiles/template.Xresources
+XRESOURCES_PATH=~/.Xresources
+WALLPAPER_PATH="${HOME}/.dotfiles/.local/share/default.png"
+
+# Source the generated pywal colors
+. "$WAL_CACHE_COLORS"
+
+# Generate more shades of pywal colors
+success=$(python $COLORPICKER_PATH "$color2" "success")
+critical=$(python  "$COLORPICKER_PATH" "$color2" "critical")
+critical_dark=$(python $COLORPICKER_PATH "$critical" "darker")
+bg_light=$(python $COLORPICKER_PATH "$background" "lighter")
+bg_dark=$(python $COLORPICKER_PATH "$background" "darker")
+bg_main=$(python $COLORPICKER_PATH "$color2" "darker" 140)
+
+# Source the profile exports, if defined
+if [ -f "$PROFILE_EXPORTS_PATH" ]; then
+  . "$PROFILE_EXPORTS_PATH"
+fi
+
+# Delete the old .Xresources and replace with the template
+rm $XRESOURCES_PATH
+cp $XRESOURCES_TEMPLATE_PATH $XRESOURCES_PATH
+
+# Font size
+placeholder "<font-size>" 	      	"$PROFILE_FONT_SIZE"         "14"                   "$XRESOURCES_PATH"
+
+# Wallpaper
+placeholder "<wallpaper>" 	      	"$wallpaper"                 "$WALLPAPER_PATH"      "$XRESOURCES_PATH"
+
+# Pywal colors
+placeholder "<background>" 	      	"$PROFILE_WAL_BG"            "$background"          "$XRESOURCES_PATH"
+placeholder "<foreground>" 	      	"$PROFILE_WAL_FG"            "$foreground"          "$XRESOURCES_PATH"
+placeholder "<color0>" 	      	    "$PROFILE_WAL_0"             "$color0"              "$XRESOURCES_PATH"
+placeholder "<color1>" 	      	    "$PROFILE_WAL_1"             "$color1"              "$XRESOURCES_PATH"
+placeholder "<color2>" 	      	    "$PROFILE_WAL_2"             "$color2"              "$XRESOURCES_PATH"
+placeholder "<color3>" 	      	    "$PROFILE_WAL_3"             "$color3"              "$XRESOURCES_PATH"
+placeholder "<color4>" 	      	    "$PROFILE_WAL_4"             "$color4"              "$XRESOURCES_PATH"
+placeholder "<color5>" 	      	    "$PROFILE_WAL_5"             "$color5"              "$XRESOURCES_PATH"
+placeholder "<color6>" 	      	    "$PROFILE_WAL_6"             "$color6"              "$XRESOURCES_PATH"
+placeholder "<color7>" 	      	    "$PROFILE_WAL_7"             "$color7"              "$XRESOURCES_PATH"
+placeholder "<color8>" 	      	    "$PROFILE_WAL_8"             "$color8"              "$XRESOURCES_PATH"
+placeholder "<color9>" 	      	    "$PROFILE_WAL_9"             "$color9"              "$XRESOURCES_PATH"
+placeholder "<color10>" 	      	  "$PROFILE_WAL_10"            "$color10"             "$XRESOURCES_PATH"
+placeholder "<color11>" 	      	  "$PROFILE_WAL_11"            "$color11"             "$XRESOURCES_PATH"
+placeholder "<color12>" 	      	  "$PROFILE_WAL_12"            "$color12"             "$XRESOURCES_PATH"
+
+placeholder "<color13>" 	      	  "$PROFILE_WAL_13"            "$color13"             "$XRESOURCES_PATH"
+placeholder "<color14>" 	      	  "$PROFILE_WAL_14"            "$color14"             "$XRESOURCES_PATH"
+placeholder "<color15>" 	      	  "$PROFILE_WAL_15"            "$color15"             "$XRESOURCES_PATH"
+
+placeholder "<accent>" 	      	    "$PROFILE_WAL_ACCENT"        "$color2"              "$XRESOURCES_PATH"
+placeholder "<accent-text>" 	      "$PROFILE_WAL_ACCENT_LIGHT"  "$color7"              "$XRESOURCES_PATH"
+placeholder "<background-main>" 	  "$PROFILE_WAL_BG_MAIN"       "$bg_main"             "$XRESOURCES_PATH"
+placeholder "<background-light>" 	  "$PROFILE_WAL_BG_LIGHT"      "$bg_light"            "$XRESOURCES_PATH"
+placeholder "<background-dark>" 	  "$PROFILE_WAL_BG_DARK"       "$bg_dark"             "$XRESOURCES_PATH"
+placeholder "<success>" 	      	  "$PROFILE_WAL_SUCCESS"       "$success"             "$XRESOURCES_PATH"
+placeholder "<critical>" 	      	  "$PROFILE_WAL_CRITICAL"      "$critical"            "$XRESOURCES_PATH"
+placeholder "<critical-dark>" 	    "$PROFILE_WAL_CRITICAL_DARK" "$critical_dark"       "$XRESOURCES_PATH"
+
+# i3 variables
+placeholder "<i3-bar-background>" 	"$PROFILE_I3_BAR_BG"          "${background}DD"     "$XRESOURCES_PATH"
+placeholder "<i3-border-size>" 	    "$PROFILE_I3_BORDER_SIZE"     "1"                   "$XRESOURCES_PATH"
+
+placeholder "<i3-gaps-inner>" 		  "$PROFILE_I3_GAPS_INNER"      "4"                   "$XRESOURCES_PATH"
+placeholder "<i3-gaps-outer>" 		  "$PROFILE_I3_GAPS_OUTER"      "2"                   "$XRESOURCES_PATH"
+
+placeholder "<i3-ws-emacs>" 		    "$PROFILE_I3_WS_EMACS"        '3'                 "$XRESOURCES_PATH"
+placeholder "<i3-ws-spotify>"		    "$PROFILE_I3_WS_SPOTIFY"      '5'                 "$XRESOURCES_PATH"
+placeholder "<i3-ws-discord>" 		  "$PROFILE_I3_WS_DISCORD"      '7'                 "$XRESOURCES_PATH"
+placeholder "<i3-ws-steam>" 	  	  "$PROFILE_I3_WS_STEAM"        '4'                 "$XRESOURCES_PATH"
+placeholder "<i3-ws-firefox>" 		  "$PROFILE_I3_WS_FIREFOX"      '2'                 "$XRESOURCES_PATH"
+placeholder "<i3-ws-code>" 		      "$PROFILE_I3_WS_CODE"         '6'                 "$XRESOURCES_PATH"
+placeholder "<i3-ws-android>"       "$PROFILE_I3_WS_ANDROID"      '9'                 "$XRESOURCES_PATH"
+placeholder "<i3-ws-ferdi>"         "$PROFILE_I3_WS_FERDI"        '4'                 "$XRESOURCES_PATH"
+
+placeholder "<i3-scratchpad-width>"	  "$PROFILE_I3_SP_WIDTH"      "800"                 "$XRESOURCES_PATH"
+placeholder "<i3-scratchpad-height>"  "$PROFILE_I3_SP_HEIGHT"     "600"                 "$XRESOURCES_PATH"
+
+# Dunst variables
+placeholder "<dunst-background>" 		"$PROFILE_DUNST_BACKGROUND"   "#f2f2f2"             "$XRESOURCES_PATH"
+placeholder "<dunst-border-size>"   "$PROFILE_DUNST_BORDER_SIZE"  "1"                   "$XRESOURCES_PATH"
+placeholder "<dunst-border-color>" 	"$PROFILE_DUNST_BORDER_COLOR" "$color2"             "$XRESOURCES_PATH"
+placeholder "<dunst-title-color>" 	"$PROFILE_DUNST_TITLE_COLOR"  "$bg_dark"            "$XRESOURCES_PATH"
+placeholder "<dunst-text-color>" 	  "$PROFILE_DUNST_TEXT_COLOR"   "$bg_dark"            "$XRESOURCES_PATH"
+placeholder "<dunst-gap-right>" 	  "$PROFILE_DUNST_GAP_RIGHT"    "7"                   "$XRESOURCES_PATH"
+placeholder "<dunst-gap-top>" 	    "$PROFILE_DUNST_GAP_TOP"      "27"                  "$XRESOURCES_PATH"
+
+# Set the .Xresources file
+xrdb $XRESOURCES_PATH
+

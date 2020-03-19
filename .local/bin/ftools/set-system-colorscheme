@@ -1,21 +1,26 @@
 #!/bin/bash
 
-# Load wal colors into env
-. "${HOME}/.dotfiles/.local/bin/ftools/make-wal-colors"
+# Create the new .Xresources file
+create-xresources
 
-# Load profile specific env variables
-PROFILE_PATH="${HOME}/.dotfiles/profiles/$(whoami)"
-if [ -d "$PROFILE_PATH" ]; then
-	. "${HOME}/.dotfiles/profiles/$(whoami)/exports"
-fi
-
-# Tell Pywalfox-extension to update the colors
-python ~/Repos/Pywalfox/native-app/pywal-fetcher.py update
+# wpgtk seems to not be able to set the wallpaper properly, so we do it manually on changes
+setbg "$(xgetres wallpaper)" >/dev/null 2>&1
 
 # Generate updated config files
 make-dunst-config >/dev/null 2>&1
 make-ferdi-config >/dev/null 2>&1
-make-i3-config >/dev/null 2>&1
+
+# Restart i3 so that the new config can take effect
+i3-msg restart >/dev/null 2>&1
+
+# Update the selected colorscheme in ~/.dotfiles/colorschemes with the colors from wpg
+themer -e null >/dev/null 2>&1
+
+# Tell Pywalfox-extension to update the colors
+python ~/Repos/Pywalfox/native-app/pywal-fetcher.py update
+
+# Restart dunst and display a notification
+restart-dunst >/dev/null 2>&1
 
 # Update the spotify theme
 spicetify update
@@ -24,15 +29,3 @@ spicetify update
 # we must restart it, which is not very nice.
 # You can manually reload using Shift+Ctrl+R
 #spicetify restart
-
-# wpgtk seems to not be able to set the wallpaper properly, so we do it manually on changes
-setbg "$WALLPAPER" >/dev/null 2>&1
-
-# Restart i3 so that the new config can take effect
-i3-msg restart >/dev/null 2>&1
-
-# Restart dunst and display a notification
-restart-dunst >/dev/null 2>&1
-
-# Update the selected colorscheme in ~/.dotfiles/colorschemes with the colors from wpg
-themer -e null >/dev/null 2>&1

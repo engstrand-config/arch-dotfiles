@@ -11,8 +11,8 @@ else
 fi
 
 TEMP=$(echo $TEMP_STRING | cut -d "." -f 1)
-COLOR="$WAL_LIGHT"
+COLOR="$(xgetres accentText)"
 
-[ $TEMP -gt 70 ] && COLOR="$WAL_CRITICAL"
+[ $TEMP -gt 70 ] && COLOR="$(xgetres critical)"
 
 printf "<span color='%s'>$TEMP_STRING</span>" "$COLOR"

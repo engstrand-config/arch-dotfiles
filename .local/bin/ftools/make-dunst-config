@@ -1,32 +1,20 @@
 #!/usr/bin/bash
 
-. "${HOME}/.dotfiles/.local/bin/ftools/make-wal-colors"
-. "${HOME}/.dotfiles/profiles/$(whoami)/exports"
-
-CONFIG_TEMPLATE_PATH=~/.dotfiles/.config/dunst/dunstrc.template
 CONFIG_PATH=~/.config/dunst/dunstrc
+CONFIG_TEMPLATE_PATH=~/.dotfiles/.config/dunst/dunstrc.template
 
-# Remove if exists
+# Remove if a config file already exists
 [ -f $CONFIG_PATH ] && rm $CONFIG_PATH
 
+# Copy the template to the config path
 cp $CONFIG_TEMPLATE_PATH $CONFIG_PATH
 
-function replace() {
-    if [ -z "$2" ] || [ "$2" = "" ]; then
-	# If the var is not set in the profile exports
-	# use $3 instead (fallback value)
-	sed -i "s/$1/$3/g" $CONFIG_PATH
-    else
-	sed -i "s/$1/$2/g" $CONFIG_PATH
-    fi
-}
-
 # Replace the placeholders with the actual values
-replace "<critical>" 	            "$PROFILE_WAL_CRITICAL"           "$WAL_CRITICAL"
-replace "<background-color>" 	    "$PROFILE_DUNST_BACKGROUND_COLOR" "#f2f2f2"
-replace "<border-color>" 	        "$PROFILE_DUNST_BORDER_COLOR"     "$WAL_DARK"
-replace "<title-color>" 	        "$PROFILE_DUNST_TITLE_COLOR"      "$WAL_BG_DARK"
-replace "<text-color>" 	          "$PROFILE_DUNST_TEXT_COLOR"       "$WAL_BG_DARK"
-replace "<gap-right>" 	          "$PROFILE_DUNST_GAP_RIGHT"        "7"
-replace "<gap-top>" 	            "$PROFILE_DUNST_GAP_TOP"          "27"
-replace "<border-size>" 	        "$PROFILE_DUNST_BORDER_SIZE"      "1"
+keyword-replace "<background>"    "$(xgetres dunst.background)"   "$CONFIG_PATH"
+keyword-replace "<border-size>"   "$(xgetres dunst.borderSize)"   "$CONFIG_PATH"
+keyword-replace "<border-color>"  "$(xgetres dunst.borderColor)"  "$CONFIG_PATH"
+keyword-replace "<title-color>"   "$(xgetres dunst.titleColor)"   "$CONFIG_PATH"
+keyword-replace "<text-color>"    "$(xgetres dunst.textColor)"    "$CONFIG_PATH"
+keyword-replace "<gap-right>"     "$(xgetres dunst.gapRight)"     "$CONFIG_PATH"
+keyword-replace "<gap-top>"       "$(xgetres dunst.gapTop)"       "$CONFIG_PATH"
+keyword-replace "<critical>"      "$(xgetres critical)"           "$CONFIG_PATH"

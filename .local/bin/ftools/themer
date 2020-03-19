@@ -2,7 +2,6 @@
 
 COLORSCHEMES_PATH=~/.dotfiles/colorschemes
 CURRENT_COLORSCHEME_PATH=~/.cache/current-colorscheme
-XRESOURCES_PATH=~/.cache/wal/colors.Xresources
 
 usage()
 {
@@ -88,7 +87,6 @@ apply_colorscheme()
   echo ""
   echo "Applying colorscheme"
   wpg -s "$1"
-  xrdb -merge -quiet $XRESOURCES_PATH
 }
 
 while getopts "hli:e:c:s::" opts; do
