@@ -13,4 +13,4 @@ if [ -z "$UNREAD" ]; then
     exit
 fi
 
-printf "<span color='$WAL_LIGHT'>$UNREAD</span>\n"
+printf "<span color='$(xgetres accentText)'>$UNREAD</span>\n"

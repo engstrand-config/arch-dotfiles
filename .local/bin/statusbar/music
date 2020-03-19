@@ -1,7 +1,7 @@
 #!/bin/sh
 
-color_paused="$WAL_CRITICAL"
-color_playing="$WAL_LIGHT"
+color_paused="$(xgetres critical)"
+color_playing="$(xgetres accentText)"
 
 filter() {
 	sed "/^volume:/d" | tac | sed -e "s/\\&/&amp;/g;s/\\[paused\\].*/<span color=\"$color_paused\">/g;s/\\[playing\\].*/<span color=\"$color_playing\">/g" | tr -d '\n' | sed -e "s/$/<\\/span>/g"

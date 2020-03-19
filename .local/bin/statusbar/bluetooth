@@ -8,15 +8,15 @@ ICON_COLOR="#ff00ff"
 if [ "$BT_STATUS" = "yes" ]; then
 	ICON_COLOR="#ffffff"
 else
-	ICON_COLOR="$WAL_CRITICAL"
-fi 
+	ICON_COLOR="$(xgetres critical)"
+fi
 
 if [[ "${BLOCK_BUTTON}" -eq 1 ]] && [ "$BT_STATUS" = "no" ]; then
 	bluetoothctl power on > /dev/null
 	ICON_COLOR="#ffffff"
 elif [[ "${BLOCK_BUTTON}" -eq 1 ]] && [ "$BT_STATUS" = "yes" ]; then
 	bluetoothctl power off > /dev/null
-	ICON_COLOR="$WAL_CRITICAL"
+	ICON_COLOR="$(xgetres critical)"
 fi
 
 printf "<span color='$ICON_COLOR'></span>"
