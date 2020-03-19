@@ -12,31 +12,33 @@ set_from_resource $critical           i3wm.critical         #000000
 set_from_resource $success            i3wm.success          #000000
 
 # Gaps
-set_from_resource $gaps_inner         i3wm.gapsInner 4
-set_from_resource $gaps_outer         i3wm.gapsOuter 2
+set_from_resource $gaps_inner         i3wm.gapsInner        4
+set_from_resource $gaps_outer         i3wm.gapsOuter        2
+
+set_from_resource $sp_width           i3wm.scratchpadWidth  800
+set_from_resource $sp_height          i3wm.scratchpadHeight 600
 
 # Workspaces
-set $ws1        1:
-set $ws2        2:
-set $ws3        3:
-set $ws4        4:
-set $ws5        5:
-set $ws6        6:
-set $ws7        7:
-set $ws8        8:
-set $ws9        9:
-set $ws10       10:
+set $ws1   1:
+set $ws2   2:
+set $ws3   3:
+set $ws4   4:
+set $ws5   5:
+set $ws6   6:
+set $ws7   7:
+set $ws8   8:
+set $ws9   9:
+set $ws10  10:
 
 # Applications
-# Remember colon afterwards, have not found a better solution yet
-set_from_resource $ws_firefox         i3wm.wsFirefox  2
-set_from_resource $ws_emacs           i3wm.wsEmacs    3
-set_from_resource $ws_ferdi           i3wm.wsFerdi    4
-set_from_resource $ws_steam           i3wm.wsSteam    4
-set_from_resource $ws_spotify         i3wm.wsSpotify  5
-set_from_resource $ws_code            i3wm.wsCode     6
-set_from_resource $ws_discord         i3wm.wsDiscord  7
-set_from_resource $ws_android_studio  i3wm.wsAndroid  9
+set_from_resource $ws_firefox         i3wm.wsFirefox  2:
+set_from_resource $ws_emacs           i3wm.wsEmacs    3:
+set_from_resource $ws_ferdi           i3wm.wsFerdi    4:
+set_from_resource $ws_steam           i3wm.wsSteam    4:
+set_from_resource $ws_spotify         i3wm.wsSpotify  5:
+set_from_resource $ws_code            i3wm.wsCode     6:
+set_from_resource $ws_discord         i3wm.wsDiscord  7:
+set_from_resource $ws_android_studio  i3wm.wsAndroid  9:
 
 # Other
 set $term --no-startup-id $TERMINAL
@@ -222,7 +224,7 @@ for_window [instance="dropdown_*"]                floating enable
 for_window [instance="dropdown_*"]                move scratchpad
 for_window [instance="dropdown_*"]                sticky enable
 for_window [instance="dropdown_*"]                scratchpad show
-for_window [instance="dropdown_*"]                resize set <scratchpad-width> <scratchpad-height>
+for_window [instance="dropdown_*"]                resize set $sp_width $sp_height
 for_window [instance="dropdown_*"]                move position center
 for_window [class="mpv"]                          floating enable
 for_window [class="mpv"]                          sticky enable
