@@ -134,6 +134,10 @@
     summary = "Spotify"
     format = ""
 
+[kde-ignore-bitwarden-notifications]
+    summary = "Bitwarden"
+    format = ""
+
 [frost]
     summary = "Frost"
     format = ""

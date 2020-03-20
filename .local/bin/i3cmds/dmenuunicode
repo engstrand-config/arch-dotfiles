@@ -5,9 +5,9 @@
 # Must have xclip installed to even show menu.
 xclip -h >/dev/null || exit
 
-NB="$WAL_BG_DARK"
-NF="$WAL_LIGHT"
-SB="$WAL_DARK"
+NB="$(xgetres backgroundDark)"
+NF="$(xgetres accentText)"
+SB="$(xgetres accent)"
 SF="#ffffff"
 FONT="Noto Sans Bold-16"
 
