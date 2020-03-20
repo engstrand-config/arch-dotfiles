@@ -8,16 +8,6 @@ XRESOURCES_TEMPLATE_PATH=~/.dotfiles/template.Xresources
 XRESOURCES_PATH=~/.Xresources
 WALLPAPER_PATH="${HOME}/.dotfiles/.local/share/default.png"
 
-# Set a fallback value in case a variable is not set
-function fallback()
-{
-  if [ -z "$1" ]; then
-    echo $2
-  else
-    echo $1
-  fi
-}
-
 # Source the generated pywal colors
 . "$WAL_CACHE_COLORS"
 
@@ -28,6 +18,9 @@ critical_dark=$(python $COLORPICKER_PATH "$critical" "darker")
 bg_light=$(python $COLORPICKER_PATH "$background" "lighter")
 bg_dark=$(python $COLORPICKER_PATH "$background" "darker")
 bg_main=$(python $COLORPICKER_PATH "$color2" "darker" 140)
+bg_light_transparent="${bg_light}DD"
+bg_main_transparent="${bg_main}DD"
+bg_dark_transparent="${bg_dark}DD"
 
 # Source the profile exports, if defined
 if [ -f "$PROFILE_EXPORTS_PATH" ]; then
@@ -35,32 +28,32 @@ if [ -f "$PROFILE_EXPORTS_PATH" ]; then
 fi
 
 # Create fallback values
-font_size=$(fallback "$PROFILE_FONT_SIZE" "14")
+font_size=${PROFILE_FONT_SIZE:-14}
 
-i3_bar_bg=$(fallback "$PROFILE_I3_BAR_BG" "${background}DD")
-i3_border_size=$(fallback "$PROFILE_I3_BORDER_SIZE" "1")
-i3_gaps_inner=$(fallback "$PROFILE_I3_GAPS_INNER" "4")
-i3_gaps_outer=$(fallback "$PROFILE_I3_GAPS_OUTER" "2")
+i3_bar_bg=${PROFILE_I3_BAR_BG:-$bg_dark_transparent}
+i3_border_size=${PROFILE_I3_BORDER_SIZE:-1}
+i3_gaps_inner=${PROFILE_I3_GAPS_INNER:-4}
+i3_gaps_outer=${PROFILE_I3_GAPS_OUTER:-2}
 
-i3_ws_emacs=$(fallback "$PROFILE_I3_WS_EMACS" "3")
-i3_ws_spotify=$(fallback "$PROFILE_I3_WS_SPOTIFY" "5")
-i3_ws_discord=$(fallback "$PROFILE_I3_WS_DISCORD" "7")
-i3_ws_steam=$(fallback "$PROFILE_I3_WS_STEAM" "4")
-i3_ws_firefox=$(fallback "$PROFILE_I3_WS_FIREFOX" "2")
-i3_ws_code=$(fallback "$PROFILE_I3_WS_CODE" "6")
-i3_ws_android=$(fallback "$PROFILE_I3_WS_ANDROID" "9")
-i3_ws_ferdi=$(fallback "$PROFILE_I3_WS_FERDI" "4")
+i3_ws_emacs=${PROFILE_I3_WS_EMACS:-3}
+i3_ws_spotify=${PROFILE_I3_WS_SPOTIFY:-5}
+i3_ws_discord=${PROFILE_I3_WS_DISCORD:-7}
+i3_ws_steam=${PROFILE_I3_WS_STEAM:-4}
+i3_ws_firefox=${PROFILE_I3_WS_FIREFOX:-2}
+i3_ws_code=${PROFILE_I3_WS_CODE:-6}
+i3_ws_android=${PROFILE_I3_WS_ANDROID:-9}
+i3_ws_ferdi=${PROFILE_I3_WS_FERDI:-4}
 
-i3_sp_width=$(fallback "$PROFILE_I3_SP_WIDTH" "800")
-i3_sp_height=$(fallback "$PROFILE_I3_SP_HEIGHT" "800")
+i3_sp_width=${PROFILE_I3_SP_WIDTH:-800}
+i3_sp_height=${PROFILE_I3_SP_HEIGHT:-800}
 
-dunst_background=$(fallback "$PROFILE_DUNST_BACKGROUND" "#f2f2f2")
-dunst_border_size=$(fallback "$PROFILE_DUNST_BORDER_SIZE" "1")
-dunst_border_color=$(fallback "$PROFILE_DUNST_BORDER_COLOR" "$color2")
-dunst_title_color=$(fallback "$PROFILE_DUNST_TITLE_COLOR" "$bg_dark")
-dunst_text_color=$(fallback "$PROFILE_DUNST_TEXT_COLOR" "$bg_dark")
-dunst_gap_right=$(fallback "$PROFILE_DUNST_GAP_RIGHT" "7")
-dunst_gap_top=$(fallback "$PROFILE_DUNST_GAP_TOP" "27")
+dunst_background=${PROFILE_DUNST_BACKGROUND:-#f2f2f2}
+dunst_border_size=${PROFILE_DUNST_BORDER_SIZE:-1}
+dunst_border_color=${PROFILE_DUNST_BORDER_COLOR:-$color2}
+dunst_title_color=${PROFILE_DUNST_TITLE_COLOR:-$bg_dark}
+dunst_text_color=${PROFILE_DUNST_TEXT_COLOR:-$bg_dark}
+dunst_gap_right=${PROFILE_DUNST_GAP_RIGHT:-7}
+dunst_gap_top=${PROFILE_DUNST_GAP_TOP:-27}
 
 echo "
 ! X colors.

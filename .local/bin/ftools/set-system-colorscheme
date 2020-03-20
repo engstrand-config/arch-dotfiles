@@ -3,6 +3,9 @@
 # Create the new .Xresources file
 create-xresources
 
+# Fix the white background issue
+tty-live-reload-fix
+
 # wpgtk seems to not be able to set the wallpaper properly, so we do it manually on changes
 setbg "$(xgetres wallpaper)" >/dev/null 2>&1
 
