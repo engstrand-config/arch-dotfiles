@@ -59,7 +59,7 @@ echo "
 ! X colors.
 
 ! Terminal font
-*.font: Liberation Mono:pixelsize=$font_size:antialias=true:autohint=true;
+*.font: monospace:pixelsize=$font_size:antialias=true:autohint=true;
 
 ! Current wallpaper
 *wallpaper:         $wallpaper
