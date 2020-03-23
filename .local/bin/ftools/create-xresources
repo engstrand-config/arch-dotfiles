@@ -29,6 +29,7 @@ fi
 
 # Create fallback values
 font_size=${PROFILE_FONT_SIZE:-14}
+alpha=${PROFILE_ALPHA:-0.9}
 
 i3_bar_bg=${PROFILE_I3_BAR_BG:-$bg_dark_transparent}
 i3_border_size=${PROFILE_I3_BORDER_SIZE:-1}
@@ -50,6 +51,7 @@ i3_sp_height=${PROFILE_I3_SP_HEIGHT:-800}
 dunst_background=${PROFILE_DUNST_BACKGROUND:-#f2f2f2}
 dunst_border_size=${PROFILE_DUNST_BORDER_SIZE:-1}
 dunst_border_color=${PROFILE_DUNST_BORDER_COLOR:-$color2}
+dunst_border_radius=${PROFILE_DUNST_BORDER_RADIUS:-0}
 dunst_title_color=${PROFILE_DUNST_TITLE_COLOR:-$bg_dark}
 dunst_text_color=${PROFILE_DUNST_TEXT_COLOR:-$bg_dark}
 dunst_gap_right=${PROFILE_DUNST_GAP_RIGHT:-7}
@@ -58,8 +60,11 @@ dunst_gap_top=${PROFILE_DUNST_GAP_TOP:-27}
 echo "
 ! X colors.
 
+*alpha:             $alpha
+*.alpha:            $alpha
+
 ! Terminal font
-*.font: monospace:pixelsize=$font_size:antialias=true:autohint=true;
+*.font: mono:pixelsize=$font_size:antialias=true:autohint=true;
 
 ! Current wallpaper
 *wallpaper:         $wallpaper
@@ -72,16 +77,6 @@ echo "
 *.background:       $background
 emacs*foreground:   $foreground
 emacs*background:   $background
-URxvt*foreground:   $foreground
-XTerm*foreground:   $foreground
-UXTerm*foreground:  $foreground
-URxvt*background:   [100]$background
-XTerm*background:   $background
-UXTerm*background:  $background
-URxvt*cursorColor:  $foreground
-XTerm*cursorColor:  $foreground
-UXTerm*cursorColor: $foreground
-URxvt*borderColor:  [100]$background
 
 ! Customized pywal colors
 *.accent:           $color2
@@ -120,13 +115,14 @@ i3wm.wsAndroid:     $i3_ws_android:
 i3wm.wsFerdi:       $i3_ws_ferdi:
 
 ! Dunst variables
-dunst.background:   $dunst_background
-dunst.borderSize:   $dunst_border_size
-dunst.borderColor:  $dunst_border_color
-dunst.titleColor:   $dunst_title_color
-dunst.textColor:    $dunst_text_color
-dunst.gapRight:     $dunst_gap_right
-dunst.gapTop:       $dunst_gap_top
+dunst.background:      $dunst_background
+dunst.borderSize:      $dunst_border_size
+dunst.borderColor:     $dunst_border_color
+dunst.borderRadius:    $dunst_border_radius
+dunst.titleColor:      $dunst_title_color
+dunst.textColor:       $dunst_text_color
+dunst.gapRight:        $dunst_gap_right
+dunst.gapTop:          $dunst_gap_top
 
 ! Pywal colors 0-15
 *.color0:           $color0

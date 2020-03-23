@@ -27,7 +27,7 @@
     font = Noto Sans Mono Medium 9
     line_height = 0
     markup = full
-    corner_radius = 0
+    corner_radius = <border-radius>
 
     # The format of the message.  Possible variables are:
     #   %a  appname
@@ -62,7 +62,7 @@
 
     title = Dunst
     class = Dunst
-    startup_notification = false
+    startup_notification = true
     force_xinerama = false
 [experimental]
     per_monitor_dpi = false

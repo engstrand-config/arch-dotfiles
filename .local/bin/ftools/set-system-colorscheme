@@ -4,6 +4,8 @@
 create-xresources
 
 # Fix the white background issue
+# https://github.com/LukeSmithxyz/st/issues/163
+# https://github.com/LukeSmithxyz/st/issues/142
 tty-live-reload-fix
 
 # wpgtk seems to not be able to set the wallpaper properly, so we do it manually on changes
@@ -22,11 +24,11 @@ themer -e null >/dev/null 2>&1
 # Tell Pywalfox-extension to update the colors
 python ~/Repos/Pywalfox/daemon/pywalfox.py update
 
-# Restart dunst and display a notification
+# Restart dunst
 restart-dunst >/dev/null 2>&1
 
 # Update the spotify theme
-spicetify update
+spicetify update >/dev/null 2>&1
 
 # If we want to automatically update Spotify with the new theme
 # we must restart it, which is not very nice.

@@ -1,17 +1,8 @@
 #!/bin/bash
 
-SEQUENCES_PATH=~/.config/wpg/sequences
-
-# Remove color 256 from the generated sequences file.
-# It is used to update the terminal colors in open windows.
-# However, the 256 color makes the background completely white, until restarted.
-sed -i "s|4;256;#......|4;256;$(xgetres background)|g" $SEQUENCES_PATH
-sed -i "s|4;232;#......||g" $SEQUENCES_PATH
-
-sequences=$(cat $SEQUENCES_PATH)
 for tty_id in {0..9}; do
   file_path="/dev/pts/$tty_id"
   if [ -e "$file_path" ]; then
-    echo "$sequences" > $file_path
+    echo -e "\e]4;256;$(xgetres foreground)\a\e]4;258;$(xgetres background)\a" > $file_path
   fi
 done
