@@ -4,7 +4,8 @@ body
 }
 
 /* Hide ad */
-#view-leaderboard-ad
+#view-leaderboard-ad,
+#view-billboard-ad
 {
   display: none !important;
 }

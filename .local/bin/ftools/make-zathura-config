@@ -1,0 +1,52 @@
+#!/usr/bin/bash
+
+CONFIG_PATH=~/.config/zathura/zathurarc
+
+background=$(xgetres background)
+foreground=$(xgetres foreground)
+bg_light=$(xgetres backgroundLight)
+critical=$(xgetres critical)
+accent=$(xgetres accent)
+
+echo "
+set recolor "true"
+set completion-bg \"$background\"
+set completion-fg \"$foreground\"
+set completion-group-bg \"$background\"
+set completion-group-fg \"$accent\"
+set completion-highlight-bg \"$foreground\"
+set completion-highlight-fg \"$background\"
+set recolor-lightcolor \"$background\"
+set recolor-darkcolor \"$foreground\"
+set default-bg \"$background\"
+set inputbar-bg \"$bg_light\"
+set inputbar-fg \"$foreground\"
+set notification-bg \"$background\"
+set notification-fg \"$foreground\"
+set notification-error-bg \"$critical\"
+set notification-error-fg \"$foreground\"
+set notification-warning-bg \"$critical\"
+set notification-warning-fg \"$foreground\"
+set statusbar-bg \"$bg_light\"
+set statusbar-fg \"$foreground\"
+set index-bg \"$background\"
+set index-fg \"$foreground\"
+set index-active-bg \"$foreground\"
+set index-active-fg \"$background\"
+set render-loading-bg \"$background\"
+set render-loading-fg \"$foreground\"
+
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+set page-padding 2
+map u scroll half-up
+map d scroll half-down
+map D toggle_page_mode
+map r reload
+map R rotate
+map K zoom in
+map J zoom out
+map i recolor
+map p print
+" > $CONFIG_PATH
+

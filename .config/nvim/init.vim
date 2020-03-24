@@ -12,15 +12,13 @@ Plug 'christoomey/vim-sort-motion'
 Plug 'dylanaraps/wal.vim'
 Plug 'https://github.com/neovimhaskell/haskell-vim.git'
 Plug 'itchyny/lightline.vim'
-Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'spf13/vim-autoclose'
-Plug 'alvan/vim-closetag'
 Plug 'lervag/vimtex'
+Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
@@ -46,6 +44,12 @@ syntax on
 
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
+
+" Change the color of comments
+hi Comment ctermfg=9
+
+" Change color of line numbers
+hi LineNr ctermfg=1
 
 " Change the background color of highlighted matching tags
 hi MatchParen ctermbg=2 ctermfg=0
