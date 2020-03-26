@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 # Creates a new steam config based off pywal colors and fixes some issues with the
 # metro theme not applying colors correctly

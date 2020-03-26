@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Paths
 WAL_CACHE_COLORS="${HOME}/.cache/wal/colors.sh"

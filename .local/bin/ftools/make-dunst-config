@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 CONFIG_PATH=~/.config/dunst/dunstrc
 CONFIG_TEMPLATE_PATH=~/.dotfiles/.config/dunst/dunstrc.template

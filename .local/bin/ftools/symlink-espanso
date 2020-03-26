@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ESPANSO_PATH=$HOME/.config/espanso/default.yml
 PROFILE_CONFIG=$HOME/.dotfiles/profiles/$(whoami)/espanso.yml

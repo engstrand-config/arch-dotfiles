@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 NB=$(xgetres color0)
 NF=$(xgetres color7)

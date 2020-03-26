@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 cd ~
 bash ~/.dotfiles/.local/bin/ftools/stowsh ~/.dotfiles -s
 

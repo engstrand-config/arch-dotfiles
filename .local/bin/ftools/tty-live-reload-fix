@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 for tty_id in {0..9}; do
   file_path="/dev/pts/$tty_id"

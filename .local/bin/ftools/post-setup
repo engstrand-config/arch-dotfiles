@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 BIN_PATH=~/.dotfiles/.local/bin/ftools
 
 # Install python packages

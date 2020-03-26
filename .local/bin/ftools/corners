@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 WIDTH=$(xdpyinfo  | grep 'dimensions:' | awk '{print $2}' | cut -d "x" -f 1)
 HEIGHT=$(xdpyinfo  | grep 'dimensions:' | awk '{print $2}' | cut -d "x" -f 2)
 
@@ -18,7 +20,7 @@ elif [ "$1" = "bottom left" ]; then
 elif [ "$1" = "bottom right" ]; then
 	POSX=$(($WIDTH-$2))
 	POSY=$(($HEIGHT-$3))
-fi 
+fi
 
 i3 move position $POSX $POSY
 

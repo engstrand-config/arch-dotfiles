@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 COLORSCHEMES_PATH=~/.dotfiles/colorschemes
 CURRENT_COLORSCHEME_PATH=~/.cache/current-colorscheme

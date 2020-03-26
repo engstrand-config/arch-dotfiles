@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 . ~/.dotfiles/git-repo-paths
 
@@ -8,12 +8,12 @@ for repo in ${REPOS[*]}; do
 	cd $repo
 	changes=$(git status --porcelain)
 	if [ ! -z "$changes" ]; then
-		MODIFIED_REPOS=" $repo\n$MODIFIED_REPOS"	
+		MODIFIED_REPOS=" $repo\n$MODIFIED_REPOS"
 	fi
 
 	echo -e "\033[1m$repo:\033[0m"
 	git status
-	echo " "	
+	echo " "
 done
 
 notify-send " git-status-check" "Changes have been made in the following directories:\n$MODIFIED_REPOS"

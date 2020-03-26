@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 FERDI_PATH=$HOME/.config/Ferdi/config/settings.json
 if [ -f "$FERDI_PATH" ]; then
