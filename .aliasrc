@@ -1,3 +1,3 @@
 alias p="sudo pacman"
 alias vim="nvim"
-alias se="xdg-open \$(fzf) > /dev/null"
+alias se="xdg-open \$(fzf)"
