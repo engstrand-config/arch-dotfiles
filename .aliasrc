@@ -1,2 +1,3 @@
 alias p="sudo pacman"
 alias vim="nvim"
+alias se="vim \$(fzf)"

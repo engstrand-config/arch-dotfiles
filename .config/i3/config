@@ -11,6 +11,8 @@ set_from_resource $bar_bg             i3wm.barBackground    #000000
 set_from_resource $critical           i3wm.critical         #000000
 set_from_resource $success            i3wm.success          #000000
 
+set $color16                                                #191919
+
 # Gaps
 set_from_resource $gaps_inner         i3wm.gapsInner        4
 set_from_resource $gaps_outer         i3wm.gapsOuter        2
@@ -234,6 +236,8 @@ for_window [class="mpv"]                          border pixel 1
 
 # Set borders
 for_window [class="^.*"]                          border pixel $window_border_size
+
+# client.unfocused        $color16 $color16 $color16 $color16 $color16
 
 # Dont focus the floating mpv window
 no_focus [title="mpvfloat"]

@@ -24,3 +24,6 @@ code-oss = "Code"
 tidal-hifi = "Tidal"
 Sxiv = "sxiv"
 processing-app-Base = "Arduino"
+
+[general]
+separator = " | "
