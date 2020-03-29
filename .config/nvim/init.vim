@@ -123,8 +123,8 @@ autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
 let g:vimtex_compiler_latexmk_engine='xelatex'
 
 " Should be moved /Johan
-nnoremap <leader>r :!bash /home/johan/Repos/bionic-arm/arduino-code/recup<CR>
-nnoremap <leader>t :!bash /home/johan/Repos/bionic-arm/arduino-code/trup<CR>
+nnoremap <leader>r :!bash ~/Repos/bionic-arm/arduino-code/recup<CR>
+nnoremap <leader>t :!bash ~/Repos/bionic-arm/arduino-code/trup<CR>
 
 " Disable the arrow keys
 noremap <Up> <Nop>
