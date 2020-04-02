@@ -20,6 +20,7 @@ Plug 'alvan/vim-closetag'
 Plug 'honza/vim-snippets'
 Plug 'lervag/vimtex'
 Plug 'jiangmiao/auto-pairs'
+Plug 'https://github.com/heavenshell/vim-jsdoc'
 
 call plug#end()
 
@@ -79,6 +80,9 @@ let g:lightline = {
 
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" JsDoc
+nmap <silent> <C-l> <Plug>(jsdoc)
 
 " Nerd tree
 map <leader>b :NERDTreeToggle<CR>
