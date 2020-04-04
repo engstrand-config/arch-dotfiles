@@ -8,19 +8,21 @@ endif
 
 call plug#begin(stdpath('data') . '/plugged')
 
-Plug 'christoomey/vim-sort-motion'
 Plug 'dylanaraps/wal.vim'
-Plug 'https://github.com/neovimhaskell/haskell-vim.git'
 Plug 'itchyny/lightline.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'christoomey/vim-sort-motion'
+Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'ervandew/supertab'
-Plug 'SirVer/ultisnips'
 Plug 'alvan/vim-closetag'
-Plug 'honza/vim-snippets'
-Plug 'lervag/vimtex'
 Plug 'jiangmiao/auto-pairs'
-Plug 'https://github.com/heavenshell/vim-jsdoc'
+
+" Language specific
+Plug 'lervag/vimtex'
+Plug 'heavenshell/vim-jsdoc'
+Plug 'neovimhaskell/haskell-vim'
 
 call plug#end()
 
@@ -36,6 +38,11 @@ set nocompatible
 set encoding=utf-8
 set number relativenumber
 set splitbelow splitright
+
+set signcolumn=no
+let b:signcolumn_on=0
+set updatetime=300
+
 set tabstop=2
 set shiftwidth=2
 set expandtab
@@ -44,6 +51,7 @@ filetype plugin on
 filetype plugin indent on
 syntax on
 
+" Color fixes
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
 
@@ -59,36 +67,66 @@ hi MatchParen ctermbg=2 ctermfg=0
 " Change the colors for the dropdown menu for autocomplete
 hi Pmenu ctermbg=0 ctermfg=3
 
-" let g:deoplete#enable_at_startup = 1
-" let g:deoplete#disable_auto_complete = 0
-
-" We want a bit of delay before showing the autocomplete menu
-" call deoplete#custom#option('auto_complete_delay', 250)
-
-" No new line when pressing enter after a tab autocomplete
-let g:SuperTabCrMapping = 1
-
-" Move from top to bottom in autocomplete list
-"let g:SuperTabDefaultCompletionType = "<c-n>"
-
 let g:autoclose_vim_commentmode = 1
-let g:UltiSnipsExpandTrigger="<S-Tab>"
-let g:UltiSnipsJumpForwardTrigger="<A-Tab>"
+
+" Lightline config
 let g:lightline = {
-            \'colorscheme': 'wal',
-            \ }
+      \ 'colorscheme': 'wal',
+      \ }
+
+" Coc settings
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+" Start autocomplete/move down list
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+
+" Move up in autocomplete list
+inoremap <silent><expr> <S-Tab>
+      \ pumvisible() ? "\<C-p>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> <leader>d :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Expand snippet on enter
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() :
+                                           \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Use Alt+Tab to move forward in snippet
+let g:coc_snippet_next = '<M-Tab>'
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+nnoremap c "_c
+
 " JsDoc
 nmap <silent> <C-l> <Plug>(jsdoc)
-
-" Nerd tree
-map <leader>b :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-nnoremap c "_c
 
 " Replace all is aliased to S.
 nnoremap S :%s//g<Left><Left>
@@ -108,6 +146,18 @@ nnoremap <leader>hb :!ghci %<CR>
 " Toggles the workspace on/off
 nnoremap <leader>w :ToggleWorkspace<CR>
 
+" Toggle gutter
+function! ToggleSignColumn()
+    if !exists("b:signcolumn_on") || b:signcolumn_on
+        set signcolumn=no
+        let b:signcolumn_on=0
+    else
+        set signcolumn=auto
+        let b:signcolumn_on=1
+    endif
+endfunction
+nnoremap <leader>gs :call ToggleSignColumn()<CR>
+
 " Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
 vnoremap <C-c> "+y
 map <C-p> "+P
@@ -125,6 +175,9 @@ autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
 
 let g:vimtex_compiler_latexmk_engine='xelatex'
+
+" Set tab width to 4 in python files
+autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 
 " Should be moved /Johan
 nnoremap <leader>r :!bash ~/Repos/bionic-arm/arduino-code/recup<CR>
