@@ -5,8 +5,7 @@ hda-verb /dev/snd/hwC0D0 0x20 SET_PROC_COEF 0x3000
 crontab -l > ~/.dotfiles/profiles/johan/my-crontab
 
 firefox &
-discord &
-steam &
+ferdi &
 #nextcloud &
 pulseeffects --gapplication-service &
 mpDris2 &

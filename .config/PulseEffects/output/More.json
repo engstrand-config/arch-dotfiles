@@ -53,10 +53,10 @@
             "input-gain": "0",
             "output-gain": "0",
             "amount": "5",
-            "harmonics": "8.0000000000000018",
+            "harmonics": "9.9999999999999947",
             "scope": "100",
             "floor": "20",
-            "blend": "-5",
+            "blend": "0",
             "floor-active": "false",
             "listen": "false"
         },
@@ -205,7 +205,7 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "5.2000000000000002",
+                    "gain": "14.9",
                     "frequency": "19882",
                     "q": "2"
                 },
@@ -365,7 +365,7 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "1.2",
+                    "gain": "0",
                     "frequency": "7143.3500000000004",
                     "q": "4.3600000000000003"
                 },
@@ -375,7 +375,7 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "1.5",
+                    "gain": "0",
                     "frequency": "8992.9400000000005",
                     "q": "4.3600000000000003"
                 },
@@ -385,7 +385,7 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "2",
+                    "gain": "0",
                     "frequency": "11321.450000000001",
                     "q": "4.3600000000000003"
                 },
@@ -395,7 +395,7 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "2.8999999999999999",
+                    "gain": "0",
                     "frequency": "14252.860000000001",
                     "q": "4.3600000000000003"
                 },
@@ -405,7 +405,7 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "3.7000000000000002",
+                    "gain": "0",
                     "frequency": "17943.279999999999",
                     "q": "4.3600000000000003"
                 }
@@ -507,7 +507,7 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "5.2000000000000002",
+                    "gain": "14.9",
                     "frequency": "19882",
                     "q": "2"
                 },
@@ -667,7 +667,7 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "1.2",
+                    "gain": "0",
                     "frequency": "7143.3500000000004",
                     "q": "4.3600000000000003"
                 },
@@ -677,7 +677,7 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "1.5",
+                    "gain": "0",
                     "frequency": "8992.9400000000005",
                     "q": "4.3600000000000003"
                 },
@@ -687,7 +687,7 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "2",
+                    "gain": "0",
                     "frequency": "11321.450000000001",
                     "q": "4.3600000000000003"
                 },
@@ -697,7 +697,7 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "2.8999999999999999",
+                    "gain": "0",
                     "frequency": "14252.860000000001",
                     "q": "4.3600000000000003"
                 },
@@ -707,7 +707,7 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "3.7000000000000002",
+                    "gain": "0",
                     "frequency": "17943.279999999999",
                     "q": "4.3600000000000003"
                 }
@@ -718,8 +718,8 @@
             "input-gain": "0",
             "output-gain": "0",
             "amount": "0",
-            "harmonics": "8.0000000000000018",
-            "scope": "10000",
+            "harmonics": "0.10000000000000103",
+            "scope": "7500",
             "ceil": "16000",
             "blend": "0",
             "ceil-active": "false",

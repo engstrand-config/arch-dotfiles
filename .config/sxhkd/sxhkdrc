@@ -42,7 +42,7 @@ XF86Launch1
 XF86AudioMute
 	amixer sset Master toggle; pkill -RTMIN+10 $STATUSBAR
 XF86Audio{Raise,Lower}Volume
-	amixer sset Master 5%{+,-}; pkill -RTMIN+10 $STATUSBAR
+	pulsemixer --change-volume {+,-}5; pkill -RTMIN+10 $STATUSBAR
 XF86Audio{Next,Prev}
 	mpc {next,prev}; pkill -RTMIN+11 $STATUSBAR; playerctl {next,previous}; pkill -RTMIN+11 $STATUSBAR
 XF86Audio{Pause,Play,Stop}
