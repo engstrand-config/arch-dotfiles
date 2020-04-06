@@ -7,4 +7,5 @@ REPOS=(
 	~/repos/pywalfox
 	~/repos/farbs
   ~/repos/dwm
+  ~/repos/dwmblocks
 )
