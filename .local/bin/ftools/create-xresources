@@ -78,6 +78,11 @@ echo "
 emacs*foreground:   $foreground
 emacs*background:   $background
 
+! dwm colors
+dwm.color8:         $accent
+dwm.color6:         $foreground
+dwm.color14:        $bg_light
+
 ! Customized pywal colors
 *.accent:           $color2
 .accent:            $color2

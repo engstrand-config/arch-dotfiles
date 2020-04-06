@@ -7,7 +7,7 @@ bash $PROFILE_PATH/init
 
 xrdb ~/.Xresources
 
-exec i3
+exec dwm-launcher
 
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
