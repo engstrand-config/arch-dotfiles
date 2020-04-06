@@ -1,5 +1,6 @@
-let mapleader = ","
-
+" --------------------------------------
+"                Plugins
+" --------------------------------------
 if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
     echo "Downloading junegunn/vim-plug to manage plugins..."
     silent !mkdir -p ~/.config/nvim/autoload/
@@ -12,12 +13,11 @@ Plug 'dylanaraps/wal.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'christoomey/vim-sort-motion'
-Plug 'easymotion/vim-easymotion'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
-Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'Raimondi/delimitMate'
+Plug 'christoomey/vim-sort-motion'
 
 " Language specific
 Plug 'lervag/vimtex'
@@ -26,6 +26,10 @@ Plug 'neovimhaskell/haskell-vim'
 
 call plug#end()
 
+
+" --------------------------------------
+"             Vim config
+" --------------------------------------
 colorscheme wal
 
 set bg=dark
@@ -40,7 +44,6 @@ set number relativenumber
 set splitbelow splitright
 
 set signcolumn=no
-let b:signcolumn_on=0
 set updatetime=300
 
 set tabstop=2
@@ -51,30 +54,19 @@ filetype plugin on
 filetype plugin indent on
 syntax on
 
-" Color fixes
-highlight Normal ctermbg=none
-highlight NonText ctermbg=none
-
-" Change the color of comments
-hi Comment ctermfg=9
-
-" Change color of line numbers
-hi LineNr ctermfg=1
-
-" Change the background color of highlighted matching tags
-hi MatchParen ctermbg=2 ctermfg=0
-
-" Change the colors for the dropdown menu for autocomplete
-hi Pmenu ctermbg=0 ctermfg=3
-
-let g:autoclose_vim_commentmode = 1
-
-" Lightline config
+" --------------------------------------
+"             General config
+" --------------------------------------
+let mapleader = ","
+let b:signcolumn_on=0
+let g:vimtex_compiler_latexmk_engine='xelatex'
 let g:lightline = {
       \ 'colorscheme': 'wal',
       \ }
 
-" Coc settings
+" --------------------------------------
+"              Coc settings
+" --------------------------------------
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -117,12 +109,10 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() :
 " Use Alt+Tab to move forward in snippet
 let g:coc_snippet_next = '<M-Tab>'
 
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Disables automatic commenting on newline:
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
+" --------------------------------------
+"                Remaps
+" --------------------------------------
 nnoremap c "_c
 
 " JsDoc
@@ -162,23 +152,6 @@ nnoremap <leader>gs :call ToggleSignColumn()<CR>
 vnoremap <C-c> "+y
 map <C-p> "+P
 
-" Automatically deletes all trailing whitespace on save.
-autocmd BufWritePre * %s/\s\+$//e
-
-" When shortcut files are updated, renew bash and vifm configs with new material:
-autocmd BufWritePost ~/.config/bmdirs,~/.config/bmfiles !shortcuts
-
-" Update binds when sxhkdrc is updated.
-autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
-
-" Run xrdb whenever Xdefaults or Xresources are updated.
-autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
-
-let g:vimtex_compiler_latexmk_engine='xelatex'
-
-" Set tab width to 4 in python files
-autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
-
 " Should be moved /Johan
 nnoremap <leader>r :!bash ~/Repos/bionic-arm/arduino-code/recup<CR>
 nnoremap <leader>t :!bash ~/Repos/bionic-arm/arduino-code/trup<CR>
@@ -193,3 +166,48 @@ inoremap <Up> <Nop>
 inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
+
+
+" --------------------------------------
+"              Color fixes
+" --------------------------------------
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
+
+" Change the color of comments
+hi Comment ctermfg=9
+
+" Change color of line numbers
+hi LineNr ctermfg=1
+
+" Change the background color of highlighted matching tags
+hi MatchParen ctermbg=2 ctermfg=0
+
+" Change the colors for the dropdown menu for autocomplete
+hi Pmenu ctermbg=0 ctermfg=3
+
+
+" --------------------------------------
+"              Autocommands
+" --------------------------------------
+" Automatically deletes all trailing whitespace on save.
+autocmd BufWritePre * %s/\s\+$//e
+
+" When shortcut files are updated, renew bash and vifm configs with new material:
+autocmd BufWritePost ~/.config/bmdirs,~/.config/bmfiles !shortcuts
+
+" Update binds when sxhkdrc is updated.
+autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
+
+" Run xrdb whenever Xdefaults or Xresources are updated.
+autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Disables automatic commenting on newline:
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" File type specific indentation guides
+" Set tab width to 4 in python files
+autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
