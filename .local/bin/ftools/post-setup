@@ -44,22 +44,25 @@ sudo ufw enable
 sudo ufw reload
 
 # Install FARBS
-git clone https://github.com/Frewacom/FARBS.git ~/Repos/FARBS
+git clone https://github.com/Frewacom/FARBS.git ~/repos/farbs
 
 # Install Pywalfox
-git clone https://github.com/Frewacom/Pywalfox.git ~/Repos/Pywalfox
+git clone https://github.com/Frewacom/Pywalfox.git ~/repos/pywalfox
+
+# Install dwm fork
+git clone https://github.com/Frewacom/dwm.git ~/repos/dwm
 
 # Run themer and apply the default colorscheme
 bash $BIN_PATH/themer -i ~/.dotfiles/.local/share/wallpaper.png -c default.json
 
 # Update the remote url for our repos so that we can use SSH-keys
 cd ~/.dotfiles
-git remote set-url origin git@github.com:Frewacom/FARBS-Dotfiles.git
+git remote set-url origin git@github.com:Frewacom/FARBS-dotfiles.git
 
-cd ~/Repos/FARBS
+cd ~/repos/farbs
 git remote set-url origin git@github.com:Frewacom/FARBS.git
 
-cd ~/Repos/Pywalfox
+cd ~/repos/pywalfox
 git remote set-url origin git@github.com:Frewacom/Pywalfox.git
 
 # Enable the user defined crontab
@@ -83,6 +86,10 @@ sudo systemctl enable cronie.service
 
 # Symlink dotfiles
 bash $BIN_PATH/symlink-dotfiles
+
+# Make dwm
+cd ~/repos/dwm
+sudo make install
 
 # Remove this script
 rm ~/post-setup
