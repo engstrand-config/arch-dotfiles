@@ -31,22 +31,24 @@ fi
 font_size=${PROFILE_FONT_SIZE:-14}
 alpha=${PROFILE_ALPHA:-0.9}
 
-i3_bar_bg=${PROFILE_I3_BAR_BG:-$bg_dark_transparent}
-i3_border_size=${PROFILE_I3_BORDER_SIZE:-1}
-i3_gaps_inner=${PROFILE_I3_GAPS_INNER:-4}
-i3_gaps_outer=${PROFILE_I3_GAPS_OUTER:-2}
+dwm_bar_bg=${PROFILE_DWM_BAR_BG:-$bg_dark_transparent}
+dwm_border_size=${PROFILE_DWM_BORDER_SIZE:-1}
+dwm_border_color=${PROFILE_DWM_BORDER_COLOR:-$bg_light}
+dwm_border_color_selected=${PROFILE_DWM_BORDER_COLOR_SELECTED:-$color2}
+dwm_gaps_inner=${PROFILE_DWM_GAPS_INNER:-4}
+dwm_gaps_outer=${PROFILE_DWM_GAPS_OUTER:-2}
 
-i3_ws_emacs=${PROFILE_I3_WS_EMACS:-3}
-i3_ws_spotify=${PROFILE_I3_WS_SPOTIFY:-5}
-i3_ws_discord=${PROFILE_I3_WS_DISCORD:-7}
-i3_ws_steam=${PROFILE_I3_WS_STEAM:-4}
-i3_ws_firefox=${PROFILE_I3_WS_FIREFOX:-2}
-i3_ws_code=${PROFILE_I3_WS_CODE:-6}
-i3_ws_android=${PROFILE_I3_WS_ANDROID:-9}
-i3_ws_ferdi=${PROFILE_I3_WS_FERDI:-4}
+dwm_ws_emacs=${PROFILE_DWM_WS_EMACS:-3}
+dwm_ws_spotify=${PROFILE_DWM_WS_SPOTIFY:-5}
+dwm_ws_discord=${PROFILE_DWM_WS_DISCORD:-7}
+dwm_ws_steam=${PROFILE_DWM_WS_STEAM:-4}
+dwm_ws_firefox=${PROFILE_DWM_WS_FIREFOX:-2}
+dwm_ws_code=${PROFILE_DWM_WS_CODE:-6}
+dwm_ws_android=${PROFILE_DWM_WS_ANDROID:-9}
+dwm_ws_ferdi=${PROFILE_DWM_WS_FERDI:-4}
 
-i3_sp_width=${PROFILE_I3_SP_WIDTH:-800}
-i3_sp_height=${PROFILE_I3_SP_HEIGHT:-800}
+dwm_sp_width=${PROFILE_DWM_SP_WIDTH:-800}
+dwm_sp_height=${PROFILE_DWM_SP_HEIGHT:-800}
 
 dunst_background=${PROFILE_DUNST_BACKGROUND:-#f2f2f2}
 dunst_border_size=${PROFILE_DUNST_BORDER_SIZE:-1}
@@ -78,11 +80,6 @@ echo "
 emacs*foreground:   $foreground
 emacs*background:   $background
 
-! dwm colors
-dwm.color8:         $color2
-dwm.color6:         $foreground
-dwm.color14:        $bg_light
-
 ! Customized pywal colors
 *.accent:           $color2
 .accent:            $color2
@@ -101,23 +98,25 @@ dwm.color14:        $bg_light
 .success:           $success
 *.success:          $success
 
-! General i3 variables
-i3wm.barBackground:     $i3_bar_bg
-i3wm.borderSize:        $i3_border_size
-i3wm.gapsInner:         $i3_gaps_inner
-i3wm.gapsOuter:         $i3_gaps_outer
-i3wm.scratchpadWidth:   $i3_sp_width
-i3wm.scratchpadHeight:  $i3_sp_height
+! General dwm variables
+dwm.barBackground:       $dwm_bar_bg
+dwm.borderSize:          $dwm_border_size
+dwm.borderColor:         $dwm_border_color
+dwm.borderColorSelected: $dwm_border_color_selected
+dwm.gapsInner:           $dwm_gaps_inner
+dwm.gapsOuter:           $dwm_gaps_outer
+dwm.scratchpadWidth:     $dwm_sp_width
+dwm.scratchpadHeight:    $dwm_sp_height
 
-! i3 Workspaces
-i3wm.wsEmacs:       $i3_ws_emacs:
-i3wm.wsSpotify:     $i3_ws_spotify:
-i3wm.wsDiscord:     $i3_ws_discord:
-i3wm.wsSteam:       $i3_ws_steam:
-i3wm.wsFirefox:     $i3_ws_firefox:
-i3wm.wsCode:        $i3_ws_code:
-i3wm.wsAndroid:     $i3_ws_android:
-i3wm.wsFerdi:       $i3_ws_ferdi:
+! dwm Workspaces
+dwm.wsEmacs:       $dwm_ws_emacs:
+dwm.wsSpotify:     $dwm_ws_spotify:
+dwm.wsDiscord:     $dwm_ws_discord:
+dwm.wsSteam:       $dwm_ws_steam:
+dwm.wsFirefox:     $dwm_ws_firefox:
+dwm.wsCode:        $dwm_ws_code:
+dwm.wsAndroid:     $dwm_ws_android:
+dwm.wsFerdi:       $dwm_ws_ferdi:
 
 ! Dunst variables
 dunst.background:      $dunst_background

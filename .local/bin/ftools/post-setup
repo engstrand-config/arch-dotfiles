@@ -52,6 +52,9 @@ git clone https://github.com/Frewacom/Pywalfox.git ~/repos/pywalfox
 # Install dwm fork
 git clone https://github.com/Frewacom/dwm.git ~/repos/dwm
 
+# Install dwmblocks
+git clone https://github.com/Frewacom/dwm.git ~/repos/dwmblocks
+
 # Run themer and apply the default colorscheme
 bash $BIN_PATH/themer -i ~/.dotfiles/.local/share/wallpaper.png -c default.json
 
@@ -65,7 +68,15 @@ git remote set-url origin git@github.com:Frewacom/FARBS.git
 cd ~/repos/pywalfox
 git remote set-url origin git@github.com:Frewacom/Pywalfox.git
 
-# Enable the user defined crontab
+cd ~/repos/dwm
+git remote set-url origin git@github.com:Frewacom/dwm.git
+sudo make install
+
+cd ~/repos/dwmblocks
+git remote set-url origin git@github.com:Frewacom/dwmblocks.git
+sudo make install
+
+# Enable the user defined crontb
 CRON_PATH=~/.dotfiles/profiles/$(whoami)/my-crontab
 if [ -f "$CRON_PATH" ]; then
   crontab $CRON_PATH
@@ -86,10 +97,6 @@ sudo systemctl enable cronie.service
 
 # Symlink dotfiles
 bash $BIN_PATH/symlink-dotfiles
-
-# Make dwm
-cd ~/repos/dwm
-sudo make install
 
 # Remove this script
 rm ~/post-setup
