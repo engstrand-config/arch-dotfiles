@@ -12,8 +12,8 @@ SSID=$(nmcli device show | grep "$INTERFACE" -m 1 -A 5 | grep GENERAL.CONNECTION
 WCONNECTED=$(cat /sys/class/net/w*/operstate)
 SIGNAL=$(grep "^\s*w" /proc/net/wireless | awk '{ print int($3 * 100 / 70) "%" }')
 
-WSTATUS=$(printf " <span color='%s'>%s (%s)</span>" "$(xgetres accentText)" "$SSID" "$SIGNAL")
+WSTATUS=$(printf " %s(%s)" "$SSID" "$SIGNAL")
 
-[ "$WCONNECTED" = 'down' ] && WSTATUS="<span color='$(xgetres critical)'></span>"
+[ "$WCONNECTED" = 'down' ] && WSTATUS=""
 
-printf "%s" "$WSTATUS"
+echo $WSTATUS

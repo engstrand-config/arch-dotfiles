@@ -5,9 +5,8 @@ case $BLOCK_BUTTON in
 esac
 
 ECONNECTED=$(cat /sys/class/net/e*/operstate)
-ECOLOR="#00ff00"
-ESTATUS=$(printf "<span color='$(xgetres accentText)'></span>")
+ESTATUS=$(printf "")
 
-[ "$ECONNECTED" = 'down' ] && ESTATUS="<span color='$(xgetres critical)'></span>"
+[ "$ECONNECTED" = 'down' ] && exit
 
-printf "%s" "$ESTATUS"
+echo $ESTATUS"
