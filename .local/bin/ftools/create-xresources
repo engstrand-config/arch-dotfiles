@@ -79,7 +79,7 @@ emacs*foreground:   $foreground
 emacs*background:   $background
 
 ! dwm colors
-dwm.color8:         $accent
+dwm.color8:         $color2
 dwm.color6:         $foreground
 dwm.color14:        $bg_light
 
