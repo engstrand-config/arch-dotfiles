@@ -11,6 +11,9 @@ tty-live-reload-fix
 # wpgtk seems to not be able to set the wallpaper properly, so we do it manually on changes
 setbg "$(xgetres wallpaper)" >/dev/null 2>&1
 
+# generate betterlockscreen background
+betterlockscreen -u ~/.config/wallpaper.png
+
 # Generate updated config files
 make-ferdi-config >/dev/null 2>&1
 make-zathura-config >/dev/null 2>&1
