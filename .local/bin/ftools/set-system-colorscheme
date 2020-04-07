@@ -18,8 +18,8 @@ make-zathura-config >/dev/null 2>&1
 # Create new dunst config and restart
 restart-dunst >/dev/null 2>&1
 
-# Restart dwm so that the new config can take effect
-killall dwm
+# Tell dwm to update Xresources
+dwmc xrdb
 
 # Update the selected colorscheme in ~/.dotfiles/colorschemes with the colors from wpg
 themer -e null >/dev/null 2>&1
