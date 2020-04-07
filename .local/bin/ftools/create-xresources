@@ -31,22 +31,13 @@ fi
 font_size=${PROFILE_FONT_SIZE:-14}
 alpha=${PROFILE_ALPHA:-0.9}
 
-dwm_bar_bg=${PROFILE_DWM_BAR_BG:-$bg_dark_transparent}
 dwm_border_size=${PROFILE_DWM_BORDER_SIZE:-1}
 dwm_border_color=${PROFILE_DWM_BORDER_COLOR:-$bg_light}
 dwm_border_color_selected=${PROFILE_DWM_BORDER_COLOR_SELECTED:-$color2}
+dwm_selected_background=${PROFILE_DWM_SELECTED_BG:-$color2}
+dwm_selected_foreground=${PROFILE_DWM_SELECTED_FG:-$background}
 dwm_gaps_inner=${PROFILE_DWM_GAPS_INNER:-4}
 dwm_gaps_outer=${PROFILE_DWM_GAPS_OUTER:-2}
-
-dwm_ws_emacs=${PROFILE_DWM_WS_EMACS:-3}
-dwm_ws_spotify=${PROFILE_DWM_WS_SPOTIFY:-5}
-dwm_ws_discord=${PROFILE_DWM_WS_DISCORD:-7}
-dwm_ws_steam=${PROFILE_DWM_WS_STEAM:-4}
-dwm_ws_firefox=${PROFILE_DWM_WS_FIREFOX:-2}
-dwm_ws_code=${PROFILE_DWM_WS_CODE:-6}
-dwm_ws_android=${PROFILE_DWM_WS_ANDROID:-9}
-dwm_ws_ferdi=${PROFILE_DWM_WS_FERDI:-4}
-
 dwm_sp_width=${PROFILE_DWM_SP_WIDTH:-800}
 dwm_sp_height=${PROFILE_DWM_SP_HEIGHT:-800}
 
@@ -77,8 +68,6 @@ echo "
 *background:        $background
 *.foreground:       $foreground
 *.background:       $background
-emacs*foreground:   $foreground
-emacs*background:   $background
 
 ! Customized pywal colors
 *.accent:           $color2
@@ -99,24 +88,15 @@ emacs*background:   $background
 *.success:          $success
 
 ! General dwm variables
-dwm.barBackground:       $dwm_bar_bg
 dwm.borderSize:          $dwm_border_size
 dwm.borderColor:         $dwm_border_color
 dwm.borderColorSelected: $dwm_border_color_selected
+dwm.selectedBackground: $dwm_selected_background
+dwm.selectedForeground: $dwm_selected_foreground
 dwm.gapsInner:           $dwm_gaps_inner
 dwm.gapsOuter:           $dwm_gaps_outer
 dwm.scratchpadWidth:     $dwm_sp_width
 dwm.scratchpadHeight:    $dwm_sp_height
-
-! dwm Workspaces
-dwm.wsEmacs:       $dwm_ws_emacs:
-dwm.wsSpotify:     $dwm_ws_spotify:
-dwm.wsDiscord:     $dwm_ws_discord:
-dwm.wsSteam:       $dwm_ws_steam:
-dwm.wsFirefox:     $dwm_ws_firefox:
-dwm.wsCode:        $dwm_ws_code:
-dwm.wsAndroid:     $dwm_ws_android:
-dwm.wsFerdi:       $dwm_ws_ferdi:
 
 ! Dunst variables
 dunst.background:      $dunst_background
