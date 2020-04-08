@@ -1,0 +1,31 @@
+#!/bin/sh
+# Give a battery name (e.g. BAT0) as an argument
+
+capacity=$(cat /sys/class/power_supply/"$1"/capacity) || exit
+status=$(cat /sys/class/power_supply/"$1"/status)
+high=$(xgetres success)
+low=$(xgetres critical)
+
+if [ "$status" = "Full" ]; then
+  color=$high
+	label=""
+elif [ "$status" = "Charging" ]; then
+  color=$high
+	label=""
+else
+  color="#ffffff"
+  if [ "$capacity" -ge 90 ]; then
+  	label=""
+  elif [ "$capacity" -ge 65 ]; then
+  	label=""
+  elif [ "$capacity" -ge 40 ]; then
+  	label=""
+  elif [ "$capacity" -ge 15 ]; then
+  	label=""
+  else
+    color=$(xgetres critical)
+    label=""
+  fi
+fi
+
+echo "[$color^$label $capacity%]"
