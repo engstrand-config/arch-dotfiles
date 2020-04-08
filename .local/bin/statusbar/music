@@ -1,11 +1,13 @@
 #!/bin/sh
-
-# color_paused="^c$(xgetres critical)^"
-# info=$(mpc)
-# paused=$(echo "$info" | grep -c paused)
-
-# $(echo "$paused" > 0) && printf "$color_paused"; printf "$song^d^"
 info=$(mpc)
-paused=$("$info" | grep -c paused)
+playing=$(grep "playing" <<< "$info" )
+title=$(echo "$info" | sed 1q)
+if [ -z "$playing" ]; then
+  printf ^c$(xgetres critical)^
+  printf " "
+else
+  printf " "
+fi
 
-echo $paused > 0 && printf ^c(xgetres critical)^; "$info"
+printf "$title"
+echo ^d^
