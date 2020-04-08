@@ -3,13 +3,13 @@
 # Create the new .Xresources file
 create-xresources
 
+# wpgtk seems to not be able to set the wallpaper properly, so we do it manually on changes
+setbg "$(xgetres wallpaper)" >/dev/null 2>&1
+
 # Fix the white background issue
 # https://github.com/LukeSmithxyz/st/issues/163
 # https://github.com/LukeSmithxyz/st/issues/142
 tty-live-reload-fix
-
-# wpgtk seems to not be able to set the wallpaper properly, so we do it manually on changes
-setbg "$(xgetres wallpaper)" >/dev/null 2>&1
 
 # Generate updated config files
 make-ferdi-config >/dev/null 2>&1
@@ -30,10 +30,3 @@ python ~/repos/pywalfox/daemon/pywalfox.py update
 # Update the spotify theme
 spicetify update >/dev/null 2>&1
 
-# If we want to automatically update Spotify with the new theme
-# we must restart it, which is not very nice.
-# You can manually reload using Shift+Ctrl+R
-#spicetify restart
-
-# generate betterlockscreen background
-betterlockscreen -u ~/.config/wallpaper.png >/dev/null 2>&1
