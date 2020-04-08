@@ -33,9 +33,13 @@ alpha=${PROFILE_ALPHA:-0.9}
 
 dwm_border_size=${PROFILE_DWM_BORDER_SIZE:-1}
 dwm_border_color=${PROFILE_DWM_BORDER_COLOR:-$bg_light}
-dwm_border_color_selected=${PROFILE_DWM_BORDER_COLOR_SELECTED:-$color2}
+dwm_title_background=${PROFILE_DWM_TITLE_BG:-$bg_light}
+dwm_title_foreground=${PROFILE_DWM_TITLE_FG:-$color7}
+dwm_title_border_color=${PROFILE_DWM_TITLE_BORDER_COLOR:-$bg_light}
 dwm_selected_background=${PROFILE_DWM_SELECTED_BG:-$color2}
 dwm_selected_foreground=${PROFILE_DWM_SELECTED_FG:-$background}
+dwm_selected_border_color=${PROFILE_DWM_SELECTED_BORDER_COLOR:-$color2}
+
 dwm_gaps_inner=${PROFILE_DWM_GAPS_INNER:-4}
 dwm_gaps_outer=${PROFILE_DWM_GAPS_OUTER:-2}
 dwm_sp_width=${PROFILE_DWM_SP_WIDTH:-800}
@@ -90,9 +94,13 @@ echo "
 ! General dwm variables
 dwm.borderSize:          $dwm_border_size
 dwm.borderColor:         $dwm_border_color
-dwm.borderColorSelected: $dwm_border_color_selected
-dwm.selectedBackground: $dwm_selected_background
-dwm.selectedForeground: $dwm_selected_foreground
+dwm.titleBackground:     $dwm_title_background
+dwm.titleForeground:     $dwm_title_foreground
+dwm.titleBorderColor:    $dwm_title_border_color
+dwm.selectedBorderColor: $dwm_selected_border_color
+dwm.selectedBackground:  $dwm_selected_background
+dwm.selectedForeground:  $dwm_selected_foreground
+
 dwm.gapsInner:           $dwm_gaps_inner
 dwm.gapsOuter:           $dwm_gaps_outer
 dwm.scratchpadWidth:     $dwm_sp_width
