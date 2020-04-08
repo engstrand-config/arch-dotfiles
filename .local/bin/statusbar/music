@@ -1,13 +1,19 @@
 #!/bin/sh
-info=$(mpc)
-playing=$(grep "playing" <<< "$info" )
-title=$(echo "$info" | sed 1q)
-if [ -z "$playing" ]; then
-  printf ^c$(xgetres critical)^
-  printf " "
-else
-  printf " "
-fi
 
-printf "$title"
-echo ^d^
+info=$(mpc)
+lines=$(wc -l <<< "$info")
+
+# Only print stuff if there is an active song
+if [ "$lines" -gt 1 ]; then
+  playing=$(grep "playing" <<< "$info" )
+  title=$(echo "$info" | sed 1q)
+  if [ -z "$playing" ]; then
+    printf ^c$(xgetres critical)^
+    printf " "
+  else
+    printf " "
+  fi
+
+  printf "$title"
+  echo ^d^
+fi
