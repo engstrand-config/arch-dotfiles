@@ -33,11 +33,11 @@ alpha=${PROFILE_ALPHA:-0.9}
 
 dwm_border_size=${PROFILE_DWM_BORDER_SIZE:-1}
 dwm_border_color=${PROFILE_DWM_BORDER_COLOR:-$bg_light}
-dwm_title_background=${PROFILE_DWM_TITLE_BG:-$bg_light}
-dwm_title_foreground=${PROFILE_DWM_TITLE_FG:-$color7}
+dwm_title_background=${PROFILE_DWM_TITLE_BACKGROUND:-$bg_light}
+dwm_title_foreground=${PROFILE_DWM_TITLE_FOREGROUND:-$color7}
 dwm_title_border_color=${PROFILE_DWM_TITLE_BORDER_COLOR:-$bg_light}
-dwm_selected_background=${PROFILE_DWM_SELECTED_BG:-$color2}
-dwm_selected_foreground=${PROFILE_DWM_SELECTED_FG:-$background}
+dwm_selected_background=${PROFILE_DWM_SELECTED_BACKGROUND:-$color2}
+dwm_selected_foreground=${PROFILE_DWM_SELECTED_FOREGROUND:-$background}
 dwm_selected_border_color=${PROFILE_DWM_SELECTED_BORDER_COLOR:-$color2}
 
 dwm_gaps_inner=${PROFILE_DWM_GAPS_INNER:-4}
