@@ -18,9 +18,6 @@ critical_dark=$(python $COLORPICKER_PATH "$critical" "darker")
 bg_light=$(python $COLORPICKER_PATH "$background" "lighter")
 bg_dark=$(python $COLORPICKER_PATH "$background" "darker")
 bg_main=$(python $COLORPICKER_PATH "$color2" "darker" 140)
-bg_light_transparent="${bg_light}DD"
-bg_main_transparent="${bg_main}DD"
-bg_dark_transparent="${bg_dark}DD"
 
 # Source the profile exports, if defined
 if [ -f "$PROFILE_EXPORTS_PATH" ]; then
@@ -34,7 +31,7 @@ alpha=${PROFILE_ALPHA:-0.9}
 dwm_border_size=${PROFILE_DWM_BORDER_SIZE:-1}
 dwm_border_color=${PROFILE_DWM_BORDER_COLOR:-$bg_light}
 dwm_title_background=${PROFILE_DWM_TITLE_BACKGROUND:-$bg_light}
-dwm_title_foreground=${PROFILE_DWM_TITLE_FOREGROUND:-$color7}
+dwm_title_foreground=${PROFILE_DWM_TITLE_FOREGROUND:-$foreground}
 dwm_title_border_color=${PROFILE_DWM_TITLE_BORDER_COLOR:-$bg_light}
 dwm_selected_background=${PROFILE_DWM_SELECTED_BACKGROUND:-$color2}
 dwm_selected_foreground=${PROFILE_DWM_SELECTED_FOREGROUND:-$background}
