@@ -5,8 +5,6 @@ case $BLOCK_BUTTON in
 esac
 
 ECONNECTED=$(cat /sys/class/net/e*/operstate)
-ESTATUS=$(printf "")
-
 [ "$ECONNECTED" = 'down' ] && exit
 
-echo $ESTATUS"
+echo ""

@@ -1,19 +1,11 @@
 #!/bin/sh
 
-color_paused="$(xgetres critical)"
-color_playing="$(xgetres accentText)"
+# color_paused="^c$(xgetres critical)^"
+# info=$(mpc)
+# paused=$(echo "$info" | grep -c paused)
 
-filter() {
-	sed "/^volume:/d" | tac | sed -e "s/\\&/&amp;/g;s/\\[paused\\].*/<span color=\"$color_paused\">/g;s/\\[playing\\].*/<span color=\"$color_playing\">/g" | tr -d '\n' | sed -e "s/$/<\\/span>/g"
-}
+# $(echo "$paused" > 0) && printf "$color_paused"; printf "$song^d^"
+info=$(mpc)
+paused=$("$info" | grep -c paused)
 
-case $BLOCK_BUTTON in
-    1) mpc toggle | filter ;;  # left click, pause/unpause
-#    2) 	# middle click,
-	3) ddspawn ncmpcpp >/dev/null && mpc status | filter ;;  # right click, show ncmpcpp
-	#3) i3-msg "exec --no-startup-id $TERMINAL -c "floating-ncmpcpp" -e ncmpcpp; focus [title='$title']; floating enable" | mpc status | filter;;
-#| filter && setsid "$TERMINAL" -e ncmpcpp & ;;
-    4) mpc prev   | filter ;;  # scroll up, previous
-    5) mpc next   | filter ;;  # scroll down, next
-    *) mpc status | filter ;;
-esac; exit
+echo $paused > 0 && printf ^c(xgetres critical)^; "$info"

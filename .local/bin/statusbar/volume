@@ -8,7 +8,8 @@ case $BLOCK_BUTTON in
 	5) pulsemixer --change-volume -5 ;;
 esac
 
-[ "$(pulsemixer --get-mute)" = "1" ] && echo "" && exit
+[ "$(pulsemixer --get-mute)" = "1" ] && echo "^c$(xgetres critical)^^d^" && exit
+
 
 vol=$(pulsemixer --get-volume | awk '{print $1}')
 
