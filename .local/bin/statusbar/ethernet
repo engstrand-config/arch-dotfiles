@@ -1,9 +1,5 @@
 #!/bin/sh
 
-case $BLOCK_BUTTON in
-	1) $TERMINAL -e nmtui-connect ;;
-esac
-
 ECONNECTED=$(cat /sys/class/net/e*/operstate)
 [ "$ECONNECTED" = 'down' ] && exit
 
