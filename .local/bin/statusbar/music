@@ -4,19 +4,24 @@ info=$(mpc)
 lines=$(wc -l <<< "$info")
 
 # Only print stuff if there is an active song
+# dwmblocks can only print a set amount of characters, this is circumvented...
 if [ "$lines" -gt 1 ]; then
   playing=$(grep "playing" <<< "$info" )
   title=$(echo "$info" | sed 1q)
   if [ -z "$playing" ]; then
     printf ^c$(xgetres critical)^
     printf " "
+    charlim="28"
   else
     printf " "
+    charlim="41"
   fi
 
+
   if [ $(wc -c <<< "$title") -gt 31 ]; then
-    titleshort="${title:0:28}"
-    printf "${titleshort%%*( )}..."
+    titleshort="${title:0:$charlim}"
+    # printf "${titleshort%%*( )}..."
+    printf "$(printf "$titleshort" | awk '{$1=$1};1')..."
   else
     printf "$title"
   fi
