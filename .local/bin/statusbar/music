@@ -14,6 +14,11 @@ if [ "$lines" -gt 1 ]; then
     printf " "
   fi
 
-  printf "$title"
+  if [ $(wc -c <<< "$title") -gt 31 ]; then
+    titleshort="${title:0:28}"
+    printf "${titleshort%%*( )}..."
+  else
+    printf "$title"
+  fi
   echo ^d^
 fi

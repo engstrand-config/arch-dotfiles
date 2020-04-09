@@ -2,7 +2,6 @@
 # Give a battery name (e.g. BAT0) as an argument
 BAT=${1:-"BAT0"}
 
-
 capacity=$(cat /sys/class/power_supply/"$BAT"/capacity) || exit
 status=$(cat /sys/class/power_supply/"$BAT"/status)
 high="^c$(xgetres success)^"
