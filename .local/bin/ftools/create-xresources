@@ -64,6 +64,9 @@ echo "
 *wallpaper:         $wallpaper
 *.wallpaper:        $wallpaper
 
+! KDE device id
+kde.deviceId:       $KDE_DEVICE_ID
+
 ! Pywal colors
 *foreground:        $foreground
 *background:        $background
