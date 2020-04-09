@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# NOTE:
+# To use this block, set export KDE_DEVICE_ID="<your-device-id>"
+# To get your device id, type "kdeconnect-cli -l" and find the name of your phone
+# and copy the corresponding id.
+# Logout and it should be loaded automatically and a pairing request from
+# your phone to your computer should be accepted automatically
+
+DEVICE_ID=$(xgetres kde.deviceId)
+DESTINATION="org.kde.kdeconnect"
+IBATTERY="org.kde.kdeconnect.device.battery.charge"
+BATTERYPATH="/modules/kdeconnect/devices/$DEVICE_ID"
+
+CHARGE=$(dbus-send --print-reply --dest=$DESTINATION $BATTERYPATH $IBATTERY | grep 'int32 ..' | awk '{print $2}')
+
+if [ ! -z "$CHARGE" ]; then
+  if [ "$CHARGE" -ge 0 ] && [ "$CHARGE" -le 100 ]; then
+    echo " $CHARGE%"
+  fi
+fi

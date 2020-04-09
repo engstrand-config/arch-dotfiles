@@ -9,14 +9,12 @@ if [ "$WCONNECTED" = 'down' ]; then
 else
   SSID=$(nmcli device show | grep "$INTERFACE" -m 1 -A 5 | grep GENERAL.CONNECTION: -m 1 | awk '{print $2}')
   SIGNAL=$(grep "^\s*w" /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
-  if [ "$SIGNAL" -gt 50 ]; then
-    COLOR="#ffffff"
-  elif [ "$SIGNAL" -gt 30 ]; then
-    COLOR="#e9f900"
-  else
-    COLOR=$(xgetres critical)
+  if [ "$SIGNAL" -lt 30 ]; then
+    printf ^c$(xgetres critical)^
+  elif [ "$SIGNAL" -lt 50 ]; then
+    printf ^c#e9f900^
   fi
-  printf "^c%s^ %s" "$COLOR" "$SSID"
+  printf " %s" "$SSID"
 fi
 
 echo ^d^
