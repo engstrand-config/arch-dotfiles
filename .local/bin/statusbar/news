@@ -8,9 +8,9 @@ UNREAD=$(</tmp/newsupdate)
 
 # This step is not really needed, but the icon is always visible otherwise...
 # think of some better solution
-if [ -z "$UNREAD" ]; then
-	echo ""
-    exit
+if [ ! -z "$UNREAD" ]; then
+  printf "^c$(xgetres success)^ $UNREAD"
 fi
 
-printf "<span color='$(xgetres accentText)'>$UNREAD</span>\n"
+echo ^d^
+

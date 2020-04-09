@@ -10,4 +10,4 @@ UNREAD=$(newsboat --cache-file=/tmp/newsboatreload -x print-unread | awk '{ prin
 
 echo "$UNREAD" > /tmp/newsupdate
 
-pkill -RTMIN+6 i3blocks
+pkill -RTMIN+6 $STATUSBAR
