@@ -8,12 +8,10 @@ if [ "$lines" -gt 1 ]; then
   title=$(echo "$info" | sed 1q)
   playing=$(grep "playing" <<< "$info" )
   if [ -z "$playing" ]; then
-    status=^c$(xgetres critical)^" "
-  else
-    status=" "
+    status=^c$(xgetres critical)^
   fi
 
-  status=${status}"$title"
+  status=${status}" $title"
 
   # dwmblocks can only print a set amount of characters.
   # also makes sure very long titles are not displayed in full
