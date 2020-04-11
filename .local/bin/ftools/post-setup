@@ -49,6 +49,9 @@ git clone https://github.com/Frewacom/FARBS.git ~/repos/farbs
 # Install Pywalfox
 git clone https://github.com/Frewacom/Pywalfox.git ~/repos/pywalfox
 
+# Install wallpapers
+git clone https://github.com/Frewacom/wallpapers.git ~/repos/wallpapers
+
 # Install dwm fork
 git clone https://github.com/Frewacom/dwm.git ~/repos/dwm
 
@@ -70,6 +73,9 @@ git remote set-url origin git@github.com:Frewacom/FARBS.git
 
 cd ~/repos/pywalfox
 git remote set-url origin git@github.com:Frewacom/Pywalfox.git
+
+cd ~/repos/wallpapers
+git remote set-url origin git@github.com:Frewacom/wallpapers.git
 
 cd ~/repos/dwm
 git remote set-url origin git@github.com:Frewacom/dwm.git
