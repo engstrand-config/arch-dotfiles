@@ -12,7 +12,6 @@ usage()
 Options:
   -h                              Display this message
   -l                              List all available colorschemes
-  -p                              Choose a wallpaper from ~/repos/wallpapers with thumbnail view in sxiv
   -e {null|<name-of-colorscheme>} Exports the current colorscheme to ~/.dotfiles/colorschemes/. If the colorscheme has not been saved before, you must enter a name
   -i <path-to-image>              The path of the image to be used as wallpaper
   -c <name-of-colorscheme>        Uses the colorscheme saved in .dotfiles/colorschemes/ or creates a new one
@@ -102,7 +101,7 @@ apply_colorscheme()
   wpg -s "$1"
 }
 
-while getopts "hlpi:e:c:s::" opts; do
+while getopts "hli:e:c:s::" opts; do
   case $opts in
     l)
       list_colorschemes
@@ -125,13 +124,6 @@ while getopts "hlpi:e:c:s::" opts; do
       update_saved_colorscheme
       exit
       ;;
-    p)
-      image=$(sxiv -t -o ~/repos/wallpapers)
-      if [ ! -f "$image" ]; then
-        echo "Could not use specifed image: $image does not exist"
-        exit
-      fi
-      ;;
     *)
       usage
       ;;
@@ -139,9 +131,13 @@ while getopts "hlpi:e:c:s::" opts; do
 done
 shift $((OPTIND-1))
 
-# We need an image or a colorscheme
+# If no args are given, show gallery of images from wallpaper repo
 if [ -z "$image" ] && [ -z "$colorscheme" ]; then
-  usage
+  image=$(sxiv -t -o ~/repos/wallpapers/*)
+  if [ ! -f "$image" ]; then
+    echo "Could not use specifed image: $image does not exist"
+    exit
+  fi
 fi
 
 colorscheme_name="$(escape_colorscheme_path "$colorscheme").json"
