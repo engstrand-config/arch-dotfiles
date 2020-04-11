@@ -75,7 +75,7 @@ if sys.argv[2] == "critical":
 elif sys.argv[2] == "success":
     print(rgb_to_hex((limit(values[0], MAX), 255, limit(values[2], MAX))))
 elif sys.argv[2] == "warning":
-    print(rgb_to_hex((255, 255, limit(values[2], MAX))))
+    print(rgb_to_hex((250, 250, limit(values[2], MAX))))
 elif sys.argv[2] == "lighter":
     if len(sys.argv) < 4:
         hsv = rgb_to_hsv(values)
