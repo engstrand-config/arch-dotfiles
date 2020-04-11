@@ -8,4 +8,6 @@ REPOS=(
 	~/repos/farbs
   ~/repos/dwm
   ~/repos/dwmblocks
+  ~/repos/dmenu
+  ~/repos/wallpapers
 )

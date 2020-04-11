@@ -9,7 +9,7 @@ cfg	~/.dotfiles/.config
 lb	~/.dotfiles/.local/bin
 ftl	~/.dotfiles/.local/bin/ftools
 blocks 	~/.dotfiles/.local/bin/statusbar
-fbs	~/FARBS
+fbs	~/repos/farbs
 pf	~/.dotfiles/profiles/$(whoami)
 mn	/mnt
 . 	~/.dotfiles
