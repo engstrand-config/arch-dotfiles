@@ -55,6 +55,9 @@ git clone https://github.com/Frewacom/dwm.git ~/repos/dwm
 # Install dwmblocks
 git clone https://github.com/Frewacom/dwm.git ~/repos/dwmblocks
 
+# Install dmenu
+git clone https://github.com/Frewacom/dmenu.git ~/repos/dmenu
+
 # Run themer and apply the default colorscheme
 bash $BIN_PATH/themer -i ~/.dotfiles/.local/share/wallpaper.png -c default.json
 
@@ -76,7 +79,11 @@ cd ~/repos/dwmblocks
 git remote set-url origin git@github.com:Frewacom/dwmblocks.git
 sudo make install
 
-# Enable the user defined crontb
+cd ~/repos/dmenu
+git remote set-url origin git@github.com:Frewacom/dmenu.git
+sudo make install
+
+# Enable the user defined crontab
 CRON_PATH=~/.dotfiles/profiles/$(whoami)/my-crontab
 if [ -f "$CRON_PATH" ]; then
   crontab $CRON_PATH
@@ -86,7 +93,7 @@ fi
 sudo systemctl enable betterlockscreen@$USER
 
 # Spicetify needs permissions to access spotify preferences
-sudo chmod 777 /opt/spotify -R
+[ -d "/opt/spotify" ] && sudo chmod 777 /opt/spotify -R
 
 # Set the correct path to Spotify prefs in spicetify config (doesn't allow relative paths)
 cp ~/.dotfiles/.config/spicetify/config.ini ~/.config/spicetify/config.ini
