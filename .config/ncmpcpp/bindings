@@ -622,3 +622,5 @@ def_key "x"
   delete_playlist_items
 def_key "P"
   show_playlist
+def_key "escape"
+  quit
