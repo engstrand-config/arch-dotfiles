@@ -93,7 +93,7 @@ kde.deviceId:       $KDE_DEVICE_ID
 *.success:          $success
 
 ! General dwm variables
-dwm.font:            Noto Sans Mono Medium:style=Regular:size=$dwm_font_size:antialias=true:autohint=true
+dwm.font:                JetBrains Mono NL:style=Bold:size=$dwm_font_size:antialias=true:autohint=true
 dwm.borderSize:          $dwm_border_size
 dwm.borderColor:         $dwm_border_color
 dwm.titleBackground:     $dwm_title_background
