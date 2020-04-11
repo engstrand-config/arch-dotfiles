@@ -28,6 +28,7 @@ fi
 font_size=${PROFILE_FONT_SIZE:-14}
 alpha=${PROFILE_ALPHA:-0.9}
 
+dwm_font_size=${PROFILE_DWM_FONT_SIZE:-9}
 dwm_border_size=${PROFILE_DWM_BORDER_SIZE:-1}
 dwm_border_color=${PROFILE_DWM_BORDER_COLOR:-$bg_light}
 dwm_title_background=${PROFILE_DWM_TITLE_BACKGROUND:-$bg_light}
@@ -92,6 +93,7 @@ kde.deviceId:       $KDE_DEVICE_ID
 *.success:          $success
 
 ! General dwm variables
+dwm.fontSize:            Noto Sans Mono Medium:style=Regular:size=$dwm_font_size:antialias=true:autohint=true
 dwm.borderSize:          $dwm_border_size
 dwm.borderColor:         $dwm_border_color
 dwm.titleBackground:     $dwm_title_background
