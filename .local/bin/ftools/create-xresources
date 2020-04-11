@@ -13,6 +13,7 @@ WALLPAPER_PATH="${HOME}/.dotfiles/.local/share/default.png"
 
 # Generate more shades of pywal colors
 success=$(python $COLORPICKER_PATH "$color2" "success")
+warning=$(python  "$COLORPICKER_PATH" "$color2" "warning")
 critical=$(python  "$COLORPICKER_PATH" "$color2" "critical")
 critical_dark=$(python $COLORPICKER_PATH "$critical" "darker")
 bg_light=$(python $COLORPICKER_PATH "$background" "lighter")
@@ -87,12 +88,14 @@ kde.deviceId:       $KDE_DEVICE_ID
 .backgroundDark:    $bg_dark
 *.backgroundLight:  $bg_light
 .backgroundLight:   $bg_light
+*.warning:          $warning
+.warning:           $warning
 *.critical:         $critical
 .critical:          $critical
 *.criticalDark:     $critical_dark
 .criticalDark:      $critical_dark
-.success:           $success
 *.success:          $success
+.success:           $success
 
 ! General dwm variables
 dwm.font:                JetBrains Mono NL:style=Bold:size=$dwm_font_size:antialias=true:autohint=true

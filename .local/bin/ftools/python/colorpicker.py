@@ -74,17 +74,19 @@ if sys.argv[2] == "critical":
     print(rgb_to_hex((255, limit(values[1], MAX), limit(values[2], MAX))))
 elif sys.argv[2] == "success":
     print(rgb_to_hex((limit(values[0], MAX), 255, limit(values[2], MAX))))
+elif sys.argv[2] == "warning":
+    print(rgb_to_hex((255, 255, limit(values[2], MAX))))
 elif sys.argv[2] == "lighter":
     if len(sys.argv) < 4:
         hsv = rgb_to_hsv(values)
         rgb = hsv_to_rgb((hsv[0], hsv[1], limit(hsv[2] + LIGHTNESS_MODIFIER, 255)))
         print(rgb_to_hex(rgb))
-    else: 
+    else:
         hsv = rgb_to_hsv(values)
         rgb = hsv_to_rgb((hsv[0], hsv[1], limit(hsv[2] + int(sys.argv[3]), 255)))
         print(rgb_to_hex(rgb))
 elif sys.argv[2] == "darker":
-    if len(sys.argv) < 4:    
+    if len(sys.argv) < 4:
         hsv = rgb_to_hsv(values)
         rgb = hsv_to_rgb((hsv[0], hsv[1], limit(hsv[2] - LIGHTNESS_MODIFIER, 255)))
         print(rgb_to_hex(rgb))

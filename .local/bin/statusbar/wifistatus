@@ -12,7 +12,7 @@ else
   if [ "$SIGNAL" -lt 30 ]; then
     printf ^c$(xgetres critical)^
   elif [ "$SIGNAL" -lt 50 ]; then
-    printf ^c#e9f900^
+    printf ^c$(xgetres warning)^
   fi
   printf " %s" "$SSID"
 fi
