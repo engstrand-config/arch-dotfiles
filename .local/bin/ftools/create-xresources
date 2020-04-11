@@ -25,7 +25,7 @@ if [ -f "$PROFILE_EXPORTS_PATH" ]; then
 fi
 
 # Create fallback values
-font_size=${PROFILE_FONT_SIZE:-14}
+st_font_size=${PROFILE_ST_FONT_SIZE:-14}
 alpha=${PROFILE_ALPHA:-0.9}
 
 dwm_font_size=${PROFILE_DWM_FONT_SIZE:-9}
@@ -43,6 +43,7 @@ dwm_gaps_outer=${PROFILE_DWM_GAPS_OUTER:-2}
 dwm_sp_width=${PROFILE_DWM_SP_WIDTH:-800}
 dwm_sp_height=${PROFILE_DWM_SP_HEIGHT:-800}
 
+dunst_font_size=${PROFILE_DUNST_FONT_SIZE:-9}
 dunst_background=${PROFILE_DUNST_BACKGROUND:-#f2f2f2}
 dunst_border_size=${PROFILE_DUNST_BORDER_SIZE:-1}
 dunst_border_color=${PROFILE_DUNST_BORDER_COLOR:-$color2}
@@ -59,7 +60,7 @@ echo "
 *.alpha:            $alpha
 
 ! Terminal font
-*.font: mono:pixelsize=$font_size:antialias=true:autohint=true;
+*.font: mono:pixelsize=$st_font_size:antialias=true:autohint=true;
 
 ! Current wallpaper
 *wallpaper:         $wallpaper
@@ -109,6 +110,7 @@ dwm.scratchpadWidth:     $dwm_sp_width
 dwm.scratchpadHeight:    $dwm_sp_height
 
 ! Dunst variables
+dunst.fontSize:        $dunst_font_size
 dunst.background:      $dunst_background
 dunst.borderSize:      $dunst_border_size
 dunst.borderColor:     $dunst_border_color

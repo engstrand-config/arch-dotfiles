@@ -19,3 +19,4 @@ keyword-replace "<text-color>"       "$(xgetres dunst.textColor)"       "$CONFIG
 keyword-replace "<gap-right>"        "$(xgetres dunst.gapRight)"        "$CONFIG_PATH"
 keyword-replace "<gap-top>"          "$(xgetres dunst.gapTop)"          "$CONFIG_PATH"
 keyword-replace "<critical>"         "$(xgetres critical)"              "$CONFIG_PATH"
+keyword-replace "<font-size>"        "$(xgetres dunst.fontSize)"        "$CONFIG_PATH"
