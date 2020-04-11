@@ -9,6 +9,9 @@ CONFIG_TEMPLATE_PATH=~/.dotfiles/.config/dunst/dunstrc.template
 # Copy the template to the config path
 cp $CONFIG_TEMPLATE_PATH $CONFIG_PATH
 
+BAR_HEIGHT=$(xgetres dwm.barHeight)
+GAP_TOP=$(xgetres dunst.gapTop)
+
 # Replace the placeholders with the actual values
 keyword-replace "<background>"       "$(xgetres dunst.background)"      "$CONFIG_PATH"
 keyword-replace "<border-size>"      "$(xgetres dunst.borderSize)"      "$CONFIG_PATH"
@@ -17,6 +20,6 @@ keyword-replace "<border-radius>"    "$(xgetres dunst.borderRadius)"    "$CONFIG
 keyword-replace "<title-color>"      "$(xgetres dunst.titleColor)"      "$CONFIG_PATH"
 keyword-replace "<text-color>"       "$(xgetres dunst.textColor)"       "$CONFIG_PATH"
 keyword-replace "<gap-right>"        "$(xgetres dunst.gapRight)"        "$CONFIG_PATH"
-keyword-replace "<gap-top>"          "$(xgetres dunst.gapTop)"          "$CONFIG_PATH"
+keyword-replace "<gap-top>"          "$((GAP_TOP + BAR_HEIGHT))"        "$CONFIG_PATH"
 keyword-replace "<critical>"         "$(xgetres critical)"              "$CONFIG_PATH"
 keyword-replace "<font-size>"        "$(xgetres dunst.fontSize)"        "$CONFIG_PATH"
