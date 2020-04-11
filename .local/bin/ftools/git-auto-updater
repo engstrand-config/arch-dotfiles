@@ -26,12 +26,12 @@ function update_repo() {
     		echo "Repo is behind, fetching remote..."
 		git pull
 
-    if [ "$1" = "~/.dotfiles" ]; then
+    if [ "$1" = "$HOME/.dotfiles" ]; then
       symlink-dotfiles
-    elif [ "$1" = "~/repos/dwm" ] || [ "$1" = "~/repos/dwmblocks" ]; then
+    elif [ "$1" = "$HOME/repos/dwm" ] || [ "$1" = "$HOME/repos/dwmblocks" ]; then
       build "$1"
       killall dwm
-    elif [ "$1" = "~/repos/dmenu" ]; then
+    elif [ "$1" = "$HOME/repos/dmenu" ]; then
       build "$1"
     fi
 
