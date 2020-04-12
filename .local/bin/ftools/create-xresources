@@ -27,8 +27,9 @@ fi
 
 # Create fallback values
 st_font_size=${PROFILE_ST_FONT_SIZE:-14}
-alpha=${PROFILE_ALPHA:-0.9}
+st_alpha=${PROFILE_ST_ALPHA:-0.9}
 
+dwm_bar_alpha=${PROFILE_DWM_BAR_ALPHA:-225}
 dwm_bar_height=${PROFILE_DWM_BAR_HEIGHT:-20}
 dwm_font_size=${PROFILE_DWM_FONT_SIZE:-9}
 dwm_border_size=${PROFILE_DWM_BORDER_SIZE:-1}
@@ -58,8 +59,8 @@ dunst_gap_top=${PROFILE_DUNST_GAP_TOP:-27}
 echo "
 ! X colors.
 
-*alpha:             $alpha
-*.alpha:            $alpha
+*alpha:             $st_alpha
+*.alpha:            $st_alpha
 
 ! Terminal font
 *.font: mono:pixelsize=$st_font_size:antialias=true:autohint=true;
@@ -99,6 +100,7 @@ kde.deviceId:       $KDE_DEVICE_ID
 
 ! General dwm variables
 dwm.font:                JetBrains Mono NL:style=Bold:size=$dwm_font_size:antialias=true:autohint=true
+dwm.barAlpha:            $dwm_bar_alpha
 dwm.barHeight:           $dwm_bar_height
 dwm.borderSize:          $dwm_border_size
 dwm.borderColor:         $dwm_border_color

@@ -48,12 +48,13 @@ save_selected_colorscheme()
 update_saved_colorscheme()
 {
   selected_path=$(cat $CURRENT_COLORSCHEME_PATH)
+  image_path=$(wpg -c)
   if [ -f "$selected_path" ]; then
-    save_colorscheme $(wpg -c) $selected_path # Gets the current wallpaper from wpg and exports the colorscheme to dotfiles
+    save_colorscheme $image_path $selected_path # Gets the current wallpaper from wpg and exports the colorscheme to dotfiles
   else
     if [ "$export_path" != "null" ]; then
       escaped_path=$(escape_colorscheme_path "$export_path")
-      save_colorscheme $(wpg -c) "$COLORSCHEMES_PATH/${escaped_path}.json"
+      save_colorscheme $image_path "$COLORSCHEMES_PATH/$image_path"
     fi
   fi
 }
