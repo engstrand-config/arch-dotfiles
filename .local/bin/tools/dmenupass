@@ -1,2 +1,2 @@
 #!/bin/sh
-dmenu_launcher -nf "#000000" -nb "#000000" -p "$1" <&- && echo
+dmenu -p "$1" <&- && echo

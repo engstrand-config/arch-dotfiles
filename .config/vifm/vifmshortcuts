@@ -39,10 +39,10 @@ map gblocks :cd ~/.dotfiles/.local/bin/statusbar<CR>
 map tblocks <tab>:cd ~/.dotfiles/.local/bin/statusbar<CR><tab>
 map Mblocks <tab>:cd ~/.dotfiles/.local/bin/statusbar<CR><tab>:mo<CR>
 map Yblocks <tab>:cd ~/.dotfiles/.local/bin/statusbar<CR><tab>:co<CR>
-map gfbs :cd ~/FARBS<CR>
-map tfbs <tab>:cd ~/FARBS<CR><tab>
-map Mfbs <tab>:cd ~/FARBS<CR><tab>:mo<CR>
-map Yfbs <tab>:cd ~/FARBS<CR><tab>:co<CR>
+map gfbs :cd ~/repos/farbs<CR>
+map tfbs <tab>:cd ~/repos/farbs<CR><tab>
+map Mfbs <tab>:cd ~/repos/farbs<CR><tab>:mo<CR>
+map Yfbs <tab>:cd ~/repos/farbs<CR><tab>:co<CR>
 map gpf :cd ~/.dotfiles/profiles/$(whoami)<CR>
 map tpf <tab>:cd ~/.dotfiles/profiles/$(whoami)<CR><tab>
 map Mpf <tab>:cd ~/.dotfiles/profiles/$(whoami)<CR><tab>:mo<CR>

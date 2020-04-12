@@ -11,7 +11,7 @@ function build() {
 }
 
 function update_repo() {
-	cd $1
+  cd $1 || return 1
 	echo -e "\033[1m$1:\033[0m"
 	git remote update
 
