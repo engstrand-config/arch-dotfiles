@@ -1,12 +1,17 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 . ~/.dotfiles/git-repo-paths
 
 HAS_BEEN_UPDATED="no"
 notify-send " git-auto-updater" "Checking for updates in your repos.."
 
+function build() {
+  cd $1
+  sudo make install
+}
+
 function update_repo() {
-	cd $1
+  cd $1 || return 1
 	echo -e "\033[1m$1:\033[0m"
 	git remote update
 
@@ -21,11 +26,14 @@ function update_repo() {
     		echo "Repo is behind, fetching remote..."
 		git pull
 
-		# If the repo folder is the dotfiles repo, symlink dotfiles just incase anything new 
-		[ "$1" = "~/.dotfiles" ] && symlink-dotfiles
-			
-		# If the repo folder is the Pywalfox repo, move the updated files to your profile 
-		[ "$1" = "~/Repos/Pywalfox" ] && load-firefox-css
+    if [ "$1" = "$HOME/.dotfiles" ]; then
+      symlink-dotfiles
+    elif [ "$1" = "$HOME/repos/dwm" ] || [ "$1" = "$HOME/repos/dwmblocks" ]; then
+      build "$1"
+      killall dwm
+    elif [ "$1" = "$HOME/repos/dmenu" ]; then
+      build "$1"
+    fi
 
 		notify-send " git-auto-updater" " $1 was updated."
 		HAS_BEEN_UPDATED="yes"
@@ -35,7 +43,7 @@ function update_repo() {
     		echo "Diverged"
 	fi
 
-	echo ""	
+	echo ""
 }
 
 for repo in ${REPOS[*]}; do update_repo $repo; done

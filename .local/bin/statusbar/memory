@@ -1,9 +1,5 @@
 #!/bin/sh
 
-case $BLOCK_BUTTON in
-	1) notify-send " Memory hogs" "$(ps axch -o cmd:25,%mem --sort=-%mem | head)" ;;
-esac
-
 USED=$(free -h | grep "M" -m 1 | awk '{print $3}')
 TOTAL=$(free -h | grep "M" -m 1 | awk '{print $2}')
 

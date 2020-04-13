@@ -1,39 +1,8 @@
 # #!/bin/sh
-#
-# # i3blocks mail module.
-# # Displays number of unread mail and an loading icon if updating.
-# # When clicked, brings up `neomutt`.
-#
-# case $BLOCK_BUTTON in
-#   1) ddspawn neomutt >/dev/null & ;;
-#   2) setsid mailsync >/dev/null & ;;
-#   3) pgrep -x dunst >/dev/null && notify-send " Mail module" "\- Shows unread mail
-# -
-# - Left click opens neomutt
-# - Middle click syncs mail" ;;
-# esac
-#
-# DIR=~/.local/share/mail
-# if [[ -d "$DIR" ]]; then
-#   printf "<span color='$WAL_LIGHT'>%s</span>" "$(du -a ~/.local/share/mail/*/INBOX/new/* 2>/dev/null | sed -n '$=' | sed -r '/^\s*$/d')"
-# fi
-
-# i3blocks mail module.
-# Displays number of unread mail and an loading icon if updating.
-# When clicked, brings up `neomutt`.
-
-case $BLOCK_BUTTON in
-1) ddspawn neomutt >/dev/null & ;;
-2) setsid mailsync >/dev/null & ;;
-3) pgrep -x dunst >/dev/null && notify-send "📬 Mail module" "\- Shows unread mail
-- Left click opens neomutt
-- Middle click syncs mail" ;;
-esac
-
 UNREAD="$(du -a ~/.local/share/mail/*/INBOX/new/* 2>/dev/null | sed -n '$=')"
 
 if [[ -z "$UNREAD" ]]; then
     exit
 fi
 
-printf "<span color='$(xgetres accentText)'>%s</span>\n" "$UNREAD"
+echo "^c$(xgetres success)^ $UNREAD^d^"

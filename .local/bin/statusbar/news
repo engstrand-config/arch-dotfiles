@@ -1,16 +1,9 @@
 #!/bin/sh
 
-case $BLOCK_BUTTON in
-	1) ddspawn newsboat >/dev/null &
-esac
-
 UNREAD=$(</tmp/newsupdate)
 
 # This step is not really needed, but the icon is always visible otherwise...
 # think of some better solution
-if [ -z "$UNREAD" ]; then
-	echo ""
-    exit
+if [ ! -z "$UNREAD" ]; then
+  echo "^c$(xgetres success)^ $UNREAD^d^"
 fi
-
-printf "<span color='$(xgetres accentText)'>$UNREAD</span>\n"

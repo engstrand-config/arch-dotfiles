@@ -1,14 +1,5 @@
 #!/bin/sh
-
-case $BLOCK_BUTTON in
-#	1) setsid "$TERMINAL" -e pulsemixer & ;;
-	1) i3-msg "exec --no-startup-id $TERMINAL -c "floating-pulsemixer" -e pulsemixer" &> /dev/null ;;
-	2) pulsemixer --toggle-mute ;;
-	4) pulsemixer --change-volume +5 ;;
-	5) pulsemixer --change-volume -5 ;;
-esac
-
-[ "$(pulsemixer --get-mute)" = "1" ] && printf "<span color='$(xgetres critical)'></span>\\n" && exit
+[ "$(pulsemixer --get-mute)" = "1" ] && echo "^c$(xgetres critical)^^d^" && exit
 
 vol=$(pulsemixer --get-volume | awk '{print $1}')
 
@@ -20,4 +11,4 @@ else
 	icon=""
 fi
 
-printf "%s <span color='$(xgetres accentText)'>%s%%</span>" "$icon" "$vol"
+echo "$icon $vol%"

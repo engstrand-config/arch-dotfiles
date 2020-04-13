@@ -1,37 +1,31 @@
 #!/bin/sh
 # Give a battery name (e.g. BAT0) as an argument
+BAT=${1:-"BAT0"}
 
-capacity=$(cat /sys/class/power_supply/"$1"/capacity) || exit
-status=$(cat /sys/class/power_supply/"$1"/status)
+capacity=$(cat /sys/class/power_supply/"$BAT"/capacity) || exit
+status=$(cat /sys/class/power_supply/"$BAT"/status)
+high="^c$(xgetres success)^"
+low="^c$(xgetres critical)^"
 
-color_label="#ffffff"
-color_capacity="$(xgetres accentText)"
-
-if [ "$capacity" -ge 90 ]; then
-	label=""
-elif [ "$capacity" -ge 65 ]; then
-	label=""
-elif [ "$capacity" -ge 40 ]; then
-	label=""
-elif [ "$capacity" -ge 15 ]; then
-	label=""
-else
-	label=""
-	color_label="$(xgetres critical)"
-	color_capacity="$(xgetres critical)"
-fi
-
-
-if [ "$status" = "Charging" ]; then
-	color_label="$(xgetres success)"
-	color_capacity="$(xgetres success)"
-	label=""
-fi
-
+color=$high
 if [ "$status" = "Full" ]; then
-	color_label="$(xgetres success)"
-	color_capacity="$(xgetres success)"
 	label=""
+elif [ "$status" = "Charging" ]; then
+	label=""
+else
+  color=""
+  if [ "$capacity" -ge 90 ]; then
+  	label=""
+  elif [ "$capacity" -ge 65 ]; then
+  	label=""
+  elif [ "$capacity" -ge 40 ]; then
+  	label=""
+  elif [ "$capacity" -ge 15 ]; then
+  	label=""
+  else
+    color=$low
+    label=""
+  fi
 fi
 
-printf "<span color='%s'>%s</span> <span color='%s'>%s%%</span>" "$color_label" "$label" "$color_capacity" "$capacity"
+echo "$color$label $capacity%^d^"

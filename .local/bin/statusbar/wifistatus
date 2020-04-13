@@ -1,19 +1,20 @@
 #!/bin/sh
 
-case $BLOCK_BUTTON in
-	1) $TERMINAL -e nmtui-connect ;;
-esac
-
 INTERFACE=$(ls /sys/class/net | grep "\bw.*")
-
 [ -z "$INTERFACE" ] && exit
 
-SSID=$(nmcli device show | grep "$INTERFACE" -m 1 -A 5 | grep GENERAL.CONNECTION: -m 1 | awk '{print $2}')
 WCONNECTED=$(cat /sys/class/net/w*/operstate)
-SIGNAL=$(grep "^\s*w" /proc/net/wireless | awk '{ print int($3 * 100 / 70) "%" }')
+if [ "$WCONNECTED" = 'down' ]; then
+  printf "^c$(xgetres critical)^"
+else
+  SSID=$(nmcli device show | grep "$INTERFACE" -m 1 -A 5 | grep GENERAL.CONNECTION: -m 1 | awk '{print $2}')
+  SIGNAL=$(grep "^\s*w" /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
+  if [ "$SIGNAL" -lt 30 ]; then
+    printf ^c$(xgetres critical)^
+  elif [ "$SIGNAL" -lt 50 ]; then
+    printf ^c$(xgetres warning)^
+  fi
+  printf " %s" "$SSID"
+fi
 
-WSTATUS=$(printf " <span color='%s'>%s (%s)</span>" "$(xgetres accentText)" "$SSID" "$SIGNAL")
-
-[ "$WCONNECTED" = 'down' ] && WSTATUS="<span color='$(xgetres critical)'></span>"
-
-printf "%s" "$WSTATUS"
+echo ^d^

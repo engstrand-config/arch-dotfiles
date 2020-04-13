@@ -13,14 +13,12 @@ WALLPAPER_PATH="${HOME}/.dotfiles/.local/share/default.png"
 
 # Generate more shades of pywal colors
 success=$(python $COLORPICKER_PATH "$color2" "success")
+warning=$(python  "$COLORPICKER_PATH" "$color2" "warning")
 critical=$(python  "$COLORPICKER_PATH" "$color2" "critical")
 critical_dark=$(python $COLORPICKER_PATH "$critical" "darker")
 bg_light=$(python $COLORPICKER_PATH "$background" "lighter")
 bg_dark=$(python $COLORPICKER_PATH "$background" "darker")
 bg_main=$(python $COLORPICKER_PATH "$color2" "darker" 140)
-bg_light_transparent="${bg_light}DD"
-bg_main_transparent="${bg_main}DD"
-bg_dark_transparent="${bg_dark}DD"
 
 # Source the profile exports, if defined
 if [ -f "$PROFILE_EXPORTS_PATH" ]; then
@@ -28,26 +26,27 @@ if [ -f "$PROFILE_EXPORTS_PATH" ]; then
 fi
 
 # Create fallback values
-font_size=${PROFILE_FONT_SIZE:-14}
-alpha=${PROFILE_ALPHA:-0.9}
+st_font_size=${PROFILE_ST_FONT_SIZE:-14}
+st_alpha=${PROFILE_ST_ALPHA:-0.9}
 
-i3_bar_bg=${PROFILE_I3_BAR_BG:-$bg_dark_transparent}
-i3_border_size=${PROFILE_I3_BORDER_SIZE:-1}
-i3_gaps_inner=${PROFILE_I3_GAPS_INNER:-4}
-i3_gaps_outer=${PROFILE_I3_GAPS_OUTER:-2}
+dwm_bar_alpha=${PROFILE_DWM_BAR_ALPHA:-225}
+dwm_bar_height=${PROFILE_DWM_BAR_HEIGHT:-20}
+dwm_font_size=${PROFILE_DWM_FONT_SIZE:-9}
+dwm_border_size=${PROFILE_DWM_BORDER_SIZE:-1}
+dwm_border_color=${PROFILE_DWM_BORDER_COLOR:-$bg_light}
+dwm_title_background=${PROFILE_DWM_TITLE_BACKGROUND:-$bg_light}
+dwm_title_foreground=${PROFILE_DWM_TITLE_FOREGROUND:-$foreground}
+dwm_title_border_color=${PROFILE_DWM_TITLE_BORDER_COLOR:-$bg_light}
+dwm_selected_background=${PROFILE_DWM_SELECTED_BACKGROUND:-$color2}
+dwm_selected_foreground=${PROFILE_DWM_SELECTED_FOREGROUND:-$background}
+dwm_selected_border_color=${PROFILE_DWM_SELECTED_BORDER_COLOR:-$color2}
 
-i3_ws_emacs=${PROFILE_I3_WS_EMACS:-3}
-i3_ws_spotify=${PROFILE_I3_WS_SPOTIFY:-5}
-i3_ws_discord=${PROFILE_I3_WS_DISCORD:-7}
-i3_ws_steam=${PROFILE_I3_WS_STEAM:-4}
-i3_ws_firefox=${PROFILE_I3_WS_FIREFOX:-2}
-i3_ws_code=${PROFILE_I3_WS_CODE:-6}
-i3_ws_android=${PROFILE_I3_WS_ANDROID:-9}
-i3_ws_ferdi=${PROFILE_I3_WS_FERDI:-4}
+dwm_gaps_inner=${PROFILE_DWM_GAPS_INNER:-4}
+dwm_gaps_outer=${PROFILE_DWM_GAPS_OUTER:-2}
+dwm_sp_width=${PROFILE_DWM_SP_WIDTH:-800}
+dwm_sp_height=${PROFILE_DWM_SP_HEIGHT:-800}
 
-i3_sp_width=${PROFILE_I3_SP_WIDTH:-800}
-i3_sp_height=${PROFILE_I3_SP_HEIGHT:-800}
-
+dunst_font_size=${PROFILE_DUNST_FONT_SIZE:-9}
 dunst_background=${PROFILE_DUNST_BACKGROUND:-#f2f2f2}
 dunst_border_size=${PROFILE_DUNST_BORDER_SIZE:-1}
 dunst_border_color=${PROFILE_DUNST_BORDER_COLOR:-$color2}
@@ -60,23 +59,24 @@ dunst_gap_top=${PROFILE_DUNST_GAP_TOP:-27}
 echo "
 ! X colors.
 
-*alpha:             $alpha
-*.alpha:            $alpha
+*alpha:             $st_alpha
+*.alpha:            $st_alpha
 
 ! Terminal font
-*.font: mono:pixelsize=$font_size:antialias=true:autohint=true;
+*.font: mono:pixelsize=$st_font_size:antialias=true:autohint=true;
 
 ! Current wallpaper
 *wallpaper:         $wallpaper
 *.wallpaper:        $wallpaper
+
+! KDE device id
+kde.deviceId:       $KDE_DEVICE_ID
 
 ! Pywal colors
 *foreground:        $foreground
 *background:        $background
 *.foreground:       $foreground
 *.background:       $background
-emacs*foreground:   $foreground
-emacs*background:   $background
 
 ! Customized pywal colors
 *.accent:           $color2
@@ -89,32 +89,35 @@ emacs*background:   $background
 .backgroundDark:    $bg_dark
 *.backgroundLight:  $bg_light
 .backgroundLight:   $bg_light
+*.warning:          $warning
+.warning:           $warning
 *.critical:         $critical
 .critical:          $critical
 *.criticalDark:     $critical_dark
 .criticalDark:      $critical_dark
-.success:           $success
 *.success:          $success
+.success:           $success
 
-! General i3 variables
-i3wm.barBackground:     $i3_bar_bg
-i3wm.borderSize:        $i3_border_size
-i3wm.gapsInner:         $i3_gaps_inner
-i3wm.gapsOuter:         $i3_gaps_outer
-i3wm.scratchpadWidth:   $i3_sp_width
-i3wm.scratchpadHeight:  $i3_sp_height
+! General dwm variables
+dwm.font:                JetBrains Mono NL:style=Bold:size=$dwm_font_size:antialias=true:autohint=true
+dwm.barAlpha:            $dwm_bar_alpha
+dwm.barHeight:           $dwm_bar_height
+dwm.borderSize:          $dwm_border_size
+dwm.borderColor:         $dwm_border_color
+dwm.titleBackground:     $dwm_title_background
+dwm.titleForeground:     $dwm_title_foreground
+dwm.titleBorderColor:    $dwm_title_border_color
+dwm.selectedBorderColor: $dwm_selected_border_color
+dwm.selectedBackground:  $dwm_selected_background
+dwm.selectedForeground:  $dwm_selected_foreground
 
-! i3 Workspaces
-i3wm.wsEmacs:       $i3_ws_emacs:
-i3wm.wsSpotify:     $i3_ws_spotify:
-i3wm.wsDiscord:     $i3_ws_discord:
-i3wm.wsSteam:       $i3_ws_steam:
-i3wm.wsFirefox:     $i3_ws_firefox:
-i3wm.wsCode:        $i3_ws_code:
-i3wm.wsAndroid:     $i3_ws_android:
-i3wm.wsFerdi:       $i3_ws_ferdi:
+dwm.gapsInner:           $dwm_gaps_inner
+dwm.gapsOuter:           $dwm_gaps_outer
+dwm.scratchpadWidth:     $dwm_sp_width
+dwm.scratchpadHeight:    $dwm_sp_height
 
 ! Dunst variables
+dunst.fontSize:        $dunst_font_size
 dunst.background:      $dunst_background
 dunst.borderSize:      $dunst_border_size
 dunst.borderColor:     $dunst_border_color

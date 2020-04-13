@@ -48,12 +48,13 @@ save_selected_colorscheme()
 update_saved_colorscheme()
 {
   selected_path=$(cat $CURRENT_COLORSCHEME_PATH)
+  image_path=$(wpg -c)
   if [ -f "$selected_path" ]; then
-    save_colorscheme $(wpg -c) $selected_path # Gets the current wallpaper from wpg and exports the colorscheme to dotfiles
+    save_colorscheme $image_path $selected_path # Gets the current wallpaper from wpg and exports the colorscheme to dotfiles
   else
     if [ "$export_path" != "null" ]; then
       escaped_path=$(escape_colorscheme_path "$export_path")
-      save_colorscheme $(wpg -c) "$COLORSCHEMES_PATH/${escaped_path}.json"
+      save_colorscheme $image_path "$COLORSCHEMES_PATH/$image_path"
     fi
   fi
 }
@@ -131,9 +132,13 @@ while getopts "hli:e:c:s::" opts; do
 done
 shift $((OPTIND-1))
 
-# We need an image or a colorscheme
+# If no args are given, show gallery of images from wallpaper repo
 if [ -z "$image" ] && [ -z "$colorscheme" ]; then
-  usage
+  image=$(sxiv -t -o ~/repos/wallpapers/*)
+  if [ ! -f "$image" ]; then
+    echo "Could not use specifed image: $image does not exist"
+    exit
+  fi
 fi
 
 colorscheme_name="$(escape_colorscheme_path "$colorscheme").json"

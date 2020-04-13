@@ -44,23 +44,50 @@ sudo ufw enable
 sudo ufw reload
 
 # Install FARBS
-git clone https://github.com/Frewacom/FARBS.git ~/Repos/FARBS
+git clone https://github.com/Frewacom/FARBS.git ~/repos/farbs
 
 # Install Pywalfox
-git clone https://github.com/Frewacom/Pywalfox.git ~/Repos/Pywalfox
+git clone https://github.com/Frewacom/Pywalfox.git ~/repos/pywalfox
+
+# Install wallpapers
+git clone https://github.com/Frewacom/wallpapers.git ~/repos/wallpapers
+
+# Install dwm fork
+git clone https://github.com/Frewacom/dwm.git ~/repos/dwm
+
+# Install dwmblocks
+git clone https://github.com/Frewacom/dwm.git ~/repos/dwmblocks
+
+# Install dmenu
+git clone https://github.com/Frewacom/dmenu.git ~/repos/dmenu
 
 # Run themer and apply the default colorscheme
 bash $BIN_PATH/themer -i ~/.dotfiles/.local/share/wallpaper.png -c default.json
 
 # Update the remote url for our repos so that we can use SSH-keys
 cd ~/.dotfiles
-git remote set-url origin git@github.com:Frewacom/FARBS-Dotfiles.git
+git remote set-url origin git@github.com:Frewacom/FARBS-dotfiles.git
 
-cd ~/Repos/FARBS
+cd ~/repos/farbs
 git remote set-url origin git@github.com:Frewacom/FARBS.git
 
-cd ~/Repos/Pywalfox
+cd ~/repos/pywalfox
 git remote set-url origin git@github.com:Frewacom/Pywalfox.git
+
+cd ~/repos/wallpapers
+git remote set-url origin git@github.com:Frewacom/wallpapers.git
+
+cd ~/repos/dwm
+git remote set-url origin git@github.com:Frewacom/dwm.git
+sudo make install
+
+cd ~/repos/dwmblocks
+git remote set-url origin git@github.com:Frewacom/dwmblocks.git
+sudo make install
+
+cd ~/repos/dmenu
+git remote set-url origin git@github.com:Frewacom/dmenu.git
+sudo make install
 
 # Enable the user defined crontab
 CRON_PATH=~/.dotfiles/profiles/$(whoami)/my-crontab
@@ -72,7 +99,7 @@ fi
 sudo systemctl enable betterlockscreen@$USER
 
 # Spicetify needs permissions to access spotify preferences
-sudo chmod 777 /opt/spotify -R
+[ -d "/opt/spotify" ] && sudo chmod 777 /opt/spotify -R
 
 # Set the correct path to Spotify prefs in spicetify config (doesn't allow relative paths)
 cp ~/.dotfiles/.config/spicetify/config.ini ~/.config/spicetify/config.ini

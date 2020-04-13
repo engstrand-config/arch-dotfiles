@@ -24,7 +24,7 @@
     sort = yes
 
     idle_threshold = 120
-    font = Noto Sans Mono Medium 9
+    font = JetBrains Mono NL Bold <font-size>
     line_height = 0
     markup = full
     corner_radius = <border-radius>

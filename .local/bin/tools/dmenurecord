@@ -11,7 +11,7 @@
 
 updateicon() { \
 	echo "$1" > /tmp/recordingicon
-	pkill -RTMIN+9 i3blocks
+	pkill -RTMIN+9 $STATUSBAR
 	}
 
 killrecording() {
@@ -20,7 +20,7 @@ killrecording() {
 	kill -15 "$recpid"
 	rm -f /tmp/recordingpid
 	updateicon ""
-	pkill -RTMIN+9 i3blocks
+	pkill -RTMIN+9 $STATUSBAR
 	# even after SIGTERM, ffmpeg may still run, so SIGKILL it.
 	sleep 3
 	kill -9 "$recpid"
@@ -80,7 +80,7 @@ audio() { \
 	}
 
 askrecording() { \
-	choice=$(printf "screencast\\nvideo\\naudio\\nwebcam\\nwebcam (hi-def)" | dmenu_launcher -i -p "Select recording style:")
+	choice=$(printf "screencast\\nvideo\\naudio\\nwebcam\\nwebcam (hi-def)" | dmenu -i -p "Select recording style:")
 	case "$choice" in
 		screencast) screencast;;
 		audio) audio;;
@@ -91,7 +91,7 @@ askrecording() { \
 	}
 
 asktoend() { \
-	response=$(printf "No\\nYes" | dmenu_launcher -i -p "Recording still active. End recording?") &&
+	response=$(printf "No\\nYes" | dmenu -i -p "Recording still active. End recording?") &&
 	[ "$response" = "Yes" ] &&  killrecording
 	}
 

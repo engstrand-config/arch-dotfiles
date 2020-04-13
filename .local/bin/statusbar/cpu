@@ -1,9 +1,5 @@
 #!/bin/sh
 
-case $BLOCK_BUTTON in
-	1) notify-send " CPU hogs" "$(ps axch -o cmd:25,%cpu --sort=-%cpu | head)" ;;
-esac
-
 if [ "$USER" = "ghost" ]; then
     TEMP_STRING=$(sensors | awk '/CPU Temperature/ {print $3}' | cut -d "+" -f 2)
 else

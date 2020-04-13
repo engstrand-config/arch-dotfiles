@@ -4,6 +4,10 @@
 # For example the git-auto-updater or git-status-check
 REPOS=(
 	~/.dotfiles
-	~/Repos/Pywalfox
-	~/FARBS
+	~/repos/pywalfox
+	~/repos/farbs
+  ~/repos/dwm
+  ~/repos/dwmblocks
+  ~/repos/dmenu
+  ~/repos/wallpapers
 )

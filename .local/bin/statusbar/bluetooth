@@ -3,20 +3,11 @@
 command -v bluetoothctl >/dev/null 2>&1 || { exit; }
 
 BT_STATUS=$(bluetoothctl show | grep Powered: | awk '{print $2}')
-ICON_COLOR="#ff00ff"
-
-if [ "$BT_STATUS" = "yes" ]; then
-	ICON_COLOR="#ffffff"
-else
-	ICON_COLOR="$(xgetres critical)"
-fi
 
 if [[ "${BLOCK_BUTTON}" -eq 1 ]] && [ "$BT_STATUS" = "no" ]; then
-	bluetoothctl power on > /dev/null
-	ICON_COLOR="#ffffff"
+	bluetoothctl power on >/dev/null 2>&1
 elif [[ "${BLOCK_BUTTON}" -eq 1 ]] && [ "$BT_STATUS" = "yes" ]; then
-	bluetoothctl power off > /dev/null
-	ICON_COLOR="$(xgetres critical)"
+	bluetoothctl power off >/dev/null 2>&1
 fi
 
-printf "<span color='$ICON_COLOR'></span>"
+echo ""

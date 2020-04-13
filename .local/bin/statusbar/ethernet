@@ -1,13 +1,6 @@
 #!/bin/sh
 
-case $BLOCK_BUTTON in
-	1) $TERMINAL -e nmtui-connect ;;
-esac
-
 ECONNECTED=$(cat /sys/class/net/e*/operstate)
-ECOLOR="#00ff00"
-ESTATUS=$(printf "<span color='$(xgetres accentText)'></span>")
+[ "$ECONNECTED" = 'down' ] && exit
 
-[ "$ECONNECTED" = 'down' ] && ESTATUS="<span color='$(xgetres critical)'></span>"
-
-printf "%s" "$ESTATUS"
+echo ""

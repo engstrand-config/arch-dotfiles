@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+notify-send -t 15000 " CPU hogs" "$(ps axch -o cmd:25,%cpu --sort=-%cpu | head)"

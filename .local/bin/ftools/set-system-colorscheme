@@ -3,13 +3,13 @@
 # Create the new .Xresources file
 create-xresources
 
+# wpgtk seems to not be able to set the wallpaper properly, so we do it manually on changes
+setbg "$(xgetres wallpaper)" >/dev/null 2>&1
+
 # Fix the white background issue
 # https://github.com/LukeSmithxyz/st/issues/163
 # https://github.com/LukeSmithxyz/st/issues/142
 tty-live-reload-fix
-
-# wpgtk seems to not be able to set the wallpaper properly, so we do it manually on changes
-setbg "$(xgetres wallpaper)" >/dev/null 2>&1
 
 # Generate updated config files
 make-ferdi-config >/dev/null 2>&1
@@ -18,19 +18,15 @@ make-zathura-config >/dev/null 2>&1
 # Create new dunst config and restart
 restart-dunst >/dev/null 2>&1
 
-# Restart i3 so that the new config can take effect
-i3-msg restart >/dev/null 2>&1
+# Tell dwm to update Xresources
+dwmc xrdb
 
 # Update the selected colorscheme in ~/.dotfiles/colorschemes with the colors from wpg
 themer -e null >/dev/null 2>&1
 
 # Tell Pywalfox-extension to update the colors
-python ~/Repos/Pywalfox/daemon/pywalfox.py update
+python ~/repos/pywalfox/daemon/pywalfox.py update
 
 # Update the spotify theme
 spicetify update >/dev/null 2>&1
 
-# If we want to automatically update Spotify with the new theme
-# we must restart it, which is not very nice.
-# You can manually reload using Shift+Ctrl+R
-#spicetify restart
