@@ -5,23 +5,8 @@
 sleep 1 && alsactl --file ~/.config/asound.state restore
 
 firefox &
-spotify &
+tidal-hifi &
 ferdi &
 espanso daemon &
-
-# If we do not wait a bit before moving the workspaces, it does not work.
-sleep 2
-
-# Move workspaces to the correct monitor
-# Right monitor
-i3-msg 'workspace number "1:", move workspace to output DisplayPort-0'
-i3-msg 'workspace number "2:", move workspace to output DisplayPort-0'
-
-# Left monitor
-i3-msg 'workspace number "3:", move workspace to output DisplayPort-2'
-i3-msg 'workspace number "4:", move workspace to output DisplayPort-2'
-
-# Focus on workspace 1
-i3-msg 'workspace number "1:"'
 
 
