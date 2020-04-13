@@ -1,11 +1,5 @@
 #!/bin/sh
 
-NB="$(xgetres backgroundDark)"
-NF="$(xgetres accentText)"
-SB="$(xgetres accent)"
-SF="#ffffff"
-FONT="Noto Sans Bold-14"
-
 # The famous "get a menu of emojis to copy" script.
 
 # Must have xclip installed to even show menu.
