@@ -128,7 +128,7 @@ shift $((OPTIND-1))
 
 # If no args are given, show gallery of images from wallpaper repo
 if [ -z "$image" ]; then
-  image=$(sxiv -t -o $WALLPAPERS_PATH)
+  image=$(sxiv -t -o $WALLPAPERS_PATH | tail -n1)
   if [ ! -f "$image" ]; then
     echo "Could not use specifed image: $image does not exist"
     exit
