@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+WALLPAPERS_PATH=~/repos/wallpapers/*
 COLORSCHEMES_PATH=~/.dotfiles/colorschemes
 CURRENT_COLORSCHEME_PATH=~/.cache/current-colorscheme
 WPG_WALLPAPERS_PATH=~/.config/wpg/wallpapers
@@ -11,10 +12,9 @@ usage()
 
 Options:
   -h                              Display this message
-  -l                              List all available colorschemes
-  -e {null|<name-of-colorscheme>} Exports the current colorscheme to ~/.dotfiles/colorschemes/. If the colorscheme has not been saved before, you must enter a name
+  -u                              Updates the default colorscheme for the current wallpaper
+  -e                              Exports the colorscheme for this wallpaper to ~/.dotfiles/colorschemes
   -i <path-to-image>              The path of the image to be used as wallpaper
-  -c <name-of-colorscheme>        Uses the colorscheme saved in .dotfiles/colorschemes/ or creates a new one
   -s <saturation>                 Apply saturation to the generated colorscheme (0-1)
   "
   exit
@@ -25,23 +25,24 @@ get_filename()
   echo "${1##*/}"
 }
 
-list_colorschemes()
-{
-  echo "Available colorschemes:"
-  for colorscheme in "$COLORSCHEMES_PATH"/*; do
-    get_filename $colorscheme # Print the filename
-    # Show a preview of the colorscheme
-  done
-  exit
+get_filename_without_ext() {
+  echo "${1%.*}"
 }
 
-escape_colorscheme_path()
-{
-  echo "${1%.*}"
+escape_colorscheme_path() {
+  echo "$(get_filename_without_ext "$(get_filename $1)" | sed "s|/|__|g").json"
+}
+
+unescape_colorscheme_path() {
+  echo "$(get_filename_without_ext "$(get_filename $1)" | sed "s|__|/|g").jpg"
 }
 
 save_selected_colorscheme()
 {
+  if [ ! -d "$USED_COLORSCHEMES_PATH" ]; then
+    mkdir $USED_COLORSCHEMES_PATH
+  fi
+
   echo $1 > $CURRENT_COLORSCHEME_PATH
 }
 
@@ -50,9 +51,10 @@ update_saved_colorscheme()
   selected_path=$(cat $CURRENT_COLORSCHEME_PATH)
   image_path=$(wpg -c)
   if [ -f "$selected_path" ]; then
-    save_colorscheme $image_path $selected_path # Gets the current wallpaper from wpg and exports the colorscheme to dotfiles
+    save_colorscheme $image_path $selected_path
   else
     if [ "$export_path" != "null" ]; then
+      # TODO: Fix the escape function
       escaped_path=$(escape_colorscheme_path "$export_path")
       save_colorscheme $image_path "$COLORSCHEMES_PATH/$image_path"
     fi
@@ -78,50 +80,48 @@ generate_colorscheme()
   if [ ! -z "$saturation" ]; then
     wpg --sat $image $saturation
   fi
+
+  echo ""
 }
 
 set_colorscheme()
 {
-  echo "Using colorscheme: $1"
-  if [ -f $colorscheme_path ]; then
-    wpg -a $image
-    wpg -i $image $1
-    save_selected_colorscheme $colorscheme_path
-  else
+  if [ "$1" = "null" ]; then
     generate_colorscheme
-    save_colorscheme $image $1
+    save_colorscheme "$image" "$1"
+  else
+    wpg -a "$image"
+    wpg -i "$image" "$1"
+    save_selected_colorscheme "$1"
   fi
 
-  echo "$image" > $used_colorscheme_path
+  echo "$image" > "$local_colorscheme_path"
 }
 
 apply_colorscheme()
 {
-  echo ""
   echo "Applying colorscheme"
   wpg -s "$1"
+
 }
 
-while getopts "hli:e:c:s::" opts; do
+while getopts "heui:c:s::" opts; do
   case $opts in
-    l)
-      list_colorschemes
-      ;;
     i)
-      image=${OPTARG}
+      image="$(pwd)/${OPTARG}" # we want the full path to the wallpaper
       if [ ! -f "$image" ]; then
         echo "Could not use specifed image: $image does not exist"
         exit
       fi
       ;;
-    c)
-      colorscheme=${OPTARG}
-      ;;
     s)
       saturation=${OPTARG}
       ;;
     e)
-      export_path=${OPTARG}
+      # TODO: Save the currently selected colorscheme to dotfiles
+      ;;
+    u)
+      # TODO: Update the local colorscheme only
       update_saved_colorscheme
       exit
       ;;
@@ -133,56 +133,29 @@ done
 shift $((OPTIND-1))
 
 # If no args are given, show gallery of images from wallpaper repo
-if [ -z "$image" ] && [ -z "$colorscheme" ]; then
-  image=$(sxiv -t -o ~/repos/wallpapers/*)
+if [ -z "$image" ]; then
+  image=$(sxiv -t -o $WALLPAPERS_PATH)
   if [ ! -f "$image" ]; then
     echo "Could not use specifed image: $image does not exist"
     exit
   fi
 fi
 
-colorscheme_name="$(escape_colorscheme_path "$colorscheme").json"
+colorscheme_name="$(escape_colorscheme_path "$image")"
 colorscheme_path="$COLORSCHEMES_PATH/$colorscheme_name"
-used_colorscheme_path="$USED_COLORSCHEMES_PATH/${colorscheme_name}"
+local_colorscheme_path="$USED_COLORSCHEMES_PATH/$colorscheme_name"
 
-if [ ! -z "$image" ]; then
-  if [ -z "$colorscheme" ]; then
-    generate_colorscheme
-  else
-    set_colorscheme $colorscheme_path
-  fi
+colorscheme_to_use="$colorscheme_path"
 
-  # Apply the wallpaper
-  apply_colorscheme "$image"
+if [ -f "$colorscheme_path" ]; then
+ echo "Found global colorscheme: $colorscheme_path"
+elif [ -f "$local_colorscheme_path" ]; then
+  echo "Found local colorscheme: $local_colorscheme_path"
+  colorscheme_to_use="$local_colorscheme_path"
 else
-  if [ -f "$colorscheme_path" ]; then
-    if [ ! -d "$USED_COLORSCHEMES_PATH" ]; then
-      mkdir $USED_COLORSCHEMES_PATH
-    fi
-
-    if [ -f $used_colorscheme_path ]; then
-      wall=$(cat $used_colorscheme_path)
-      # If the wallpaper set in the saved colorscheme, update the colorscheme using wpg
-      if [ -f "$wall" ]; then
-        # Apply the wallpaper with the specified colorscheme
-        apply_colorscheme "$wall"
-        save_selected_colorscheme $colorscheme_path
-      else
-        echo "The wallpaper set in $used_colorscheme_path does not exist:"
-        echo "$wall"
-        echo " "
-        echo "To fix this, update the path to the image used by this colorscheme using:"
-        echo "themer -i <path-to-image> -c $colorscheme"
-      fi
-    else
-      echo "You have not set a wallpaper to use with this colorscheme."
-      echo ""
-      echo "To fix this, set the path to the wallpaper and assign it to the colorscheme using:"
-      echo "themer -i <path-to-image> -c $colorscheme"
-    fi
-  else
-    echo "Could not find colorscheme: $colorscheme"
-    echo " "
-    list_colorschemes
-  fi
+  echo "No saved colorscheme found."
+  colorscheme_to_use="null"
 fi
+
+set_colorscheme "$colorscheme_to_use"
+apply_colorscheme "$image"
