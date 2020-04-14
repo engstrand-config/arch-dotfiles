@@ -90,6 +90,7 @@ set_colorscheme()
 {
   wpg -a "$image"
   wpg -i "$image" "$1"
+  rm "${image}_wal_sample.png" # wpg creates a sample for some reason
 }
 
 apply_colorscheme()
