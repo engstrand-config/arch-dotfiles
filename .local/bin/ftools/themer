@@ -37,48 +37,50 @@ unescape_colorscheme_path() {
   echo "$(get_filename_without_ext "$(get_filename $1)" | sed "s|__|/|g").jpg"
 }
 
-save_selected_colorscheme()
-{
-  if [ ! -d "$USED_COLORSCHEMES_PATH" ]; then
-    mkdir $USED_COLORSCHEMES_PATH
+get_current_colorscheme() {
+  path="$(cat $CURRENT_COLORSCHEME_PATH)"
+  if [ -f "$path" ]; then
+    echo "$path"
+  else
+    exit
   fi
+}
 
-  echo $1 > $CURRENT_COLORSCHEME_PATH
+export_saved_colorscheme() {
+  current_colorscheme=$(get_current_colorscheme)
+  name=$(get_filename $current_colorscheme)
+  mv "$USED_COLORSCHEMES_PATH/$name" "$COLORSCHEMES_PATH/$name"
+  set_current_colorscheme "$COLORSCHEMES_PATH/$name"
 }
 
 update_saved_colorscheme()
 {
-  selected_path=$(cat $CURRENT_COLORSCHEME_PATH)
   image_path=$(wpg -c)
-  if [ -f "$selected_path" ]; then
-    save_colorscheme $image_path $selected_path
-  else
-    if [ "$export_path" != "null" ]; then
-      # TODO: Fix the escape function
-      escaped_path=$(escape_colorscheme_path "$export_path")
-      save_colorscheme $image_path "$COLORSCHEMES_PATH/$image_path"
-    fi
-  fi
+  current_colorscheme=$(get_current_colorscheme)
+  export_wpg_json "$image_path" "$current_colorscheme"
 }
 
-save_colorscheme()
+set_current_colorscheme()
 {
-  wpg -o $1 $2
-  sed -i "/wallpaper/d" $2
-  save_selected_colorscheme $2
+  echo "$1" > "$CURRENT_COLORSCHEME_PATH"
+}
+
+export_wpg_json() {
+  wpg -o "$1" "$2"
+  sed -i "/wallpaper/d" "$2"
+  set_current_colorscheme "$2"
 }
 
 generate_colorscheme()
 {
   echo "Generating colorscheme for $image"
-  save_selected_colorscheme # Clears the current-colorscheme file, so that we dont overwrite colorschemes
   wpg_image_path=$WPG_WALLPAPERS_PATH/$(get_filename "$image")
   if [ -f "$wpg_image_path" ]; then
-    wpg -d $wpg_image_path # Delete the cached colorscheme
+    wpg -d "$wpg_image_path" # Delete the cached colorscheme
   fi
   wpg -a $image # Create a new colosrcheme
   if [ ! -z "$saturation" ]; then
-    wpg --sat $image $saturation
+    wpg --sat "$image" "$saturation"
   fi
 
   echo ""
@@ -86,23 +88,14 @@ generate_colorscheme()
 
 set_colorscheme()
 {
-  if [ "$1" = "null" ]; then
-    generate_colorscheme
-    save_colorscheme "$image" "$1"
-  else
-    wpg -a "$image"
-    wpg -i "$image" "$1"
-    save_selected_colorscheme "$1"
-  fi
-
-  echo "$image" > "$local_colorscheme_path"
+  wpg -a "$image"
+  wpg -i "$image" "$1"
 }
 
 apply_colorscheme()
 {
   echo "Applying colorscheme"
   wpg -s "$1"
-
 }
 
 while getopts "heui:c:s::" opts; do
@@ -118,10 +111,10 @@ while getopts "heui:c:s::" opts; do
       saturation=${OPTARG}
       ;;
     e)
-      # TODO: Save the currently selected colorscheme to dotfiles
+      export_saved_colorscheme
+      exit
       ;;
     u)
-      # TODO: Update the local colorscheme only
       update_saved_colorscheme
       exit
       ;;
@@ -145,10 +138,9 @@ colorscheme_name="$(escape_colorscheme_path "$image")"
 colorscheme_path="$COLORSCHEMES_PATH/$colorscheme_name"
 local_colorscheme_path="$USED_COLORSCHEMES_PATH/$colorscheme_name"
 
-colorscheme_to_use="$colorscheme_path"
-
 if [ -f "$colorscheme_path" ]; then
- echo "Found global colorscheme: $colorscheme_path"
+  echo "Found global colorscheme: $colorscheme_path"
+  colorscheme_to_use="$colorscheme_path"
 elif [ -f "$local_colorscheme_path" ]; then
   echo "Found local colorscheme: $local_colorscheme_path"
   colorscheme_to_use="$local_colorscheme_path"
@@ -157,5 +149,13 @@ else
   colorscheme_to_use="null"
 fi
 
-set_colorscheme "$colorscheme_to_use"
-apply_colorscheme "$image"
+if [ "$colorscheme_to_use" = "null" ]; then
+  generate_colorscheme
+  apply_colorscheme "$image"
+  export_wpg_json "$image" "$local_colorscheme_path"
+else
+  set_colorscheme "$colorscheme_to_use"
+  apply_colorscheme "$image"
+  export_wpg_json "$image" "$colorscheme_to_use"
+fi
+
