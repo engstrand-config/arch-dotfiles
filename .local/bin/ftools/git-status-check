@@ -16,4 +16,8 @@ for repo in ${REPOS[*]}; do
 	echo " "
 done
 
-notify-send " git-status-check" "Changes have been made in the following directories:\n$MODIFIED_REPOS"
+if [ -z "$MODIFIED_REPOS" ]; then
+  notify-send " git-status-check" "No changes have been made"
+else
+  notify-send " git-status-check" "Changes have been made in the following directories:\n$MODIFIED_REPOS"
+fi

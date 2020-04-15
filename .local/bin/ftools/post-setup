@@ -62,7 +62,7 @@ git clone https://github.com/Frewacom/dwm.git ~/repos/dwmblocks
 git clone https://github.com/Frewacom/dmenu.git ~/repos/dmenu
 
 # Run themer and apply the default colorscheme
-bash $BIN_PATH/themer -i ~/.dotfiles/.local/share/wallpaper.png -c default.json
+bash $BIN_PATH/themer -i ~/repos/wallpapers/default.jpg
 
 # Update the remote url for our repos so that we can use SSH-keys
 cd ~/.dotfiles
