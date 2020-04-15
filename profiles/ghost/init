@@ -1,2 +1,4 @@
 NEXTCLOUD="192.168.1.9"
 
+mpd-module-update &
+
