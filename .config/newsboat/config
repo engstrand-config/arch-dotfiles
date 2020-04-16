@@ -49,7 +49,6 @@ bind-key N prev-unread
 bind-key D pb-download
 bind-key U show-urls
 bind-key x pb-delete
-bind-key n next-unread
 
 # formatting and colorization ------------------------------------------
 
@@ -69,4 +68,4 @@ highlight article     ":.*\\(embedded flash\\)$"            default  default
 
 # macros ---------------------------------------------------------------
 
-macro n next-unread ; open ;
+macro n next-unread ; open ; open
