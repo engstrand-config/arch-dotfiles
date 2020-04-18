@@ -56,7 +56,7 @@ git clone https://github.com/Frewacom/wallpapers.git ~/repos/wallpapers
 git clone https://github.com/Frewacom/dwm.git ~/repos/dwm
 
 # Install dwmblocks
-git clone https://github.com/Frewacom/dwm.git ~/repos/dwmblocks
+git clone https://github.com/Frewacom/dwmblocks.git ~/repos/dwmblocks
 
 # Install dmenu
 git clone https://github.com/Frewacom/dmenu.git ~/repos/dmenu
