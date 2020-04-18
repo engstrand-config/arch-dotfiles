@@ -18,6 +18,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'Raimondi/delimitMate'
 Plug 'christoomey/vim-sort-motion'
+Plug 'honza/vim-snippets'
 
 " Language specific
 Plug 'lervag/vimtex'
