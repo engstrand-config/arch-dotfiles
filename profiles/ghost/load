@@ -4,6 +4,7 @@ gnome-keyring-daemon --start --components=secrets
 
 xrandr -r 120 &
 
+st &
 firefox &
 ferdi &
 #nextcloud &
