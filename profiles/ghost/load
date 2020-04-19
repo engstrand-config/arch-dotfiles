@@ -2,12 +2,10 @@
 crontab -l > ~/.dotfiles/profiles/johan/my-crontab
 gnome-keyring-daemon --start --components=secrets
 
-xrandr -r 120 &
+pulseeffects --gapplication-service &
+espanso daemon &
+mpDris2 &
 
+ferdi &
 st &
 firefox &
-ferdi &
-#nextcloud &
-pulseeffects --gapplication-service &
-mpDris2 &
-espanso daemon &

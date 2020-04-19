@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo 0 > /sys/class/leds/0003\:054C\:05C4.0001\:global/brightness
