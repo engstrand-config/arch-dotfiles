@@ -2,6 +2,6 @@ NEXTCLOUD="192.168.1.9"
 
 mpd-module-update &
 
-xrandr -r 120 &
-xrandr --output HDMI-A-1 --set vrr_capable 1
-ds4-bar-disable &
+xrandr --output HDMI-A-1 --set vrr_capable 1 &
+xrandr -r 144 &
+sudo ds4-bar-disable &
