@@ -1,4 +1,5 @@
 #!/usr/bin/bash
+
 crontab -l > ~/.dotfiles/profiles/johan/my-crontab
 gnome-keyring-daemon --start --components=secrets
 
@@ -6,6 +7,6 @@ pulseeffects --gapplication-service &
 espanso daemon &
 mpDris2 &
 
-ferdi &
 st &
+ferdi &
 firefox &
