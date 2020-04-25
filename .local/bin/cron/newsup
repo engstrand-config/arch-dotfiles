@@ -1,8 +1,5 @@
 #!/bin/sh
 # Set as a cron job to check for new RSS entries for newsboat.
-# If newsboat is open, exit.
-
-# pgrep -x newsboat >/dev/null && exit
 
 newsboat --cache-file=/tmp/newsboatreload -x reload
 
@@ -10,4 +7,4 @@ UNREAD=$(newsboat --cache-file=/tmp/newsboatreload -x print-unread | awk '{ prin
 
 echo "$UNREAD" > /tmp/newsupdate
 
-pkill -RTMIN+6 $STATUSBAR
+pkill -RTMIN+6 dwmblocks
