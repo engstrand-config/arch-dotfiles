@@ -181,12 +181,17 @@ hi Comment ctermfg=9
 " Change color of line numbers
 hi LineNr ctermfg=1
 
+" Change color of selected line number
+hi CursorLineNr ctermfg=7
+
 " Change the background color of highlighted matching tags
 hi MatchParen ctermbg=2 ctermfg=0
 
 " Change the colors for the dropdown menu for autocomplete
 hi Pmenu ctermbg=0 ctermfg=3
 
+" Fix the coloring of ; and : in CSS-files
+hi CssNoise ctermfg=4
 
 " --------------------------------------
 "              Autocommands
