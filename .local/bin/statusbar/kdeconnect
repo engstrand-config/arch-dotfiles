@@ -16,6 +16,6 @@ CHARGE=$(dbus-send --print-reply --dest=$DESTINATION $BATTERYPATH $IBATTERY | gr
 
 if [ ! -z "$CHARGE" ]; then
   if [ "$CHARGE" -ge 0 ] && [ "$CHARGE" -le 100 ]; then
-    echo " $CHARGE%"
+    echo " $CHARGE %"
   fi
 fi
