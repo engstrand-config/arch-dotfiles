@@ -28,4 +28,4 @@ else
   fi
 fi
 
-echo "$color$label $capacity%^d^"
+echo "$color$label $capacity %^d^"
