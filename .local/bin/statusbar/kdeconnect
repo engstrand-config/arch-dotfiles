@@ -7,6 +7,12 @@
 # Logout and it should be loaded automatically and a pairing request from
 # your phone to your computer should be accepted automatically
 
+case $BLOCK_BUTTON in
+    1) kdeconnect-dmenu & ;;
+    3) notify-send " KDE Connect module" "\- Shows battery level of your phone.
+- Left click opens kdeconnect-dmenu." & ;;
+esac;
+
 DEVICE_ID=$(xgetres kde.deviceId)
 DESTINATION="org.kde.kdeconnect"
 IBATTERY="org.kde.kdeconnect.device.battery.charge"

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 case $BLOCK_BUTTON in
-        1) setsid "$TERMINAL" -e newsboat ;;
+        1) setsid "$TERMINAL" -e newsboat & ;;
       	2) setsid newsup >/dev/null & ;;
         3) notify-send " News module" "\- Shows unread news items
 - Left click opens newsboat
@@ -13,3 +13,4 @@ UNREAD=$(</tmp/newsupdate)
 if [ ! -z "$UNREAD" ]; then
   echo "^c$(xgetres success)^ $UNREAD^d^"
 fi
+

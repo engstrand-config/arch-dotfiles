@@ -7,3 +7,6 @@ xrandr --output eDP1 --primary
 
 /* loop to update mpd */
 mpd-module-update &
+
+/* add this command to visudo... */
+sudo audiofix

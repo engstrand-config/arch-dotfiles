@@ -1,26 +1,18 @@
 #!/bin/sh
 
-info=$(mpc)
-lines=$(wc -l <<< "$info")
+filter() {
+  [ "$(pidof dwmblocks)" ] && sed "/^volume:/d" | sed '1s/.*/ &/' | sed '2q' | sed -e "s/\\&/&amp;/g;s/\\[paused\\].*/\^c$(xgetres critical)^/g;s/\\[playing\\].*//" | tac | tr -d '\n' | sed '/./ s/$/^d^/'
+	}
 
-# Only print stuff if there is an active song
-if [ "$lines" -gt 1 ]; then
-  title=$(echo "$info" | sed 1q)
-  playing=$(grep "playing" <<< "$info" )
-  if [ -z "$playing" ]; then
-    status=^c$(xgetres critical)^
-  fi
+case $BLOCK_BUTTON in
+    1) mpc toggle | filter & ;;  # left click, pause/unpause
+    2) mpc status | filter && setsid "$TERMINAL" -e ncmpcpp & ;;  # right click, open ncmpcpp
+    3) mpc status | filter && notify-send " Music module" "\- Shows mpd song playing.
+- Left click opens ncmpcpp.
+- Middle click pauses.
+- Scroll changes track." &;;
+    4) mpc prev   | filter & ;;  # scroll up, previous
+    5) mpc next   | filter & ;;  # scroll down, next
+    *) mpc status | filter & ;;
+esac; exit
 
-  status=${status}" $title"
-
-  # dwmblocks can only print a set amount of characters.
-  # also makes sure very long titles are not displayed in full
-  if [ $(wc -c <<< "$status") -gt 44 ]; then
-    status="${status:0:40}"
-    printf "$(awk '{$1=$1};1' <<< "$status")..."
-  else
-    printf "$status"
-  fi
-
-  echo ^d^
-fi

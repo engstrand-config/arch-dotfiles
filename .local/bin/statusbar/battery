@@ -1,5 +1,13 @@
 #!/bin/sh
-# Give a battery name (e.g. BAT0) as an argument
+# Optionally give a battery name (e.g. BAT0) as an argument
+
+case $BLOCK_BUTTON in
+    3) notify-send "🔋 Battery module" "
+: charging
+⚡: charged
+❗: battery very low!" ;;
+esac
+
 BAT=${1:-"BAT0"}
 
 capacity=$(cat /sys/class/power_supply/"$BAT"/capacity) || exit

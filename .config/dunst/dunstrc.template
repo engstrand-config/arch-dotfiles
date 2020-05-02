@@ -146,6 +146,10 @@
     body = "*new mail(s)*"
     format = ""
 
+[ignore-steam-chat]
+    body = "Steam Chat"
+    format = ""
+
 #[history-ignore]
 #    # This notification will not be saved in history
 #    summary = "foobar"
