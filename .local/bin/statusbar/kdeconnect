@@ -13,17 +13,13 @@ case $BLOCK_BUTTON in
 - Left click opens kdeconnect-dmenu." & ;;
 esac;
 
-DEVICE_ID=$(xgetres kde.deviceId)
 DESTINATION="org.kde.kdeconnect"
 IBATTERY="org.kde.kdeconnect.device.battery.charge"
-BATTERYPATH="/modules/kdeconnect/devices/$DEVICE_ID"
+BATTERYPATH="/modules/kdeconnect/devices/$(xgetres kde.deviceId)"
 
-CHARGE=$(dbus-send --print-reply --dest=$DESTINATION $BATTERYPATH $IBATTERY | grep 'int32 ..' | awk '{print $2}')
+filter() {
+  grep 'int32 ..' | awk '{print $2}' | sed '1s/.*/ &/' | sed '/./ s/$/ %/'
+}
 
-[[ ! -z "$CHARGE" ]] && echo " ${CHARGE//[^0-9.]/} %"
+dbus-send --print-reply --dest=$DESTINATION $BATTERYPATH $IBATTERY | filter
 
-# if [ ! -z "$CHARGE" ]; then
-#   if [ "$CHARGE" -ge 0 ] && [ "$CHARGE" -le 100 ]; then
-#     echo " $CHARGE %"
-#   fi
-# fi
