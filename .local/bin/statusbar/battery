@@ -8,7 +8,7 @@ esac
 
 BAT=${1:-"BAT0"}
 
-capacity=$(cat /sys/class/power_supply/"$BAT"/capacity) > /dev/null
+capacity=$(cat /sys/class/power_supply/"$BAT"/capacity) > /dev/null || exit
 status=$(cat /sys/class/power_supply/"$BAT"/status)
 high="^c$(xgetres success)^"
 low="^c$(xgetres critical)^"
