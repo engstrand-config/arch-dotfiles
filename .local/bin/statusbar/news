@@ -10,6 +10,4 @@ esac
 
 UNREAD=$(</tmp/newsupdate)
 
-[[ ! -z "$UNREAD" ]] && echo "^c$(xgetres success)^ ${UNREAD//[^0-9.]/}^d^"
-
-# echo /tmp/newsupdate | sed '1s/.*/ &/'
+[[ -z "$UNREAD" ]] || echo $UNREAD | sed "1s/.*/^c$(xgetres success)^ &/" | sed '/./ s/$/^d^/'

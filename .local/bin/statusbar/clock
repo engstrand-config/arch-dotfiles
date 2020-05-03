@@ -7,5 +7,4 @@ case $BLOCK_BUTTON in
 - Middle click opens calcurse if installed" ;;
 esac
 
-DATE=$(date '+%T, %a %d %b %Y')
-echo "$DATE"
+echo "$(date '+%T, %a %d %b %Y')"

@@ -3,14 +3,12 @@
 
 case $BLOCK_BUTTON in
     3) notify-send "🔋 Battery module" "
-: charging
-⚡: charged
-❗: battery very low!" ;;
+: charging" ;;
 esac
 
 BAT=${1:-"BAT0"}
 
-capacity=$(cat /sys/class/power_supply/"$BAT"/capacity) || exit
+capacity=$(cat /sys/class/power_supply/"$BAT"/capacity) > /dev/null
 status=$(cat /sys/class/power_supply/"$BAT"/status)
 high="^c$(xgetres success)^"
 low="^c$(xgetres critical)^"

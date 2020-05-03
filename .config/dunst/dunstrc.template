@@ -146,6 +146,10 @@
     body = "*new mail(s)*"
     format = ""
 
+[News-app]
+    body = "News"
+    format = ""
+
 [ignore-steam-chat]
     body = "Steam Chat"
     format = ""
