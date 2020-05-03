@@ -14,12 +14,13 @@ case $BLOCK_BUTTON in
 esac;
 
 DESTINATION="org.kde.kdeconnect"
-IBATTERY="org.kde.kdeconnect.device.battery.charge"
 BATTERYPATH="/modules/kdeconnect/devices/$(xgetres kde.deviceId)"
+REACHABLE="org.kde.kdeconnect.device.isReachable"
+IBATTERY="org.kde.kdeconnect.device.battery.charge"
 
 filter() {
-  grep 'int32 ..' | awk '{print $2}' | sed '1s/.*/ &/' | sed '/./ s/$/ %/'
+  sed '1s/.*/ &/' | sed '/./ s/$/ %/' | sed 's/^[0-9]*//g'
 }
 
-dbus-send --print-reply --dest=$DESTINATION $BATTERYPATH $IBATTERY | filter
+[[ "$(qdbus $DESTINATION $BATTERYPATH $REACHABLE)" = "true" ]] && echo $(qdbus $DESTINATION $BATTERYPATH $IBATTERY) | filter
 
