@@ -10,8 +10,5 @@ esac
 
 UNREAD="$(du -a ~/.local/share/mail/*/INBOX/new/* 2>/dev/null | sed -n '$=')"
 
-if [[ -z "$UNREAD" ]]; then
-    exit
-fi
+[[ ! -z "$UNREAD" ]] && echo "^c$(xgetres success)^ ${UNREAD//[^0-9.]/}^d^"
 
-echo "^c$(xgetres success)^ $UNREAD^d^"

@@ -10,7 +10,6 @@ esac
 
 UNREAD=$(</tmp/newsupdate)
 
-if [ ! -z "$UNREAD" ]; then
-  echo "^c$(xgetres success)^ $UNREAD^d^"
-fi
+[[ ! -z "$UNREAD" ]] && echo "^c$(xgetres success)^ ${UNREAD//[^0-9.]/}^d^"
+
 

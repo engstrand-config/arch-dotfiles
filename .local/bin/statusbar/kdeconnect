@@ -20,8 +20,10 @@ BATTERYPATH="/modules/kdeconnect/devices/$DEVICE_ID"
 
 CHARGE=$(dbus-send --print-reply --dest=$DESTINATION $BATTERYPATH $IBATTERY | grep 'int32 ..' | awk '{print $2}')
 
-if [ ! -z "$CHARGE" ]; then
-  if [ "$CHARGE" -ge 0 ] && [ "$CHARGE" -le 100 ]; then
-    echo " $CHARGE %"
-  fi
-fi
+[[ ! -z "$CHARGE" ]] && echo " ${CHARGE//[^0-9.]/} %"
+
+# if [ ! -z "$CHARGE" ]; then
+#   if [ "$CHARGE" -ge 0 ] && [ "$CHARGE" -le 100 ]; then
+#     echo " $CHARGE %"
+#   fi
+# fi
