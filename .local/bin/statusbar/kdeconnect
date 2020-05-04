@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # NOTE:
 # To use this block, set export KDE_DEVICE_ID="<your-device-id>"
@@ -11,7 +11,7 @@ case $BLOCK_BUTTON in
     1) kdeconnect-dmenu & ;;
     3) notify-send " KDE Connect module" "\- Shows battery level of your phone.
 - Left click opens kdeconnect-dmenu." & ;;
-esac;
+esac
 
 DESTINATION="org.kde.kdeconnect"
 BATTERYPATH="/modules/kdeconnect/devices/$(xgetres kde.deviceId)"
@@ -22,5 +22,5 @@ filter() {
   sed '1s/.*/ &/' | sed '/./ s/$/ %/' | sed 's/^[0-9]*//g'
 }
 
-[[ "$(qdbus $DESTINATION $BATTERYPATH $REACHABLE)" = "true" ]] && echo $(qdbus $DESTINATION $BATTERYPATH $IBATTERY) | filter
+[[ "$(qdbus $DESTINATION $BATTERYPATH $REACHABLE)" = "true" ]] && qdbus $DESTINATION $BATTERYPATH $IBATTERY | filter
 
