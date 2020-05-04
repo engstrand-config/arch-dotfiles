@@ -3,6 +3,6 @@
 for tty_id in {0..9}; do
   file_path="/dev/pts/$tty_id"
   if [ -e "$file_path" ]; then
-    printf "\e]4;256;$(xgetres foreground)\a\e]4;258;$(xgetres background)\a\e]4;259;$(xgetres foreground)\a" > $file_path
+    printf "\e]4;256;$(xgetres foreground)\a\e]4;258;$(xgetres backgroundLight)\a\e]4;259;$(xgetres foreground)\a" > $file_path
   fi
 done
