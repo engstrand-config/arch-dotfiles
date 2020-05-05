@@ -78,6 +78,7 @@ kde.deviceId:       $KDE_DEVICE_ID
 *.foreground:       $foreground
 *.background:       $background
 st.background:      $bg_light
+Sxiv.background:    $bg_light
 
 ! Customized pywal colors
 *.accent:           $color2
