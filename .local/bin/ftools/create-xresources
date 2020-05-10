@@ -28,6 +28,7 @@ fi
 # Create fallback values
 st_font_size=${PROFILE_ST_FONT_SIZE:-14}
 st_alpha=${PROFILE_ST_ALPHA:-0.9}
+st_background=${PROFILE_ST_BACKGROUND:-$bg_dark}
 
 dwm_bar_alpha=${PROFILE_DWM_BAR_ALPHA:-225}
 dwm_bar_height=${PROFILE_DWM_BAR_HEIGHT:-20}
@@ -77,7 +78,7 @@ kde.deviceId:       $KDE_DEVICE_ID
 *background:        $background
 *.foreground:       $foreground
 *.background:       $background
-st.background:      $bg_light
+st.background:      $st_background
 Sxiv.background:    $bg_light
 
 ! Customized pywal colors
