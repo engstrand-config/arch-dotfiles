@@ -147,11 +147,11 @@
     format = ""
 
 [News-app]
-    body = "News"
+    summary = "News"
     format = ""
 
 [ignore-steam-chat]
-    body = "Steam Chat"
+    summary = "Steam Chat"
     format = ""
 
 #[history-ignore]
