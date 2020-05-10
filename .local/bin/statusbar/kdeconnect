@@ -6,12 +6,18 @@
 # and copy the corresponding id.
 # Logout and it should be loaded automatically and a pairing request from
 # your phone to your computer should be accepted automatically
-
 case $BLOCK_BUTTON in
-    1) kdeconnect-dmenu & ;;
-    3) notify-send " KDE Connect module" "\- Shows battery level of your phone.
-- Left click opens kdeconnect-dmenu." & ;;
+        1) setsid "$TERMINAL" -e newsboat & ;;
+      	2) setsid newsup >/dev/null & ;;
+        3) notify-send " News module" "\- Shows unread news items
+- Left click opens newsboat
+- Middle click syncs RSS feeds" ;;
 esac
+# case $BLOCK_BUTTON in
+#     1) kdeconnect-dmenu & ;;
+#     3) notify-send " KDE Connect module" "\- Shows battery level of your phone.
+# - Left click opens kdeconnect-dmenu." & ;;
+# esac
 
 DESTINATION="org.kde.kdeconnect"
 BATTERYPATH="/modules/kdeconnect/devices/$(xgetres kde.deviceId)"
@@ -22,5 +28,6 @@ filter() {
   sed '1s/.*/ &/' | sed '/./ s/$/ %/' | sed 's/^[0-9]*//g'
 }
 
-[[ "$(qdbus $DESTINATION $BATTERYPATH $REACHABLE)" = "true" ]] && qdbus $DESTINATION $BATTERYPATH $IBATTERY | filter
+[[ "$(qdbus $DESTINATION $BATTERYPATH $REACHABLE)" = "true" ]] &&
+  qdbus $DESTINATION $BATTERYPATH $IBATTERY | filter
 

@@ -1,6 +1,5 @@
 #!/bin/sh
 
-ECONNECTED=$(cat /sys/class/net/e*/operstate)
-
-[ "$ECONNECTED" = 'down' ] || echo ""
+[ "$(cat /sys/class/net/e*/operstate)" = 'down' ] ||
+  echo ""
 
