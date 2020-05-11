@@ -1,2 +1,2 @@
 #!/bin/sh
-dmenu -p "$1" <&- && echo
+dmenu -P -u -p "$1" <&- && echo
