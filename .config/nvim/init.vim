@@ -9,6 +9,8 @@ endif
 
 call plug#begin(stdpath('data') . '/plugged')
 
+Plug 'mhinz/vim-startify'
+
 Plug 'dylanaraps/wal.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -154,8 +156,8 @@ vnoremap <C-c> "+y
 map <C-p> "+P
 
 " Should be moved /Johan
-nnoremap <leader>r :!bash ~/Repos/bionic-arm/arduino-code/recup<CR>
-nnoremap <leader>t :!bash ~/Repos/bionic-arm/arduino-code/trup<CR>
+nnoremap <leader>r :!bash ~/repos/bionic-arm/arduino-code/recup<CR>
+nnoremap <leader>t :!bash ~/repos/bionic-arm/arduino-code/trup<CR>
 
 " Disable the arrow keys
 noremap <Up> <Nop>

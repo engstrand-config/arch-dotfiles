@@ -1,8 +1,8 @@
 # vim: filetype=neomuttrc
 
-auto_view text/html
-alternative_order text/html text/plain text/enriched
-set sidebar_visible = yes
+auto_view text/html text/calendar application/ics
+alternative_order text/html text/plain text/enriched text/*
+set sidebar_visible = no
 
 macro index,pager <space> "<view-attachments><search>html<enter><enter><exit><enter>" "Open HTML attachment in browser"
 macro index,pager J "<sidebar-next><sidebar-open>"
@@ -16,3 +16,16 @@ bind pager <Esc>      noop
 bind index <Esc>      exit
 bind index h          exit
 bind pager <Esc>      exit
+
+unset help
+set sort = threads
+set sort_aux = reverse-last-date-received
+set uncollapse_jump
+set date_format = "%d.%m.%Y %H:%M"
+
+unset confirmappend
+set quit
+unset mark_old
+unset mime_forward
+set askcc
+set fast_reply
