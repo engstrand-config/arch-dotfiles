@@ -155,10 +155,6 @@ nnoremap <leader>gs :call ToggleSignColumn()<CR>
 vnoremap <C-c> "+y
 map <C-p> "+P
 
-" Should be moved /Johan
-nnoremap <leader>r :!bash ~/repos/bionic-arm/arduino-code/recup<CR>
-nnoremap <leader>t :!bash ~/repos/bionic-arm/arduino-code/trup<CR>
-
 " Disable the arrow keys
 noremap <Up> <Nop>
 noremap <Down> <Nop>
