@@ -25,7 +25,7 @@ dwmc xrdb
 themer -u >/dev/null 2>&1
 
 # Tell Pywalfox-extension to update the colors
-python ~/repos/pywalfox/daemon/pywalfox.py update
+pywalfox update
 
 # Update the spotify theme
 spicetify update >/dev/null 2>&1
