@@ -4,6 +4,9 @@
 # The settings are reset by something on login, so we need to wait a bit before updating the settings.
 sleep 1 && alsactl --file ~/.config/asound.state restore
 
+killall picom
+xcompmgr &
+
 firefox &
 tidal-hifi &
 ferdi &
