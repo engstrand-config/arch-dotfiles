@@ -422,13 +422,13 @@ empty_tag_color = magenta
 #
 main_window_color = white
 #
-#color1 = white
+color1 = white
 #
 #color2 = green
 #
 progressbar_color = black:b
 #
-progressbar_elapsed_color = blue:b
+progressbar_elapsed_color = yellow:b
 #
 statusbar_color = red
 #
