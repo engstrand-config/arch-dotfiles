@@ -10,3 +10,4 @@ export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput se
 
 eval "$(thefuck --alias)"
 
+PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'

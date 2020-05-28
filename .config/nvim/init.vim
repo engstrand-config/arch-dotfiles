@@ -45,7 +45,7 @@ set nocompatible
 set encoding=utf-8
 set number relativenumber
 set splitbelow splitright
-" set title
+set title
 
 set signcolumn=no
 set updatetime=300
