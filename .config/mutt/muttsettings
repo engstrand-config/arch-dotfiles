@@ -2,7 +2,6 @@
 
 auto_view text/html text/calendar application/ics
 alternative_order text/html text/plain text/enriched text/*
-set sidebar_visible = no
 
 macro index,pager <space> "<view-attachments><search>html<enter><enter><exit><enter>" "Open HTML attachment in browser"
 macro index,pager J "<sidebar-next><sidebar-open>"
@@ -16,9 +15,6 @@ bind pager <Esc>      noop
 bind index <Esc>      exit
 bind index h          exit
 bind pager <Esc>      exit
-
-set abort_key = <Esc>
-set abort_backspace = no
 
 unset help
 set sort = threads
@@ -45,17 +41,28 @@ color index           bold white default "~N"
 color index_author    bold white default "~N"
 color index_subject   bold white default "~N"
 
+set abort_key = <Esc>
+set abort_backspace = no
 
+set sidebar_visible = no
 set sidebar_short_path
 
 set ts_enabled = yes
 set ts_icon_format = "neomutt: %?m?%m messages&no messages?%?n? (%n new)?"
-set index_format = " %S  %T  %D %-35.35L %?X?&·? %s %> "
+set index_format = " %S  %T  %D %-35.35L %?X?& ? %s %> "
 # (%?l?%4l&%4c?)
 
 # not addressed to me, only to me, appear in To:, appear in CC, \
 # sent by me, mailing list, appear in Reply-To
-set to_chars="  "
+set to_chars="\
+ \
+ \
+\
+\
+\
+\
+\
+"
 
 # mail is tagged, important, deletion, attachments marked for deletion, \
 # been replied to, old, new, thread old, thread new, %S expando, %Z expando
@@ -64,15 +71,32 @@ set flag_chars = "     "
 # color status black white "^[^\s]+"
 color status color6 black
 
-set pager_format=" %n %s%*  %T    %D %H%M %?X?  %X ? %P  %l "
-
-# whitespaces are important! ,, are used as "control characters"
-set status_format = " \
-%f \
+# whitespaces are important! , , ,  are used as invisible "control characters"
+set pager_format= "\
+ PAGER \
 \
-neomutt \
-%?r?|? %?r?%r?\
-%>  \
+%?X? ?\
+%s \
+%?T?%T?\
+%* \
+\
+\
+%n | \
+%D\
+\
+ %P \
+ %cr \
+"
+
+# whitespaces are important! , , ,  are used as invisible "control characters"
+set status_format = "\
+ INDEX \
+\
+%f\
+\
+%?r?| %r?\
+%> \
+\
 %?d?  %d?%?d? | ?\
 %?p?  %p?%?p? | ?\
 %?F?  %F?%?F? | ?\
@@ -81,7 +105,8 @@ neomutt \
   %m\
 \
  %P \
- %l "
+ %l \
+"
 
 set vfolder_format = " %N %?n?%3n&   ?  %8m  · %f"
 set attach_format = "%u%D  %T%-75.75d %?T?%&   ? %5s · %m/%M"
@@ -105,8 +130,7 @@ tag-formats "replied" "GR" \
 
 color status black black
 color status black color1 '(.*?)' 1
-color status color6 black 'neomutt'
-color status black black '\|  '
+color status color6 black '(.*?)' 1
 color status color6 black '\| \+ '
 color status white black '(.*?)' 1
 color status black color4 '( \S+.)' 1
