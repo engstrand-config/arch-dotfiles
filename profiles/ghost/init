@@ -1,5 +1,3 @@
-NEXTCLOUD="192.168.1.9"
-
 mpd-module-update &
 
 xrandr --output HDMI-A-1 --set vrr_capable 1 &
