@@ -18,6 +18,7 @@ bind index h          exit
 bind pager <Esc>      exit
 
 set abort_key = <Esc>
+set abort_backspace = no
 
 unset help
 set sort = threads
@@ -63,9 +64,24 @@ set flag_chars = "     "
 # color status black white "^[^\s]+"
 color status color6 black
 
-# set index_format=" %zs %zc %zt %{!%d %b} . %-28.28L  %?M?(%1M)&  ? %?X?&·? %s"
-set pager_format=" %n%zc%s%*  %T    %D %H%M %?X?  %X ? %P  "
-set status_format = " %f neomutt |%?r? %r?    %> %?d?   %d? %?F?   %F? %?t?   %t ?%?n?   %n?    %m  %?p?   %p ? | %P "
+set pager_format=" %n %s%*  %T    %D %H%M %?X?  %X ? %P  %l "
+
+# whitespaces are important! ,, are used as "control characters"
+set status_format = " \
+%f \
+\
+neomutt \
+%?r?|? %?r?%r?\
+%>  \
+%?d?  %d?%?d? | ?\
+%?p?  %p?%?p? | ?\
+%?F?  %F?%?F? | ?\
+%?t?  %t?%?t? | ?\
+%?n?  %n?%?n? | ?\
+  %m\
+\
+ %P \
+ %l "
 
 set vfolder_format = " %N %?n?%3n&   ?  %8m  · %f"
 set attach_format = "%u%D  %T%-75.75d %?T?%&   ? %5s · %m/%M"
@@ -87,15 +103,11 @@ tag-formats "replied" "GR" \
             "signed" "GS" \
             "attachment" "GA" \
 
-color status black color1 '(.*?)' 1
-color status black black ''
-color status black blue '\s* [0-9]+\s*'
-# Enough empty space between left and right sides -> white foreground
-color status white black '(   ).*$'
-# color status yellow black '()\s*\s*[0-9]+\s*' 1
-# color status black yellow '\s*\s*[0-9]+\s*'
-# color status blue yellow '() ([0-9]+%|all|end) \s*' 1
-# color status black blue ' ([0-9]+%|all|end) \s*'
-# color status yellow black '()\s*' 1
-# color status black black ''
+color status black black
+color status black color1 '(.*?)' 1
+color status color6 black 'neomutt'
 color status black black '\|  '
+color status color6 black '\| \+ '
+color status white black '(.*?)' 1
+color status black color4 '( \S+.)' 1
+color status black color1 '\s\S+.$'
