@@ -29,49 +29,88 @@ unset mime_forward
 set askcc
 set fast_reply
 
+set ts_enabled = yes
+set ts_icon_format = "neomutt: %?m?%m messages&no messages?%?n? (%n new)?"
+
+# command line behave more like vim
+set abort_key = <Esc>
+set abort_backspace = no
+
 ignore subject
 unignore to cc
 unignore organization organisation x-mailer: x-newsreader: x-mailing-list:
 unignore posted-to:
 
-# color index_author bold default default "~f uu.se"
-# color index_subject bold default default "~f uu.se"
-
-color index           bold white default "~N"
-color index_author    bold white default "~N"
-color index_subject   bold white default "~N"
-
-set abort_key = <Esc>
-set abort_backspace = no
-
-set sidebar_visible = no
-set sidebar_short_path
-
-set ts_enabled = yes
-set ts_icon_format = "neomutt: %?m?%m messages&no messages?%?n? (%n new)?"
-set index_format = " %S  %T  %D %-35.35L %?X?& ? %s %> "
-# (%?l?%4l&%4c?)
-
 # not addressed to me, only to me, appear in To:, appear in CC, \
 # sent by me, mailing list, appear in Reply-To
-set to_chars="\
- \
- \
-\
-\
-\
-\
-\
-"
+set to_chars="  "
 
 # mail is tagged, important, deletion, attachments marked for deletion, \
 # been replied to, old, new, thread old, thread new, %S expando, %Z expando
 set flag_chars = "     "
 
-# color status black white "^[^\s]+"
-color status color6 black
+# unchanged mailbox, changed, read only, attach mode
+set status_chars = " +"
+ifdef crypt_chars set crypt_chars = " "
+
+set hidden_tags = "unread,draft,flagged,passed,replied,attachment,signed,encrypted"
+tag-transforms "replied" "↻ "  \
+               "encrytpted" "" \
+               "signed" "" \
+               "attachment" "" \
+
+# The formats must start with 'G' and the entire sequence is case sensitive.
+tag-formats "replied" "GR" \
+            "encrypted" "GE" \
+            "signed" "GS" \
+            "attachment" "GA" \
+
+
+set sidebar_visible = no
+set sidebar_short_path
+set sidebar_width = 25
+set sidebar_divider_char = ' '
+set sidebar_short_path
+set sidebar_delim_chars="/"
+set sidebar_folder_indent
+set sidebar_indent_string="  "
 
 # whitespaces are important! , , ,  are used as invisible "control characters"
+set sidebar_format = " %B%* %?F?  %F? %?N?  %N&    ?  %4S "
+set vfolder_format = " %N %?n?%3n&   ?  %8m  · %f"
+set attach_format = "%T%-65.65d %> %m/%M (%s)"
+set index_format = " %S  %T  %D %-35.35L %?X?& ? %s"
+set folder_format = "%2C %t %N %F %2l %-8.8u %-8.8g %8s %d %i"
+set compose_format = "\
+ COMPOSE \
+\
+\
+%> \
+\
+%?a?  %a?\
+\
+ %l \
+"
+
+set status_format = "\
+ INDEX \
+\
+%f\
+\
+%?r?| %r?\
+%> \
+\
+%?d?  %d?%?d? | ?\
+%?n?  %n?%?n? | ?\
+%?p?  %p?%?p? | ?\
+%?F?  %F?%?F? | ?\
+%?t?  %t?%?t? | ?\
+  %m\
+\
+ %P \
+ %l \
+"
+
 set pager_format= "\
  PAGER \
 \
@@ -87,50 +126,20 @@ set pager_format= "\
  %cr \
 "
 
-# whitespaces are important! , , ,  are used as invisible "control characters"
-set status_format = "\
- INDEX \
-\
-%f\
-\
-%?r?| %r?\
-%> \
-\
-%?d?  %d?%?d? | ?\
-%?p?  %p?%?p? | ?\
-%?F?  %F?%?F? | ?\
-%?t?  %t?%?t? | ?\
-%?n?  %n?%?n? | ?\
-  %m\
-\
- %P \
- %l \
-"
-
-set vfolder_format = " %N %?n?%3n&   ?  %8m  · %f"
-set attach_format = "%u%D  %T%-75.75d %?T?%&   ? %5s · %m/%M"
-
-# unchanged mailbox, changed, read only, attach mode
-set status_chars = " +"
-ifdef crypt_chars set crypt_chars = " "
-
-
-set hidden_tags = "unread,draft,flagged,passed,replied,attachment,signed,encrypted"
-tag-transforms "replied" "↻ "  \
-               "encrytpted" "" \
-               "signed" "" \
-               "attachment" "" \
-
-# The formats must start with 'G' and the entire sequence is case sensitive.
-tag-formats "replied" "GR" \
-            "encrypted" "GE" \
-            "signed" "GS" \
-            "attachment" "GA" \
-
-color status black black
-color status black color1 '(.*?)' 1
-color status color6 black '(.*?)' 1
-color status color6 black '\| \+ '
-color status white black '(.*?)' 1
-color status black color4 '( \S+.)' 1
-color status black color1 '\s\S+.$'
+color index             bold    white   default   "~N"
+color index_author      bold    white   default   "~N"
+color index_subject     bold    white   default   "~N"
+color status                    black   black
+color status                    black   color1    '(.*?)' 1
+color status                    color6  black     '(.*?)' 1
+color status                    color6  black     '\| \+ '
+color status                    white   black     '(.*?)' 1
+color status                    black   color4    '( \S+.)' 1
+color status                    black   color1    '\s\S+.$'
+color sidebar_highlight         black   white
+color sidebar_unread    bold    white   default
+color sidebar_spoolfile         color3  default
+color sidebar_new               color3  default
+color sidebar_ordinary          color3  default
+color sidebar_flagged           color3  default
+uncolor sidebar_divider
