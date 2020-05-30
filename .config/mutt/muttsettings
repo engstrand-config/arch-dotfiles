@@ -29,7 +29,7 @@ unset mime_forward
 set askcc
 set fast_reply
 
-ignore *
+ignore subject
 unignore to cc
 unignore organization organisation x-mailer: x-newsreader: x-mailing-list:
 unignore posted-to:
@@ -81,8 +81,7 @@ set pager_format= "\
 %* \
 \
 \
-%n | \
-%D\
+%n\
 \
  %P \
  %cr \
