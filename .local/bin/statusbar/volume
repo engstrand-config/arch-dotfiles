@@ -12,7 +12,8 @@ esac
 
 [ "$(pulsemixer --get-mute)" = "1" ] && echo "^c$(xgetres critical)^^d^" && exit
 
-vol=$(pulsemixer --get-volume | awk '{print $1}')
+vol=$(pulsemixer --get-volume)
+vol=${vol%% *}
 
 if [ "$vol" -ge "50" ]; then
 	icon=""
