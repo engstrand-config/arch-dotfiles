@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 
+# Tell Pywalfox-extension to update the colors
+pywalfox update
+
 # Create the new .Xresources file
 create-xresources
 
-# wpgtk seems to not be able to set the wallpaper properly, so we do it manually on changes
-setbg "$(xgetres wallpaper)" >/dev/null 2>&1
-
-# Fix the white background issue
-# https://github.com/LukeSmithxyz/st/issues/163
-# https://github.com/LukeSmithxyz/st/issues/142
-tty-live-reload-fix
+# Tell dwm to update Xresources
+dwmc xrdb
 
 # Generate updated config files
 make-ferdi-config >/dev/null 2>&1
@@ -18,14 +16,8 @@ make-zathura-config >/dev/null 2>&1
 # Create new dunst config and restart
 restart-dunst >/dev/null 2>&1
 
-# Tell dwm to update Xresources
-dwmc xrdb
-
 # Update the selected colorscheme
 themer -u >/dev/null 2>&1
-
-# Tell Pywalfox-extension to update the colors
-pywalfox update
 
 # Update the spotify theme
 spicetify update >/dev/null 2>&1

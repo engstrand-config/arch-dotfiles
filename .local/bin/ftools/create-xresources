@@ -28,7 +28,7 @@ fi
 # Create fallback values
 st_font_size=${PROFILE_ST_FONT_SIZE:-14}
 st_alpha=${PROFILE_ST_ALPHA:-0.9}
-st_background=${PROFILE_ST_BACKGROUND:-$bg_dark}
+st_background=${PROFILE_ST_BACKGROUND:-$background}
 
 dwm_bar_alpha=${PROFILE_DWM_BAR_ALPHA:-225}
 dwm_bar_height=${PROFILE_DWM_BAR_HEIGHT:-20}
