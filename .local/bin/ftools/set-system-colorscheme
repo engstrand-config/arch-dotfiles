@@ -21,3 +21,6 @@ spicetify update >/dev/null 2>&1
 
 # Update the selected colorscheme
 themer -u >/dev/null 2>&1
+
+# wpgtk seems to not be able to set the wallpaper properly, so we do it manually on changes
+setbg "$(xgetres wallpaper)" >/dev/null 2>&1
