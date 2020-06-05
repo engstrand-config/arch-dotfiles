@@ -16,9 +16,8 @@ make-zathura-config >/dev/null 2>&1
 # Create new dunst config and restart
 restart-dunst >/dev/null 2>&1
 
-# Update the selected colorscheme
-themer -u >/dev/null 2>&1
-
 # Update the spotify theme
 spicetify update >/dev/null 2>&1
 
+# Update the selected colorscheme
+themer -u >/dev/null 2>&1
