@@ -195,6 +195,8 @@ hi CssNoise ctermfg=4
 " --------------------------------------
 "              Autocommands
 " --------------------------------------
+command Todo noautocmd vimgrep /TODO\|FIXME/j ** | cw
+
 " Automatically deletes all trailing whitespace on save.
 autocmd BufWritePre * %s/\s\+$//e
 
