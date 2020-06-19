@@ -47,6 +47,9 @@ set number relativenumber
 set splitbelow splitright
 set title
 
+" No need to show '-- INSERT --' because of lightline
+set noshowmode
+
 set signcolumn=no
 set updatetime=300
 
