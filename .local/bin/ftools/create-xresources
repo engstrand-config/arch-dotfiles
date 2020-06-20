@@ -1,17 +1,15 @@
 #!/usr/bin/env bash
 
 # Paths
-WAL_CACHE_COLORS="${HOME}/.cache/wal/colors.sh"
 PROFILE_EXPORTS_PATH="${HOME}/.dotfiles/profiles/$(whoami)/exports"
 COLORPICKER_PATH=~/.dotfiles/.local/bin/ftools/python/colorpicker.py
-XRESOURCES_TEMPLATE_PATH=~/.dotfiles/template.Xresources
 XRESOURCES_PATH=~/.Xresources
-WALLPAPER_PATH="${HOME}/.dotfiles/.local/share/default.png"
 
 # Source the generated pywal colors
-. "$WAL_CACHE_COLORS"
+. "${HOME}/.cache/wal/colors.sh"
 
 # Generate more shades of pywal colors
+# Must be defined before sourcing the profile exports
 success=$(python $COLORPICKER_PATH "$color2" "success")
 warning=$(python  "$COLORPICKER_PATH" "$color2" "warning")
 critical=$(python  "$COLORPICKER_PATH" "$color2" "critical")
@@ -20,7 +18,7 @@ bg_light=$(python $COLORPICKER_PATH "$background" "lighter")
 bg_dark=$(python $COLORPICKER_PATH "$background" "darker")
 bg_main=$(python $COLORPICKER_PATH "$color2" "darker" 140)
 
-# Source the profile exports, if defined
+# Source the profile exports, if it exists
 if [ -f "$PROFILE_EXPORTS_PATH" ]; then
   . "$PROFILE_EXPORTS_PATH"
 fi
@@ -79,7 +77,7 @@ kde.deviceId:       $KDE_DEVICE_ID
 *.foreground:       $foreground
 *.background:       $background
 st.background:      $st_background
-Sxiv.background:    $bg_light
+Sxiv.background:    $st_background
 
 ! Customized pywal colors
 *.accent:           $color2
