@@ -34,4 +34,6 @@ color status                    color3  black     'Hjälp för.*?%)'  # Help men
 set ts_enabled = yes
 set ts_icon_format = "neomutt: %?m?%m messages&no messages?%?n? (%n new)?"
 
+set query_command = "khard email --parsable --search-in-source-files '%s'"
+
 source ~/repos/neomutt-lightline/lightline.neomuttrc
