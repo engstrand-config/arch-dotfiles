@@ -2,4 +2,7 @@ mpd-module-update &
 
 xrandr --output HDMI-A-1 --set vrr_capable 1 &
 xrandr -r 144 &
+
 sudo ds4-bar-disable &
+
+vdirsyncer sync
