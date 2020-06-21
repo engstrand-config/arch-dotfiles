@@ -1,0 +1,38 @@
+[general]
+status_path = "~/.config/vdirsyncer/status/"
+
+[pair my_contacts]
+a = "my_contacts_local"
+b = "my_contacts_remote"
+collections = ["from a", "from b"]
+conflict_resolution = "b wins"
+
+[storage my_contacts_local]
+type = "filesystem"
+path = "~/.contacts/"
+fileext = ".vcf"
+
+[storage my_contacts_remote]
+type = "carddav"
+
+url = ""
+username = ""
+password = ""
+
+[pair my_calendar]
+a = "my_calendar_local"
+b = "my_calendar_remote"
+collections = ["from a", "from b"]
+conflict_resolution = "b wins"
+
+[storage my_calendar_local]
+type = "filesystem"
+path = "~/Documents/Calendar/"
+fileext = ".ics"
+
+[storage my_calendar_remote]
+type = "caldav"
+
+url = ""
+username = ""
+password = ""
