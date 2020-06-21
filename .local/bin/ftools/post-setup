@@ -34,6 +34,9 @@ if [ -f "$WPG_CONF_PATH" ]; then
    rm $WPG_CONF_PATH
 fi
 
+# Install gtk theme
+wpg-install.sh -gi
+
 # Theme grub
 sudo sed -i 's+#GRUB_THEME="/path/to/gfxtheme"+GRUB_THEME="/boot/grub/themes/arch-silence/theme.txt"+g' /etc/default/grub
 
