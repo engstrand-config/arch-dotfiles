@@ -5,11 +5,11 @@
 sleep 1 && alsactl --file ~/.config/asound.state restore
 
 killall picom
-xcompmgr &
 
 firefox &
-tidal-hifi &
+spotify &
 ferdi &
 espanso daemon &
+xcompmgr &
 
 
