@@ -1,12 +1,12 @@
-NEXTCLOUD="192.168.1.9"
 xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --auto
 xrandr --dpi 96
 xrandr --output eDP1 --primary
-#nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"
 
 /* loop to update mpd */
 mpd-module-update &
+
+vdirsyncer sync
 
 /* add this command to visudo... */
 sudo audiofix

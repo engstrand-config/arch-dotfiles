@@ -1,21 +1,25 @@
 #!/usr/bin/env bash
 
 BIN_PATH=~/.dotfiles/.local/bin/ftools
+WPG_CONF_PATH=~/.dotfiles/.config/wpg/wpg.conf
+CRON_PATH=~/.dotfiles/profiles/$(whoami)/my-crontab
 
 # Install python packages
 curl https://bootstrap.pypa.io/get-pip.py -o ~/get-pip.py
 sudo python get-pip.py
 rm ~/get-pip.py
 
-sudo pip install pywal
-sudo pip install wal-steam
-sudo pip install requests
-sudo pip install untangle
-sudo pip3 install wpgtk
-sudo pip install yapf
+# wpgtk requires installation using sudo
+sudo pip install wpgtk
 
 # Add support for python3 in vim (required by nvim)
-pip3 install --user pynvim
+pip install --user pynvim
+
+pip install --user pywal
+pip install --user pywalfox
+pip install --user requests
+pip install --user untangle
+pip install --user yapf
 
 # Install formatters for JS, HTML, CSS, JSON and Python (used in vim with vim-autoformat)
 npm install -g js-beautify
@@ -26,10 +30,12 @@ rm ~/.bash_profile
 rm ~/.bashrc
 
 # Remove the default wpg.conf so that we can symlink the one in our dotfiles
-WPG_CONF_PATH=~/.dotfiles/.config/wpg/wpg.conf
 if [ -f "$WPG_CONF_PATH" ]; then
    rm $WPG_CONF_PATH
 fi
+
+# Install gtk theme
+wpg-install.sh -gi
 
 # Theme grub
 sudo sed -i 's+#GRUB_THEME="/path/to/gfxtheme"+GRUB_THEME="/boot/grub/themes/arch-silence/theme.txt"+g' /etc/default/grub
@@ -46,13 +52,7 @@ sudo ufw reload
 # Install FARBS
 git clone https://github.com/Frewacom/FARBS.git ~/repos/farbs
 
-# Install Pywalfox
-git clone https://github.com/Frewacom/Pywalfox.git ~/repos/pywalfox
-
-# Install wallpapers
-git clone https://github.com/Frewacom/wallpapers.git ~/repos/wallpapers
-
-# Install dwm fork
+# Install dwm
 git clone https://github.com/Frewacom/dwm.git ~/repos/dwm
 
 # Install dwmblocks
@@ -60,6 +60,9 @@ git clone https://github.com/Frewacom/dwmblocks.git ~/repos/dwmblocks
 
 # Install dmenu
 git clone https://github.com/Frewacom/dmenu.git ~/repos/dmenu
+
+# Install wallpapers
+git clone https://github.com/Frewacom/wallpapers.git ~/repos/wallpapers
 
 # Run themer and apply the default colorscheme
 bash $BIN_PATH/themer -i ~/repos/wallpapers/default.jpg
@@ -70,9 +73,6 @@ git remote set-url origin git@github.com:Frewacom/FARBS-dotfiles.git
 
 cd ~/repos/farbs
 git remote set-url origin git@github.com:Frewacom/FARBS.git
-
-cd ~/repos/pywalfox
-git remote set-url origin git@github.com:Frewacom/Pywalfox.git
 
 cd ~/repos/wallpapers
 git remote set-url origin git@github.com:Frewacom/wallpapers.git
@@ -90,7 +90,6 @@ git remote set-url origin git@github.com:Frewacom/dmenu.git
 sudo make install
 
 # Enable the user defined crontab
-CRON_PATH=~/.dotfiles/profiles/$(whoami)/my-crontab
 if [ -f "$CRON_PATH" ]; then
   crontab $CRON_PATH
 fi
@@ -115,5 +114,3 @@ bash $BIN_PATH/symlink-dotfiles
 rm ~/post-setup
 
 echo "Log out and log back in again for changes to take effect"
-
-

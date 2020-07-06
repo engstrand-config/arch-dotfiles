@@ -7,7 +7,7 @@ WCONNECTED=$(cat /sys/class/net/w*/operstate)
 if [ "$WCONNECTED" = 'down' ]; then
   printf "^c$(xgetres critical)^"
 else
-  SSID=$(nmcli device show | grep "$INTERFACE" -m 1 -A 5 | grep GENERAL.CONNECTION: -m 1 | awk '{print $2}')
+  SSID=$(nmcli device show | grep "$INTERFACE" -m 1 -A 5 | grep GENERAL.CONNECTION: -m 1 | awk '{ print $2 }' )
   SIGNAL=$(grep "^\s*w" /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
   if [ "$SIGNAL" -lt 30 ]; then
     printf ^c$(xgetres critical)^

@@ -48,16 +48,24 @@ get_current_colorscheme() {
 
 export_saved_colorscheme() {
   current_colorscheme=$(get_current_colorscheme)
-  name=$(get_filename $current_colorscheme)
-  mv "$USED_COLORSCHEMES_PATH/$name" "$COLORSCHEMES_PATH/$name"
-  set_current_colorscheme "$COLORSCHEMES_PATH/$name"
+
+  if [ "${current_colorscheme%\/*}" != "$HOME/.dotfiles/colorschemes" ]; then
+    name=$(get_filename $current_colorscheme)
+    mv "$USED_COLORSCHEMES_PATH/$name" "$COLORSCHEMES_PATH/$name"
+    set_current_colorscheme "$COLORSCHEMES_PATH/$name"
+  else
+    export_wpg_json "$(wpg -c)" "$current_colorscheme"
+  fi
 }
 
 update_saved_colorscheme()
 {
-  image_path=$(wpg -c)
   current_colorscheme=$(get_current_colorscheme)
-  export_wpg_json "$image_path" "$current_colorscheme"
+
+  # We only want to update local colorschemes automatically
+  if [ "${current_colorscheme%\/*}" != "$HOME/.dotfiles/colorschemes" ]; then
+    export_wpg_json "$(wpg -c)" "$current_colorscheme"
+  fi
 }
 
 set_current_colorscheme()
@@ -88,7 +96,6 @@ generate_colorscheme()
 
 set_colorscheme()
 {
-  wpg -a "$image"
   wpg -i "$image" "$1"
   rm "${image}_wal_sample.png" # wpg creates a sample for some reason
 }

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 filter() {
-  [ "$(pidof dwmblocks)" ] && sed "/^volume:/d" | sed '1s/.*/ &/' | sed '2q' | sed -e "s/\\&/&amp;/g;s/\\[paused\\].*/\^c$(xgetres critical)^/g;s/\\[playing\\].*//" | tac | tr -d '\n' | cut -c 1-43 | sed 's/ *$//' | sed '/./ s/$/^d^/'
+  [ "$(pidof dwmblocks)" ] && sed "/^volume:/d" | sed '1s/.*/ &/' | sed '2q' | sed -e "s/\\&/&amp;/g;s/\\[paused\\].*/\^c$(xgetres critical)^/g;s/\\[playing\\].*//" | tac | tr -d '\n' | cut -c 1-93 | sed 's/ *$//' | sed '/./ s/$/^d^/'
 	}
 
 case $BLOCK_BUTTON in

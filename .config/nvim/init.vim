@@ -47,6 +47,9 @@ set number relativenumber
 set splitbelow splitright
 set title
 
+" No need to show '-- INSERT --' because of lightline
+set noshowmode
+
 set signcolumn=no
 set updatetime=300
 
@@ -192,9 +195,14 @@ hi Pmenu ctermbg=0 ctermfg=3
 " Fix the coloring of ; and : in CSS-files
 hi CssNoise ctermfg=4
 
+" This line enables the true color support.
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
 " --------------------------------------
 "              Autocommands
 " --------------------------------------
+command Todo noautocmd vimgrep /TODO\|FIXME/j ** | cw
+
 " Automatically deletes all trailing whitespace on save.
 autocmd BufWritePre * %s/\s\+$//e
 

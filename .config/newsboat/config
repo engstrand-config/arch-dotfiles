@@ -28,16 +28,16 @@ toggleitemread-jumps-to-next-unread yes
 prepopulate-query-feeds yes
 goto-next-feed yes
 
-feedlist-title-format "%N %>   %u |   %t "
-articlelist-title-format  "%N - %T %>   %u |   %t "
-searchresult-title-format "%N - Search result %>   %u |   %t "
-filebrowser-title-format "%N - %?O?Open File&Save File? - %f "
-help-title-format "%N -   Help %> v%V "
-selecttag-title-format "%N -   Tag selection"
-selectfilter-title-format "%N -   Filter selection"
-itemview-title-format "%N - %T %> %F |   %u |   %t "
-urlview-title-format "%N -   URLs "
-dialogs-title-format "%N -   Dialogs"
+feedlist-title-format " FEEDS %>█  %u   %t "
+articlelist-title-format  " ARTICLES %>█ %T |  %u   %t "
+searchresult-title-format " SEARCH %>█  %u   %t "
+filebrowser-title-format " %?O?Open File&Save File? - %f "
+help-title-format " HELP %>█ %N v%V "
+selecttag-title-format "   Tag selection"
+selectfilter-title-format "   Filter selection"
+itemview-title-format " READER %>█ \"%T\" | %F "
+urlview-title-format "   URLs "
+dialogs-title-format "   Dialogs"
 
 feedlist-format " %n %11u %t"
 articlelist-format  " %f %D   %?T?|%-17T|  ?%t"
@@ -65,11 +65,11 @@ bind-key x    pb-delete
 bind-key ^W   toggle-show-read-feeds
 
 # formatting and colorization ------------------------------------------
-color listnormal magenta default
+color listnormal red default
 color listfocus white black standout bold
 color listnormal_unread white default bold
 color listfocus_unread white black standout bold
-color info magenta black bold
+color info black red
 color article white default
 
 highlight article     "\\[[0-9][0-9]*\\]"                   default  default  bold
