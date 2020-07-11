@@ -142,6 +142,10 @@
     summary = "Frost"
     format = ""
 
+[kde-ignore-fairemail-notifications]
+    summary = "FairEmail"
+    format = ""
+
 [mutt-number-of-mails]
     body = "*new mail(s)*"
     format = ""
