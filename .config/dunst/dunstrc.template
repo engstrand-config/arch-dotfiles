@@ -158,6 +158,10 @@
     summary = "Steam Chat"
     format = ""
 
+[steam-twofactor]
+    summary = "Steam"
+    script = steam-twofactor
+
 #[history-ignore]
 #    # This notification will not be saved in history
 #    summary = "foobar"
