@@ -52,8 +52,8 @@
             "state": "true",
             "input-gain": "0",
             "output-gain": "0",
-            "amount": "5",
-            "harmonics": "7.9999999999999893",
+            "amount": "9",
+            "harmonics": "5",
             "scope": "100",
             "floor": "20",
             "blend": "0",
@@ -417,7 +417,7 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "0",
+                    "gain": "7.2000000000000002",
                     "frequency": "28",
                     "q": "1.6100000000000001"
                 },
@@ -427,9 +427,9 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "true",
-                    "gain": "0",
-                    "frequency": "28",
-                    "q": "1.5900000000000001"
+                    "gain": "4.0999999999999996",
+                    "frequency": "722",
+                    "q": "1.1499999999999999"
                 },
                 "band2": {
                     "type": "Bell",
@@ -437,9 +437,9 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "0",
-                    "frequency": "23",
-                    "q": "0.01"
+                    "gain": "-4.9000000000000004",
+                    "frequency": "5767",
+                    "q": "7.2300000000000004"
                 },
                 "band3": {
                     "type": "Bell",
@@ -447,9 +447,9 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "0",
-                    "frequency": "45.07",
-                    "q": "4.3600000000000003"
+                    "gain": "-9.0999999999999996",
+                    "frequency": "8805",
+                    "q": "2.3399999999999999"
                 },
                 "band4": {
                     "type": "Bell",
@@ -457,9 +457,9 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "0",
-                    "frequency": "56.740000000000002",
-                    "q": "4.3600000000000003"
+                    "gain": "-8.1999999999999993",
+                    "frequency": "20991",
+                    "q": "1.8"
                 },
                 "band5": {
                     "type": "Bell",
@@ -467,9 +467,9 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "0",
-                    "frequency": "71.430000000000007",
-                    "q": "4.3600000000000003"
+                    "gain": "1.3999999999999999",
+                    "frequency": "45",
+                    "q": "0.67000000000000004"
                 },
                 "band6": {
                     "type": "Bell",
@@ -477,9 +477,9 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "0",
-                    "frequency": "89.930000000000007",
-                    "q": "4.3600000000000003"
+                    "gain": "-3.1000000000000001",
+                    "frequency": "93",
+                    "q": "1.25"
                 },
                 "band7": {
                     "type": "Bell",
@@ -487,9 +487,9 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "0",
-                    "frequency": "101",
-                    "q": "1.1499999999999999"
+                    "gain": "-4",
+                    "frequency": "2180",
+                    "q": "2.7599999999999998"
                 },
                 "band8": {
                     "type": "Bell",
@@ -497,9 +497,9 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "0",
-                    "frequency": "142.53",
-                    "q": "4.3600000000000003"
+                    "gain": "3.2000000000000002",
+                    "frequency": "4050",
+                    "q": "3.2400000000000002"
                 },
                 "band9": {
                     "type": "Bell",
@@ -507,9 +507,9 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "0",
-                    "frequency": "179.43000000000001",
-                    "q": "4.3600000000000003"
+                    "gain": "-3.7999999999999998",
+                    "frequency": "15382",
+                    "q": "3.6800000000000002"
                 },
                 "band10": {
                     "type": "Bell",
@@ -937,12 +937,12 @@
             "input-gain": "0",
             "output-gain": "0",
             "band0": {
-                "intensity": "5",
+                "intensity": "7",
                 "mute": "false",
                 "bypass": "false"
             },
             "band1": {
-                "intensity": "3",
+                "intensity": "5",
                 "mute": "false",
                 "bypass": "false"
             },
@@ -967,7 +967,7 @@
                 "bypass": "false"
             },
             "band6": {
-                "intensity": "0",
+                "intensity": "1",
                 "mute": "false",
                 "bypass": "false"
             },
@@ -982,7 +982,7 @@
                 "bypass": "false"
             },
             "band9": {
-                "intensity": "0",
+                "intensity": "1",
                 "mute": "false",
                 "bypass": "false"
             },
@@ -992,12 +992,12 @@
                 "bypass": "false"
             },
             "band11": {
-                "intensity": "0",
+                "intensity": "2",
                 "mute": "false",
                 "bypass": "false"
             },
             "band12": {
-                "intensity": "0",
+                "intensity": "3",
                 "mute": "false",
                 "bypass": "false"
             }
