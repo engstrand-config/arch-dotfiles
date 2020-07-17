@@ -1,0 +1,7 @@
+#!/bin/sh
+
+XORGDIR="/etc/X11/xorg.conf.d"
+STOREDIR="/home/johan/.dotfiles/profiles/johan/nvidia-crap"
+
+[ -f $XORGDIR/10-nvidia.conf ] && rm $XORGDIR/10-nvidia.conf || cp $STOREDIR/10-nvidia.conf $XORGDIR/
+[ -f $XORGDIR/10-nvidia-drm-outputclass.conf ] && rm $XORGDIR/10-nvidia-drm-outputclass.conf || cp $STOREDIR/10-nvidia-drm-outputclass.conf $XORGDIR/
