@@ -7,8 +7,8 @@ FILES=("10-nvidia.conf" "10-nvidia-drm-outputclass.conf")
 
 for f in ${FILES[*]}
 do
-[ -f $XORGDIR/$f ] && rm $XORGDIR/$f \
-  || cp $STOREDIR/$f $XORGDIR/
+[ -f $XORGDIR/$f ] && sudo rm $XORGDIR/$f \
+  || sudo cp $STOREDIR/$f $XORGDIR/
 done
 
 printf "\rnNVIDIA graphics "
