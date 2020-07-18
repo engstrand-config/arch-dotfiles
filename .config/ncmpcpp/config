@@ -80,7 +80,7 @@ message_delay_time = 1
 ## Note: colors can be nested.
 ##
 #
-song_list_format = "%t $R$2 %a   $4 %l $7"
+song_list_format = "%a - %t $R $4 %l $7"
 #
 # song_status_format = $b{{$8"%t"}} $3by {$4%a{ $3in $7%b{ (%y)}} $3}|{$8%f}
 song_window_title_format = "{%t} -- {%a} {"%b" (%y)}"
