@@ -1,0 +1,46 @@
+{
+	"live_retry_timeout": 60,
+	"preferred_language": "en",
+	"check_updates": true,
+	"save_logs": true,
+	"log_location": "",
+  "custom_playback_options": null,
+  "multi_commands": [
+    {
+      "title": "Main feed and favorite onboards",
+      "targets": [
+        {
+          "match_title": "Main Feed",
+          "command": ["mpv", "$url", "--fs", "--title=F1MAIN"]
+        },
+        {
+          "match_title": "Lando Norris",
+          "command": ["mpv", "$url", "--fs", "--mute", "--pause", "--title=F1NORRIS"]
+        },
+        {
+          "match_title": "Max Verstappen",
+          "command": ["mpv", "$url", "--fs", "--mute", "--pause", "--title=F1VERSTAPPEN"]
+        }
+      ]
+		}
+	],
+	"horizontal_layout": false,
+	"theme": {
+		"background_color": "",
+		"border_color": "",
+		"category_node_color": "",
+		"folder_node_color": "",
+		"item_node_color": "",
+		"action_node_color": "",
+		"loading_color": "",
+		"live_color": "",
+		"update_color": "",
+		"no_content_color": "",
+		"info_color": "",
+		"error_color": "",
+		"terminal_accent_color": "",
+		"terminal_text_color": ""
+	},
+	"tree_ratio": 2,
+	"output_ratio": 3
+}
