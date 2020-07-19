@@ -11,7 +11,7 @@ do
   || sudo cp $STOREDIR/$f $XORGDIR/
 done
 
-printf "\rnNVIDIA graphics "
+printf "\rNVIDIA graphics "
 [ -f $XORGDIR/10-nvidia.conf ] && printf "enabled" || printf "disabled"
 
 echo
