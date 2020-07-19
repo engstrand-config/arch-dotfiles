@@ -80,7 +80,7 @@ message_delay_time = 1
 ## Note: colors can be nested.
 ##
 #
-song_list_format = "%a - %t $R $4 %l $7"
+song_list_format = "%a - %t $R $5 %l $7"
 #
 # song_status_format = $b{{$8"%t"}} $3by {$4%a{ $3in $7%b{ (%y)}} $3}|{$8%f}
 song_window_title_format = "{%t} -- {%a} {"%b" (%y)}"
@@ -428,7 +428,7 @@ color1 = white
 #
 progressbar_color = black:b
 #
-progressbar_elapsed_color = yellow:b
+progressbar_elapsed_color = white:b
 #
 statusbar_color = red
 #
