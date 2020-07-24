@@ -46,6 +46,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 # Create rules for the firewall so that kdeconnect will work
 sudo ufw allow 1714:1764/udp
 sudo ufw allow 1714:1764/tcp
+sudo ufw allow 8000/tcp # Allow connections to local web server, e.g python -m http.server
 sudo ufw enable
 sudo ufw reload
 
