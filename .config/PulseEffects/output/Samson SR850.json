@@ -52,7 +52,7 @@
             "state": "true",
             "input-gain": "0",
             "output-gain": "0",
-            "amount": "9",
+            "amount": "7",
             "harmonics": "5",
             "scope": "100",
             "floor": "20",
@@ -992,12 +992,12 @@
                 "bypass": "false"
             },
             "band11": {
-                "intensity": "2",
+                "intensity": "1",
                 "mute": "false",
                 "bypass": "false"
             },
             "band12": {
-                "intensity": "3",
+                "intensity": "1",
                 "mute": "false",
                 "bypass": "false"
             }
