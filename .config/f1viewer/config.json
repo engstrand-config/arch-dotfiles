@@ -11,15 +11,15 @@
       "targets": [
         {
           "match_title": "Main Feed",
-          "command": ["mpv", "$url", "--fs", "--title=F1MAIN"]
+          "command": ["mpv", "$url", "--fs", "--saturation", "30", "--title=F1MAIN"]
         },
         {
           "match_title": "Lando Norris",
-          "command": ["mpv", "$url", "--fs", "--mute", "--pause", "--title=F1NORRIS"]
+          "command": ["mpv", "$url", "--fs", "--mute", "--pause", "--saturation", "30", "--title=F1NORRIS"]
         },
         {
           "match_title": "Max Verstappen",
-          "command": ["mpv", "$url", "--fs", "--mute", "--pause", "--title=F1VERSTAPPEN"]
+          "command": ["mpv", "$url", "--fs", "--mute", "--pause", "--saturation", "30", "--title=F1VERSTAPPEN"]
         }
       ]
 		}
