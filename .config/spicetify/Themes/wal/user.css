@@ -276,5 +276,23 @@ body
 }
 
 .glue-page-header--with-active-sticky-header .glue-page-header__sticky {
-    background-color: var(--modspotify_main_bg) !important;
+  background-color: var(--modspotify_main_bg) !important;
 }
+
+.Button--style-green {
+  background-color: var(--modspotify_secondary_fg);
+  color: var(--modspotify_main_bg);
+}
+
+.alert, .alert a {
+  color: var(--modspotify_main_bg);
+}
+
+.progress-bar, .progress-bar .inner {
+  background: var(--modspotify_scrollbar_fg_and_selected_row_bg);
+}
+
+.view-player .player-controls-container .progress-container .progress-bar .inner {
+  background-color: var(--modspotify_slider_bg);
+}
+
