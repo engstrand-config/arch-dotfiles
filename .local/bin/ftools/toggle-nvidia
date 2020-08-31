@@ -1,0 +1,20 @@
+#!/bin/sh
+
+XORGDIR="/etc/X11/xorg.conf.d"
+STOREDIR="/home/johan/.dotfiles/profiles/johan/nvidia-crap"
+
+FILES=("10-nvidia.conf" "10-nvidia-drm-outputclass.conf")
+
+for f in ${FILES[*]}
+do
+[ -f $XORGDIR/$f ] && sudo rm $XORGDIR/$f \
+  || sudo cp $STOREDIR/$f $XORGDIR/
+done
+
+printf "\rNVIDIA graphics "
+[ -f $XORGDIR/10-nvidia.conf ] && printf "enabled" || printf "disabled"
+
+echo
+
+
+

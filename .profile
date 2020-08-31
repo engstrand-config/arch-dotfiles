@@ -15,6 +15,7 @@ export NOTMUCH_CONFIG="$HOME/.config/notmuch-config"
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
 export STATUSBAR="dwmblocks"
 export _JAVA_AWT_WM_NONREPARENTING=1 # Logisim does not display correctly unless this is set
+export PASTEL_COLOR_MODE=8bit
 
 # less/man colors
 export LESS=-R

@@ -13,7 +13,7 @@ Plug 'mhinz/vim-startify'
 
 Plug 'dylanaraps/wal.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim'
 
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-surround'
@@ -26,6 +26,7 @@ Plug 'honza/vim-snippets'
 Plug 'lervag/vimtex'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'neovimhaskell/haskell-vim'
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
 call plug#end()
 
@@ -66,7 +67,12 @@ syntax on
 " --------------------------------------
 let mapleader = ","
 let b:signcolumn_on=0
+let g:tex_flavor='latex'
 let g:vimtex_compiler_latexmk_engine='xelatex'
+let g:svelte_preprocessor_tags = [
+  \ { 'name': 'ts', 'tag': 'script', 'as': 'typescript' }
+  \ ]
+let g:svelte_preprocessors = ['ts']
 let g:lightline = {
       \ 'colorscheme': 'wal',
       \ }

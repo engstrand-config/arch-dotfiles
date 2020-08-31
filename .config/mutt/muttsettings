@@ -9,6 +9,7 @@ macro index,pager K "<sidebar-prev><sidebar-open>"
 macro pager D <delete-message><previous-page>
 
 bind index <pageup>   display-message
+bind index <pagedown> exit
 bind pager <pagedown> exit
 bind index <Esc>      noop
 bind pager <Esc>      noop
