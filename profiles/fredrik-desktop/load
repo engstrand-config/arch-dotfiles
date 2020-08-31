@@ -9,7 +9,3 @@ killall picom
 firefox &
 spotify &
 ferdi &
-espanso daemon &
-xcompmgr &
-
-
