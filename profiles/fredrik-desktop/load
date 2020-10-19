@@ -1,11 +1,13 @@
 #!/usr/bin/bash
 
-# Restore the correct Capture Source and Monitor Level.
-# The settings are reset by something on login, so we need to wait a bit before updating the settings.
-sleep 10 && alsactl --file ~/.dotfiles/profiles/$(whoami)/asound.state restore
-
 killall picom
 
 firefox &
 spotify &
 ferdi &
+
+setxkbmap -layout us -option caps:super
+
+# Restore the correct Capture Source and Monitor Level.
+# The settings are reset by something on login, so we need to wait a bit before updating the settings.
+sleep 1 && alsactl --file ~/.dotfiles/profiles/$(whoami)/asound.state restore
