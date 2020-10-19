@@ -2,7 +2,7 @@
 
 # Restore the correct Capture Source and Monitor Level.
 # The settings are reset by something on login, so we need to wait a bit before updating the settings.
-sleep 1 && alsactl --file ~/.config/asound.state restore
+sleep 10 && alsactl --file ~/.dotfiles/profiles/$(whoami)/asound.state restore
 
 killall picom
 

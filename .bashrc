@@ -9,3 +9,5 @@ export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput se
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
+
+alias bt='gdb -batch -ex "run" -ex "bt" --args'

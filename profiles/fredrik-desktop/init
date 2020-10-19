@@ -2,5 +2,7 @@
 
 xrandr --output DisplayPort-0 --primary --mode 2560x1440 --rate 144 --pos 1920x-190 --rotate normal --output DisplayPort-2 --mode 1920x1080 --rate 144 --pos 0x0 --rotate normal
 
+setxkbmap -layout us -option caps:super
+
 xcompmgr &
 espanso daemon &

@@ -227,6 +227,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " File type specific indentation guides
 " Set tab width to 4 in python files
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
+autocmd FileType c setlocal expandtab shiftwidth=2 softtabstop=2
 
 " Automatically recompile dwm and dwmblocks.
 autocmd BufWritePost */dwm/config.h !sudo make install && { killall -q dwm;setsid dwm & }
