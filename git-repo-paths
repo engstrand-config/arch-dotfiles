@@ -6,7 +6,7 @@ REPOS=(
 	~/.dotfiles
 	~/repos/farbs
   ~/repos/dwm
-  ~/repos/dwmblocks
+  ~/repos/dsblocks
   ~/repos/dmenu
   ~/repos/wallpapers
 )
