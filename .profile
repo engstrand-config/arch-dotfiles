@@ -13,7 +13,7 @@ export REFER="$HOME/Documents/referbib"
 export SUDO_ASKPASS="$HOME/.local/bin/tools/dmenupass"
 export NOTMUCH_CONFIG="$HOME/.config/notmuch-config"
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
-export STATUSBAR="dwmblocks"
+export STATUSBAR="dsblocks"
 export _JAVA_AWT_WM_NONREPARENTING=1 # Logisim does not display correctly unless this is set
 export PASTEL_COLOR_MODE=8bit
 

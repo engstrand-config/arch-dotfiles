@@ -7,7 +7,7 @@ pywalfox update
 create-xresources
 
 # Tell dwm to update Xresources
-dwmc xrdb
+dwmc xresources
 
 # Generate updated config files
 make-ferdi-config >/dev/null 2>&1
