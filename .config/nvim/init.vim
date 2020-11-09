@@ -231,4 +231,4 @@ autocmd FileType c setlocal expandtab shiftwidth=2 softtabstop=2
 
 " Automatically recompile dwm and dwmblocks.
 autocmd BufWritePost */dwm/config.h !sudo make install && { killall -q dwm;setsid dwm & }
-autocmd BufWritePost */dwmblocks/config.h !sudo make install && { killall -q dwmblocks;setsid dwmblocks & }
+autocmd BufWritePost */dsblocks/config.h !sudo make install && { killall -q dsblocks;setsid dsblocks& }
