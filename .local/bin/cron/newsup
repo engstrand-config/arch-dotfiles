@@ -7,4 +7,4 @@ UNREAD=$(newsboat --cache-file=/tmp/newsboatreload -x print-unread | awk '{ prin
 
 echo "$UNREAD" > /tmp/newsupdate
 
-pkill -RTMIN+6 dwmblocks
+sigdsblocks 6
