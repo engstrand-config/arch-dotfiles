@@ -28,7 +28,7 @@ function update_repo() {
 
     if [ "$1" = "$HOME/.dotfiles" ]; then
       symlink-dotfiles
-    elif [ "$1" = "$HOME/repos/dwm" ] || [ "$1" = "$HOME/repos/dwmblocks" ]; then
+    elif [ "$1" = "$HOME/repos/dwm" ] || [ "$1" = "$HOME/repos/dsblocks" ]; then
       build "$1"
       killall dwm
     elif [ "$1" = "$HOME/repos/dmenu" ]; then
