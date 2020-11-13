@@ -177,7 +177,7 @@ now_playing_suffix = $/r$/b
 ## state (either unknown, play, pause, or stop) for its duration.
 ##
 #
-execute_on_player_state_change = "pkill -RTMIN+11 dwmblocks"
+execute_on_player_state_change = "sigdsblocks 9"
 #
 #playlist_show_mpd_host = no
 #

@@ -8,3 +8,4 @@ if [[ "$CURRENT_LAYOUT" == "se" ]]; then
 fi
 
 setxkbmap -layout $NEW_LAYOUT -option caps:super
+sigdsblocks 7
