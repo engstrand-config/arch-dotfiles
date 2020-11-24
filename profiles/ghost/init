@@ -3,6 +3,9 @@ mpd-module-update &
 xrandr --output HDMI-A-1 --set vrr_capable 1 &
 xrandr -r 120 &
 
+pactl unload-module module-suspend-on-idle
+pactl load-module module-sine frequency=1
+
 sudo ds4-bar-disable &
 
 vdirsyncer sync
