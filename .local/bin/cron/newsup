@@ -1,7 +1,0 @@
-#!/bin/sh
-
-UNREAD=$(newsboat --cache-file=/tmp/newsboatreload -x reload -x print-unread)
-
-echo $UNREAD > /tmp/newsupdate
-
-sigdsblocks 6
