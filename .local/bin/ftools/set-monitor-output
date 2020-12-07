@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+
+PROFILE_EXPORTS="$HOME/.dotfiles/profiles/$(whoami)/exports"
+[ -f "$PROFILE_EXPORTS" ] && source "$PROFILE_EXPORTS"
+
+if [ -z "$PROFILE_MONITOR_PRIMARY" ] ||
+   [ -z "$PROFILE_MONITOR_PRIMARY_MODE" ] ||
+   [ -z "$PROFILE_MONITOR_PRIMARY_RATE" ] ||
+   [ -z "$PROFILE_MONITOR_PRIMARY_POS" ]; then
+  echo "
+  This utility requires you to set (at least) the following profile variables, e.g:
+
+  PROFILE_MONITOR_PRIMARY      = DisplayPort-0
+  PROFILE_MONITOR_PRIMARY_MODE = 2560x1440
+  PROFILE_MONITOR_PRIMARY_RATE = 144
+  PROFILE_MONITOR_PRIMARY_POS  = 1920x-190
+  "
+  exit
+fi
+
+function single() {
+  xrandr --output $PROFILE_MONITOR_SECONDARY --off \
+         --output $PROFILE_MONITOR_PRIMARY \
+         --mode $PROFILE_MONITOR_PRIMARY_MODE \
+         --rate $PROFILE_MONITOR_PRIMARY_RATE \
+         --pos $PROFILE_MONITOR_PRIMARY_POS \
+         --rotate normal
+}
+
+function dual() {
+  if [ -z "$PROFILE_MONITOR_SECONDARY" ] ||
+     [ -z "$PROFILE_MONITOR_SECONDARY_MODE" ] ||
+     [ -z "$PROFILE_MONITOR_SECONDARY_RATE" ] ||
+     [ -z "$PROFILE_MONITOR_SECONDARY_POS" ]; then
+    echo "
+    This utility requires you to set the following profile variables to use dual monitors, e.g:
+
+    PROFILE_MONITOR_PRIMARY      = DisplayPort-2
+    PROFILE_MONITOR_PRIMARY_MODE = 1920x1080
+    PROFILE_MONITOR_PRIMARY_RATE = 144
+    PROFILE_MONITOR_PRIMARY_POS  = 0x0
+    "
+    exit
+  fi
+
+  xrandr --output $PROFILE_MONITOR_PRIMARY \
+         --mode $PROFILE_MONITOR_PRIMARY_MODE \
+         --rate $PROFILE_MONITOR_PRIMARY_RATE \
+         --pos $PROFILE_MONITOR_PRIMARY_POS \
+         --rotate normal \
+         --output $PROFILE_MONITOR_SECONDARY \
+         --mode $PROFILE_MONITOR_SECONDARY_MODE \
+         --rate $PROFILE_MONITOR_SECONDARY_RATE \
+         --pos $PROFILE_MONITOR_SECONDARY_POS \
+         --rotate normal
+}
+
+if [ "$1" = "single" ]; then
+  single
+elif [ "$1" = "dual" ]; then
+  dual
+elif [ "$1" = "toggle" ]; then
+  MONITORS=$(xrandr --listactivemonitors | wc -l)
+
+  if (( "$MONITORS" >= 3 )); then
+    single
+  else
+    dual
+  fi
+else
+  echo "Usage: ${0##*/} <single|dual|toggle>"
+fi
