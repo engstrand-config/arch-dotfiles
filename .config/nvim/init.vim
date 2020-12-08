@@ -75,8 +75,22 @@ let g:svelte_preprocessor_tags = [
 let g:svelte_preprocessors = ['ts']
 let g:lightline = {
       \ 'colorscheme': 'wal',
-      \ }
-
+    \ }
+let g:lightline.separator = {
+    \   'left': '', 'right': ''
+    \}
+let g:lightline.subseparator = {
+    \   'left': '|', 'right': '|'
+    \}
+let g:lightline.tabline = {
+    \ 'left': [ [ 'tabs' ] ],
+    \ 'right': [ ] }
+let g:lightline.tabline_separator = {
+    \   'left': '', 'right': ''
+    \}
+let g:lightline.tabline_subseparator = {
+    \   'left': '', 'right': ''
+    \}
 " --------------------------------------
 "              Coc settings
 " --------------------------------------
@@ -183,6 +197,9 @@ inoremap <Right> <Nop>
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
 
+let s:palette = g:lightline#colorscheme#wal#palette
+let s:palette.tabline.tabsel = [ [ 'NONE', 'NONE', 'NONE', 'NONE', 'bold'] ]
+
 " Change the color of comments
 hi Comment ctermfg=9
 
@@ -216,7 +233,7 @@ autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWritePost ~/.config/bmdirs,~/.config/bmfiles !shortcuts
 
 " Update binds when sxhkdrc is updated.
-autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
+" autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
 
 " Run xrdb whenever Xdefaults or Xresources are updated.
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
