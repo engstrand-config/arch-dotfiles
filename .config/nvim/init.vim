@@ -221,6 +221,17 @@ hi CssNoise ctermfg=4
 " This line enables the true color support.
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
+let g:vimtex_compiler_latexmk = {
+    \ 'options' : [
+    \   '-pdf',
+    \   '-shell-escape',
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-synctex=1',
+    \   '-interaction=nonstopmode',
+    \ ],
+    \}
+
 " --------------------------------------
 "              Autocommands
 " --------------------------------------
@@ -245,6 +256,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Set tab width to 4 in python files
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 autocmd FileType c setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType tex setlocal formatoptions+=l tw=70
 
 " Automatically recompile dwm and dwmblocks.
 autocmd BufWritePost */dwm/config.h !sudo make install && { killall -q dwm;setsid dwm & }
