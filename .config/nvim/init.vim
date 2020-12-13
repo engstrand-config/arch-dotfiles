@@ -75,8 +75,22 @@ let g:svelte_preprocessor_tags = [
 let g:svelte_preprocessors = ['ts']
 let g:lightline = {
       \ 'colorscheme': 'wal',
-      \ }
-
+    \ }
+let g:lightline.separator = {
+    \   'left': '', 'right': ''
+    \}
+let g:lightline.subseparator = {
+    \   'left': '|', 'right': '|'
+    \}
+let g:lightline.tabline = {
+    \ 'left': [ [ 'tabs' ] ],
+    \ 'right': [ ] }
+let g:lightline.tabline_separator = {
+    \   'left': '', 'right': ''
+    \}
+let g:lightline.tabline_subseparator = {
+    \   'left': '', 'right': ''
+    \}
 " --------------------------------------
 "              Coc settings
 " --------------------------------------
@@ -183,6 +197,9 @@ inoremap <Right> <Nop>
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
 
+let s:palette = g:lightline#colorscheme#wal#palette
+let s:palette.tabline.tabsel = [ [ 'NONE', 'NONE', 'NONE', 'NONE', 'bold'] ]
+
 " Change the color of comments
 hi Comment ctermfg=9
 
@@ -204,6 +221,17 @@ hi CssNoise ctermfg=4
 " This line enables the true color support.
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
+let g:vimtex_compiler_latexmk = {
+    \ 'options' : [
+    \   '-pdf',
+    \   '-shell-escape',
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-synctex=1',
+    \   '-interaction=nonstopmode',
+    \ ],
+    \}
+
 " --------------------------------------
 "              Autocommands
 " --------------------------------------
@@ -216,7 +244,7 @@ autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWritePost ~/.config/bmdirs,~/.config/bmfiles !shortcuts
 
 " Update binds when sxhkdrc is updated.
-autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
+" autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
 
 " Run xrdb whenever Xdefaults or Xresources are updated.
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
@@ -228,6 +256,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Set tab width to 4 in python files
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 autocmd FileType c setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType tex setlocal formatoptions+=l tw=70
 
 " Automatically recompile dwm and dwmblocks.
 autocmd BufWritePost */dwm/config.h !sudo make install && { killall -q dwm;setsid dwm & }

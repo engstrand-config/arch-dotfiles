@@ -3,7 +3,8 @@ include "~/.config/newsboat/nextcloud-credentials"
 ocnews-flag-star "s"
 
 refresh-on-startup yes
-reload-threads 4
+
+max-items 50
 
 browser firefox
 player mpv
@@ -38,6 +39,8 @@ selectfilter-title-format "   Filter selection"
 itemview-title-format " READER %>█ \"%T\" | %F "
 urlview-title-format "   URLs "
 dialogs-title-format "   Dialogs"
+
+highlight article "^(Webbflöde|Titel|Författare|Länk|Datum):.*" magenta default bold
 
 feedlist-format " %n %11u %t"
 articlelist-format  " %f %D   %?T?|%-17T|  ?%t"
