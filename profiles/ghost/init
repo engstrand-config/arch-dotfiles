@@ -8,4 +8,6 @@ pactl load-module module-sine frequency=1
 
 sudo ds4-bar-disable &
 
+touch /tmp/newsupdate
+
 vdirsyncer sync
