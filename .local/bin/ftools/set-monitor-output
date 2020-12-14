@@ -14,6 +14,13 @@ if [ -z "$PROFILE_MONITOR_PRIMARY" ] ||
   exit 1
 fi
 
+# When switching monitors, the keyboard mapping usually bugs out and stops working
+# and the wallpaper does not update to reflect the change in monitors automatically.
+function switchfix() {
+  remaps
+  setbg
+}
+
 function single() {
   xrandr --output $PROFILE_MONITOR_SECONDARY --off \
          --output $PROFILE_MONITOR_PRIMARY \
@@ -21,7 +28,7 @@ function single() {
          --rate $PROFILE_MONITOR_PRIMARY_RATE \
          --pos $PROFILE_MONITOR_PRIMARY_POS \
          --rotate normal
-  remaps
+  switchfix
 }
 
 function dual() {
@@ -47,7 +54,7 @@ function dual() {
          --rate $PROFILE_MONITOR_SECONDARY_RATE \
          --pos $PROFILE_MONITOR_SECONDARY_POS \
          --rotate normal
-  remaps
+  switchfix
 }
 
 if [ "$1" = "single" ]; then
