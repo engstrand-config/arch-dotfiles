@@ -1,21 +1,17 @@
 #!/usr/bin/env bash
 
-PROFILE_EXPORTS="$HOME/.dotfiles/profiles/$(whoami)/exports"
-[ -f "$PROFILE_EXPORTS" ] && source "$PROFILE_EXPORTS"
+source profile-exports-loader
 
 if [ -z "$PROFILE_MONITOR_PRIMARY" ] ||
    [ -z "$PROFILE_MONITOR_PRIMARY_MODE" ] ||
    [ -z "$PROFILE_MONITOR_PRIMARY_RATE" ] ||
    [ -z "$PROFILE_MONITOR_PRIMARY_POS" ]; then
-  echo "
-  This utility requires you to set (at least) the following profile variables, e.g:
-
-  PROFILE_MONITOR_PRIMARY      = DisplayPort-0
-  PROFILE_MONITOR_PRIMARY_MODE = 2560x1440
-  PROFILE_MONITOR_PRIMARY_RATE = 144
-  PROFILE_MONITOR_PRIMARY_POS  = 1920x-190
-  "
-  exit
+  echo "The following profile variables (at least) must be set to use this utility , e.g:"
+  echo "> PROFILE_MONITOR_PRIMARY      = DisplayPort-0"
+  echo "> PROFILE_MONITOR_PRIMARY_MODE = 2560x1440"
+  echo "> PROFILE_MONITOR_PRIMARY_RATE = 144"
+  echo "> PROFILE_MONITOR_PRIMARY_POS  = 1920x-190"
+  exit 1
 fi
 
 function single() {
@@ -25,6 +21,7 @@ function single() {
          --rate $PROFILE_MONITOR_PRIMARY_RATE \
          --pos $PROFILE_MONITOR_PRIMARY_POS \
          --rotate normal
+  remaps
 }
 
 function dual() {
@@ -32,15 +29,12 @@ function dual() {
      [ -z "$PROFILE_MONITOR_SECONDARY_MODE" ] ||
      [ -z "$PROFILE_MONITOR_SECONDARY_RATE" ] ||
      [ -z "$PROFILE_MONITOR_SECONDARY_POS" ]; then
-    echo "
-    This utility requires you to set the following profile variables to use dual monitors, e.g:
-
-    PROFILE_MONITOR_PRIMARY      = DisplayPort-2
-    PROFILE_MONITOR_PRIMARY_MODE = 1920x1080
-    PROFILE_MONITOR_PRIMARY_RATE = 144
-    PROFILE_MONITOR_PRIMARY_POS  = 0x0
-    "
-    exit
+    echo "The following profile variables must be set to use dual monitors, e.g:"
+    echo "> PROFILE_MONITOR_SECONDARY      = DisplayPort-2"
+    echo "> PROFILE_MONITOR_SECONDARY_MODE = 1920x1080"
+    echo "> PROFILE_MONITOR_SECONDARY_RATE = 144"
+    echo "> PROFILE_MONITOR_SECONDARY_POS  = 0x0"
+    exit 1
   fi
 
   xrandr --output $PROFILE_MONITOR_PRIMARY \
@@ -53,6 +47,7 @@ function dual() {
          --rate $PROFILE_MONITOR_SECONDARY_RATE \
          --pos $PROFILE_MONITOR_SECONDARY_POS \
          --rotate normal
+  remaps
 }
 
 if [ "$1" = "single" ]; then
