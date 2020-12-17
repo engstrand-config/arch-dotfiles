@@ -5,8 +5,7 @@ killall picom
 firefox &
 ferdi &
 mopidy &
-
-setxkbmap -layout us -option caps:super
+tidal-hifi &
 
 # Restore the correct Capture Source and Monitor Level.
 # The settings are reset by something on login, so we need to wait a bit before updating the settings.

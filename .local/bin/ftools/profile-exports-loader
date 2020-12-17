@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+PROFILE_EXPORTS="$HOME/.dotfiles/profiles/$(whoami)/exports"
+[ -f "$PROFILE_EXPORTS" ] && source "$PROFILE_EXPORTS"

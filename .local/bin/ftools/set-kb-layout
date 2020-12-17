@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+source profile-exports-loader
+
+function default() {
+  NEW_LAYOUT="$PROFILE_PRIMARY_KEYBOARD_LAYOUT"
+}
+
+function secondary() {
+  if [[ -z "$PROFILE_SECONDARY_KEYBOARD_LAYOUT" ]]; then
+    echo "The following profile variable must be set to toggle keyboard layouts, e.g:"
+    echo "> PROFILE_SECONDARY_KEYBOARD_LAYOUT=se"
+    exit 1
+  fi
+
+  NEW_LAYOUT="$PROFILE_SECONDARY_KEYBOARD_LAYOUT"
+}
+
+function main() {
+  if [[ "$1" = "default" ]]; then
+    default
+  elif [[ "$1" = "secondary" ]]; then
+    secondary
+  elif [[ "$1" = "toggle" ]]; then
+    CURRENT_LAYOUT=$(setxkbmap -query | grep layout | awk '{printf $2}')
+
+    if [[ "$CURRENT_LAYOUT" == "$PROFILE_PRIMARY_KEYBOARD_LAYOUT" ]]; then
+      secondary
+    else
+      default
+    fi
+  else
+    echo "Usage: ${0##*/} <default|secondary|toggle>"
+    exit 0
+  fi
+}
+
+if [[ -z "$PROFILE_PRIMARY_KEYBOARD_LAYOUT" ]]; then
+  NEW_LAYOUT="se"
+  echo "Missing required profile export, falling back to 'se'. You should add this export to your profile:"
+  echo "> PROFILE_PRIMARY_KEYBOARD_LAYOUT=us"
+else
+  main $1
+fi
+
+setxkbmap -layout $NEW_LAYOUT -option caps:super
+sigdsblocks 7
