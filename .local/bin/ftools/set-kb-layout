@@ -9,7 +9,7 @@ function default() {
 function secondary() {
   if [[ -z "$PROFILE_SECONDARY_KEYBOARD_LAYOUT" ]]; then
     echo "The following profile variable must be set to toggle keyboard layouts, e.g:"
-    echo "> PROFILE_SECONDARY_KEYBOARD_LAYOUT = se"
+    echo "> PROFILE_SECONDARY_KEYBOARD_LAYOUT=se"
     exit 1
   fi
 
@@ -38,7 +38,7 @@ function main() {
 if [[ -z "$PROFILE_PRIMARY_KEYBOARD_LAYOUT" ]]; then
   NEW_LAYOUT="se"
   echo "Missing required profile export, falling back to 'se'. You should add this export to your profile:"
-  echo "> PROFILE_PRIMARY_KEYBOARD_LAYOUT = us"
+  echo "> PROFILE_PRIMARY_KEYBOARD_LAYOUT=us"
 else
   main $1
 fi
