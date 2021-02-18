@@ -1,4 +1,4 @@
-" --------------------------------------
+"--------------------------------------
 "                Plugins
 " --------------------------------------
 if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
@@ -21,6 +21,7 @@ Plug 'tpope/vim-commentary'
 Plug 'Raimondi/delimitMate'
 Plug 'christoomey/vim-sort-motion'
 Plug 'honza/vim-snippets'
+Plug 'takac/vim-hardtime'
 
 " Language specific
 Plug 'lervag/vimtex'
@@ -54,8 +55,8 @@ set noshowmode
 set signcolumn=no
 set updatetime=300
 
-set tabstop=2
-set shiftwidth=2
+set softtabstop=4
+set shiftwidth=4
 set expandtab
 
 filetype plugin on
@@ -68,6 +69,9 @@ syntax on
 let mapleader = ","
 let b:signcolumn_on=0
 let g:tex_flavor='latex'
+let g:hardtime_default_on = 1
+let g:list_of_normal_keys = ["h", "l", "-", "+", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+let g:list_of_visual_keys = ["-", "+", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 let g:vimtex_compiler_latexmk_engine='xelatex'
 let g:svelte_preprocessor_tags = [
   \ { 'name': 'ts', 'tag': 'script', 'as': 'typescript' }
@@ -190,7 +194,6 @@ inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 
-
 " --------------------------------------
 "              Color fixes
 " --------------------------------------
@@ -255,8 +258,13 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " File type specific indentation guides
 " Set tab width to 4 in python files
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
-autocmd FileType c setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd FileType tex setlocal formatoptions+=l tw=70
+autocmd FileType c setlocal expandtab shiftwidth=4 softtabstop=4
+autocmd FileType cpp setlocal expandtab shiftwidth=4 softtabstop=4
+
+" Automatic line wrapping
+autocmd FileType tex setlocal formatoptions+=l tw=80
+autocmd FileType markdown setlocal formatoptions+=l tw=80
+autocmd FileType text setlocal formatoptions+=l tw=80
 
 " Automatically recompile dwm and dwmblocks.
 autocmd BufWritePost */dwm/config.h !sudo make install && { killall -q dwm;setsid dwm & }
