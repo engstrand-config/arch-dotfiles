@@ -11,5 +11,5 @@ mpdupdate &
 
 dunst &
 /usr/lib/kdeconnectd &
-redshift -r -t 6500:2000 &
+redshift -r -t 6500:2000 -l 59.8586126:17.6387436 &
 profile-loader &
