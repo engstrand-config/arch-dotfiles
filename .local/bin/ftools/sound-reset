@@ -1,0 +1,8 @@
+#!/bin/sh
+
+killall pulseeffects
+
+systemctl --user restart pipewire
+
+pulseeffects --gapplication-service &
+
