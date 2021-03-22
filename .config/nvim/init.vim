@@ -14,6 +14,7 @@ Plug 'mhinz/vim-startify'
 Plug 'dylanaraps/wal.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim'
+Plug 'junegunn/fzf.vim'
 
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-surround'
@@ -28,6 +29,7 @@ Plug 'lervag/vimtex'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
+Plug 'elixir-editors/vim-elixir'
 
 call plug#end()
 
@@ -95,6 +97,10 @@ let g:lightline.tabline_separator = {
 let g:lightline.tabline_subseparator = {
     \   'left': '', 'right': ''
     \}
+
+" Open in new tab by default
+let g:fzf_action = { 'enter': 'tab split' }
+
 " --------------------------------------
 "              Coc settings
 " --------------------------------------
@@ -148,6 +154,9 @@ nnoremap c "_c
 
 " JsDoc
 nmap <silent> <C-l> <Plug>(jsdoc)
+
+" Fuzzy finder
+nnoremap <silent> <leader>o :GFiles<CR>
 
 " Replace all is aliased to S.
 nnoremap S :%s//g<Left><Left>
@@ -235,6 +244,11 @@ let g:vimtex_compiler_latexmk = {
     \ ],
     \}
 
+let g:fzf_colors =
+\ { 'bg':      ['bg', 'Normal'],
+  \ 'border':  ['bg', 'Normal'] }
+let g:fzf_layout = { 'down': '50%' }
+
 " --------------------------------------
 "              Autocommands
 " --------------------------------------
@@ -269,3 +283,7 @@ autocmd FileType text setlocal formatoptions+=l tw=80
 " Automatically recompile dwm and dwmblocks.
 autocmd BufWritePost */dwm/config.h !sudo make install && { killall -q dwm;setsid dwm & }
 autocmd BufWritePost */dsblocks/config.h !sudo make install && { killall -q dsblocks;setsid dsblocks& }
+
+autocmd! FileType fzf
+autocmd  FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
