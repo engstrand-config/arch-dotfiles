@@ -1,4 +1,4 @@
-SHELL=/bin/sh
-PATH=/home/johan/.node_modules/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/johan/.cargo/bin:/home/johan/.local/bin/tools:/home/johan/.local/bin/ftools/python:/home/johan/.local/bin/ftools:/home/johan/.local/bin/statusbar:/home/johan/.local/bin/
-*/1 * * * * export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus; export DISPLAY=:0; mbsync -a;
-*/1 * * * * export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus; export DISPLAY=:0; newsup;
+PATH=/home/ghost/.node_modules/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/ghost/.cargo/bin:/home/ghost/.local/bin/ftools/python:/home/ghost/.local/bin/ftools:/home/ghost/.local/bin/tools:/home/ghost/.local/bin/statusbar:/home/ghost/.local/bin/
+
+*/1 * * * * export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus; export DISPLAY=:0; $HOME/.bash_profile; mbsync -a
+*/1 * * * * export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus; export DISPLAY=:0; $HOME/.bash_profile; newsup
