@@ -1,0 +1,12 @@
+#!/bin/sh
+# may need package i2c-tools from community repos...
+
+# remember to enable i2c-dev kernel module:
+# in /etc/modules-load.d/i2c-dev.conf:
+# i2c-dev
+
+# add user to i2c-dev group
+# in /etc/udev/rules.d/50-i2c.rules:
+#SUBSYSTEM=="i2c-dev", GROUP="i2cuser", MODE="0660"
+
+ddcutil setvcp 10 $(echo -e "0\n50\n100" | dmenu -i -p "Set monitor brightness level:")
