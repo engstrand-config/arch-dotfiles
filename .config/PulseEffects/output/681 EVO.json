@@ -40,10 +40,10 @@
             "convolver",
             "exciter",
             "stereo_tools",
-            "reverb",
             "equalizer",
             "crystalizer",
             "bass_enhancer",
+            "reverb",
             "delay",
             "deesser",
             "crossfeed",
@@ -57,12 +57,12 @@
             "state": "true",
             "input-gain": "0",
             "output-gain": "0",
-            "amount": "5",
-            "harmonics": "6.9999999999999929",
+            "amount": "5.9999999999999964",
+            "harmonics": "5",
             "scope": "100",
             "floor": "20",
             "blend": "10",
-            "floor-active": "false",
+            "floor-active": "true",
             "listen": "false"
         },
         "compressor": {
@@ -952,22 +952,22 @@
             "input-gain": "0",
             "output-gain": "0",
             "band0": {
-                "intensity": "6",
+                "intensity": "2",
                 "mute": "false",
                 "bypass": "false"
             },
             "band1": {
-                "intensity": "5",
+                "intensity": "2",
                 "mute": "false",
                 "bypass": "false"
             },
             "band2": {
-                "intensity": "4",
+                "intensity": "2",
                 "mute": "false",
                 "bypass": "false"
             },
             "band3": {
-                "intensity": "3",
+                "intensity": "2",
                 "mute": "false",
                 "bypass": "false"
             },
@@ -997,22 +997,22 @@
                 "bypass": "false"
             },
             "band9": {
-                "intensity": "3",
+                "intensity": "2",
                 "mute": "false",
                 "bypass": "false"
             },
             "band10": {
-                "intensity": "4",
+                "intensity": "2",
                 "mute": "false",
                 "bypass": "false"
             },
             "band11": {
-                "intensity": "5.0491803278688465",
+                "intensity": "2",
                 "mute": "false",
                 "bypass": "false"
             },
             "band12": {
-                "intensity": "6.262295081967217",
+                "intensity": "2",
                 "mute": "false",
                 "bypass": "false"
             }
