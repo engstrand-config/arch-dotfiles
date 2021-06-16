@@ -9,4 +9,4 @@ tidal-hifi &
 
 # Restore the correct Capture Source and Monitor Level.
 # The settings are reset by something on login, so we need to wait a bit before updating the settings.
-sleep 2 && alsactl --file ~/.dotfiles/profiles/$(whoami)/asound.state restore && killall mpd
+sleep 3 && alsactl --file ~/.dotfiles/profiles/$(whoami)/asound.state restore && killall mpd

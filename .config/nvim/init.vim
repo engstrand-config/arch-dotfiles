@@ -26,10 +26,16 @@ Plug 'takac/vim-hardtime'
 
 " Language specific
 Plug 'lervag/vimtex'
-Plug 'heavenshell/vim-jsdoc'
+Plug 'heavenshell/vim-jsdoc', {
+  \ 'for': ['javascript', 'javascript.jsx','typescript'],
+  \ 'do': 'make install'
+\}
 Plug 'neovimhaskell/haskell-vim'
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
 Plug 'elixir-editors/vim-elixir'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 call plug#end()
 
@@ -254,6 +260,9 @@ let g:fzf_layout = { 'down': '50%' }
 " --------------------------------------
 command Todo noautocmd vimgrep /TODO\|FIXME/j ** | cw
 
+" set filetypes as typescriptreact
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+
 " Automatically deletes all trailing whitespace on save.
 autocmd BufWritePre * %s/\s\+$//e
 
@@ -268,12 +277,6 @@ autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
 
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
-" File type specific indentation guides
-" Set tab width to 4 in python files
-autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
-autocmd FileType c setlocal expandtab shiftwidth=4 softtabstop=4
-autocmd FileType cpp setlocal expandtab shiftwidth=4 softtabstop=4
 
 " Automatic line wrapping
 autocmd FileType tex setlocal formatoptions+=l tw=80
