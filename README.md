@@ -1,5 +1,5 @@
-# FARBS-Dotfiles
-Dotfiles (configuration files) for an Arch Linux installation using FARBS (fork of LARBS).
+# Arch dotfiles
+Dotfiles (configuration files) for an Arch Linux installation using our fork of LARBS (see https://github.com/engstrand-config/arch-install).
 
 This repo is automatically pulled in when installing using our modified LARBS installation script and contains all the configuration we want, including profiles for some extra personalization. 
 
